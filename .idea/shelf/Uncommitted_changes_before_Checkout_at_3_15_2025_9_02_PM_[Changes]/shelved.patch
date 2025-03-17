@@ -1,0 +1,225 @@
+Index: SkincareBookingSystem/src/main/resources/Template/Home.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Title</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>
+===================================================================
+diff --git a/SkincareBookingSystem/src/main/resources/Template/Home.html b/SkincareBookingSystem/src/main/resources/Template/Home.html
+--- a/SkincareBookingSystem/src/main/resources/Template/Home.html	(revision e6ebcae2dd690a2fbe5a1677541f6abdca69348a)
++++ b/SkincareBookingSystem/src/main/resources/Template/Home.html	(date 1742047332345)
+@@ -5,6 +5,6 @@
+     <title>Title</title>
+ </head>
+ <body>
+-
++    <p></p>
+ </body>
+ </html>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"34e23dc8-2b0a-4670-901d-5963a1e8fbcc\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Controller/HomeController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Booking.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/BookingDetail.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/BookingPromotion.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Feedback.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Payment.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/PaymentTransaction.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Promotion.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Roles.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Service.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/ServiceCategory.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Users.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/WorkSchedule.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/Template/Home.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SkincareBookingSystem/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Application/SkincareBookingSystemApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Services/SkincareBookingSystemApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Controller/UserController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Controller/UserController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SkincareBookingSystem/src/test/java/com/example/demo/SkincareBookingSystemApplicationTests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SkincareBookingSystem/src/test/java/com/example/Services/SkincareBookingSystemApplicationTests.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"com.intellij.jpb.JpaEntity\" />\r\n        <option value=\"Class\" />\r\n        <option value=\"HTML File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 0\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2uFWeL49vyemh30epBNktcd3YHm\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"DefaultHtmlFileTemplate\": \"HTML File\",\r\n    \"JUnit.com.example.Services in demo.executor\": \"Run\",\r\n    \"Maven.services [package].executor\": \"Run\",\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"75\",\r\n    \"RequestMappingsPanelWidth1\": \"75\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"Spring Boot.SkincareBookingSystemApplication (1).executor\": \"Run\",\r\n    \"Spring Boot.SkincareBookingSystemApplication.executor\": \"Run\",\r\n    \"git-widget-placeholder\": \"dev-khanh\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"E:/SkincareBookingSystem\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"DatabaseDriversLRU\": [\r\n      \"sqlserver.localdb\",\r\n      \"sqlserver\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"Spring Boot.SkincareBookingSystemApplication (1)\">\r\n    <configuration name=\"com.example.Services in demo\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"demo\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.Services.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.example.Services\" />\r\n      <option name=\"TEST_OBJECT\" value=\"package\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SkincareBookingSystemApplication (1)\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"demo\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.Services.SkincareBookingSystemApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.com.example.Services in demo\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.39\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.39\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"34e23dc8-2b0a-4670-901d-5963a1e8fbcc\" name=\"Changes\" comment=\"\" />\r\n      <created>1741844897067</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1741844897067</updated>\r\n      <workItem from=\"1741844898188\" duration=\"1949000\" />\r\n      <workItem from=\"1741846878441\" duration=\"3406000\" />\r\n      <workItem from=\"1741850430374\" duration=\"1480000\" />\r\n      <workItem from=\"1741851925316\" duration=\"749000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/SkincareBookingSystem$SkincareBookingSystemApplication.ic\" NAME=\"SkincareBookingSystemApplication Coverage Results\" MODIFIED=\"1741851790634\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e6ebcae2dd690a2fbe5a1677541f6abdca69348a)
++++ b/.idea/workspace.xml	(date 1742047332391)
+@@ -4,141 +4,68 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="34e23dc8-2b0a-4670-901d-5963a1e8fbcc" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Controller/HomeController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Booking.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/BookingDetail.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/BookingPromotion.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Feedback.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Payment.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/PaymentTransaction.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Promotion.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Roles.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Service.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/ServiceCategory.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/Users.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Models/WorkSchedule.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/Template/Home.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Application/SkincareBookingSystemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Services/SkincareBookingSystemApplication.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/example/Controller/UserController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/test/java/com/example/demo/SkincareBookingSystemApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/test/java/com/example/Services/SkincareBookingSystemApplicationTests.java" afterDir="false" />
++    <list default="true" id="a6120d50-a6bb-4a71-9087-fe4c905dd8bf" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/Template/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/Template/Home.html" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="com.intellij.jpb.JpaEntity" />
+-        <option value="Class" />
+-        <option value="HTML File" />
+-      </list>
+-    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="ProjectColorInfo">{
++  &quot;customColor&quot;: &quot;&quot;,
+   &quot;associatedIndex&quot;: 0
+ }</component>
+-  <component name="ProjectId" id="2uFWeL49vyemh30epBNktcd3YHm" />
++  <component name="ProjectId" id="2uM6nKxxUpPU1thrMxqw0S7WAMX" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
+-    "DefaultHtmlFileTemplate": "HTML File",
+-    "JUnit.com.example.Services in demo.executor": "Run",
+-    "Maven.services [package].executor": "Run",
+-    "RequestMappingsPanelOrder0": "0",
+-    "RequestMappingsPanelOrder1": "1",
+-    "RequestMappingsPanelWidth0": "75",
+-    "RequestMappingsPanelWidth1": "75",
++    "Notification.DisplayName-DoNotAsk-Vcs Important Messages": "VCS important messages",
++    "Notification.DoNotAsk-Vcs Important Messages": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "Spring Boot.SkincareBookingSystemApplication (1).executor": "Run",
+-    "Spring Boot.SkincareBookingSystemApplication.executor": "Run",
+-    "git-widget-placeholder": "dev-khanh",
+-    "ignore.virus.scanning.warn.message": "true",
++    "git-widget-placeholder": "main",
+     "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "E:/SkincareBookingSystem",
++    "last_opened_file_path": "C:/Users/Admin/OneDrive/Documents/GitHub/SkincareBookingSystem",
+     "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.tslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+     "node.js.selected.package.tslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Project",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2",
+     "vue.rearranger.settings.migration": "true"
+-  },
+-  "keyToStringList": {
+-    "DatabaseDriversLRU": [
+-      "sqlserver.localdb",
+-      "sqlserver"
+-    ]
+   }
+ }]]></component>
+-  <component name="RunManager" selected="Spring Boot.SkincareBookingSystemApplication (1)">
+-    <configuration name="com.example.Services in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="demo" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="com.example.Services.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <option name="PACKAGE_NAME" value="com.example.Services" />
+-      <option name="TEST_OBJECT" value="package" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="SkincareBookingSystemApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+-      <module name="demo" />
+-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Services.SkincareBookingSystemApplication" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <recent_temporary>
+-      <list>
+-        <item itemvalue="JUnit.com.example.Services in demo" />
+-      </list>
+-    </recent_temporary>
+-  </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.39" />
+-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.39" />
++        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
++        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+       </set>
+     </attachedChunks>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+-      <changelist id="34e23dc8-2b0a-4670-901d-5963a1e8fbcc" name="Changes" comment="" />
+-      <created>1741844897067</created>
++      <changelist id="a6120d50-a6bb-4a71-9087-fe4c905dd8bf" name="Changes" comment="" />
++      <created>1742046262832</created>
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+-      <updated>1741844897067</updated>
+-      <workItem from="1741844898188" duration="1949000" />
+-      <workItem from="1741846878441" duration="3406000" />
+-      <workItem from="1741850430374" duration="1480000" />
+-      <workItem from="1741851925316" duration="749000" />
++      <updated>1742046262832</updated>
++      <workItem from="1742046264990" duration="24000" />
++      <workItem from="1742046315594" duration="322000" />
++      <workItem from="1742046652685" duration="674000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
+-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/SkincareBookingSystem$SkincareBookingSystemApplication.ic" NAME="SkincareBookingSystemApplication Coverage Results" MODIFIED="1741851790634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"dataSourceStorageLocal\" created-in=\"IU-243.25659.39\">\r\n    <data-source name=\"SQLServer_Conn\" uuid=\"6c3346a8-0c10-47a0-8b41-0ce7e68741f9\">\r\n      <database-info product=\"Microsoft SQL Server\" version=\"16.00.1000\" jdbc-version=\"4.3\" driver-name=\"Microsoft JDBC Driver 12.8 for SQL Server\" driver-version=\"12.8.1.0\" dbms=\"MSSQL\" exact-version=\"16.0.1000\" exact-driver-version=\"12.8\">\r\n        <extra-name-characters>$#@</extra-name-characters>\r\n        <identifier-quote-string>&quot;</identifier-quote-string>\r\n      </database-info>\r\n      <case-sensitivity plain-identifiers=\"mixed\" quoted-identifiers=\"mixed\" />\r\n      <secret-storage>forget</secret-storage>\r\n      <auth-provider>ms-sso</auth-provider>\r\n      <user-name>MSI</user-name>\r\n      <schema-mapping>\r\n        <introspection-scope>\r\n          <node kind=\"database\" qname=\"@\">\r\n            <node kind=\"schema\" qname=\"@\" />\r\n          </node>\r\n        </introspection-scope>\r\n      </schema-mapping>\r\n    </data-source>\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+--- a/.idea/dataSources.local.xml	(revision e6ebcae2dd690a2fbe5a1677541f6abdca69348a)
++++ b/.idea/dataSources.local.xml	(date 1742047147283)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="dataSourceStorageLocal" created-in="IU-243.25659.39">
++  <component name="dataSourceStorageLocal" created-in="IU-242.23339.11">
+     <data-source name="SQLServer_Conn" uuid="6c3346a8-0c10-47a0-8b41-0ce7e68741f9">
+       <database-info product="Microsoft SQL Server" version="16.00.1000" jdbc-version="4.3" driver-name="Microsoft JDBC Driver 12.8 for SQL Server" driver-version="12.8.1.0" dbms="MSSQL" exact-version="16.0.1000" exact-driver-version="12.8">
+         <extra-name-characters>$#@</extra-name-characters>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/SkincareBookingSystem/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_23\" default=\"true\" project-jdk-name=\"openjdk-23\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision e6ebcae2dd690a2fbe5a1677541f6abdca69348a)
++++ b/.idea/misc.xml	(date 1742047147258)
+@@ -1,13 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="MavenProjectsManager">
+-    <option name="originalFiles">
+-      <list>
+-        <option value="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" />
+-      </list>
+-    </option>
+-  </component>
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
