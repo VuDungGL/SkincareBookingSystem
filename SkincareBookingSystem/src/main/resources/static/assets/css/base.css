@@ -1,0 +1,26 @@
+:root{
+    --primary-color: #45dbd6;
+    --second-primary-color: rgb(244 247 254);
+    --third-primary-color: #4400ff;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.active{
+    position: relative;
+}
+.active::before{
+    position: absolute;
+    content: "";
+    width: 3px;
+    height: 60%;
+    right: 0;
+    top: 20%;
+    background: var(--third-primary-color);
+    border-radius: 8px;
+}
