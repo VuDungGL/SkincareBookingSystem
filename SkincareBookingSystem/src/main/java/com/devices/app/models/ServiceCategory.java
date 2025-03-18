@@ -1,4 +1,4 @@
-package com.example.Models;
+package com.devices.app.models;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.Nationalized;

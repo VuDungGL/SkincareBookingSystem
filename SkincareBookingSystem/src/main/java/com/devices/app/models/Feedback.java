@@ -1,4 +1,4 @@
-package com.example.Models;
+package com.devices.app.models;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -20,7 +20,7 @@ public class Feedback {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ServiceID", nullable = false)
-    private com.example.Models.Service serviceID;
+    private Service serviceID;
 
     @Column(name = "Rating", nullable = false)
     private Integer rating;
@@ -50,11 +50,11 @@ public class Feedback {
         this.userID = userID;
     }
 
-    public com.example.Models.Service getServiceID() {
+    public Service getServiceID() {
         return serviceID;
     }
 
-    public void setServiceID(com.example.Models.Service serviceID) {
+    public void setServiceID(Service serviceID) {
         this.serviceID = serviceID;
     }
 
