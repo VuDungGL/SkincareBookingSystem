@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34e23dc8-2b0a-4670-901d-5963a1e8fbcc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/AdminController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +25,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -55,7 +51,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.SkincareBookingSystemApplication (1).executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.SkincareBookingSystemApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-khanh&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/SkincareBookingSystem&quot;,
@@ -67,7 +63,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -78,13 +74,16 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.Repository" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\SkincareBookingSystem\SkincareBookingSystem\src\main\resources\templates\Home" />
       <recent name="E:\SkincareBookingSystem\SkincareBookingSystem\src\main\resources\Templates" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SkincareBookingSystemApplication">
-    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" runType="Run single request">
+    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#3" index="3" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="All in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -119,11 +118,11 @@
     </configuration>
     <configuration name="SkincareBookingSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="Services" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Services.SkincareBookingSystemApplication" />
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.devices.app.SkincareBookingSystemApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.Services.*" />
+          <option name="PATTERN" value="com.devices.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -171,11 +170,17 @@
       <workItem from="1742217626864" duration="421000" />
       <workItem from="1742218058026" duration="2349000" />
       <workItem from="1742220431961" duration="214000" />
+      <workItem from="1742231716536" duration="162000" />
+      <workItem from="1742269315572" duration="3668000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SkincareBookingSystem$SkincareBookingSystemApplication.ic" NAME="SkincareBookingSystemApplication Coverage Results" MODIFIED="1741851790634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
