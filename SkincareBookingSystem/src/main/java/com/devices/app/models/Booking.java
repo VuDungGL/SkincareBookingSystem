@@ -7,16 +7,15 @@ import org.hibernate.annotations.Nationalized;
 import java.time.Instant;
 
 @Entity
-@Table(name = "S_Booking")
+@Table(name = "S_Booking", schema = "dbo")
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "UserID", nullable = false)
-    private Users userID;
+    @Column(name = "UserID", nullable = false)
+    private Integer userID;
 
     @ColumnDefault("getdate()")
     @Column(name = "BookingDate")
@@ -34,11 +33,11 @@ public class Booking {
         this.id = id;
     }
 
-    public Users getUserID() {
+    public Integer getUserID() {
         return userID;
     }
 
-    public void setUserID(Users userID) {
+    public void setUserID(Integer userID) {
         this.userID = userID;
     }
 

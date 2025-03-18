@@ -1,36 +1,31 @@
 package com.devices.app.models;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Nationalized;
 
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "S_BookingDetail")
+@Table(name = "S_BookingDetail", schema = "dbo")
 public class BookingDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "BookingID", nullable = false)
-    private Booking bookingID;
+    @Column(name = "BookingID", nullable = false)
+    private Integer bookingID;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ServiceID", nullable = false)
-    private Service serviceID;
+    @Column(name = "ServiceID", nullable = false)
+    private Integer serviceID;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "SpecialistID", nullable = false)
-    private Users specialistID;
+    @Column(name = "SpecialistID", nullable = false)
+    private Integer specialistID;
 
     @Column(name = "Price", nullable = false, precision = 18, scale = 2)
     private BigDecimal price;
 
-    @Nationalized
-    @Column(name = "Status", nullable = false, length = 20)
-    private String status;
+    @Column(name = "Status", nullable = false)
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -40,27 +35,27 @@ public class BookingDetail {
         this.id = id;
     }
 
-    public Booking getBookingID() {
+    public Integer getBookingID() {
         return bookingID;
     }
 
-    public void setBookingID(Booking bookingID) {
+    public void setBookingID(Integer bookingID) {
         this.bookingID = bookingID;
     }
 
-    public Service getServiceID() {
+    public Integer getServiceID() {
         return serviceID;
     }
 
-    public void setServiceID(Service serviceID) {
+    public void setServiceID(Integer serviceID) {
         this.serviceID = serviceID;
     }
 
-    public Users getSpecialistID() {
+    public Integer getSpecialistID() {
         return specialistID;
     }
 
-    public void setSpecialistID(Users specialistID) {
+    public void setSpecialistID(Integer specialistID) {
         this.specialistID = specialistID;
     }
 
@@ -72,11 +67,11 @@ public class BookingDetail {
         this.price = price;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

@@ -24,4 +24,8 @@ public class UserService {
 
         return(userRepository.save(user));
     }
+
+    public long GetTotalMember(){
+        return userRepository.getTotalMember();
+    }
 }

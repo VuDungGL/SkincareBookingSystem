@@ -1,0 +1,176 @@
+
+<section class="dashboard" th:fragment="content">
+    <link rel="stylesheet" th:href="@{/assets/css/admin/dashboard.css}">
+    <script th:src="@{/assets/js/dashboard.js}"></script>
+    <div class="dashboard-content">
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <i class="fa-solid fa-user-plus"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Total Members</h6>
+                    <p class="card-text" id="total-member">Đang tải...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <i><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZyNDVybTl1aTZreTd1a3dwOWx5d3d4a2UwdWFud2JybXM1c3c5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ibolLe3mOqHE3PQTtk/giphy.gif" width="80" height="80"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Successful Skin Care</h6>
+                    <p class="card-text" id="total-booking">Đang tải ...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <i class="fa-regular fa-heart"></i>
+                <div class="card-body">
+                    <h6 class="card-title d-flex">Feed Back: <div id="total-feedback" style="margin-left: 4px"></div></h6>
+                    <p class="card-text" id="rating-feedback">Đang tải ...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h6 class="card-title">Spend this month</h6>
+                    <p class="card-text">$642.39</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h6 class="card-title">Sales</h6>
+                    <p class="card-text">$574.34</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h6 class="card-title">Your Balance</h6>
+                    <p class="card-text">$1,000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Control card security in-app with a tap</h3>
+                    <p class="card-text">Discover our cards benefits, with one tap.</p>
+                    <a href="#" class="btn btn-primary">Cards</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Tasks</h3>
+                    <ul class="list-unstyled">
+                        <li><input type="checkbox" checked> Landing Page Design</li>
+                        <li><input type="checkbox" checked> Dashboard Builder</li>
+                        <li><input type="checkbox" checked> Mobile App Design</li>
+                        <li><input type="checkbox"> Illustrations</li>
+                        <li><input type="checkbox" checked> Promotional LP</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Your Pie Chart</h3>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Trending NFTs</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img src="/path/to/nft/image1.jpg" class="card-img-top" alt="NFT Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Colorful Heaven</h5>
+                                    <p class="card-text">By Mark Benjamin</p>
+                                    <p class="card-text">Current Bid: 1.30 ETH</p>
+                                    <a href="#" class="btn btn-primary">Place Bid</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img src="/path/to/nft/image2.jpg" class="card-img-top" alt="NFT Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Abstract Colors</h5>
+                                    <p class="card-text">By Esthera Jackson</p>
+                                    <p class="card-text">Current Bid: 0.91 ETH</p>
+                                    <a href="#" class="btn btn-primary">Place Bid</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Complex Table</h3>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Progress</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>#1001</td>
+                            <td>Horizon UI PRO</td>
+                            <td>Approved</td>
+                            <td>18 Apr 2024</td>
+                            <td>70%</td>
+                        </tr>
+                        <tr>
+                            <td>#1002</td>
+                            <td>Horizon UI Free</td>
+                            <td>Disable</td>
+                            <td>26 Apr 2024</td>
+                            <td>40%</td>
+                        </tr>
+                        <tr>
+                            <td>#1003</td>
+                            <td>Marketplace</td>
+                            <td>Error</td>
+                            <td>20 May 2024</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>#1004</td>
+                            <td>Weekly Updates</td>
+                            <td>Approved</td>
+                            <td>25 May 2024</td>
+                            <td>60%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

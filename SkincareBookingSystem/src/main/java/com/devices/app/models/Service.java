@@ -6,16 +6,15 @@ import org.hibernate.annotations.Nationalized;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "S_Services")
+@Table(name = "S_Services", schema = "dbo")
 public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "CategoryID", nullable = false)
-    private ServiceCategory categoryID;
+    @Column(name = "CategoryID", nullable = false)
+    private Integer categoryID;
 
     @Nationalized
     @Column(name = "ServiceName", nullable = false, length = 100)
@@ -40,11 +39,11 @@ public class Service {
         this.id = id;
     }
 
-    public ServiceCategory getCategoryID() {
+    public Integer getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(ServiceCategory categoryID) {
+    public void setCategoryID(Integer categoryID) {
         this.categoryID = categoryID;
     }
 

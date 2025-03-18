@@ -7,23 +7,21 @@ import org.hibernate.annotations.Nationalized;
 import java.time.Instant;
 
 @Entity
-@Table(name = "S_Feedback")
+@Table(name = "S_Feedback", schema = "dbo")
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "UserID", nullable = false)
-    private Users userID;
+    @Column(name = "UserID", nullable = false)
+    private Integer userID;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ServiceID", nullable = false)
-    private Service serviceID;
+    @Column(name = "ServiceID", nullable = false)
+    private Integer serviceID;
 
     @Column(name = "Rating", nullable = false)
-    private Integer rating;
+    private Double rating;
 
     @Nationalized
     @Lob
@@ -42,27 +40,27 @@ public class Feedback {
         this.id = id;
     }
 
-    public Users getUserID() {
+    public Integer getUserID() {
         return userID;
     }
 
-    public void setUserID(Users userID) {
+    public void setUserID(Integer userID) {
         this.userID = userID;
     }
 
-    public Service getServiceID() {
+    public Integer getServiceID() {
         return serviceID;
     }
 
-    public void setServiceID(Service serviceID) {
+    public void setServiceID(Integer serviceID) {
         this.serviceID = serviceID;
     }
 
-    public Integer getRating() {
+    public Double getRating() {
         return rating;
     }
 
-    public void setRating(Integer rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 

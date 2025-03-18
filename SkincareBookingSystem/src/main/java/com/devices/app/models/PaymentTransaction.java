@@ -4,16 +4,15 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.Nationalized;
 
 @Entity
-@Table(name = "S_PaymentTransaction")
+@Table(name = "S_PaymentTransaction", schema = "dbo")
 public class PaymentTransaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "PaymentID", nullable = false)
-    private Payment paymentID;
+    @Column(name = "PaymentID", nullable = false)
+    private Integer paymentID;
 
     @Nationalized
     @Column(name = "TransactionCode", nullable = false, length = 50)
@@ -31,11 +30,11 @@ public class PaymentTransaction {
         this.id = id;
     }
 
-    public Payment getPaymentID() {
+    public Integer getPaymentID() {
         return paymentID;
     }
 
-    public void setPaymentID(Payment paymentID) {
+    public void setPaymentID(Integer paymentID) {
         this.paymentID = paymentID;
     }
 

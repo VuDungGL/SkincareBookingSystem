@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.Nationalized;
 
 @Entity
-@Table(name = "S_Users")
+@Table(name = "S_Users", schema = "dbo")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,8 @@ public class Users {
     private String email;
 
     @Nationalized
-    @Column(name = "Password", length = 24)
+    @Lob
+    @Column(name = "Password")
     private String password;
 
     @Nationalized

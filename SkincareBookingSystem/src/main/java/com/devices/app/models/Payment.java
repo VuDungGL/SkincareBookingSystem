@@ -8,16 +8,15 @@ import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
-@Table(name = "S_Payment")
+@Table(name = "S_Payment", schema = "dbo")
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "BookingID", nullable = false)
-    private Booking bookingID;
+    @Column(name = "BookingID", nullable = false)
+    private Integer bookingID;
 
     @Column(name = "Amount", nullable = false, precision = 18, scale = 2)
     private BigDecimal amount;
@@ -42,11 +41,11 @@ public class Payment {
         this.id = id;
     }
 
-    public Booking getBookingID() {
+    public Integer getBookingID() {
         return bookingID;
     }
 
-    public void setBookingID(Booking bookingID) {
+    public void setBookingID(Integer bookingID) {
         this.bookingID = bookingID;
     }
 

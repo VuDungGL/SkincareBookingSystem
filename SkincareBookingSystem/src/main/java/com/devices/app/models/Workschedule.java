@@ -6,16 +6,15 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "S_WorkSchedule")
-public class WorkSchedule {
+@Table(name = "S_WorkSchedule", schema = "dbo")
+public class Workschedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "SpecialistID", nullable = false)
-    private Users specialistID;
+    @Column(name = "SpecialistID", nullable = false)
+    private Integer specialistID;
 
     @Column(name = "WorkDate", nullable = false)
     private LocalDate workDate;
@@ -34,11 +33,11 @@ public class WorkSchedule {
         this.id = id;
     }
 
-    public Users getSpecialistID() {
+    public Integer getSpecialistID() {
         return specialistID;
     }
 
-    public void setSpecialistID(Users specialistID) {
+    public void setSpecialistID(Integer specialistID) {
         this.specialistID = specialistID;
     }
 

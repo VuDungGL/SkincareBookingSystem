@@ -1,0 +1,10 @@
+
+<header class="d-flex justify-content-between align-items-center" th:fragment="header">
+    <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Search">
+    </div>
+    <div class="user-info d-flex align-items-center">
+        <div class="rounded-circle notification-block"><i class="fa-regular fa-bell"></i></div>
+        <img th:src="@{/assets/images/base/admin/base_user.png}" class="rounded-circle" alt="User Image" width="60" height="60">
+    </div>
+</header>

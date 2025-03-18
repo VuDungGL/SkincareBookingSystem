@@ -5,20 +5,18 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "S_BookingPromotion")
-public class BookingPromotion {
+@Table(name = "S_BookingPromotion", schema = "dbo")
+public class Bookingpromotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "BookingID", nullable = false)
-    private Booking bookingID;
+    @Column(name = "BookingID", nullable = false)
+    private Integer bookingID;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "PromotionID", nullable = false)
-    private Promotion promotionID;
+    @Column(name = "PromotionID", nullable = false)
+    private Integer promotionID;
 
     @Column(name = "DiscountAmount", nullable = false, precision = 18, scale = 2)
     private BigDecimal discountAmount;
@@ -31,19 +29,19 @@ public class BookingPromotion {
         this.id = id;
     }
 
-    public Booking getBookingID() {
+    public Integer getBookingID() {
         return bookingID;
     }
 
-    public void setBookingID(Booking bookingID) {
+    public void setBookingID(Integer bookingID) {
         this.bookingID = bookingID;
     }
 
-    public Promotion getPromotionID() {
+    public Integer getPromotionID() {
         return promotionID;
     }
 
-    public void setPromotionID(Promotion promotionID) {
+    public void setPromotionID(Integer promotionID) {
         this.promotionID = promotionID;
     }
 
