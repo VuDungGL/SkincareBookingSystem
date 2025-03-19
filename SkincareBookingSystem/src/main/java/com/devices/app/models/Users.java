@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.Nationalized;
 
 @Entity
-@Table(name = "S_Users", schema = "dbo")
+@Table(name = "S_Users")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +38,9 @@ public class Users {
     @Nationalized
     @Column(name = "Phone", length = 12)
     private String phone;
+
+    @Column(name = "Flag", nullable = false)
+    private Integer flag;
 
     public Integer getId() {
         return id;
@@ -101,6 +104,14 @@ public class Users {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
     }
 
 }

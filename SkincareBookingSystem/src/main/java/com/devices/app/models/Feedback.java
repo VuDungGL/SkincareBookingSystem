@@ -1,36 +1,34 @@
 package com.devices.app.models;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Nationalized;
 
 import java.time.Instant;
 
 @Entity
-@Table(name = "S_Feedback", schema = "dbo")
+@Table(name = "S_Feedback")
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @Column(name = "UserID", nullable = false)
+    @Column(name = "UserID")
     private Integer userID;
 
-    @Column(name = "ServiceID", nullable = false)
+    @Column(name = "ServiceID")
     private Integer serviceID;
 
-    @Column(name = "Rating", nullable = false)
-    private Double rating;
+    @Column(name = "Rating")
+    private Integer rating;
 
     @Nationalized
     @Lob
     @Column(name = "Comment")
     private String comment;
 
-    @ColumnDefault("getdate()")
-    @Column(name = "CreatedAt")
-    private Instant createdAt;
+    @Column(name = "CreateDate")
+    private Instant createDate;
 
     public Integer getId() {
         return id;
@@ -56,11 +54,11 @@ public class Feedback {
         this.serviceID = serviceID;
     }
 
-    public Double getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(Double rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 
@@ -72,12 +70,12 @@ public class Feedback {
         this.comment = comment;
     }
 
-    public Instant getCreatedAt() {
-        return createdAt;
+    public Instant getCreateDate() {
+        return createDate;
     }
 
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
+    public void setCreateDate(Instant createDate) {
+        this.createDate = createDate;
     }
 
 }

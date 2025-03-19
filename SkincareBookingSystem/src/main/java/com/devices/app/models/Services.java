@@ -3,11 +3,9 @@ package com.devices.app.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Nationalized;
 
-import java.math.BigDecimal;
-
 @Entity
-@Table(name = "S_Services", schema = "dbo")
-public class Service {
+@Table(name = "S_Services")
+public class Services {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
@@ -25,8 +23,8 @@ public class Service {
     @Column(name = "Description")
     private String description;
 
-    @Column(name = "Price", nullable = false, precision = 18, scale = 2)
-    private BigDecimal price;
+    @Column(name = "Price", nullable = false)
+    private Double price;
 
     @Column(name = "Duration", nullable = false)
     private Integer duration;
@@ -63,11 +61,11 @@ public class Service {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

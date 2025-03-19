@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "S_WorkSchedule", schema = "dbo")
+@Table(name = "S_WorkSchedule")
 public class Workschedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

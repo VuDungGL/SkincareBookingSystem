@@ -1,29 +1,22 @@
 package com.devices.app.models;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.Nationalized;
 
 import java.time.Instant;
 
 @Entity
-@Table(name = "S_Booking", schema = "dbo")
+@Table(name = "S_Booking")
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @Column(name = "UserID", nullable = false)
+    @Column(name = "UserID")
     private Integer userID;
 
-    @ColumnDefault("getdate()")
     @Column(name = "BookingDate")
     private Instant bookingDate;
-
-    @Nationalized
-    @Column(name = "Status", nullable = false, length = 20)
-    private String status;
 
     public Integer getId() {
         return id;
@@ -47,14 +40,6 @@ public class Booking {
 
     public void setBookingDate(Instant bookingDate) {
         this.bookingDate = bookingDate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
 }

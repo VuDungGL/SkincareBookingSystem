@@ -37,3 +37,19 @@ p.card-text{
 .card-body h6{
     margin: 0;
 }
+.card{
+    position: relative;
+}
+.best-seller-icon{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: -20%;
+    right: -12px;
+}
+#best-saler{
+    color: var(--third-primary-color);
+}
+p,h6{
+    cursor: default;
+}

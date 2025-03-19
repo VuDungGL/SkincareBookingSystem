@@ -1,7 +1,7 @@
 
 <section class="dashboard" th:fragment="content">
     <link rel="stylesheet" th:href="@{/assets/css/admin/dashboard.css}">
-    <script th:src="@{/assets/js/dashboard.js}"></script>
+    <script th:src="@{/assets/js/admin/dashboard.js}"></script>
     <div class="dashboard-content">
         <div class="col-md-4 mb-4 dashboard-content__item">
             <div class="card text-center">
@@ -33,27 +33,30 @@
 
         <div class="col-md-4 mb-4 dashboard-content__item">
             <div class="card text-center">
+                <i class="fa-solid fa-dollar-sign"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Spend this month</h6>
-                    <p class="card-text">$642.39</p>
+                    <h6 class="card-title" id="revenue-title">Revonue in</h6>
+                    <p class="card-text" id="revenue-content">$642.39</p>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4 mb-4 dashboard-content__item">
             <div class="card text-center">
+                <i class="fa-solid fa-circle-xmark" style="color: red"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Sales</h6>
-                    <p class="card-text">$574.34</p>
+                    <h6 class="card-title">Cancel Booking</h6>
+                    <p class="card-text" id="total-booking-cancel">Đang tải ...</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4 mb-4 dashboard-content__item">
             <div class="card text-center">
                 <div class="card-body">
-                    <h6 class="card-title">Your Balance</h6>
-                    <p class="card-text">$1,000</p>
+                    <h6 class="card-title">Best Saler</h6>
+                    <p class="card-text" id="best-saler">Đang tải ...</p>
                 </div>
+                <img th:src="@{/assets/images/base/admin/bestseller-icon.png}" class="best-seller-icon" alt="">
             </div>
         </div>
     </div>

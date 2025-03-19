@@ -2,29 +2,27 @@ package com.devices.app.models;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
-
 @Entity
-@Table(name = "S_BookingDetail", schema = "dbo")
+@Table(name = "S_BookingDetail")
 public class BookingDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @Column(name = "BookingID", nullable = false)
+    @Column(name = "BookingID")
     private Integer bookingID;
 
-    @Column(name = "ServiceID", nullable = false)
+    @Column(name = "ServiceID")
     private Integer serviceID;
 
-    @Column(name = "SpecialistID", nullable = false)
-    private Integer specialistID;
+    @Column(name = "StaffID")
+    private Integer staffID;
 
-    @Column(name = "Price", nullable = false, precision = 18, scale = 2)
-    private BigDecimal price;
+    @Column(name = "Price")
+    private Double price;
 
-    @Column(name = "Status", nullable = false)
+    @Column(name = "Status")
     private Integer status;
 
     public Integer getId() {
@@ -51,19 +49,19 @@ public class BookingDetail {
         this.serviceID = serviceID;
     }
 
-    public Integer getSpecialistID() {
-        return specialistID;
+    public Integer getStaffID() {
+        return staffID;
     }
 
-    public void setSpecialistID(Integer specialistID) {
-        this.specialistID = specialistID;
+    public void setStaffID(Integer staffID) {
+        this.staffID = staffID;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

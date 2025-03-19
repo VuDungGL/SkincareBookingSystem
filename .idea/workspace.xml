@@ -5,49 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34e23dc8-2b0a-4670-901d-5963a1e8fbcc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/BookingAdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/BookingDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/RatingFeedbackDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Bookingpromotion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Workschedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/BookingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/FeedbackRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/BookingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/component/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/component/sidebar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/booking.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/staff.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/RevenueDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Services.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/baseAdmin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/6c3346a8-0c10-47a0-8b41-0ce7e68741f9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6c3346a8-0c10-47a0-8b41-0ce7e68741f9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6c3346a8-0c10-47a0-8b41-0ce7e68741f9/storage_v2/_src_/database/SkincareBookingSystem_db.g24JDw/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6c3346a8-0c10-47a0-8b41-0ce7e68741f9/storage_v2/_src_/database/SkincareBookingSystem_db.g24JDw/schema/dbo.sYMBAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/BookingAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/BookingAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/BookingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/BookingDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Booking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/BookingDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/BookingDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/BookingPromotion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Bookingpromotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Bookingpromotion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Feedback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Payment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/PaymentTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/PaymentTransaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Promotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Promotion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Roles.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Service.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/ServiceCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/ServiceCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/WorkSchedule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Workschedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Workschedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/BookingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/BookingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/BookingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/baseAdmin.css" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/baseAdmin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/component/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/component/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,8 +44,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="com.intellij.jpb.JpaEntity" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -121,6 +106,7 @@
       <recent name="com.example.Repository" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\SkincareBookingSystem\SkincareBookingSystem\src\main\resources\static\assets\js\admin" />
       <recent name="E:\SkincareBookingSystem\SkincareBookingSystem\src\main\resources\templates\Home" />
       <recent name="E:\SkincareBookingSystem\SkincareBookingSystem\src\main\resources\Templates" />
     </key>
@@ -216,6 +202,10 @@
       <workItem from="1742231716536" duration="162000" />
       <workItem from="1742269315572" duration="3668000" />
       <workItem from="1742321114419" duration="5800000" />
+      <workItem from="1742355132811" duration="5726000" />
+      <workItem from="1742361278103" duration="5812000" />
+      <workItem from="1742389676720" duration="2494000" />
+      <workItem from="1742393971819" duration="4528000" />
     </task>
     <servers />
   </component>

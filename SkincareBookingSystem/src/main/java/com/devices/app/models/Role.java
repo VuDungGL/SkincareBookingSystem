@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.Nationalized;
 
 @Entity
-@Table(name = "S_Role", schema = "dbo")
+@Table(name = "S_Role")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,8 +12,11 @@ public class Role {
     private Integer id;
 
     @Nationalized
-    @Column(name = "UserRole", length = 20)
-    private String userRole;
+    @Column(name = "RoleName", length = 20)
+    private String roleName;
+
+    @Column(name = "RoleCode")
+    private Integer roleCode;
 
     public Integer getId() {
         return id;
@@ -23,12 +26,20 @@ public class Role {
         this.id = id;
     }
 
-    public String getUserRole() {
-        return userRole;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setUserRole(String userRole) {
-        this.userRole = userRole;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public Integer getRoleCode() {
+        return roleCode;
+    }
+
+    public void setRoleCode(Integer roleCode) {
+        this.roleCode = roleCode;
     }
 
 }
