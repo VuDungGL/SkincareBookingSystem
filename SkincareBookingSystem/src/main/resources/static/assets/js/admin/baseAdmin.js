@@ -1,7 +1,14 @@
 $(document).ready(function(){
     onAddLeftBarActive.onInit();
+    baseCore.baseInit();
 });
 
+const baseCore={
+    baseInit: function(){
+
+    },
+
+}
 
 const onAddLeftBarActive = {
     onInit: function() {

@@ -1,15 +1,18 @@
 package com.devices.app.services;
 
+import com.devices.app.dtos.AnnualStatisticsDto;
 import com.devices.app.dtos.BookingDto;
 import com.devices.app.dtos.RevenueDto;
 import com.devices.app.repository.BookingRepository;
 import com.devices.app.repository.FeedbackRepository;
+import jakarta.persistence.Tuple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BookingService {
@@ -41,5 +44,25 @@ public class BookingService {
         LocalDate endDate = startDate.plusMonths(1);
 
         return bookingRepository.getMonthlyRevenue(Date.valueOf(startDate), Date.valueOf(endDate));
+    }
+    public List<AnnualStatisticsDto> AnnualSale(int year){
+        List<Tuple> results = bookingRepository.AnnualSale(year);
+
+        return results.stream()
+                .map(row -> new AnnualStatisticsDto(
+                        ((Number) row.get(0)).intValue(),
+                        ((Number) row.get(1)).doubleValue()
+                ))
+                .collect(Collectors.toList());
+    }
+    public List<AnnualStatisticsDto> AnnualSaleOnLast7Day(int isPaid, int year){
+        List<Tuple> results = bookingRepository.AnnualSaleOnLast7Day(isPaid, year);
+
+        return results.stream()
+                .map(row -> new AnnualStatisticsDto(
+                        ((Number) row.get(0)).intValue(),
+                        ((Number) row.get(1)).doubleValue()
+                ))
+                .collect(Collectors.toList());
     }
 }

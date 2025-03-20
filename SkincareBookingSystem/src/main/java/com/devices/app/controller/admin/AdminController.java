@@ -18,5 +18,6 @@ public class AdminController {
         model.addAttribute("page", page);
         return "admin/index";
     }
+
 }
 

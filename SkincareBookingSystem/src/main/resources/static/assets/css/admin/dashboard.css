@@ -53,3 +53,89 @@ p.card-text{
 p,h6{
     cursor: default;
 }
+.chart-tittle{
+    min-width: 150px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: start;
+    height: 100%;
+    padding: 6px;
+}
+.date-picker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f4f7fd;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #5d698d;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.date-picker input {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: bold;
+    color: #5d698d;
+    width: 80px;
+    outline: none;
+    text-align: left;
+}
+
+.date-picker i {
+    font-size: 16px;
+    color: #5d698d;
+    height: 16px;
+    width: 18px;
+}
+.year-picker {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 10;
+    width: 200px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+.year-picker div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.year-picker span {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.year-picker span:hover, .year-picker span.active {
+    background: blue;
+    color: white;
+}
+.dashboard{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 638px;
+}
+.dashboard::-webkit-scrollbar {
+    width: 8px; /* Hoặc 0 nếu muốn ẩn hoàn toàn */
+}
+
+.dashboard::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dashboard::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5); /* Màu cuộn trong suốt */
+    border-radius: 4px;
+}

@@ -60,6 +60,33 @@
             </div>
         </div>
     </div>
+    <div class="row" style=" justify-content: space-around">
+        <div class="col-md-6 mb-4 card first-chart-card" style="overflow: hidden; padding:24px">
+            <div class="chart-tittle">
+                <div class="date-picker">
+                    <input type="text" id="dateInput" placeholder="YYYY" readonly value="">
+                    <i class="fa-regular fa-calendar" id="calendarIcon" ></i>
+                    <div class="year-picker" id="yearPicker" >
+                        <div id="yearContainer"></div>
+                    </div>
+                </div>
+                <div id="total-sale" style="font-size: 32px; font-weight: bold; color: #1D2951;">$37.5K</div>
+                <div style="color: gray; font-size: 14px;">Total saled
+                    <span style="color: green; font-size: 14px; font-weight: bold;"> ▲ Increasing</span>
+                </div>
+                <div style="color: #12c99b; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+                    ✅ Growing
+                </div>
+            </div>
+            <div id="curve_chart" style="width: 400px; height: 250px">
+
+            </div>
+        </div>
+        <div class="col-md-5 mb-4 card" style="overflow: hidden; padding:12px 16px; align-items: center">
+            <div id="chart_div" style="width: 700px; height: 300px;"></div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card">

@@ -5,33 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34e23dc8-2b0a-4670-901d-5963a1e8fbcc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/RevenueDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Services.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/baseAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6c3346a8-0c10-47a0-8b41-0ce7e68741f9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6c3346a8-0c10-47a0-8b41-0ce7e68741f9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/AnnualStatisticsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/BookingAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/BookingAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/BookingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/BookingDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/BookingDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/BookingDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Bookingpromotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Bookingpromotion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Feedback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/PaymentTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/PaymentTransaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Promotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Promotion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/ServiceCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/ServiceCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Workschedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/models/Workschedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/BookingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/BookingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/BookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/baseAdmin.css" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/baseAdmin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/component/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/component/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/baseAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/baseAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/component/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/component/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/index.html" afterDir="false" />
     </list>
@@ -65,6 +56,9 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.rest-api_1 | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.rest-api_2 | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.rest-api_3 | #1.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.All in demo.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.com.example.Services in demo.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.Home.html.executor&quot;: &quot;Run&quot;,
@@ -111,40 +105,7 @@
       <recent name="E:\SkincareBookingSystem\SkincareBookingSystem\src\main\resources\Templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.SkincareBookingSystemApplication">
-    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#3" index="3" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="All in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.example.Services in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.Services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.Services" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SkincareBookingSystemApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="demo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Services.SkincareBookingSystemApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="SkincareBookingSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="demo" />
@@ -162,9 +123,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.SkincareBookingSystemApplication" />
-        <item itemvalue="HTTP Request.generated-requests | #3" />
-        <item itemvalue="JUnit.All in demo" />
-        <item itemvalue="JUnit.com.example.Services in demo" />
       </list>
     </recent_temporary>
   </component>
@@ -206,11 +164,38 @@
       <workItem from="1742361278103" duration="5812000" />
       <workItem from="1742389676720" duration="2494000" />
       <workItem from="1742393971819" duration="4528000" />
+      <workItem from="1742441114740" duration="24379000" />
+      <workItem from="1742479215225" duration="6989000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java</url>
+          <line>32</line>
+          <properties class="com.devices.app.repository.UserRepository" method="AnnualNewMember">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.devices.app.dtos.AnnualStatisticsDto" memberName="year" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

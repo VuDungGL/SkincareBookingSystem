@@ -1,8 +1,10 @@
 package com.devices.app.repository;
 
+import com.devices.app.dtos.AnnualStatisticsDto;
 import com.devices.app.dtos.BookingDto;
 import com.devices.app.dtos.RevenueDto;
 import com.devices.app.models.Booking;
+import jakarta.persistence.Tuple;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -40,4 +42,36 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
     """, nativeQuery = true)
     RevenueDto getMonthlyRevenue(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
 
+    @Query(value = """
+        WITH Months 
+            AS (
+                 SELECT 1 AS Month
+                 UNION ALL
+                 SELECT Month + 1 FROM Months WHERE Month < 12
+             )
+         SELECT M.Month,\s
+                COALESCE(SUM(BD.Price), 0) AS Total
+         FROM Months AS M
+         LEFT JOIN S_Booking AS B ON M.Month = MONTH(B.BookingDate) AND YEAR(B.BookingDate) = :yearSearch
+         LEFT JOIN S_BookingDetail AS BD ON B.ID = BD.BookingID AND BD.IsPaid = 1
+         GROUP BY M.Month
+         ORDER BY M.Month
+        """, nativeQuery = true)
+    List<Tuple> AnnualSale(@Param("yearSearch") int yearSearch);
+
+    @Query(value = """
+            WITH Last7Days AS (
+                SELECT DAY(DATEADD(DAY, -n, GETDATE())) AS [Day]
+                FROM (VALUES (0), (1), (2), (3), (4), (5), (6)) AS Days(n)
+            )
+            SELECT\s
+                L.[Day],
+                COALESCE(SUM(BD.Price), 0) AS Total
+            FROM Last7Days AS L
+            LEFT JOIN S_Booking AS B WITH (NOLOCK) ON DAY(B.BookingDate) = L.[Day]
+            LEFT JOIN S_BookingDetail AS BD WITH (NOLOCK) ON BD.BookingID = B.ID AND BD.IsPaid = :isPaid AND YEAR(B.BookingDate) = :yearSearch
+            GROUP BY L.[Day]
+            ORDER BY L.[Day]
+    """,nativeQuery = true)
+    List<Tuple> AnnualSaleOnLast7Day(@Param("isPaid") int isPaid,@Param("yearSearch")int yearSearch);
 }
