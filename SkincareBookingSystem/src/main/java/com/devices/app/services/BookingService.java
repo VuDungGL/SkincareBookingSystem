@@ -3,6 +3,7 @@ package com.devices.app.services;
 import com.devices.app.dtos.AnnualStatisticsDto;
 import com.devices.app.dtos.BookingDto;
 import com.devices.app.dtos.RevenueDto;
+import com.devices.app.dtos.UserDto;
 import com.devices.app.repository.BookingRepository;
 import com.devices.app.repository.FeedbackRepository;
 import jakarta.persistence.Tuple;
@@ -64,5 +65,10 @@ public class BookingService {
                         ((Number) row.get(1)).doubleValue()
                 ))
                 .collect(Collectors.toList());
+    }
+
+    public List<UserDto> getUsersByPage(int pageIndex, int pageSize) {
+        int offset = (pageIndex - 1) * pageSize + 1;
+        return bookingRepository.GetListUserWorkMonth(offset, pageSize);
     }
 }

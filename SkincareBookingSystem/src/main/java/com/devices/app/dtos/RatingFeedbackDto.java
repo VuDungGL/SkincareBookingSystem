@@ -1,5 +1,10 @@
 package com.devices.app.dtos;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class RatingFeedbackDto {
     private double rating;
     private int totalRating;
@@ -9,19 +14,4 @@ public class RatingFeedbackDto {
         this.totalRating = totalRating;
     }
 
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public int getTotalRating() {
-        return totalRating;
-    }
-
-    public void setTotalRating(int totalRating) {
-        this.totalRating = totalRating;
-    }
 }

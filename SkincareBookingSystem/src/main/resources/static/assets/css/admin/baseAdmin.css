@@ -198,3 +198,9 @@ h6{
 .notification-block i{
     color: #214162;
 }
+.page-active{
+    background: var(--third-primary-color);
+    border-radius: 50%;
+    color: white;
+    opacity: 0.8;
+}

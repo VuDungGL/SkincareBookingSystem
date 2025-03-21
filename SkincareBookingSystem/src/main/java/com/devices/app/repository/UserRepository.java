@@ -31,4 +31,6 @@ public interface UserRepository extends JpaRepository<Users, String> {
             ORDER BY M.Month
         """, nativeQuery = true)
     List<Tuple> AnnualNewMember(@Param("yearSearch") int yearSearch);
+
+
 }

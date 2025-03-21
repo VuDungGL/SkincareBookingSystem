@@ -12,7 +12,8 @@ const renderData= {
         this.onLoadTotalBookingCancel();
         this.onLoadBestSaler();
         this.onLoadRevenue();
-
+        this.onLoadTopWorkingHard();
+        this.onLoadWorkingTable(4, 1);
     },
 
     onLoadTotalMember: function(){
@@ -95,7 +96,81 @@ const renderData= {
                 }
             }
         });
+    },
+
+    onLoadTopWorkingHard: function(){
+        $.ajax({
+            url: "/booking/getHardWorking",
+            method: 'POST',
+            data: JSON.stringify({
+                pageSize: 3,
+                pageIndex: 1
+            }),
+            contentType: "application/json",
+            success: function(response){
+                if(response != null){
+                    let container = $("#topWorkingContainer");
+
+                    container.empty();
+
+                    response.forEach((user, index) => {
+                        var memberCard = `
+                        <div class="member-card col-12 d-flex align-items-center">
+                            <img src="/${user.avt}" alt="${user.firstName}">
+                            <div class="member-info">
+                                <div class="member-name">${user.firstName} ${user.lastName}</div>
+                                <div class="member-role">${user.userName}</div>
+                            </div>
+                            ${index === 0 ? '<img src="/assets/images/base/admin/_1st.png" alt="logo" class="options"/>' : ''}
+                        </div>`;
+                        container.append(memberCard);
+                    })
+                }
+            }
+        });
+    },
+
+    onLoadWorkingTable: function(pageSize, pageIndex){
+        $.ajax({
+            url: "/booking/getHardWorking",
+            method: 'POST',
+            data: JSON.stringify({
+                pageSize: pageSize,
+                pageIndex: pageIndex
+            }),
+            contentType: "application/json",
+            success: function(response){
+                if(response != null){
+                    let container = $("#table-content");
+
+                    container.empty();
+
+                    response.forEach((user, index) => {
+                        var memberCard = `
+                        <tr>
+                            <td class="column-id">#SBS0${user.userId}</td>
+                            <td class="column-name">${user.firstName} ${user.lastName}</td>
+                            <td class="column-birth">${user.email}</td>
+                            <td class="column-phone">${user.phone}</td>
+                            <td class="column-total-task">${user.totalTask}</td>
+                            <td class="column-total-earned">
+                                <div class="progress-bar" title=""><div style="width: ${user.percentTask}%;"></div></div>${user.percentTask}%
+                            </td>
+                            <td class="column-total-earned">$${user.total}</td>
+                        </tr>`;
+                        container.append(memberCard);
+                    })
+                }
+            }
+        });
+    },
+
+    onLoadPageIndex: function(pageSize, pageIndex){
+        renderData.onLoadWorkingTable(pageSize, pageIndex);
+        $("span[id^='page-']").removeClass("page-active");
+        $("#page-" + pageIndex).addClass("page-active");
     }
+
 };
 
 const onLoadDataChart = {

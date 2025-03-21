@@ -1,9 +1,13 @@
 package com.devices.app.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.Instant;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "S_Booking")
 public class Booking {
@@ -17,29 +21,5 @@ public class Booking {
 
     @Column(name = "BookingDate")
     private Instant bookingDate;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getUserID() {
-        return userID;
-    }
-
-    public void setUserID(Integer userID) {
-        this.userID = userID;
-    }
-
-    public Instant getBookingDate() {
-        return bookingDate;
-    }
-
-    public void setBookingDate(Instant bookingDate) {
-        this.bookingDate = bookingDate;
-    }
 
 }

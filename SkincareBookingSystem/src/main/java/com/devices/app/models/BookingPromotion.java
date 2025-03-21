@@ -7,8 +7,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "S_BookingDetail")
-public class BookingDetail {
+@Table(name = "S_BookingPromotions")
+public class BookingPromotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
@@ -17,16 +17,10 @@ public class BookingDetail {
     @Column(name = "BookingID")
     private Integer bookingID;
 
-    @Column(name = "ServiceID")
-    private Integer serviceID;
+    @Column(name = "PromotionID")
+    private Integer promotionID;
 
-    @Column(name = "StaffID")
-    private Integer staffID;
-
-    @Column(name = "Price")
-    private Double price;
-
-    @Column(name = "Status")
-    private Integer status;
+    @Column(name = "DiscountAmount")
+    private Double discountAmount;
 
 }

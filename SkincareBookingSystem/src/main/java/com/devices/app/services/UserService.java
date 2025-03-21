@@ -2,6 +2,7 @@ package com.devices.app.services;
 
 import com.devices.app.dtos.AnnualStatisticsDto;
 import com.devices.app.dtos.UserCreationRequest;
+import com.devices.app.dtos.UserDto;
 import com.devices.app.models.Users;
 import jakarta.persistence.Tuple;
 import org.springframework.beans.factory.annotation.Autowired;

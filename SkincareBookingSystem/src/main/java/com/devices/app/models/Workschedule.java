@@ -1,10 +1,14 @@
 package com.devices.app.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "S_WorkSchedule")
 public class Workschedule {
@@ -24,45 +28,5 @@ public class Workschedule {
 
     @Column(name = "EndTime", nullable = false)
     private LocalTime endTime;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getSpecialistID() {
-        return specialistID;
-    }
-
-    public void setSpecialistID(Integer specialistID) {
-        this.specialistID = specialistID;
-    }
-
-    public LocalDate getWorkDate() {
-        return workDate;
-    }
-
-    public void setWorkDate(LocalDate workDate) {
-        this.workDate = workDate;
-    }
-
-    public LocalTime getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public LocalTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalTime endTime) {
-        this.endTime = endTime;
-    }
 
 }

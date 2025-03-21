@@ -21,6 +21,10 @@
       <option name="customHeaders">
         <set>
           <option value="    &quot;isPaid&quot;" />
+          <option value="{" />
+          <option value="    &quot;pageSize&quot;" />
+          <option value="    &quot;pageIndex&quot;" />
+          <option value="}" />
         </set>
       </option>
     </inspection_tool>
