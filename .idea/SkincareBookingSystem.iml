@@ -10,5 +10,7 @@
     <orderEntry type="library" name="chart.js" level="application" />
     <orderEntry type="library" name="jquery-3.6.4" level="application" />
     <orderEntry type="library" name="loader" level="application" />
+    <orderEntry type="library" name="bootstrap-icons" level="application" />
+    <orderEntry type="library" name="all" level="application" />
   </component>
 </module>
