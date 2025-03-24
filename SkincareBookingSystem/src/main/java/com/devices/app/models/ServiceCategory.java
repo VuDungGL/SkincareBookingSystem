@@ -1,8 +1,12 @@
 package com.devices.app.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "S_ServiceCategory")
 public class ServiceCategory {
@@ -19,29 +23,5 @@ public class ServiceCategory {
     @Lob
     @Column(name = "Description")
     private String description;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
 }

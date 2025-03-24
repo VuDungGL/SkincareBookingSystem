@@ -1,0 +1,33 @@
+<div class="sidebar p-3" th:fragment="sidebar">
+    <div class="sidebar-header text-center">
+        <div class="logo-container">
+            <img th:src="@{/assets/images/base/logo/logo.png}" alt="logo" class="logo-img"/>
+            <div class="logo-name">
+                <h5>Skincare</h5>
+                <h6>Booking System</h6>
+            </div>
+        </div>
+    </div>
+    <ul class="nav flex-column">
+        <li class="nav-item" id="nav-dashboard">
+            <i class="fa-solid fa-house"></i>
+            <a class="nav-link" th:href="@{/admin/dashboard}">Dashboard</a>
+        </li>
+        <li class="nav-item" id="nav-staff">
+            <i class="fa-solid fa-clipboard-user"></i>
+            <a class="nav-link" th:href="@{/admin/staff}">Staff</a>
+        </li>
+        <li class="nav-item" id="nav-booking">
+            <i class="fa-solid fa-circle-check"></i>
+            <a class="nav-link" th:href="@{/admin/booking}">Booking</a>
+        </li>
+        <li class="nav-item" id="nav-users">
+            <i class="fa-solid fa-users"></i>
+            <a class="nav-link" th:href="@{/admin/users}">Users</a>
+        </li>
+        <li class="nav-item">
+            <i class="fa-solid fa-info"></i>
+            <a class="nav-link" th:href="@{/admin/profile}">Profile</a>
+        </li>
+    </ul>
+</div>

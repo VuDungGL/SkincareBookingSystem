@@ -1,0 +1,178 @@
+
+<section class="dashboard" th:fragment="content">
+    <link rel="stylesheet" th:href="@{/assets/css/admin/dashboard.css}">
+    <script th:src="@{/assets/js/admin/dashboard.js}"></script>
+    <div class="dashboard-content">
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <i class="fa-solid fa-user-plus"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Total Members</h6>
+                    <p class="card-text" id="total-member">Đang tải...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <i><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZyNDVybTl1aTZreTd1a3dwOWx5d3d4a2UwdWFud2JybXM1c3c5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ibolLe3mOqHE3PQTtk/giphy.gif" width="80" height="80"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Successful Skin Care</h6>
+                    <p class="card-text" id="total-booking">Đang tải ...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <i class="fa-regular fa-heart"></i>
+                <div class="card-body">
+                    <h6 class="card-title d-flex">Feed Back: <div id="total-feedback" style="margin-left: 4px"></div></h6>
+                    <p class="card-text" id="rating-feedback">Đang tải ...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <div class="card-body">
+                    <h6 class="card-title" id="revenue-title">Revonue in</h6>
+                    <p class="card-text" id="revenue-content">$642.39</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <i class="fa-solid fa-circle-xmark" style="color: red"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Cancel Booking</h6>
+                    <p class="card-text" id="total-booking-cancel">Đang tải ...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 dashboard-content__item">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h6 class="card-title">Best Saler</h6>
+                    <p class="card-text" id="best-saler">Đang tải ...</p>
+                </div>
+                <img th:src="@{/assets/images/base/admin/bestseller-icon.png}" class="best-seller-icon" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="row" style=" justify-content: space-around">
+        <div class="col-md-6 mb-4 card first-chart-card" style="overflow: hidden; padding:24px">
+            <div class="chart-tittle">
+                <div class="date-picker">
+                    <input type="text" id="dateInput" placeholder="YYYY" readonly value="">
+                    <i class="fa-regular fa-calendar" id="calendarIcon" ></i>
+                    <div class="year-picker" id="yearPicker" >
+                        <div id="yearContainer"></div>
+                    </div>
+                </div>
+                <div id="total-sale" style="font-size: 32px; font-weight: bold; color: #1D2951;">$37.5K</div>
+                <div style="color: gray; font-size: 14px;">Total saled
+                    <span style="color: green; font-size: 14px; font-weight: bold;"> ▲ Increasing</span>
+                </div>
+                <div style="color: #12c99b; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+                    ✅ Growing
+                </div>
+            </div>
+            <div id="curve_chart" style="width: 400px; height: 250px">
+
+            </div>
+        </div>
+        <div class="col-md-5 mb-4 card" style="overflow: hidden; padding:12px 16px; align-items: center">
+            <div id="chart_div" style="width: 700px; height: 300px;"></div>
+        </div>
+    </div>
+
+    <div class="row" style=" justify-content: space-around">
+        <div class="col-md-4 mb-4" style="overflow: hidden; padding: 0 24px">
+            <div class="team-container card d-flex flex-column col-12">
+                <div class="team-header col-12">
+                    <span>Top HardWorking</span>
+                </div>
+                <div class="col-12" id="topWorkingContainer"></div>
+
+            </div>
+        </div>
+        <div class="col-md-8 mb-4" style="padding-right: 24px">
+            <div class="table-container" >
+                <div class="table-header d-flex justify-content-between align-baseline">
+                    <h6 class="d-flex align-content-lg-center" style="margin: 0;font-size: 18px; font-weight: 700">Complex Table</h6>
+                    <div class="search-box align-items-center">
+                        <input type="text" placeholder="Search here">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="column-id">ID</th>
+                            <th class="column-name">Name</th>
+                            <th class="column-birth">Email</th>
+                            <th class="column-phone">Phone</th>
+                            <th class="column-total-task">Total</th>
+                            <th class="column-proportion">Proportion</th>
+                            <th class="column-total-earned">Earned</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-content">
+                        <tr>
+                            <td>#1001</td>
+                            <td>Horizon UI PRO</td>
+                            <td>18 Apr 2024</td>
+                            <td>0912000008</td>
+                            <td>2024</td>
+                            <td>
+                                <div class="progress-bar"><div style="width: 70%;"></div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#1001</td>
+                            <td>Horizon UI PRO</td>
+                            <td>18 Apr 2024</td>
+                            <td>0912000008</td>
+                            <td>2024</td>
+                            <td>
+                                <div class="progress-bar"><div style="width: 70%;"></div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#1001</td>
+                            <td>Horizon UI PRO</td>
+                            <td>18 Apr 2024</td>
+                            <td>0912000008</td>
+                            <td>2024</td>
+                            <td>
+                                <div class="progress-bar"><div style="width: 100%;"></div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#1001</td>
+                            <td>Horizon UI PRO</td>
+                            <td>18 Apr 2024</td>
+                            <td>0912000008</td>
+                            <td>2024</td>
+                            <td>
+                                <div class="progress-bar"><div style="width: 30%;"></div></div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <span style="font-size: 12px">1-4 of 12</span>
+                    <div style="font-size: 12px">
+                        <span class="page-active" onclick="renderData.onLoadPageIndex(4, 1);" id="page-1">1</span>
+                        <span onclick="renderData.onLoadPageIndex(4, 2);" id="page-2">2</span>
+                        <span onclick="renderData.onLoadPageIndex(4, 3);" id="page-3">3</span>
+                        <span onclick="renderData.onLoadPageIndex(4, 4);" id="page-4">4</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

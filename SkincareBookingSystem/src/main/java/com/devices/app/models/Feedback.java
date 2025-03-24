@@ -1,11 +1,14 @@
 package com.devices.app.models;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
 import java.time.Instant;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "S_Feedback")
 public class Feedback {
@@ -14,15 +17,13 @@ public class Feedback {
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "UserID", nullable = false)
-    private Users userID;
+    @Column(name = "UserID")
+    private Integer userID;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ServiceID", nullable = false)
-    private Service serviceID;
+    @Column(name = "ServiceID")
+    private Integer serviceID;
 
-    @Column(name = "Rating", nullable = false)
+    @Column(name = "Rating")
     private Integer rating;
 
     @Nationalized
@@ -30,56 +31,7 @@ public class Feedback {
     @Column(name = "Comment")
     private String comment;
 
-    @ColumnDefault("getdate()")
-    @Column(name = "CreatedAt")
-    private Instant createdAt;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Users getUserID() {
-        return userID;
-    }
-
-    public void setUserID(Users userID) {
-        this.userID = userID;
-    }
-
-    public Service getServiceID() {
-        return serviceID;
-    }
-
-    public void setServiceID(Service serviceID) {
-        this.serviceID = serviceID;
-    }
-
-    public Integer getRating() {
-        return rating;
-    }
-
-    public void setRating(Integer rating) {
-        this.rating = rating;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
+    @Column(name = "CreateDate")
+    private Instant createDate;
 
 }
