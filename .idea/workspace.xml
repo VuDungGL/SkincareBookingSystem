@@ -5,154 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34e23dc8-2b0a-4670-901d-5963a1e8fbcc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/home/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/home/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/about-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/about-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/appointment-background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/carousel-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/carousel-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/carousel-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/gallery-9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/services-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/services-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/services-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/services-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/services-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/services-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/team-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/team-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/team-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/team-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/testimonial-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/testimonial-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/testimonial-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/home/testimonial-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/home/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/animate/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/animate/animate.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/counterup/counterup.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/easing/easing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/easing/easing.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/lightbox/css/lightbox.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/lightbox/images/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/lightbox/images/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/lightbox/images/next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/lightbox/images/prev.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/lightbox/js/lightbox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/assets/ajax-loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/assets/owl.carousel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/assets/owl.carousel.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/assets/owl.theme.default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/assets/owl.theme.default.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/assets/owl.theme.green.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/assets/owl.theme.green.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/assets/owl.video.play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/owl.carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/owlcarousel/owl.carousel.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/waypoints/links.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/waypoints/waypoints.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/wow/wow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/lib/wow/wow.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_accordion.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_badge.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_breadcrumb.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_button-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_card.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_carousel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_close.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_containers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_functions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_helpers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_images.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_modal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_nav.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_offcanvas.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_popover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_progress.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_root.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_spinners.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_toasts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_tooltip.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_transitions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_type.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/bootstrap-grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/bootstrap-reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/bootstrap-utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/bootstrap.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/forms/_floating-labels.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/forms/_form-check.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/forms/_form-control.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/forms/_form-range.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/forms/_form-select.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/forms/_form-text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/forms/_input-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/forms/_labels.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/forms/_validation.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/helpers/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/helpers/_colored-links.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/helpers/_position.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/helpers/_ratio.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/helpers/_stretched-link.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/helpers/_text-truncation.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/helpers/_visually-hidden.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_border-radius.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_box-shadow.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_breakpoints.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_caret.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_color-scheme.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_container.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_deprecate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_gradients.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_image.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_lists.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_reset-text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_resize.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_table-variants.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_text-truncate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_transition.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/mixins/_visually-hidden.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/utilities/_api.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/scss/bootstrap/scss/vendor/_rfs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/home/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/home/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/home/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/test/java/com/example/Services/SkincareBookingSystemApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +68,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.SkincareBookingSystemApplication (1).executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.SkincareBookingSystemApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev-huy&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-khanh&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/OneDrive/Documents/GitHub/SkincareBookingSystem/SkincareBookingSystem/src/main/resources/static/assets/scss&quot;,
@@ -250,10 +109,7 @@
       <recent name="E:\SkincareBookingSystem\SkincareBookingSystem\src\main\resources\Templates" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
-    <configuration name="rest-api_6 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_6.http" runType="Run single request">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.SkincareBookingSystemApplication (1)">
     <configuration name="All in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <option name="PACKAGE_NAME" value="" />
@@ -279,6 +135,20 @@
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SkincareBookingSystem/Services/templates/home/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="SkincareBookingSystemApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.devices.app.SkincareBookingSystemApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devices.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SkincareBookingSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="Services" />
@@ -295,19 +165,19 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.SkincareBookingSystemApplication (1)" />
         <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="Spring Boot.SkincareBookingSystemApplication" />
         <item itemvalue="JUnit.com.example.Services in demo" />
         <item itemvalue="JUnit.All in demo" />
-        <item itemvalue="HTTP Request.rest-api_6 | #1" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.39" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.39" />
       </set>
     </attachedChunks>
   </component>
@@ -350,6 +220,8 @@
       <workItem from="1742655275480" duration="4781000" />
       <workItem from="1742742130564" duration="3835000" />
       <workItem from="1742793219246" duration="438000" />
+      <workItem from="1742838886620" duration="806000" />
+      <workItem from="1742877430297" duration="2647000" />
     </task>
     <servers />
   </component>

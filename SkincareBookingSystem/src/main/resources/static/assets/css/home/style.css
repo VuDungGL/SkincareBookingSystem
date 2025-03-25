@@ -220,7 +220,8 @@
 
 
 .bg-breadcrumb {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/static/assets/images/base/home/appointment-background.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/assets/images/base/home/appointment-background.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -377,7 +378,8 @@
 
 /*** Appointment  Start ***/
 .appointment {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/static/assets/images/base/home/appointment-background.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/assets/images/base/home/appointment-background.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -494,7 +496,8 @@
 
 /*** Pricing Start ***/
 .pricing {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/static/assets/images/base/home/appointment-background.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/assets/images/base/home/appointment-background.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -596,7 +599,7 @@
 
 /*** testimonial Start ***/
 .testimonial {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/static/assets/images/base/home/testimonial-bg.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/images/base/home/testimonial-bg.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -636,7 +639,8 @@
 
 /*** Contact Start ***/
 .contact {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/static/assets/images/base/home/appointment-background.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/assets/images/base/home/appointment-background.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
