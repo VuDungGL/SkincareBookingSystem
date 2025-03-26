@@ -1,4 +1,58 @@
 <div th:fragment="content">
-    <h1>Staff</h1>
-    <p>Manage your staff here.</p>
+    <link rel="stylesheet" th:href="@{/assets/css/admin/staffAdmin.css}">
+    <script th:src="@{/assets/js/admin/staff.js}"></script>
+    <div class="row" style=" justify-content: space-around">
+        <div class="col-md-12 mb-4" style="padding: 0 24px;border-radius: 24px;">
+            <div class="table-container" style="background: white;padding: 24px 24px 12px 24px;border-radius: 24px;">
+                <div class="table-header d-flex justify-content-between align-baseline">
+                    <h6 class="d-flex align-content-lg-center" style="margin: 0;font-size: 18px; font-weight: 700">Staff Info</h6>
+                    <div class="search-box align-items-center">
+                        <input type="text" placeholder="Search here" id="search-input" oninput="renderDataStaff.renderAllStaffTable();">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="column-id">StaffID</th>
+                        <th class="column-name">FullName</th>
+                        <th class="column-birth">BirthDay</th>
+                        <th class="column-email">Email</th>
+                        <th class="column-phone">Phone</th>
+                        <th class="column-gender">Gender</th>
+                        <th class="column-department">Department</th>
+                        <th class="column-position">Position</th>
+                        <th class="column-option"><i class="fa-solid fa-ellipsis-vertical"></i></th>
+                    </tr>
+                    </thead>
+                    <tbody id="table-content">
+                        <tr>
+                            <td class="data column-id">StaffID</td>
+                            <td class="data column-name"><img th:src="@{/assets/images/base/admin/bestseller-icon.png}">FullName</td>
+                            <td class="data column-birth">BirthDay</td>
+                            <td class="data column-email">Email</td>
+                            <td class="data column-phone">Phone</td>
+                            <td class="data column-gender">Gender</td>
+                            <td class="data column-department">Department</td>
+                            <td class="data column-position">Position</td>
+                            <td class="data column-option"><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <span style="font-size: 12px" id="page-staff-total">1-4 of 12</span>
+                    <div style="font-size: 12px" id="pagination-page">
+                        <i class="fa-solid fa-angle-left" style="cursor: pointer; margin: 0 6px;"></i>
+                        <span class="page-active" onclick="renderData.onLoadPageIndex(4, 1);" id="page-1">1</span>
+                        <span onclick="renderData.onLoadPageIndex(4, 2);" id="page-2">2</span>
+                        <span onclick="renderData.onLoadPageIndex(4, 3);" id="page-3">3</span>
+                        <span onclick="renderData.onLoadPageIndex(4, 4);" id="page-4">4</span>
+                        <i class="fa-solid fa-angle-right" style="cursor: pointer;margin: 0 6px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

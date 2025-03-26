@@ -1,12 +1,13 @@
 package com.devices.app.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
-@Setter
 @Getter
+@Setter
 @Entity
 @Table(name = "S_Role")
 public class Role {
@@ -15,6 +16,7 @@ public class Role {
     @Column(name = "ID", nullable = false)
     private Integer id;
 
+    @Size(max = 20)
     @Nationalized
     @Column(name = "RoleName", length = 20)
     private String roleName;

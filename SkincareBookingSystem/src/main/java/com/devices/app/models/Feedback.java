@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
-import java.time.Instant;
+import java.time.OffsetDateTime;
 
-@Setter
 @Getter
+@Setter
 @Entity
 @Table(name = "S_Feedback")
 public class Feedback {
@@ -32,6 +32,6 @@ public class Feedback {
     private String comment;
 
     @Column(name = "CreateDate")
-    private Instant createDate;
+    private OffsetDateTime createDate;
 
 }

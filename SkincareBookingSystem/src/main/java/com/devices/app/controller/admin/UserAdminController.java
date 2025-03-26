@@ -1,16 +1,16 @@
 package com.devices.app.controller.admin;
 
 import com.devices.app.dtos.AnnualStatisticsDto;
+import com.devices.app.dtos.StaffInfoDto;
 import com.devices.app.dtos.UserCreationRequest;
 import com.devices.app.models.Users;
 import com.devices.app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserAdminController {
@@ -31,5 +31,16 @@ public class UserAdminController {
     @PostMapping("/users/annualNewMember")
     public List<AnnualStatisticsDto> annualNewMember(@RequestBody AnnualStatisticsDto request){
         return userService.AnnualNewMembers(request.getYear());
+    }
+
+    @PostMapping("/users/getListStaff")
+    public Page<StaffInfoDto> getListStaff(@RequestBody Map<String, Object> request) {
+        int pageIndex = (int) request.getOrDefault("pageIndex", 0);
+        int pageSize = (int) request.getOrDefault("pageSize", 6);
+        String searchText = (String) request.getOrDefault("searchText", "");
+
+        if (pageIndex < 0) pageIndex = 0;
+        if (pageSize <= 0) pageSize = 6;
+        return userService.getListStaff(searchText,pageIndex,pageSize);
     }
 }

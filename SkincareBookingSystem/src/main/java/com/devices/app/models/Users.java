@@ -1,12 +1,16 @@
 package com.devices.app.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
-@Setter
+import java.time.Instant;
+
 @Getter
+@Setter
 @Entity
 @Table(name = "S_Users")
 public class Users {
@@ -15,13 +19,16 @@ public class Users {
     @Column(name = "ID", nullable = false)
     private Integer id;
 
+    @Size(max = 20)
     @Nationalized
     @Column(name = "UserName", length = 20)
     private String userName;
 
+    @NotNull
     @Column(name = "RoleID", nullable = false)
     private Integer roleID;
 
+    @Size(max = 50)
     @Nationalized
     @Column(name = "Email", length = 50)
     private String email;
@@ -31,19 +38,34 @@ public class Users {
     @Column(name = "Password")
     private String password;
 
+    @Size(max = 50)
     @Nationalized
     @Column(name = "FirstName", length = 50)
     private String firstName;
 
+    @Size(max = 50)
     @Nationalized
     @Column(name = "LastName", length = 50)
     private String lastName;
 
+    @Size(max = 12)
     @Nationalized
     @Column(name = "Phone", length = 12)
     private String phone;
 
-    @Column(name = "Flag", nullable = false)
-    private Integer flag;
+    @NotNull
+    @Column(name = "Status", nullable = false)
+    private Integer status;
 
+    @NotNull
+    @Column(name = "CreateDate", nullable = false)
+    private Instant createDate;
+
+    @Nationalized
+    @Lob
+    @Column(name = "Avt")
+    private String avt;
+
+    @Column(name = "Gender")
+    private Integer gender;
 }

@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 @Entity
 @Table(name = "S_BookingDetail")
 public class BookingDetail {
@@ -28,5 +28,8 @@ public class BookingDetail {
 
     @Column(name = "Status")
     private Integer status;
+
+    @Column(name = "IsPaid")
+    private Boolean isPaid;
 
 }
