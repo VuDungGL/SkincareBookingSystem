@@ -1,0 +1,125 @@
+.staff-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+.staff-first-table{
+    border-radius: 24px;
+}
+.search-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.search-box input {
+    padding: 6px 24px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.search-box i {
+    margin-left: -30px;
+    cursor: pointer;
+    color: #666;
+}
+.table-header{
+    padding: 0 20px 12px;
+}
+tbody td{
+    font-size: 12px;
+    font-weight: 500;
+}
+table{
+    overflow-x: scroll;
+}
+.column-id{
+    min-width: 70px;
+    max-width: 70px;
+}
+.column-name img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-right: 8px;
+}
+th.column-name{
+    padding-left: 50px;
+}
+.column-name{
+    min-width: 200px;
+    max-width: 200px;
+}
+.column-birth{
+    min-width: 100px;
+    max-width: 100px;
+}
+.column-phone
+{
+    min-width: 150px;
+    max-width: 150px;
+}
+.column-email{
+    min-width: 200px;
+    max-width: 200px;
+}
+.column-gender{
+    min-width: 70px;
+    max-width: 70px;
+}
+.column-department{
+    min-width: 150px;
+    max-width: 150px;
+}
+.column-position{
+    min-width: 150px;
+    max-width: 150px;
+}
+.column-option{
+    min-width: 40px;
+    max-width: 40px;
+}
+table{
+    max-height: 217px;
+    min-height: 217px;
+
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 6px 4px;
+    text-align: left;
+}
+thead{
+    border-bottom: 1px solid #eaeaea;
+}
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0 12px;
+}
+.pagination i{
+    padding: 0 12px;
+}
+
+.pagination span {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.pagination .active {
+    background: blue;
+    color: white;
+}
+tbody tr:nth-child(odd) {
+    background: #fafbff;
+}
+.table-header{
+    color: var(--third-primary-color);
+}

@@ -1,6 +1,5 @@
 package com.devices.app.repository;
 
-import com.devices.app.dtos.AnnualStatisticsDto;
 import com.devices.app.dtos.BookingDto;
 import com.devices.app.dtos.RevenueDto;
 import com.devices.app.dtos.UserDto;
@@ -11,10 +10,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, String> {
