@@ -102,6 +102,7 @@ thead{
 .pagination {
     display: flex;
     justify-content: space-between;
+    padding: 24px 0 12px;
 }
 .pagination i{
     padding: 0 12px;
@@ -118,4 +119,7 @@ thead{
 }
 tbody tr:nth-child(odd) {
     background: #fafbff;
+}
+.table-header{
+    color: var(--third-primary-color);
 }
