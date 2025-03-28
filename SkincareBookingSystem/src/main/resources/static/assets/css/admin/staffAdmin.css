@@ -191,3 +191,50 @@ tbody tr:nth-child(odd) {
     font-size: 14px;
     font-weight: bold;
 }
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 120px;
+    border-radius: 8px;
+    padding: 10px 0;
+
+}
+.dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+}
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+}
+.dropdown .dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.dropdown-menu{
+    left: -140px;
+    top: 32px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.dropdown-item{
+    font-size: 12px;
+    padding: 10px 12px;
+}
+.column-option i{
+    padding: 8px 12px;
+    border-radius: 50%;
+}
+.column-option i:focus,
+.column-option i:hover
+{
+    background: #ccc;
+}

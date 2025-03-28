@@ -6,6 +6,7 @@ const renderDataStaff = {
     renderInit : function(){
         this.renderAllStaffTable();
         this.renderDepartmentInfo();
+        this.onLoadDropdown();
     },
 
     renderAllStaffTable : function(pageSize=6, pageIndex=0){
@@ -44,13 +45,22 @@ const renderDataStaff = {
                                 <td class="data column-gender">${genderText}</td>
                                 <td class="data column-department">${user.department}</td>
                                 <td class="data column-position">${user.position}</td>
-                                <td class="data column-option"><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                                <td class="data column-option">
+                                    <div class="dropdown">
+                                        <i class="fa-solid fa-ellipsis-vertical dropdown-toggle-content"></i>
+                                        <ul class="dropdown-menu" style="max-width: 120px">
+                                            <li class="dropdown-item d-flex"><i class="fa-solid fa-pen-to-square" style="color: black !important;"></i>Edit</li>
+                                            <li class="dropdown-item text-danger d-flex" onclick="renderDataStaff.onDeleteStaff(${user.userID})"><i class="fa-solid fa-trash text-danger"></i>Remove</li>
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
                         `;
                         container.append(memberCard);
                     })
                     $('#page-staff-total').text(`page ${response.number + 1} of ${response.totalPages}`);
                     renderDataStaff.updatePagination(response.totalPages, response.number);
+                    renderDataStaff.onLoadDropdown();
                 }
             }
         });
@@ -181,6 +191,55 @@ const renderDataStaff = {
 
         document.getElementById('nextBtn').addEventListener('click', function () {
             splide.go('+1');
+        });
+    },
+
+    onLoadDropdown: function () {
+        $(document).off('click', '.dropdown-toggle-content').on('click', '.dropdown-toggle-content', function (event) {
+            event.stopPropagation();
+            let menu = $(this).siblings('.dropdown-menu');
+
+            if (menu.length) {
+                $('.dropdown-menu').not(menu).fadeOut(200).css({ opacity: 0, transform: 'translateY(-10px)' }); // Ẩn các dropdown khác
+                if (menu.is(':visible')) {
+                    menu.fadeOut(200).css({ opacity: 0, transform: 'translateY(-10px)' });
+                } else {
+                    menu.css({ display: 'block' }).animate({ opacity: 1, transform: 'translateY(0px)' }, 200);
+                }
+            } else {
+                console.warn("Dropdown menu không tồn tại.");
+            }
+        });
+
+        $(document).off('click', 'body').on('click', 'body', function () {
+            $('.dropdown-menu').fadeOut(200).css({ opacity: 0, transform: 'translateY(-10px)' });
+        });
+    },
+    onDeleteStaff: function(staffID){
+        Swal.fire({
+            title: "Xác nhận xóa?",
+            text: "Bạn có chắc chắn muốn xóa nhân viên này không?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Xóa",
+            cancelButtonText: "Hủy"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "/users/deleteStaff",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ staffID: staffID }),
+                    success: function (response) {
+                        Swal.fire("Đã xóa!", response, "success").then(() => {
+                            location.reload();
+                        });
+                    },
+                    error: function (xhr) {
+                        Swal.fire("Lỗi!", xhr.responseText, "error");
+                    }
+                });
+            }
         });
     }
 }

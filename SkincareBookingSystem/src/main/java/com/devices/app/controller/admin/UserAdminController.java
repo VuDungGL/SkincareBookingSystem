@@ -9,6 +9,7 @@ import com.devices.app.services.DepartmentService;
 import com.devices.app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -51,5 +52,12 @@ public class UserAdminController {
     @GetMapping("/users/getListDepartment")
     public List<DepartmentDto> getListDepartment() {
         return departmentService.getDepartmentList();
+    }
+
+    @PostMapping("/users/deleteStaff")
+    public ResponseEntity<String> deleteStaff(@RequestBody Map<String, Integer> request) {
+        int staffID = request.get("staffID");
+        String result = userService.deleteStaff(staffID);
+        return ResponseEntity.ok(result);
     }
 }

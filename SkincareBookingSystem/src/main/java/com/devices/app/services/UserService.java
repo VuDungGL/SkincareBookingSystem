@@ -5,6 +5,8 @@ import com.devices.app.dtos.StaffInfoDto;
 import com.devices.app.dtos.UserCreationRequest;
 import com.devices.app.models.Users;
 import jakarta.persistence.Tuple;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -12,6 +14,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.devices.app.repository.UserRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -22,8 +25,15 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserService {
+    private final UserRepository userRepository;
+    private final FileService fileService;
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+
     @Autowired
-    private UserRepository userRepository;
+    public UserService(UserRepository userRepository, FileService fileService) {
+        this.userRepository = userRepository;
+        this.fileService = fileService;
+    }
 
 
     public Users createRequest(UserCreationRequest request) {
@@ -105,4 +115,34 @@ public class UserService {
         }
     }
 
+    public void deleteUser(int id) {
+        userRepository.deleteById(id);
+    }
+
+    @Transactional
+    public String deleteStaff(int id) {
+        try{
+            Optional<Users> optionalUser = userRepository.findById(id);
+            if (optionalUser.isPresent()) {
+                Users user = optionalUser.get();
+                String avatarPath = user.getAvt();
+
+                if (avatarPath != null && !avatarPath.isEmpty()) {
+                    fileService.deleteFile(avatarPath);
+                }else{
+                    System.out.println("File không tồn tại!");
+                }
+
+                userRepository.deleteById(id);
+                userRepository.deleteStaffByStaffID(id);
+                return "Xóa thành công";
+            } else {
+                return "Nhân viên không tồn tại";
+            }
+        }
+        catch (Exception ex) {
+            return "Xóa nhân viên thất bại!";
+        }
+
+    }
 }

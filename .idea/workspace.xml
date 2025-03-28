@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34e23dc8-2b0a-4670-901d-5963a1e8fbcc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/staffAdmin.css" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/staffAdmin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/staff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,14 +217,34 @@
       <workItem from="1743052955794" duration="325000" />
       <workItem from="1743061457657" duration="1937000" />
       <workItem from="1743063583812" duration="4224000" />
-      <workItem from="1743129216501" duration="10297000" />
+      <workItem from="1743129216501" duration="21766000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.devices.app.dtos.AnnualStatisticsDto" memberName="year" />
