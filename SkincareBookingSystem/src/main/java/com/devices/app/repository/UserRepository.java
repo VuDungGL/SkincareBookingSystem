@@ -71,6 +71,7 @@ public interface UserRepository extends JpaRepository<Users, String> {
                 OR D.Department LIKE %:searchText%
                 OR S.Position LIKE %:searchText%
             )
+            ORDER BY D.ID
         """, countQuery = "SELECT COUNT(*) FROM S_Users WHERE RoleID = 3  AND (:searchText IS NULL OR UserName LIKE %:searchText%)",
             nativeQuery = true)
     Page<Tuple> getListStaff(@Param("searchText") String searchText, Pageable pageable);

@@ -154,6 +154,7 @@ p,h6{
     margin-bottom: 18px;
     border-bottom: 1px solid #e2e2e2;
     padding-bottom: 12px;
+    color: var(--third-primary-color);
 }
 
 .table-header h6{

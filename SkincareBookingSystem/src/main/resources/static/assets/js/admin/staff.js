@@ -7,6 +7,7 @@ const renderDataStaff = {
         this.renderAllStaffTable();
         this.renderDepartmentInfo();
     },
+
     renderAllStaffTable : function(pageSize=6, pageIndex=0){
         var search = $('#search-input')[0].value;
         $.ajax({
@@ -101,9 +102,6 @@ const renderDataStaff = {
 
         paginationContainer.html(paginationHtml);
     },
-
-
-
 
     renderDepartmentInfo: function(){
         $.ajax({
