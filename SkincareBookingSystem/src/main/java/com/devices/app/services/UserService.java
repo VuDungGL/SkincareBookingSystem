@@ -25,6 +25,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+
     public Users createRequest(UserCreationRequest request) {
         Users user = new Users();
 
@@ -54,6 +55,7 @@ public class UserService {
                 ))
                 .collect(Collectors.toList());
     }
+
 
     public Page<StaffInfoDto> getListStaff(String search,int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
@@ -102,4 +104,5 @@ public class UserService {
             return Page.empty(pageable);
         }
     }
+
 }

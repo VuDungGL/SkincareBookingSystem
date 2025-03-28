@@ -5,6 +5,7 @@ $(document).ready(function(){
 const renderDataStaff = {
     renderInit : function(){
         this.renderAllStaffTable();
+        this.renderDepartmentInfo();
     },
     renderAllStaffTable : function(pageSize=6, pageIndex=0){
         var search = $('#search-input')[0].value;
@@ -53,57 +54,135 @@ const renderDataStaff = {
             }
         });
     },
+
     updatePagination: function(totalPages, currentPage) {
         let paginationContainer = $("#pagination-page");
         paginationContainer.empty();
+        let paginationHtml = '';
 
-        let paginationHtml = currentPage === 0
+        let displayPage = currentPage + 1;
+        let lastPage = totalPages;
+
+        paginationHtml += currentPage === 0
             ? `<i class="fa-solid fa-angle-left opacity-50" style="cursor: not-allowed; pointer-events: none;"></i>`
-            : `<i class="fa-solid fa-angle-left" style="cursor: pointer" onclick="renderDataStaff.renderAllStaffTable(6, ${Math.max(0, currentPage - 1)})"></i>`;
-
+            : `<i class="fa-solid fa-angle-left" style="cursor: pointer" onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage - 1})"></i>`;
 
         if (totalPages <= 5) {
-            // Nếu totalPages <= 5, hiển thị tất cả các trang
             for (let i = 0; i < totalPages; i++) {
-                paginationHtml += `<span class="${currentPage === i ? 'page-active' : ''}" 
-                            onclick="renderDataStaff.renderAllStaffTable(6, ${i})">${i + 1}</span>`;
+                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${i})" 
+                                class="${currentPage === i ? 'page-active' : ''}">${i + 1}</span>`;
             }
         } else {
-            // Nếu currentPage gần đầu (0,1,2)
-            if (currentPage <= 2) {
-                for (let i = 0; i < 4; i++) {
-                    paginationHtml += `<span class="${currentPage === i ? 'page-active' : ''}" 
-                                onclick="renderDataStaff.renderAllStaffTable(6, ${i})">${i + 1}</span>`;
+            if (currentPage <= 1) {
+                for (let i = 0; i <= 2; i++) {
+                    paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${i})" 
+                                    class="${currentPage === i ? 'page-active' : ''}">${i + 1}</span>`;
                 }
                 paginationHtml += `<span>...</span>`;
                 paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${totalPages - 1})">${totalPages}</span>`;
-            }
-            // Nếu currentPage gần cuối
-            else if (currentPage >= totalPages - 3) {
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, 0)">1</span>`;
+            } else if (currentPage >= 2 && currentPage <= totalPages - 4) {
+                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage - 1})">${displayPage - 1}</span>`;
+                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage})" class="page-active">${displayPage}</span>`;
+                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage + 1})">${displayPage + 1}</span>`;
+                paginationHtml += `<span>...</span>`;
+                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${totalPages - 1})">${totalPages}</span>`;
+            } else {
                 paginationHtml += `<span>...</span>`;
                 for (let i = totalPages - 4; i < totalPages; i++) {
-                    paginationHtml += `<span class="${currentPage === i ? 'page-active' : ''}" 
-                                onclick="renderDataStaff.renderAllStaffTable(6, ${i})">${i + 1}</span>`;
+                    paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${i})" 
+                                    class="${currentPage === i ? 'page-active' : ''}">${i + 1}</span>`;
                 }
-            }
-            // Nếu currentPage ở giữa
-            else {
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, 0)">1</span>`;
-                paginationHtml += `<span>...</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage - 1})">${currentPage}</span>`;
-                paginationHtml += `<span class="page-active">${currentPage + 1}</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage + 1})">${currentPage + 2}</span>`;
-                paginationHtml += `<span>...</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${totalPages - 1})">${totalPages}</span>`;
             }
         }
 
         paginationHtml += currentPage === totalPages - 1
             ? `<i class="fa-solid fa-angle-right opacity-50" style="cursor: not-allowed; pointer-events: none;"></i>`
-            : `<i class="fa-solid fa-angle-right" style="cursor: pointer" onclick="renderDataStaff.renderAllStaffTable(6, ${Math.min(totalPages - 1, currentPage + 1)})"></i>`;
-
+            : `<i class="fa-solid fa-angle-right" style="cursor: pointer" onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage + 1})"></i>`;
 
         paginationContainer.html(paginationHtml);
+    },
+
+
+
+
+    renderDepartmentInfo: function(){
+        $.ajax({
+            url: "/users/getListDepartment",
+            method: 'GET',
+            success: function (response){
+                if(response){
+                    let departmentContent = $("#department-content");
+                    departmentContent.empty();
+
+                    response.forEach((department, index) => {
+                        var maxVisible = 4;
+                        var visibleAvatars = department.memberAvatars.slice(0, maxVisible);
+                        var remainingCount = department.memberAvatars.length - maxVisible;
+
+                        var memberAvatarsHTML = visibleAvatars.map(avatar => `<img src="/${avatar}" alt="Avatar">`).join('');
+
+                        // Nếu có nhiều hơn 3 thành viên, hiển thị +X
+                        if (remainingCount > 0) {
+                            memberAvatarsHTML += `<div class="avatar more">+${remainingCount}</div>`;
+                        }
+
+                        var memberCard = `
+                        <li class="splide__slide">
+                            <div class="card">
+                                <div style="background-image: url('${department.icon}'); width: 100%; height: 200px; background-repeat: no-repeat; background-size: cover; background-position: center center;"></div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h5 class="card-title">${department.department}</h5>
+                                            <p class="text-muted">Manager: ${department.managerFirstName} ${department.managerLastName}</p>
+                                            <p class="fw-bold mb-1">Staff</p>
+                                        </div>
+                                        <div class="add-member d-flex align-items-center" style="padding-right: 6px">
+                                            <i class="fa-solid fa-plus" title="Thêm thành viên"></i>
+                                        </div>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 6px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span><i class="bi bi-clock"></i> ${department.totalMember} Member</span>
+                                        <div class="avatars d-flex">
+                                            ${memberAvatarsHTML}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    `;
+                        departmentContent.append(memberCard);
+                    })
+                    renderDataStaff.onLoadSlideDepartment();
+                }
+            }
+        })
+    },
+
+    onLoadSlideDepartment: function(){
+        var splide = new Splide('#department-carousel', {
+            type       : 'loop',
+            perPage    : 1,
+            gap        : '20px',
+            autoplay   : false,
+            interval   : 3000,
+            pagination : false,
+            breakpoints: {
+                768: { perPage: 1 },
+                1024: { perPage: 1 }
+            },
+        }).mount();
+
+        // Điều khiển thủ công bằng nút bấm
+        document.getElementById('prevBtn').addEventListener('click', function () {
+            splide.go('-1');
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', function () {
+            splide.go('+1');
+        });
     }
 }

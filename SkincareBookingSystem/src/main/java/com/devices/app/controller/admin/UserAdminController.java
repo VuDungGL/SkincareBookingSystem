@@ -1,9 +1,11 @@
 package com.devices.app.controller.admin;
 
 import com.devices.app.dtos.AnnualStatisticsDto;
+import com.devices.app.dtos.DepartmentDto;
 import com.devices.app.dtos.StaffInfoDto;
 import com.devices.app.dtos.UserCreationRequest;
 import com.devices.app.models.Users;
+import com.devices.app.services.DepartmentService;
 import com.devices.app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,6 +18,9 @@ import java.util.Map;
 public class UserAdminController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private DepartmentService departmentService;
 
     @PostMapping("/users")
     Users CreateUser(@RequestBody UserCreationRequest request)
@@ -42,5 +47,9 @@ public class UserAdminController {
         if (pageIndex < 0) pageIndex = 0;
         if (pageSize <= 0) pageSize = 6;
         return userService.getListStaff(searchText,pageIndex,pageSize);
+    }
+    @GetMapping("/users/getListDepartment")
+    public List<DepartmentDto> getListDepartment() {
+        return departmentService.getDepartmentList();
     }
 }

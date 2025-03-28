@@ -123,3 +123,71 @@ tbody tr:nth-child(odd) {
 .table-header{
     color: var(--third-primary-color);
 }
+
+.task-card {
+    border-radius: 24px;
+    padding: 24px 32px;
+    background: #fff;
+}
+.progress-bar {
+    background-color: var(--third-primary-color);
+}
+.avatars img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: -10px;
+    border: 2px solid white;
+}
+.pagination-department i,
+.add-member i{
+    font-size:24px;
+    padding: 8px;
+    border: 1px solid #ececec;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.pagination-department i:hover,
+.add-member i:hover{
+    background: var(--second-primary-color);
+}
+.pagination-department i{
+    padding: 4px 10px;
+}
+.task-card button{
+    display: none;
+}
+#department-carousel {
+    max-width: 100%; /* Đảm bảo không vượt quá phần chứa */
+    overflow: hidden; /* Ngăn tràn nội dung */
+}
+
+.splide__slide {
+    width: 100% !important; /* Giữ kích thước cố định */
+    margin: 0 auto; /* Canh giữa */
+}
+.splide__slide .card{
+    width: 100%;
+}
+.avatars {
+    display: flex;
+    align-items: center;
+}
+
+.avatars img, .avatar.more {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: cover;
+}
+
+.avatar.more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
