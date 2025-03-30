@@ -1,7 +1,7 @@
 $(document).ready(function(){
     renderDataStaff.renderInit();
 });
-
+let modalInstance = null;
 const renderDataStaff = {
     renderInit : function(){
         this.renderAllStaffTable();
@@ -146,7 +146,7 @@ const renderDataStaff = {
                                             <p class="fw-bold mb-1">Staff</p>
                                         </div>
                                         <div class="add-member d-flex align-items-center" style="padding-right: 6px">
-                                            <i class="fa-solid fa-plus" title="Thêm thành viên"></i>
+                                            <i class="fa-solid fa-plus" onclick="renderDataStaff.openPopup()" title="Thêm thành viên"></i>
                                         </div>
                                     </div>
                                     <div class="progress mb-2" style="height: 6px;">
@@ -241,5 +241,19 @@ const renderDataStaff = {
                 });
             }
         });
+    },
+    openPopup: function () {
+        var modalElement = document.getElementById('registerModal');
+        if (modalElement) {
+            modalInstance = new bootstrap.Modal(modalElement);
+            modalInstance.show();
+        } else {
+            console.error("Modal element not found!");
+        }
+    },
+    closePopup: function () {
+        if (modalInstance) {
+            modalInstance.hide();
+        }
     }
 }

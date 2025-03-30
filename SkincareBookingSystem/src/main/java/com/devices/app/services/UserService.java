@@ -3,7 +3,9 @@ package com.devices.app.services;
 import com.devices.app.dtos.AnnualStatisticsDto;
 import com.devices.app.dtos.StaffInfoDto;
 import com.devices.app.dtos.UserCreationRequest;
+import com.devices.app.models.StaffInfo;
 import com.devices.app.models.Users;
+import com.devices.app.repository.StaffRepository;
 import jakarta.persistence.Tuple;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,10 +14,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.devices.app.repository.UserRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
@@ -27,27 +32,62 @@ import java.util.stream.Collectors;
 public class UserService {
     private final UserRepository userRepository;
     private final FileService fileService;
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+    private final PasswordEncoder passwordEncoder;
+    private final StaffRepository staffRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository, FileService fileService) {
+    public UserService(UserRepository userRepository, FileService fileService, PasswordEncoder passwordEncoder, StaffRepository staffRepository) {
         this.userRepository = userRepository;
         this.fileService = fileService;
+        this.passwordEncoder = passwordEncoder;
+        this.staffRepository = staffRepository;
     }
 
 
+    @Transactional
     public Users createRequest(UserCreationRequest request) {
-        Users user = new Users();
+        // Kiểm tra trùng lặp userName và email
+        if (userRepository.existsByUserName(request.getUserName())) {
+            throw new IllegalArgumentException("Tên đăng nhập đã tồn tại!");
+        }
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new IllegalArgumentException("Email đã tồn tại!");
+        }
 
-        user.setRoleID(request.getRoleID());
+        // Tạo mới Users entity
+        Users user = new Users();
         user.setUserName(request.getUserName());
-        user.setPassword(request.getPassword());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRoleID(request.getRoleID());
+        user.setEmail(request.getEmail());
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
         user.setPhone(request.getPhone());
-        user.setEmail(request.getEmail());
+        user.setStatus(request.getUserStatus());
+        user.setCreateDate(Instant.now());
+        user.setAvt(request.getAvt());
+        user.setGender(request.getGender());
 
-        return(userRepository.save(user));
+        // Lưu user vào database
+        Users savedUser = userRepository.save(user);
+
+        // Tạo mới StaffInfo entity và liên kết với user
+        StaffInfo staffInfo = new StaffInfo();
+        staffInfo.setStaffID(savedUser.getId()); // Gán ID user vào StaffInfo
+        staffInfo.setDepartment(request.getDepartment());
+        staffInfo.setExpertise(request.getExpertise());
+        staffInfo.setExperience(request.getExperience());
+        staffInfo.setSalary(request.getSalary());
+        staffInfo.setStatus(request.getStaffStatus());
+        staffInfo.setCreateDate(LocalDate.now());
+        staffInfo.setBankAccount(request.getBankAccount());
+        staffInfo.setBankName(request.getBankName());
+        staffInfo.setPosition(request.getPosition());
+
+        // Lưu staffInfo vào database
+        staffRepository.save(staffInfo);
+
+        return savedUser;
     }
 
     public long GetTotalMember(){
@@ -129,8 +169,6 @@ public class UserService {
 
                 if (avatarPath != null && !avatarPath.isEmpty()) {
                     fileService.deleteFile(avatarPath);
-                }else{
-                    System.out.println("File không tồn tại!");
                 }
 
                 userRepository.deleteById(id);

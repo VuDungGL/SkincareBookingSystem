@@ -83,4 +83,7 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
     @Query("DELETE FROM StaffInfo S WHERE S.staffID = :staffID")
     void deleteStaffByStaffID(@Param("staffID") int staffID);
 
+
+    boolean existsByUserName(String userName);
+    boolean existsByEmail(String email);
 }
