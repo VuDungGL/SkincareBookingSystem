@@ -15,6 +15,13 @@ const baseCore={
             year: "numeric"
         });
     },
+     showLoading:function() {
+         $('.loading-overlay').addClass("loading-active").fadeIn();
+         $('body').append('<div class="loading-overlay"><div class="loader"></div></div>');
+    },
+     hideLoading:function() {
+         $('.loading-overlay').removeClass("loading-active").fadeOut();
+    }
 }
 
 const onAddLeftBarActive = {

@@ -5,15 +5,25 @@ $(document).ready(function(){
 });
 
 const renderData= {
-    renderInit: function(){
-        this.onLoadTotalMember();
-        this.onLoadTotalBookingSuccess();
-        this.onLoadFeedback();
-        this.onLoadTotalBookingCancel();
-        this.onLoadBestSaler();
-        this.onLoadRevenue();
-        this.onLoadTopWorkingHard();
-        this.onLoadWorkingTable(4, 1);
+    renderInit: async function(){
+        baseCore.showLoading() // Hiển thị hiệu ứng loading trước khi gọi API
+
+        try {
+            await Promise.all([
+                this.onLoadTotalMember(),
+                this.onLoadTotalBookingSuccess(),
+                this.onLoadFeedback(),
+                this.onLoadTotalBookingCancel(),
+                this.onLoadBestSaler(),
+                this.onLoadRevenue(),
+                this.onLoadTopWorkingHard(),
+                this.onLoadWorkingTable(4, 1)
+            ]);
+        } catch (error) {
+            console.error("Lỗi khi tải dữ liệu:", error);
+        } finally {
+            baseCore.hideLoading()
+        }
     },
 
     onLoadTotalMember: function(){
