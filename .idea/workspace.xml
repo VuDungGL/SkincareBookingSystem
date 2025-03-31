@@ -5,22 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34e23dc8-2b0a-4670-901d-5963a1e8fbcc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/StaffRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/admin/create-icon-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/admin/create-icon-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/UserCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/UserCreationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/staffAdmin.css" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/staffAdmin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/staff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/staff.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/staff.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/baseAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/baseAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/dashboard.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +71,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.SkincareBookingSystemApplication (1).executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.SkincareBookingSystemApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev-khanh&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-chien&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/OneDrive/Documents/GitHub/SkincareBookingSystem/SkincareBookingSystem/src/main/resources/static/assets/scss&quot;,
@@ -134,7 +124,7 @@
     </configuration>
     <configuration name="SkincareBookingSystemApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="demo" />
+      <module name="Services" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.devices.app.SkincareBookingSystemApplication" />
       <extension name="coverage">
         <pattern>
@@ -224,6 +214,8 @@
       <workItem from="1743061457657" duration="1937000" />
       <workItem from="1743063583812" duration="4224000" />
       <workItem from="1743129216501" duration="21766000" />
+      <workItem from="1743326100620" duration="252000" />
+      <workItem from="1743326365154" duration="4000" />
     </task>
     <servers />
   </component>
