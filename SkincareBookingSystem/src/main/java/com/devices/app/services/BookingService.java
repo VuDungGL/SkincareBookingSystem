@@ -70,5 +70,6 @@ public class BookingService {
     public List<UserDto> getUsersByPage(int pageIndex, int pageSize) {
         int offset = (pageIndex - 1) * pageSize + 1;
         return bookingRepository.GetListUserWorkMonth(offset, pageSize);
+
     }
 }
