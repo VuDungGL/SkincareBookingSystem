@@ -20,4 +20,12 @@ public class Department {
     @Column(name = "Department")
     private String department;
 
+    @Nationalized
+    @Lob
+    @Column(name = "Icon")
+    private String icon;
+
+    @Column(name = "ManagerID")
+    private Integer managerID;
+
 }

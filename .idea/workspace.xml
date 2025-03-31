@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34e23dc8-2b0a-4670-901d-5963a1e8fbcc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/StaffRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/admin/create-icon-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/images/base/admin/create-icon-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SkincareBookingSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/UserCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/dtos/UserCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/staffAdmin.css" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/css/admin/staffAdmin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/static/assets/js/admin/staff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/staff.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/content/staff.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/SkincareBookingSystem/src/main/resources/templates/admin/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="com.intellij.jpb.JpaEntity" />
         <option value="Enum" />
+        <option value="com.intellij.jpb.JpaEntity" />
         <option value="Class" />
       </list>
     </option>
@@ -44,6 +58,8 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #5.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #6.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.rest-api_1 | #1.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.rest-api_2 | #1.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.rest-api_3 | #1.executor&quot;: &quot;Run&quot;,
@@ -107,22 +123,11 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SkincareBookingSystemApplication (1)">
-    <configuration name="rest-api_7 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_7.http" executionIdentifier="#1" runType="Run single request">
+    <configuration name="generated-requests | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#5" index="5" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="com.example.Services in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.Services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.Services" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="rest-api_7 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_7.http" executionIdentifier="#1" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SkincareBookingSystem/Services/templates/home/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
@@ -159,9 +164,9 @@
       <list>
         <item itemvalue="Spring Boot.SkincareBookingSystemApplication (1)" />
         <item itemvalue="HTTP Request.rest-api_7 | #1" />
+        <item itemvalue="HTTP Request.generated-requests | #5" />
         <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="Spring Boot.SkincareBookingSystemApplication" />
-        <item itemvalue="JUnit.com.example.Services in demo" />
       </list>
     </recent_temporary>
   </component>
@@ -216,53 +221,33 @@
       <workItem from="1742877430297" duration="3071000" />
       <workItem from="1742959921250" duration="36344000" />
       <workItem from="1743052955794" duration="325000" />
+      <workItem from="1743061457657" duration="1937000" />
+      <workItem from="1743063583812" duration="4224000" />
+      <workItem from="1743129216501" duration="21766000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java</url>
-          <line>36</line>
-          <properties class="com.devices.app.controller.admin.UserAdminController" method="getListStaff">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java</url>
-          <line>42</line>
+          <line>59</line>
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/SkincareBookingSystem/src/main/java/com/devices/app/controller/admin/UserAdminController.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

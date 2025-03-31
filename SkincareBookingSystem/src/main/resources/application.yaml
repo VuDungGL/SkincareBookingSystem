@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: SkincareBookingSystem
+  datasource:
+    url: jdbc:sqlserver://localhost:1434;databaseName=SkincareBookingSystem_db;encrypt=false
+    username: MSI
+    password: 1234
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    show-sql: false
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    check-template-location: true
+
+server:
+  port: 9090

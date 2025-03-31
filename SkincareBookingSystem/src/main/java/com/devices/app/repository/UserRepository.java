@@ -5,14 +5,16 @@ import jakarta.persistence.Tuple;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
-public interface UserRepository extends JpaRepository<Users, String> {
+public interface UserRepository extends JpaRepository<Users, Integer> {
     @Query("SELECT COUNT(U) FROM Users U WHERE U.roleID = 2")
     long getTotalMember();
 
@@ -71,8 +73,17 @@ public interface UserRepository extends JpaRepository<Users, String> {
                 OR D.Department LIKE %:searchText%
                 OR S.Position LIKE %:searchText%
             )
+            ORDER BY D.ID
         """, countQuery = "SELECT COUNT(*) FROM S_Users WHERE RoleID = 3  AND (:searchText IS NULL OR UserName LIKE %:searchText%)",
             nativeQuery = true)
     Page<Tuple> getListStaff(@Param("searchText") String searchText, Pageable pageable);
-    
+
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM StaffInfo S WHERE S.staffID = :staffID")
+    void deleteStaffByStaffID(@Param("staffID") int staffID);
+
+
+    boolean existsByUserName(String userName);
+    boolean existsByEmail(String email);
 }

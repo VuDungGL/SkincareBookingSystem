@@ -10,5 +10,8 @@
     <orderEntry type="library" name="all" level="application" />
     <orderEntry type="library" name="bootstrap-icons" level="application" />
     <orderEntry type="library" name="jquery-3.6.0" level="application" />
+    <orderEntry type="library" name="@splidejs/splide" level="application" />
+    <orderEntry type="library" name="sweetalert2" level="application" />
+    <orderEntry type="library" name="linearicons" level="application" />
   </component>
 </module>
