@@ -47,7 +47,7 @@ public class BookingAdminController {
         return bookingService.AnnualSaleOnLast7Day(isPaid,year);
     }
     @PostMapping("/booking/getHardWorking")
-    public List<UserDto> getHardWorking(@RequestBody Map<String, Integer> request) {
+    public List<SkinTherapistDto> getHardWorking(@RequestBody Map<String, Integer> request) {
         int pageIndex = request.getOrDefault("pageIndex", 1);
         int pageSize = request.getOrDefault("pageSize", 4);
 

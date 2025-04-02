@@ -7,22 +7,40 @@ import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "S_StaffInfo")
-public class StaffInfo {
+@Table(name = "S_SkinTherapist")
+public class SkinTherapist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @Column(name = "StaffID")
-    private Integer staffID;
+    @Size(max = 50)
+    @Nationalized
+    @Column(name = "FirstName", length = 50)
+    private String firstName;
 
-    @Column(name = "Department")
-    private Integer department;
+    @Size(max = 50)
+    @Nationalized
+    @Column(name = "LastName", length = 50)
+    private String lastName;
+
+    @Nationalized
+    @Lob
+    @Column(name = "Email")
+    private String email;
+
+    @Size(max = 12)
+    @Nationalized
+    @Column(name = "Phone", length = 12)
+    private String phone;
+
+    @Column(name = "BirthDate")
+    private OffsetDateTime birthDate;
 
     @Nationalized
     @Lob
@@ -43,17 +61,10 @@ public class StaffInfo {
 
     @Nationalized
     @Lob
-    @Column(name = "BankAccount")
-    private String bankAccount;
+    @Column(name = "Avt")
+    private String avt;
 
-    @Nationalized
-    @Lob
-    @Column(name = "BankName")
-    private String bankName;
-
-    @Size(max = 50)
-    @Nationalized
-    @Column(name = "\"Position\"", length = 50)
-    private String position;
+    @Column(name = "Gender")
+    private Integer gender;
 
 }

@@ -6,8 +6,7 @@ import lombok.Getter;
 public enum UserRoleEnum {
     MASTER_ADMIN(0, "Master Admin"),
     ADMIN(1, "Admin"),
-    MEMBER(2, "Member"),
-    STAFF(3, "Staff");
+    MEMBER(2, "Member");
 
     private final int value;
     private final String description;

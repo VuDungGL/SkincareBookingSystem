@@ -129,7 +129,7 @@ const renderData= {
                             <img src="/${user.avt}" alt="${user.firstName}">
                             <div class="member-info">
                                 <div class="member-name">${user.firstName} ${user.lastName}</div>
-                                <div class="member-role">${user.userName}</div>
+                                <div class="member-role">${user.email}</div>
                             </div>
                             ${index === 0 ? '<img src="/assets/images/base/admin/_1st.png" alt="logo" class="options"/>' : ''}
                         </div>`;
@@ -158,7 +158,7 @@ const renderData= {
                     response.forEach((user, index) => {
                         var memberCard = `
                         <tr>
-                            <td class="column-id">#SBS0${user.userId}</td>
+                            <td class="column-id">#SBS0${user.skinTerapistID}</td>
                             <td class="column-name">${user.firstName} ${user.lastName}</td>
                             <td class="column-birth">${user.email}</td>
                             <td class="column-phone">${user.phone}</td>

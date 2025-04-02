@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.OffsetDateTime;
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -20,6 +20,6 @@ public class Booking {
     private Integer userID;
 
     @Column(name = "BookingDate")
-    private OffsetDateTime bookingDate;
+    private Instant bookingDate;
 
 }

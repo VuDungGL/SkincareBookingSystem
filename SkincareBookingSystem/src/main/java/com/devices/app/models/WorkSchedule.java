@@ -19,8 +19,8 @@ public class WorkSchedule {
     private Integer id;
 
     @NotNull
-    @Column(name = "SpecialistID", nullable = false)
-    private Integer specialistID;
+    @Column(name = "SkinTherapistID", nullable = false)
+    private Integer skinTherapistID;
 
     @NotNull
     @Column(name = "WorkDate", nullable = false)

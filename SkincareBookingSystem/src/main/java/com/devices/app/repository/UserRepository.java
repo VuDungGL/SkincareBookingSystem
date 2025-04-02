@@ -37,51 +37,32 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
 
     @Query(value= """
         SELECT
-            U.ID AS userID,
-            U.UserName,
-            U.RoleID,
-            U.Email,
-            U.Password,
-            U.FirstName,
-            U.LastName,
-            U.Phone,
-            U.Status AS userStatus,
-            FORMAT(U.BirthDay, 'yyyy-MM-dd HH:mm:ss') AS BirthDay,
-            FORMAT(U.CreateDate, 'yyyy-MM-dd HH:mm:ss') AS UserCreateDate,
-            U.Avt,
-            U.Gender,
-            D.Department,
+            S.ID AS SkinTherapistID,
+            S.Email,
+            S.FirstName,
+            S.LastName,
+            S.Phone,
+            FORMAT(S.BirthDate, 'yyyy-MM-dd HH:mm:ss') AS BirthDate,
+            S.Avt,
+            S.Gender,
             S.Expertise,
             S.Experience,
             S.Salary,
-            S.Status AS staffStatus,
-            FORMAT(S.CreateDate, 'yyyy-MM-dd HH:mm:ss') AS StaffCreateDate,
-            S.BankAccount,
-            S.BankName,
-            S.Position
-            FROM S_Users AS U
-            LEFT JOIN S_StaffInfo AS S ON S.StaffID = U.ID
-            LEFT JOIN S_Department AS D ON D.ID = S.Department
-            WHERE U.RoleID = 3
+            S.Status
+            FROM S_SkinTherapist AS S
+            WHERE 1 = 1
             AND (
                 :searchText IS NULL 
-                OR U.UserName LIKE %:searchText% 
-                OR U.Email LIKE %:searchText% 
-                OR U.Phone LIKE %:searchText%
-                OR U.FirstName LIKE %:searchText%
-                OR U.LastName LIKE %:searchText%
-                OR D.Department LIKE %:searchText%
-                OR S.Position LIKE %:searchText%
+                OR S.Email LIKE %:searchText% 
+                OR S.Phone LIKE %:searchText%
+                OR S.FirstName LIKE %:searchText%
+                OR S.LastName LIKE %:searchText%
+                OR S.Experience LIKE %:searchText%
             )
-            ORDER BY D.ID
-        """, countQuery = "SELECT COUNT(*) FROM S_Users WHERE RoleID = 3  AND (:searchText IS NULL OR UserName LIKE %:searchText%)",
+        """, countQuery = "SELECT COUNT(*) FROM S_SkinTherapist WHERE  1 = 1 AND (:searchText IS NULL OR Email LIKE %:searchText%)",
             nativeQuery = true)
-    Page<Tuple> getListStaff(@Param("searchText") String searchText, Pageable pageable);
+    Page<Tuple> getListSkinTherapist(@Param("searchText") String searchText, Pageable pageable);
 
-    @Modifying
-    @Transactional
-    @Query("DELETE FROM StaffInfo S WHERE S.staffID = :staffID")
-    void deleteStaffByStaffID(@Param("staffID") int staffID);
 
 
     boolean existsByUserName(String userName);

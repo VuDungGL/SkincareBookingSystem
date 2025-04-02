@@ -4,10 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum StaffStatusEnum {
-    INACTIVE(0 ,"Chưa kích hoạt"),
-    ACTIVE(1,"Đã kích hoạt"),
-    SUSPENDED(2, "Đã hủy"),
-    RESIGNED(3,"Đã từ chức");
+    ACTIVE(0,"Đã kích hoạt"),
+    SUSPENDED(1, "Đã hủy"),
+    RESIGNED(2,"Đã từ chức");
 
     private final int value;
     private final String description;

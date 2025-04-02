@@ -20,8 +20,8 @@ public class BookingDetail {
     @Column(name = "ServiceID")
     private Integer serviceID;
 
-    @Column(name = "StaffID")
-    private Integer staffID;
+    @Column(name = "SkinTherapistID")
+    private Integer skinTherapistID;
 
     @Column(name = "Price")
     private Double price;
@@ -31,5 +31,8 @@ public class BookingDetail {
 
     @Column(name = "IsPaid")
     private Boolean isPaid;
+
+    @Column(name = "PromotionID")
+    private Integer promotionID;
 
 }

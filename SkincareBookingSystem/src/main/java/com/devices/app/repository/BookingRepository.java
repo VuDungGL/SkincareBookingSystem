@@ -2,7 +2,7 @@ package com.devices.app.repository;
 
 import com.devices.app.dtos.BookingDto;
 import com.devices.app.dtos.RevenueDto;
-import com.devices.app.dtos.UserDto;
+import com.devices.app.dtos.SkinTherapistDto;
 import com.devices.app.models.Booking;
 import jakarta.persistence.Tuple;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -74,29 +74,27 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
     List<Tuple> AnnualSaleOnLast7Day(@Param("isPaid") int isPaid,@Param("yearSearch")int yearSearch);
 
     @Query(value= """
-            WITH Staffs AS (
-                SELECT
-                    U.ID AS UserID,
-                    U.UserName,
-                    U.Email,
-                    U.FirstName,
-                    U.LastName,
-                    U.Phone,
-                    U.Avt,
-                    COALESCE(SUM(BD.Price), 0) AS Total,
-                    COALESCE(COUNT(B.ID), 0) AS TotalTask,
-                    COALESCE(COUNT(B.ID) * 100.0 / NULLIF(SUM(COUNT(B.ID)) OVER (), 1), 0) AS PercentTask
-                FROM S_Users AS U WITH (NOLOCK)
-                LEFT JOIN S_BookingDetail AS BD WITH (NOLOCK) ON BD.StaffID = U.ID
-                LEFT JOIN S_Booking AS B WITH (NOLOCK) ON B.ID = BD.BookingID AND MONTH(B.BookingDate) = MONTH(GETDATE())
-                WHERE U.RoleID = 3
-                GROUP BY U.ID, U.UserName, U.Email, U.FirstName, U.LastName, U.Phone, U.Avt
-            )
-            SELECT *
-            FROM Staffs
-            ORDER BY Total DESC
-            OFFSET :offSet ROWS FETCH NEXT :pageSize ROWS ONLY;
+           WITH Staffs AS (
+                   SELECT
+                       S.ID AS SkinTerapistID,
+                       S.Email,
+                       S.FirstName,
+                       S.LastName,
+                       S.Phone,
+                       S.Avt,
+                       COALESCE(SUM(BD.Price), 0) AS Total,
+                       COALESCE(COUNT(B.ID), 0) AS TotalTask,
+                       COALESCE(COUNT(B.ID) * 100.0 / NULLIF(SUM(COUNT(B.ID)) OVER (), 1), 0) AS PercentTask
+                   FROM S_SkinTherapist AS S WITH (NOLOCK)
+                   LEFT JOIN S_BookingDetail AS BD WITH (NOLOCK) ON BD.SkinTherapistID = S.ID
+                   LEFT JOIN S_Booking AS B WITH (NOLOCK) ON B.ID = BD.BookingID AND MONTH(B.BookingDate) = MONTH(GETDATE())
+                   GROUP BY S.ID, S.Email, S.FirstName, S.LastName, S.Phone, S.Avt
+               )
+               SELECT *
+               FROM Staffs
+               ORDER BY Total DESC
+               OFFSET :offSet ROWS FETCH NEXT :pageSize ROWS ONLY;
         """, nativeQuery = true)
-    List<UserDto> GetListUserWorkMonth(@Param("offSet") int offSet, @Param("pageSize") int pageSize);
+    List<SkinTherapistDto> GetListUserWorkMonth(@Param("offSet") int offSet, @Param("pageSize") int pageSize);
 
 }

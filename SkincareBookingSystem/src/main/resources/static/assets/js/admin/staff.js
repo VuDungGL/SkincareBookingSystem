@@ -12,7 +12,7 @@ const renderDataStaff = {
     renderAllStaffTable : function(pageSize=6, pageIndex=0){
         var search = $('#search-input')[0].value;
         $.ajax({
-            url: "/users/getListStaff",
+            url: "/users/getListSkinTherapist",
             method: 'POST',
             data: JSON.stringify({
                 pageSize: pageSize,
@@ -27,7 +27,7 @@ const renderDataStaff = {
                     container.empty();
 
                     response.content.forEach((user, index) => {
-                        let birth = baseCore.formatDate(user.birthDay);
+                        let birth = baseCore.formatDate(user.birthDate);
                         let genderText = "Khác";
 
                         if (user.gender === 1) {
@@ -37,20 +37,20 @@ const renderDataStaff = {
                         }
                         var memberCard = `
                             <tr>
-                                <td class="data column-id">#SBS0${user.userID}</td>
+                                <td class="data column-id">#SBS0${user.skinTherapistID}</td>
                                 <td class="data column-name"><img src="/${user.avt}" alt="User Image">${user.firstName} ${user.lastName}</td>
                                 <td class="data column-birth">${birth}</td>
                                 <td class="data column-email">${user.email}</td>
                                 <td class="data column-phone">${user.phone}</td>
                                 <td class="data column-gender">${genderText}</td>
-                                <td class="data column-department">${user.department}</td>
-                                <td class="data column-position">${user.position}</td>
+                                <td class="data column-department">${user.expertise}</td>
+                                <td class="data column-position">${user.salary}</td>
                                 <td class="data column-option">
                                     <div class="dropdown">
                                         <i class="fa-solid fa-ellipsis-vertical dropdown-toggle-content"></i>
                                         <ul class="dropdown-menu" style="max-width: 120px">
                                             <li class="dropdown-item d-flex"><i class="fa-solid fa-pen-to-square" style="color: black !important;"></i>Edit</li>
-                                            <li class="dropdown-item text-danger d-flex" onclick="renderDataStaff.onDeleteStaff(${user.userID})"><i class="fa-solid fa-trash text-danger"></i>Remove</li>
+                                            <li class="dropdown-item text-danger d-flex" onclick="renderDataStaff.onDeleteStaff(${user.skinTherapistID})"><i class="fa-solid fa-trash text-danger"></i>Remove</li>
                                         </ul>
                                     </div>
                                 </td>

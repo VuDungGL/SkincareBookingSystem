@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
 import java.time.Instant;
+import java.time.OffsetDateTime;
 
 @Getter
 @Setter
@@ -57,9 +58,8 @@ public class Users {
     @Column(name = "Status", nullable = false)
     private Integer status;
 
-    @NotNull
-    @Column(name = "CreateDate", nullable = false)
-    private Instant createDate;
+    @Column(name = "CreateDate")
+    private OffsetDateTime createDate;
 
     @Nationalized
     @Lob
@@ -68,4 +68,8 @@ public class Users {
 
     @Column(name = "Gender")
     private Integer gender;
+
+    @Column(name = "BirthDay")
+    private Instant birthDay;
+
 }

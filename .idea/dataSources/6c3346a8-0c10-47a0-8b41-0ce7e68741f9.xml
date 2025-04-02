@@ -16946,8 +16946,8 @@
     </schema>
     <schema id="5587" parent="5523" name="dbo">
       <Current>1</Current>
-      <IntrospectionTimestamp>2025-03-27.20:33:24.640</IntrospectionTimestamp>
-      <LastIntrospectionLocalTimestamp>2025-03-27.06:33:24</LastIntrospectionLocalTimestamp>
+      <IntrospectionTimestamp>2025-04-03.05:47:41.900</IntrospectionTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-04-02.15:47:41</LastIntrospectionLocalTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="5588" parent="5523" name="guest">
@@ -16957,280 +16957,206 @@
       <ObjectId>4</ObjectId>
     </schema>
     <table id="5590" parent="5587" name="S_Booking">
-      <CreatedTimestamp>2025-03-19.19:43:01.947</CreatedTimestamp>
+      <CreatedTimestamp>2025-04-03.05:40:39.087</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2025-03-19.20:06:38.390</ModifiedTimestamp>
-      <ObjectId>2128726636</ObjectId>
+      <ModifiedTimestamp>2025-04-03.05:57:02.843</ModifiedTimestamp>
+      <ObjectId>637245325</ObjectId>
       <LobDataSpaceId>0</LobDataSpaceId>
     </table>
     <table id="5591" parent="5587" name="S_BookingDetail">
       <CreatedTimestamp>2025-03-19.19:45:29.113</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2025-03-20.18:52:57.633</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-04-03.05:46:09.670</ModifiedTimestamp>
       <ObjectId>2144726693</ObjectId>
       <LobDataSpaceId>0</LobDataSpaceId>
     </table>
-    <table id="5592" parent="5587" name="S_BookingPromotions">
-      <CreatedTimestamp>2025-03-19.19:48:52.993</CreatedTimestamp>
-      <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2025-03-19.19:48:53.007</ModifiedTimestamp>
-      <ObjectId>45243216</ObjectId>
-      <LobDataSpaceId>0</LobDataSpaceId>
-    </table>
-    <table id="5593" parent="5587" name="S_Department">
-      <CreatedTimestamp>2025-03-26.23:31:15.617</CreatedTimestamp>
-      <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2025-03-27.20:16:45.317</ModifiedTimestamp>
-      <ObjectId>317244185</ObjectId>
-      <LobDataSpaceId>1</LobDataSpaceId>
-    </table>
-    <table id="5594" parent="5587" name="S_Feedback">
+    <table id="5592" parent="5587" name="S_Feedback">
       <CreatedTimestamp>2025-03-19.19:51:55.410</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
       <ModifiedTimestamp>2025-03-19.20:06:38.403</ModifiedTimestamp>
       <ObjectId>77243330</ObjectId>
       <LobDataSpaceId>1</LobDataSpaceId>
     </table>
-    <table id="5595" parent="5587" name="S_Payment">
+    <table id="5593" parent="5587" name="S_Payment">
       <CreatedTimestamp>2025-03-13.20:56:41.363</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
       <ModifiedTimestamp>2025-03-19.09:22:33.810</ModifiedTimestamp>
       <ObjectId>1509580416</ObjectId>
       <LobDataSpaceId>0</LobDataSpaceId>
     </table>
-    <table id="5596" parent="5587" name="S_PaymentTransaction">
+    <table id="5594" parent="5587" name="S_PaymentTransaction">
       <CreatedTimestamp>2025-03-13.20:56:41.370</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
       <ModifiedTimestamp>2025-03-19.09:22:33.810</ModifiedTimestamp>
       <ObjectId>1605580758</ObjectId>
       <LobDataSpaceId>0</LobDataSpaceId>
     </table>
-    <table id="5597" parent="5587" name="S_Promotion">
+    <table id="5595" parent="5587" name="S_Promotion">
       <CreatedTimestamp>2025-03-13.20:56:41.350</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
       <ModifiedTimestamp>2025-03-19.09:22:33.800</ModifiedTimestamp>
       <ObjectId>1301579675</ObjectId>
       <LobDataSpaceId>0</LobDataSpaceId>
     </table>
-    <table id="5598" parent="5587" name="S_Role">
+    <table id="5596" parent="5587" name="S_Role">
       <CreatedTimestamp>2025-03-19.20:16:43.950</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
       <ModifiedTimestamp>2025-03-19.20:18:08.770</ModifiedTimestamp>
       <ObjectId>205243786</ObjectId>
       <LobDataSpaceId>0</LobDataSpaceId>
     </table>
-    <table id="5599" parent="5587" name="S_ServiceCategory">
+    <table id="5597" parent="5587" name="S_ServiceCategory">
       <CreatedTimestamp>2025-03-19.19:55:09.663</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
       <ModifiedTimestamp>2025-03-19.19:55:09.663</ModifiedTimestamp>
       <ObjectId>109243444</ObjectId>
       <LobDataSpaceId>1</LobDataSpaceId>
     </table>
-    <table id="5600" parent="5587" name="S_Services">
+    <table id="5598" parent="5587" name="S_Services">
       <CreatedTimestamp>2025-03-19.19:58:34.040</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
       <ModifiedTimestamp>2025-03-26.05:24:16.807</ModifiedTimestamp>
       <ObjectId>173243672</ObjectId>
       <LobDataSpaceId>1</LobDataSpaceId>
     </table>
-    <table id="5601" parent="5587" name="S_StaffInfo">
-      <CreatedTimestamp>2025-03-26.23:29:55.540</CreatedTimestamp>
+    <table id="5599" parent="5587" name="S_SkinTherapist">
+      <CreatedTimestamp>2025-04-03.07:11:20.343</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2025-03-26.23:29:55.553</ModifiedTimestamp>
-      <ObjectId>285244071</ObjectId>
+      <ModifiedTimestamp>2025-04-03.07:13:29.583</ModifiedTimestamp>
+      <ObjectId>701245553</ObjectId>
       <LobDataSpaceId>1</LobDataSpaceId>
     </table>
-    <table id="5602" parent="5587" name="S_Users">
-      <CreatedTimestamp>2025-03-26.23:07:51.320</CreatedTimestamp>
+    <table id="5600" parent="5587" name="S_Users">
+      <CreatedTimestamp>2025-04-03.07:11:38.487</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2025-03-27.07:36:19.920</ModifiedTimestamp>
-      <ObjectId>253243957</ObjectId>
+      <ModifiedTimestamp>2025-04-03.07:13:29.593</ModifiedTimestamp>
+      <ObjectId>733245667</ObjectId>
       <LobDataSpaceId>1</LobDataSpaceId>
     </table>
-    <table id="5603" parent="5587" name="S_WorkSchedule">
+    <table id="5601" parent="5587" name="S_WorkSchedule">
       <CreatedTimestamp>2025-03-13.20:56:41.337</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2025-03-13.21:05:49.660</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-04-03.05:45:58.153</ModifiedTimestamp>
       <ObjectId>1077578877</ObjectId>
       <LobDataSpaceId>0</LobDataSpaceId>
     </table>
-    <column id="5604" parent="5590" name="ID">
+    <column id="5602" parent="5590" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1(89)</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5605" parent="5590" name="UserID">
+    <column id="5603" parent="5590" name="UserID">
       <Position>2</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5606" parent="5590" name="BookingDate">
+    <column id="5604" parent="5590" name="BookingDate">
       <Position>3</Position>
       <StoredType>datetimeoffset(6 digit)|0s</StoredType>
     </column>
-    <index id="5607" parent="5590" name="PK_S_Booking">
+    <index id="5605" parent="5590" name="PK_S_Booking">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5608" parent="5590" name="PK_S_Booking">
-      <CreatedTimestamp>2025-03-19.19:45:46.770</CreatedTimestamp>
-      <ModifiedTimestamp>2025-03-19.19:45:46.770</ModifiedTimestamp>
-      <ObjectId>29243159</ObjectId>
+    <key id="5606" parent="5590" name="PK_S_Booking">
+      <CreatedTimestamp>2025-04-03.05:40:40.503</CreatedTimestamp>
+      <ModifiedTimestamp>2025-04-03.05:40:40.503</ModifiedTimestamp>
+      <ObjectId>653245382</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_S_Booking</UnderlyingIndexName>
     </key>
-    <column id="5609" parent="5591" name="ID">
+    <column id="5607" parent="5591" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1(81)</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5610" parent="5591" name="BookingID">
+    <column id="5608" parent="5591" name="BookingID">
       <Position>2</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5611" parent="5591" name="ServiceID">
+    <column id="5609" parent="5591" name="ServiceID">
       <Position>3</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5612" parent="5591" name="StaffID">
+    <column id="5610" parent="5591" name="SkinTherapistID">
       <Position>4</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5613" parent="5591" name="Price">
+    <column id="5611" parent="5591" name="Price">
       <Position>5</Position>
       <StoredType>float|0s</StoredType>
     </column>
-    <column id="5614" parent="5591" name="Status">
+    <column id="5612" parent="5591" name="Status">
       <Position>6</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5615" parent="5591" name="IsPaid">
+    <column id="5613" parent="5591" name="IsPaid">
       <Position>7</Position>
       <StoredType>bit|0s</StoredType>
     </column>
-    <index id="5616" parent="5591" name="PK_S_BookingDetail">
+    <column id="5614" parent="5591" name="PromotionID">
+      <Position>8</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="5615" parent="5591" name="PK_S_BookingDetail">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5617" parent="5591" name="PK_S_BookingDetail">
+    <key id="5616" parent="5591" name="PK_S_BookingDetail">
       <CreatedTimestamp>2025-03-19.19:45:29.133</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-19.19:45:29.133</ModifiedTimestamp>
       <ObjectId>13243102</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_S_BookingDetail</UnderlyingIndexName>
     </key>
-    <column id="5618" parent="5592" name="ID">
+    <column id="5617" parent="5592" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5619" parent="5592" name="BookingID">
+    <column id="5618" parent="5592" name="UserID">
       <Position>2</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5620" parent="5592" name="PromotionID">
+    <column id="5619" parent="5592" name="ServiceID">
       <Position>3</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5621" parent="5592" name="DiscountAmount">
-      <Position>4</Position>
-      <StoredType>float|0s</StoredType>
-    </column>
-    <index id="5622" parent="5592" name="PK_S_BookingPromotions">
-      <Clustering>1</Clustering>
-      <ColNames>ID</ColNames>
-      <Position>1</Position>
-      <Unique>1</Unique>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <key id="5623" parent="5592" name="PK_S_BookingPromotions">
-      <CreatedTimestamp>2025-03-19.19:48:53</CreatedTimestamp>
-      <ModifiedTimestamp>2025-03-19.19:48:53</ModifiedTimestamp>
-      <ObjectId>61243273</ObjectId>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PK_S_BookingPromotions</UnderlyingIndexName>
-    </key>
-    <column id="5624" parent="5593" name="ID">
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <SequenceIdentity>1(9)</SequenceIdentity>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="5625" parent="5593" name="Department">
-      <Position>2</Position>
-      <StoredType>nvarchar(max)|0s</StoredType>
-    </column>
-    <column id="5626" parent="5593" name="Icon">
-      <Position>3</Position>
-      <StoredType>nvarchar(max)|0s</StoredType>
-    </column>
-    <column id="5627" parent="5593" name="ManagerID">
+    <column id="5620" parent="5592" name="Rating">
       <Position>4</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <index id="5628" parent="5593" name="PK_S">
-      <Clustering>1</Clustering>
-      <ColNames>ID</ColNames>
-      <Position>1</Position>
-      <Unique>1</Unique>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <key id="5629" parent="5593" name="PK_S">
-      <CreatedTimestamp>2025-03-26.23:31:15.633</CreatedTimestamp>
-      <ModifiedTimestamp>2025-03-26.23:31:15.633</ModifiedTimestamp>
-      <ObjectId>333244242</ObjectId>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PK_S</UnderlyingIndexName>
-    </key>
-    <column id="5630" parent="5594" name="ID">
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="5631" parent="5594" name="UserID">
-      <Position>2</Position>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="5632" parent="5594" name="ServiceID">
-      <Position>3</Position>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="5633" parent="5594" name="Rating">
-      <Position>4</Position>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="5634" parent="5594" name="Comment">
+    <column id="5621" parent="5592" name="Comment">
       <Position>5</Position>
       <StoredType>nvarchar(max)|0s</StoredType>
     </column>
-    <column id="5635" parent="5594" name="CreateDate">
+    <column id="5622" parent="5592" name="CreateDate">
       <Position>6</Position>
       <StoredType>datetimeoffset(6 digit)|0s</StoredType>
     </column>
-    <index id="5636" parent="5594" name="PK_S_">
+    <index id="5623" parent="5592" name="PK_S_">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5637" parent="5594" name="PK_S_">
+    <key id="5624" parent="5592" name="PK_S_">
       <CreatedTimestamp>2025-03-19.19:51:55.433</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-19.19:51:55.433</ModifiedTimestamp>
       <ObjectId>93243387</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_S_</UnderlyingIndexName>
     </key>
-    <check id="5638" parent="5595" name="CK__S_Payment__Payme__5BE2A6F2">
+    <check id="5625" parent="5593" name="CK__S_Payment__Payme__5BE2A6F2">
       <ColNames>PaymentMethod</ColNames>
       <CreatedTimestamp>2025-03-13.20:56:41.367</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-13.20:56:41.367</ModifiedTimestamp>
@@ -17238,7 +17164,7 @@
       <ObjectId>1541580530</ObjectId>
       <Predicate>[PaymentMethod]=&apos;Online Payment&apos; OR [PaymentMethod]=&apos;Credit Card&apos; OR [PaymentMethod]=&apos;Cash&apos;</Predicate>
     </check>
-    <check id="5639" parent="5595" name="CK__S_Payment__Payme__5CD6CB2B">
+    <check id="5626" parent="5593" name="CK__S_Payment__Payme__5CD6CB2B">
       <ColNames>PaymentStatus</ColNames>
       <CreatedTimestamp>2025-03-13.20:56:41.367</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-13.20:56:41.367</ModifiedTimestamp>
@@ -17246,46 +17172,46 @@
       <ObjectId>1557580587</ObjectId>
       <Predicate>[PaymentStatus]=&apos;Refunded&apos; OR [PaymentStatus]=&apos;Unpaid&apos; OR [PaymentStatus]=&apos;Paid&apos;</Predicate>
     </check>
-    <column id="5640" parent="5595" name="ID">
+    <column id="5627" parent="5593" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5641" parent="5595" name="BookingID">
+    <column id="5628" parent="5593" name="BookingID">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5642" parent="5595" name="Amount">
+    <column id="5629" parent="5593" name="Amount">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>decimal(18,2)|0s</StoredType>
     </column>
-    <column id="5643" parent="5595" name="PaymentMethod">
+    <column id="5630" parent="5593" name="PaymentMethod">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>nvarchar(20 char)|0s</StoredType>
     </column>
-    <column id="5644" parent="5595" name="PaymentStatus">
+    <column id="5631" parent="5593" name="PaymentStatus">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>nvarchar(20 char)|0s</StoredType>
     </column>
-    <column id="5645" parent="5595" name="TransactionDate">
+    <column id="5632" parent="5593" name="TransactionDate">
       <Position>6</Position>
       <StoredType>datetime|0s</StoredType>
       <DefaultConstraintId>1573580644</DefaultConstraintId>
       <DefaultConstraintName>DF__S_Payment__Trans__5DCAEF64</DefaultConstraintName>
     </column>
-    <default id="5646" parent="5595" name="DF__S_Payment__Trans__5DCAEF64">
+    <default id="5633" parent="5593" name="DF__S_Payment__Trans__5DCAEF64">
       <ColNames>TransactionDate</ColNames>
       <DefaultExpression>getdate()</DefaultExpression>
       <ModifiedTimestamp>2025-03-13.20:56:41.367</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>1573580644</ObjectId>
     </default>
-    <index id="5647" parent="5595" name="PK__S_Paymen__3214EC2760202DBB">
+    <index id="5634" parent="5593" name="PK__S_Paymen__3214EC2760202DBB">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -17293,7 +17219,7 @@
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5648" parent="5595" name="PK__S_Paymen__3214EC2760202DBB">
+    <key id="5635" parent="5593" name="PK__S_Paymen__3214EC2760202DBB">
       <CreatedTimestamp>2025-03-13.20:56:41.363</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-13.20:56:41.363</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17301,7 +17227,7 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__S_Paymen__3214EC2760202DBB</UnderlyingIndexName>
     </key>
-    <check id="5649" parent="5596" name="CK__S_Payment__Trans__628FA481">
+    <check id="5636" parent="5594" name="CK__S_Payment__Trans__628FA481">
       <ColNames>TransactionStatus</ColNames>
       <CreatedTimestamp>2025-03-13.20:56:41.370</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-13.20:56:41.370</ModifiedTimestamp>
@@ -17309,28 +17235,28 @@
       <ObjectId>1653580929</ObjectId>
       <Predicate>[TransactionStatus]=&apos;Pending&apos; OR [TransactionStatus]=&apos;Failed&apos; OR [TransactionStatus]=&apos;Success&apos;</Predicate>
     </check>
-    <column id="5650" parent="5596" name="ID">
+    <column id="5637" parent="5594" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5651" parent="5596" name="PaymentID">
+    <column id="5638" parent="5594" name="PaymentID">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5652" parent="5596" name="TransactionCode">
+    <column id="5639" parent="5594" name="TransactionCode">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>nvarchar(50 char)|0s</StoredType>
     </column>
-    <column id="5653" parent="5596" name="TransactionStatus">
+    <column id="5640" parent="5594" name="TransactionStatus">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>nvarchar(20 char)|0s</StoredType>
     </column>
-    <index id="5654" parent="5596" name="PK__S_Paymen__3214EC2759F4D091">
+    <index id="5641" parent="5594" name="PK__S_Paymen__3214EC2759F4D091">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -17338,14 +17264,14 @@
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <index id="5655" parent="5596" name="UQ__S_Paymen__D85E7026797F75E5">
+    <index id="5642" parent="5594" name="UQ__S_Paymen__D85E7026797F75E5">
       <ColNames>TransactionCode</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>2</Position>
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5656" parent="5596" name="PK__S_Paymen__3214EC2759F4D091">
+    <key id="5643" parent="5594" name="PK__S_Paymen__3214EC2759F4D091">
       <CreatedTimestamp>2025-03-13.20:56:41.370</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-13.20:56:41.370</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17353,40 +17279,40 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__S_Paymen__3214EC2759F4D091</UnderlyingIndexName>
     </key>
-    <key id="5657" parent="5596" name="UQ__S_Paymen__D85E7026797F75E5">
+    <key id="5644" parent="5594" name="UQ__S_Paymen__D85E7026797F75E5">
       <CreatedTimestamp>2025-03-13.20:56:41.370</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-13.20:56:41.370</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>1637580872</ObjectId>
       <UnderlyingIndexName>UQ__S_Paymen__D85E7026797F75E5</UnderlyingIndexName>
     </key>
-    <column id="5658" parent="5597" name="ID">
+    <column id="5645" parent="5595" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5659" parent="5597" name="Code">
+    <column id="5646" parent="5595" name="Code">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>nvarchar(20 char)|0s</StoredType>
     </column>
-    <column id="5660" parent="5597" name="Discount">
+    <column id="5647" parent="5595" name="Discount">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>decimal(5,2)|0s</StoredType>
     </column>
-    <column id="5661" parent="5597" name="StartDate">
+    <column id="5648" parent="5595" name="StartDate">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="5662" parent="5597" name="EndDate">
+    <column id="5649" parent="5595" name="EndDate">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <index id="5663" parent="5597" name="PK__S_Promot__3214EC27C7FF9CE6">
+    <index id="5650" parent="5595" name="PK__S_Promot__3214EC27C7FF9CE6">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -17394,14 +17320,14 @@
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <index id="5664" parent="5597" name="UQ__S_Promot__A25C5AA7FBDA12C2">
+    <index id="5651" parent="5595" name="UQ__S_Promot__A25C5AA7FBDA12C2">
       <ColNames>Code</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>2</Position>
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5665" parent="5597" name="PK__S_Promot__3214EC27C7FF9CE6">
+    <key id="5652" parent="5595" name="PK__S_Promot__3214EC27C7FF9CE6">
       <CreatedTimestamp>2025-03-13.20:56:41.350</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-13.20:56:41.350</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17409,57 +17335,57 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__S_Promot__3214EC27C7FF9CE6</UnderlyingIndexName>
     </key>
-    <key id="5666" parent="5597" name="UQ__S_Promot__A25C5AA7FBDA12C2">
+    <key id="5653" parent="5595" name="UQ__S_Promot__A25C5AA7FBDA12C2">
       <CreatedTimestamp>2025-03-13.20:56:41.353</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-13.20:56:41.353</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>1333579789</ObjectId>
       <UnderlyingIndexName>UQ__S_Promot__A25C5AA7FBDA12C2</UnderlyingIndexName>
     </key>
-    <column id="5667" parent="5598" name="ID">
+    <column id="5654" parent="5596" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1(5)</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5668" parent="5598" name="RoleName">
+    <column id="5655" parent="5596" name="RoleName">
       <Position>2</Position>
       <StoredType>nvarchar(20 char)|0s</StoredType>
     </column>
-    <column id="5669" parent="5598" name="RoleCode">
+    <column id="5656" parent="5596" name="RoleCode">
       <Position>3</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <index id="5670" parent="5598" name="PK_S_Role">
+    <index id="5657" parent="5596" name="PK_S_Role">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5671" parent="5598" name="PK_S_Role">
+    <key id="5658" parent="5596" name="PK_S_Role">
       <CreatedTimestamp>2025-03-19.20:16:43.970</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-19.20:16:43.970</ModifiedTimestamp>
       <ObjectId>221243843</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_S_Role</UnderlyingIndexName>
     </key>
-    <column id="5672" parent="5599" name="ID">
+    <column id="5659" parent="5597" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1(11)</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5673" parent="5599" name="CategoryName">
+    <column id="5660" parent="5597" name="CategoryName">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>nvarchar(50 char)|0s</StoredType>
     </column>
-    <column id="5674" parent="5599" name="Description">
+    <column id="5661" parent="5597" name="Description">
       <Position>3</Position>
       <StoredType>nvarchar(max)|0s</StoredType>
     </column>
-    <index id="5675" parent="5599" name="PK__S_Servic__3214EC2709BF250F">
+    <index id="5662" parent="5597" name="PK__S_Servic__3214EC2709BF250F">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -17467,7 +17393,7 @@
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5676" parent="5599" name="PK__S_Servic__3214EC2709BF250F">
+    <key id="5663" parent="5597" name="PK__S_Servic__3214EC2709BF250F">
       <CreatedTimestamp>2025-03-19.19:55:09.697</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-19.19:55:09.697</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17475,211 +17401,219 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__S_Servic__3214EC2709BF250F</UnderlyingIndexName>
     </key>
-    <column id="5677" parent="5600" name="ID">
+    <column id="5664" parent="5598" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1(11)</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5678" parent="5600" name="CategoryID">
+    <column id="5665" parent="5598" name="CategoryID">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5679" parent="5600" name="ServiceName">
+    <column id="5666" parent="5598" name="ServiceName">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>nvarchar(100 char)|0s</StoredType>
     </column>
-    <column id="5680" parent="5600" name="Description">
+    <column id="5667" parent="5598" name="Description">
       <Position>4</Position>
       <StoredType>nvarchar(max)|0s</StoredType>
     </column>
-    <column id="5681" parent="5600" name="Price">
+    <column id="5668" parent="5598" name="Price">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>float|0s</StoredType>
     </column>
-    <column id="5682" parent="5600" name="Duration">
+    <column id="5669" parent="5598" name="Duration">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5683" parent="5600" name="Illustration">
+    <column id="5670" parent="5598" name="Illustration">
       <Position>7</Position>
       <StoredType>nvarchar(max)|0s</StoredType>
     </column>
-    <index id="5684" parent="5600" name="PK__S_Servic__3214EC27967C649B">
+    <index id="5671" parent="5598" name="PK__S_Servic__3214EC27967C649B">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5685" parent="5600" name="PK__S_Servic__3214EC27967C649B">
+    <key id="5672" parent="5598" name="PK__S_Servic__3214EC27967C649B">
       <CreatedTimestamp>2025-03-19.19:58:34.820</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-19.19:58:34.820</ModifiedTimestamp>
       <ObjectId>189243729</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__S_Servic__3214EC27967C649B</UnderlyingIndexName>
     </key>
-    <column id="5686" parent="5601" name="ID">
+    <column id="5673" parent="5599" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>1(34)</SequenceIdentity>
+      <SequenceIdentity>1(6)</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5687" parent="5601" name="StaffID">
+    <column id="5674" parent="5599" name="FirstName">
       <Position>2</Position>
-      <StoredType>int|0s</StoredType>
+      <StoredType>nvarchar(50 char)|0s</StoredType>
     </column>
-    <column id="5688" parent="5601" name="Department">
+    <column id="5675" parent="5599" name="LastName">
       <Position>3</Position>
-      <StoredType>int|0s</StoredType>
+      <StoredType>nvarchar(50 char)|0s</StoredType>
     </column>
-    <column id="5689" parent="5601" name="Expertise">
+    <column id="5676" parent="5599" name="Email">
       <Position>4</Position>
       <StoredType>nvarchar(max)|0s</StoredType>
     </column>
-    <column id="5690" parent="5601" name="Experience">
+    <column id="5677" parent="5599" name="Phone">
       <Position>5</Position>
-      <StoredType>int|0s</StoredType>
+      <StoredType>nvarchar(12 char)|0s</StoredType>
     </column>
-    <column id="5691" parent="5601" name="Salary">
+    <column id="5678" parent="5599" name="BirthDate">
       <Position>6</Position>
-      <StoredType>int|0s</StoredType>
+      <StoredType>datetimeoffset(6 digit)|0s</StoredType>
     </column>
-    <column id="5692" parent="5601" name="Status">
+    <column id="5679" parent="5599" name="Expertise">
       <Position>7</Position>
+      <StoredType>nvarchar(max)|0s</StoredType>
+    </column>
+    <column id="5680" parent="5599" name="Experience">
+      <Position>8</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5693" parent="5601" name="CreateDate">
-      <Position>8</Position>
+    <column id="5681" parent="5599" name="Salary">
+      <Position>9</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="5682" parent="5599" name="Status">
+      <Position>10</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="5683" parent="5599" name="CreateDate">
+      <Position>11</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="5694" parent="5601" name="BankAccount">
-      <Position>9</Position>
+    <column id="5684" parent="5599" name="Avt">
+      <Position>12</Position>
       <StoredType>nvarchar(max)|0s</StoredType>
     </column>
-    <column id="5695" parent="5601" name="BankName">
-      <Position>10</Position>
-      <StoredType>nvarchar(max)|0s</StoredType>
+    <column id="5685" parent="5599" name="Gender">
+      <Position>13</Position>
+      <StoredType>int|0s</StoredType>
     </column>
-    <column id="5696" parent="5601" name="Position">
-      <Position>11</Position>
-      <StoredType>nvarchar(50 char)|0s</StoredType>
-    </column>
-    <index id="5697" parent="5601" name="PK_S_StaffInfo">
+    <index id="5686" parent="5599" name="PK_S_StaffInfo">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5698" parent="5601" name="PK_S_StaffInfo">
-      <CreatedTimestamp>2025-03-26.23:29:55.550</CreatedTimestamp>
-      <ModifiedTimestamp>2025-03-26.23:29:55.550</ModifiedTimestamp>
-      <ObjectId>301244128</ObjectId>
+    <key id="5687" parent="5599" name="PK_S_StaffInfo">
+      <CreatedTimestamp>2025-04-03.07:11:21.533</CreatedTimestamp>
+      <ModifiedTimestamp>2025-04-03.07:11:21.533</ModifiedTimestamp>
+      <ObjectId>717245610</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_S_StaffInfo</UnderlyingIndexName>
     </key>
-    <column id="5699" parent="5602" name="ID">
+    <column id="5688" parent="5600" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>1(58)</SequenceIdentity>
+      <SequenceIdentity>1(55)</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5700" parent="5602" name="UserName">
+    <column id="5689" parent="5600" name="UserName">
       <Position>2</Position>
       <StoredType>nvarchar(20 char)|0s</StoredType>
     </column>
-    <column id="5701" parent="5602" name="RoleID">
+    <column id="5690" parent="5600" name="RoleID">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5702" parent="5602" name="Email">
+    <column id="5691" parent="5600" name="Email">
       <Position>4</Position>
       <StoredType>nvarchar(50 char)|0s</StoredType>
     </column>
-    <column id="5703" parent="5602" name="Password">
+    <column id="5692" parent="5600" name="Password">
       <Position>5</Position>
       <StoredType>nvarchar(max)|0s</StoredType>
     </column>
-    <column id="5704" parent="5602" name="FirstName">
+    <column id="5693" parent="5600" name="FirstName">
       <Position>6</Position>
       <StoredType>nvarchar(50 char)|0s</StoredType>
     </column>
-    <column id="5705" parent="5602" name="LastName">
+    <column id="5694" parent="5600" name="LastName">
       <Position>7</Position>
       <StoredType>nvarchar(50 char)|0s</StoredType>
     </column>
-    <column id="5706" parent="5602" name="Phone">
+    <column id="5695" parent="5600" name="Phone">
       <Position>8</Position>
       <StoredType>nvarchar(12 char)|0s</StoredType>
     </column>
-    <column id="5707" parent="5602" name="Status">
+    <column id="5696" parent="5600" name="Status">
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5708" parent="5602" name="CreateDate">
+    <column id="5697" parent="5600" name="CreateDate">
       <Position>10</Position>
       <StoredType>datetimeoffset(6 digit)|0s</StoredType>
     </column>
-    <column id="5709" parent="5602" name="Avt">
+    <column id="5698" parent="5600" name="Avt">
       <Position>11</Position>
       <StoredType>nvarchar(max)|0s</StoredType>
     </column>
-    <column id="5710" parent="5602" name="Gender">
+    <column id="5699" parent="5600" name="Gender">
       <Position>12</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5711" parent="5602" name="BirthDay">
+    <column id="5700" parent="5600" name="BirthDay">
       <Position>13</Position>
-      <StoredType>datetime|0s</StoredType>
+      <StoredType>datetimeoffset(6 digit)|0s</StoredType>
     </column>
-    <index id="5712" parent="5602" name="PK_S_Users">
+    <index id="5701" parent="5600" name="PK_S_Users">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5713" parent="5602" name="PK_S_Users">
-      <CreatedTimestamp>2025-03-26.23:07:52.307</CreatedTimestamp>
-      <ModifiedTimestamp>2025-03-26.23:07:52.307</ModifiedTimestamp>
-      <ObjectId>269244014</ObjectId>
+    <key id="5702" parent="5600" name="PK_S_Users">
+      <CreatedTimestamp>2025-04-03.07:11:38.523</CreatedTimestamp>
+      <ModifiedTimestamp>2025-04-03.07:11:38.523</ModifiedTimestamp>
+      <ObjectId>749245724</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_S_Users</UnderlyingIndexName>
     </key>
-    <column id="5714" parent="5603" name="ID">
+    <column id="5703" parent="5601" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5715" parent="5603" name="SpecialistID">
+    <column id="5704" parent="5601" name="SkinTherapistID">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="5716" parent="5603" name="WorkDate">
+    <column id="5705" parent="5601" name="WorkDate">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="5717" parent="5603" name="StartTime">
+    <column id="5706" parent="5601" name="StartTime">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>time|0s</StoredType>
     </column>
-    <column id="5718" parent="5603" name="EndTime">
+    <column id="5707" parent="5601" name="EndTime">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>time|0s</StoredType>
     </column>
-    <index id="5719" parent="5603" name="PK__S_WorkSc__3214EC2724DFD82B">
+    <index id="5708" parent="5601" name="PK__S_WorkSc__3214EC2724DFD82B">
       <Clustering>1</Clustering>
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -17687,7 +17621,7 @@
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5720" parent="5603" name="PK__S_WorkSc__3214EC2724DFD82B">
+    <key id="5709" parent="5601" name="PK__S_WorkSc__3214EC2724DFD82B">
       <CreatedTimestamp>2025-03-13.20:56:41.340</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-13.20:56:41.340</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
