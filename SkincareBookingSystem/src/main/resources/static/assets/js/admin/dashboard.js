@@ -158,7 +158,7 @@ const renderData= {
                     response.forEach((user, index) => {
                         var memberCard = `
                         <tr>
-                            <td class="column-id">#SBS0${user.skinTerapistID}</td>
+                            <td class="column-id">#SBS0${user.skinTherapistID}</td>
                             <td class="column-name">${user.firstName} ${user.lastName}</td>
                             <td class="column-birth">${user.email}</td>
                             <td class="column-phone">${user.phone}</td>

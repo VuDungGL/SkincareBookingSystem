@@ -30,6 +30,18 @@ public class SkinTherapistDto {
     private int salary;
     private int status;
 
+    public SkinTherapistDto(int skinTherapistID, String email, String firstName, String lastName, String phone, String avt, Double total, int totalTask, BigDecimal percentTask) {
+        this.skinTherapistID = skinTherapistID;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.avt = avt;
+        this.total = total;
+        this.totalTask = totalTask;
+        this.percentTask = percentTask;
+    }
+
     public SkinTherapistDto(int skinTherapistID, String email, String firstName, String lastName, String phone, OffsetDateTime birthDate, String avt, int gender, String expertise, int experience, int salary, int status) {
         this.skinTherapistID = skinTherapistID;
         this.email = email;
