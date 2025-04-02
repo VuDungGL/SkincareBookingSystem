@@ -442,3 +442,17 @@ button {
     margin: auto;
     max-width: 450px;
 }
+.gender-group{
+    display: flex;
+    justify-content: space-around
+}
+.form-check + .form-check {
+    margin-left: 24px;
+}
+.gender-content{
+    display:flex;
+    margin-top: 40px;
+}
+.gender-content>label{
+    margin-right: 24px;
+}

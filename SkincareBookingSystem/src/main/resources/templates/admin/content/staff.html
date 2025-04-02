@@ -141,7 +141,6 @@
     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <img th:src="@{/assets/images/base/admin/create-icon-1.png}" alt="" class="image-1">
                 <form action="">
                     <h3>New Member</h3>
                     <div class="form-holder">
@@ -156,9 +155,22 @@
                         <span class="lnr lnr-users"></span>
                         <input type="lastName" class="form-control" placeholder="LastName">
                     </div>
-                    <div class="form-holder">
-                        <span class="lnr lnr-phone-handset"></span>
-                        <input type="text" class="form-control" placeholder="Phone Number">
+                    <div class="form-holder d-flex justify-content-around" style="font-size: 13px;font-weight: 500;color: #b4b4b4;">
+                        <label class="form-label">Gender: </label>
+                        <div class="gender-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                                <label class="form-check-label" for="male">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                                <label class="form-check-label" for="other">Other</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-holder">
                         <span class="lnr lnr-envelope"></span>
