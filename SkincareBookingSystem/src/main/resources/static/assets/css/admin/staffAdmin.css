@@ -249,14 +249,14 @@ tbody tr:nth-child(odd) {
 }
 .image-1 {
     position: absolute;
-    bottom: -12px;
-    left: 130px;
+    bottom: 75%;
+    left: 47px;
     z-index: 99;
 }
 .image-2 {
     position: absolute;
-    bottom: 0;
-    right: 129px;
+    top: 50%;
+    right: 0px;
 }
 form {
     width: 100%;
@@ -509,4 +509,126 @@ button {
 .team-text h3{
     font-size: 16px !important;
     font-weight: 600 !important;
+}
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.avatar-container {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.avatar-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.hidden-input {
+    display: none;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.form-group label {
+    width: 30%;
+    font-size: 14px;
+    text-align: start;
+}
+.form-group input, .form-group select {
+    width: 65%;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    padding: 3px;
+    font-size: 14px;
+    outline: none;
+    background: transparent;
+}
+.form-group input:focus, .form-group select:focus {
+    border-bottom: 1px solid #007bff;
+}
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f0f4ff;
+    padding: 20px;
+    border-radius: 24px;
+    width: 100%;
+}
+
+.avatar-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.avatar-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.button-group button {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.save-btn {
+    background: #6c5ce7;
+    color: white;
+}
+
+.save-btn:hover {
+    background: #574b90;
+}
+
+.cancel-btn {
+    background: #636e72;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background: #2d3436;
+}
+.swal2-popup.swal2-modal.swal2-show{
+    padding: 32px 56px;
+    border-radius: 24px;
 }

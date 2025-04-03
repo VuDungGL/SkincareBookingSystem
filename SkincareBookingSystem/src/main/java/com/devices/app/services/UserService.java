@@ -54,9 +54,6 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
-
-
-
     @Transactional
     public String deleteUser(int id) {
         try{

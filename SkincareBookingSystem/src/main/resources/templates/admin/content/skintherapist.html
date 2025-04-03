@@ -6,7 +6,7 @@
     <div class="container-fluid team mb-5">
         <div class="container py-5" style="background: white; padding: 24px; border-radius: 24px;">
             <div class="text-center mx-auto mb-5" style="max-width: 800px;">
-                <p class="fs-4 text-uppercase text-primary">Chuyên Gia Làm Đẹp</p>
+                <p class="fs-4 text-uppercase" style="font-weight: 600; color: var(--third-primary-color)">Chuyên Gia Làm Đẹp</p>
                 <h1 class="display-4 mb-4">Chuyên gia Spa & Làm đẹp</h1>
             </div>
             <div class="swiper mySwiper">
@@ -74,60 +74,6 @@
                         <i class="fa-solid fa-angle-right" style="cursor: pointer;margin: 0 6px;"></i>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <form action="">
-                    <h3>New Member</h3>
-                    <div class="form-holder">
-                        <span class="lnr lnr-indent-decrease"></span>
-                        <input type="text" class="form-control" placeholder="Username">
-                    </div>
-                    <div class="form-holder">
-                        <span class="lnr lnr-user"></span>
-                        <input type="firstName" class="form-control" placeholder="FirstName">
-                    </div>
-                    <div class="form-holder">
-                        <span class="lnr lnr-users"></span>
-                        <input type="lastName" class="form-control" placeholder="LastName">
-                    </div>
-                    <div class="form-holder d-flex justify-content-around" style="font-size: 13px;font-weight: 500;color: #b4b4b4;">
-                        <label class="form-label">Gender: </label>
-                        <div class="gender-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
-                                <label class="form-check-label" for="male">Male</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                                <label class="form-check-label" for="female">Female</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="other" value="other">
-                                <label class="form-check-label" for="other">Other</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-holder">
-                        <span class="lnr lnr-envelope"></span>
-                        <input type="text" class="form-control" placeholder="Mail">
-                    </div>
-                    <div class="form-holder">
-                        <span class="lnr lnr-lock"></span>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-                    <div class="form-holder">
-                        <span class="lnr lnr-lock"></span>
-                        <input type="password" class="form-control" placeholder="Confirm Password">
-                    </div>
-                    <button>
-                        <span>Register</span>
-                    </button>
-                </form>
-                <img th:src="@{/assets/images/base/admin/create-icon-2.png}" alt="" class="image-2">
             </div>
         </div>
     </div>

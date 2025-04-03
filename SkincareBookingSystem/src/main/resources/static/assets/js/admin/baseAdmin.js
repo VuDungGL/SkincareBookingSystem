@@ -15,6 +15,11 @@ const baseCore={
             year: "numeric"
         });
     },
+    formatDate2:function(isoString) {
+        if (!isoString) return '';
+        const date = new Date(isoString);
+        return date.toISOString().split('T')[0];
+    },
      showLoading:function() {
          $('.loading-overlay').addClass("loading-active").fadeIn();
          $('body').append('<div class="loading-overlay"><div class="loader"></div></div>');
