@@ -6,10 +6,10 @@ import lombok.Setter;
 @Setter
 @Getter
 public class AnnualStatisticsDto {
-    int year;
-    int month;
-    int day;
-    double total;
+    private int year;
+    private int month;
+    private int day;
+    private double total;
 
     public AnnualStatisticsDto() {
 

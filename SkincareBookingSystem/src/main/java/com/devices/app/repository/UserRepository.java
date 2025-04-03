@@ -35,36 +35,6 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
     List<Tuple> AnnualNewMember(@Param("yearSearch") int yearSearch);
 
 
-    @Query(value= """
-        SELECT
-            S.ID AS SkinTherapistID,
-            S.Email,
-            S.FirstName,
-            S.LastName,
-            S.Phone,
-            FORMAT(S.BirthDate, 'yyyy-MM-dd HH:mm:ss') AS BirthDate,
-            S.Avt,
-            S.Gender,
-            S.Expertise,
-            S.Experience,
-            S.Salary,
-            S.Status
-            FROM S_SkinTherapist AS S
-            WHERE 1 = 1
-            AND (
-                :searchText IS NULL 
-                OR S.Email LIKE %:searchText% 
-                OR S.Phone LIKE %:searchText%
-                OR S.FirstName LIKE %:searchText%
-                OR S.LastName LIKE %:searchText%
-                OR S.Experience LIKE %:searchText%
-            )
-        """, countQuery = "SELECT COUNT(*) FROM S_SkinTherapist WHERE  1 = 1 AND (:searchText IS NULL OR Email LIKE %:searchText%)",
-            nativeQuery = true)
-    Page<Tuple> getListSkinTherapist(@Param("searchText") String searchText, Pageable pageable);
-
-
-
     boolean existsByUserName(String userName);
     boolean existsByEmail(String email);
 }

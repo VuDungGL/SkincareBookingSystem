@@ -325,14 +325,15 @@ const onLoadDataChart = {
 
             Promise.all([fetchPaid, fetchUnpaid])
                 .then(([paidData, unpaidData]) => {
-                    let formattedData = [['Day', 'Paid', { role: 'style' }, 'UnPaid', { role: 'style' }]];
+                    let formattedData = [['Day', 'Paid', { role: 'style' }, 'unPaid', { role: 'style' }]];
 
                     paidData.forEach((paid, index) => {
                         let unpaid = unpaidData[index] || { total: 0, day: paid.month };
                         formattedData.push([
                             paid.month.toString(),
-                            unpaid.total, 'color: #6A0DAD; stroke-width: 2;',
-                            paid.total, 'color: #40C4FF; opacity: 0.6'
+                            paid.total, 'color: #6A0DAD; opacity: 0.6',
+                            unpaid.total, 'color: #40C4FF; stroke-width: 2;'
+
                         ]);
                     });
 

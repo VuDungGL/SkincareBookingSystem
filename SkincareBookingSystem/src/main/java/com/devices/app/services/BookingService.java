@@ -53,17 +53,16 @@ public class BookingService {
                 ))
                 .collect(Collectors.toList());
     }
-    public List<AnnualStatisticsDto> AnnualSaleOnLast7Day(int isPaid, int year){
+    public List<AnnualStatisticsDto> AnnualSaleOnLast7Day(int isPaid, int year) {
         List<Tuple> results = bookingRepository.AnnualSaleOnLast7Day(isPaid, year);
 
         return results.stream()
                 .map(row -> new AnnualStatisticsDto(
-                        ((Number) row.get(0)).intValue(),
+                        row.get(0, Integer.class),
                         ((Number) row.get(1)).doubleValue()
                 ))
                 .collect(Collectors.toList());
     }
-
     public List<SkinTherapistDto> getUsersByPage(int pageIndex, int pageSize) {
         int offset = (pageIndex - 1) * pageSize + 1;
         return bookingRepository.GetListUserWorkMonth(offset, pageSize);

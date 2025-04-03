@@ -12,7 +12,7 @@ const renderDataStaff = {
     renderAllStaffTable : function(pageSize=6, pageIndex=0){
         var search = $('#search-input')[0].value;
         $.ajax({
-            url: "/users/getListSkinTherapist",
+            url: "/therapist/getListSkinTherapist",
             method: 'POST',
             data: JSON.stringify({
                 pageSize: pageSize,
@@ -115,82 +115,81 @@ const renderDataStaff = {
 
     renderDepartmentInfo: function(){
         $.ajax({
-            url: "/users/getListDepartment",
+            url: "/therapist/getAllSkinTherapist",
             method: 'GET',
+            contentType: "application/json",
             success: function (response){
                 if(response){
-                    let departmentContent = $("#department-content");
+                    let departmentContent = $(".swiper-wrapper");
                     departmentContent.empty();
 
-                    response.forEach((department, index) => {
-                        var maxVisible = 4;
-                        var visibleAvatars = department.memberAvatars.slice(0, maxVisible);
-                        var remainingCount = department.memberAvatars.length - maxVisible;
+                    let therapists = response;
+                    let slides = "";
 
-                        var memberAvatarsHTML = visibleAvatars.map(avatar => `<img src="/${avatar}" alt="Avatar">`).join('');
+                    // Chia thành từng nhóm 4 therapist một slide
+                    for (let i = 0; i < therapists.length; i += 4) {
+                        let slideContent = `<div class="swiper-slide"><div class="row g-4">`;
 
-                        // Nếu có nhiều hơn 3 thành viên, hiển thị +X
-                        if (remainingCount > 0) {
-                            memberAvatarsHTML += `<div class="avatar more">+${remainingCount}</div>`;
-                        }
-
-                        var memberCard = `
-                        <li class="splide__slide">
-                            <div class="card">
-                                <div style="background-image: url('${department.icon}'); width: 100%; height: 200px; background-repeat: no-repeat; background-size: cover; background-position: center center;"></div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <h5 class="card-title">${department.department}</h5>
-                                            <p class="text-muted">Manager: ${department.managerFirstName} ${department.managerLastName}</p>
-                                            <p class="fw-bold mb-1">Staff</p>
-                                        </div>
-                                        <div class="add-member d-flex align-items-center" style="padding-right: 6px">
-                                            <i class="fa-solid fa-plus" onclick="renderDataStaff.openPopup()" title="Thêm thành viên"></i>
-                                        </div>
+                        for (let j = i; j < i + 4 && j < therapists.length; j++) {
+                            let therapist = therapists[j];
+                            slideContent += `
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="team-item">
+                                    <div class="team-img rounded-top">
+                                        <img src="/${therapist.avt}" class="img-fluid w-100 rounded-top bg-light" style="max-height: 250px" alt="">
                                     </div>
-                                    <div class="progress mb-2" style="height: 6px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="team-text text-center p-4">
+                                        <h3 class="text-dark">${therapist.firstName} ${therapist.lastName}</h3>
+                                        <p class="mb-0">${therapist.expertise}</p>
                                     </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span><i class="bi bi-clock"></i> ${department.totalMember} Member</span>
-                                        <div class="avatars d-flex">
-                                            ${memberAvatarsHTML}
-                                        </div>
+                                    <div class="team-social">
+                                        <a class="btn btn-light btn-square rounded-circle mb-2" href="#" title="${therapist.email}"><i class="fa-solid fa-envelope"></i></a>
+                                        <a class="btn btn-light btn-square rounded-circle mb-2" href="#" title="${therapist.phone}"><i class="fa-solid fa-phone"></i></a>
+                                        <a class="btn btn-light btn-square rounded-circle mb-2" href="#" title="Kinh nghiệm ${therapist.experience} năm"><i class="fa-solid fa-flask"></i></a>
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                    `;
-                        departmentContent.append(memberCard);
-                    })
-                    renderDataStaff.onLoadSlideDepartment();
+                        `;
+                        }
+
+                        slideContent += `</div></div>`; // Kết thúc slide
+                        slides += slideContent;
+                    }
+
+                    departmentContent.append(slides);
+
+                    // Khởi tạo Swiper sau khi cập nhật danh sách
+                    new Swiper(".mySwiper", {
+                        slidesPerView: "auto",
+                        spaceBetween: 10,
+                        loop: true,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                    });
+
                 }
             }
         })
     },
 
     onLoadSlideDepartment: function(){
-        var splide = new Splide('#department-carousel', {
-            type       : 'loop',
-            perPage    : 1,
-            gap        : '20px',
-            autoplay   : false,
-            interval   : 3000,
-            pagination : false,
-            breakpoints: {
-                768: { perPage: 1 },
-                1024: { perPage: 1 }
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 12,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
-        }).mount();
-
-        // Điều khiển thủ công bằng nút bấm
-        document.getElementById('prevBtn').addEventListener('click', function () {
-            splide.go('-1');
-        });
-
-        document.getElementById('nextBtn').addEventListener('click', function () {
-            splide.go('+1');
         });
     },
 

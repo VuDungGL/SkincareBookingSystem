@@ -557,6 +557,7 @@
     left: 20px; 
     opacity: 0;
     transition: 0.5s;
+
 }
 
 .team .team-item:hover .team-social {

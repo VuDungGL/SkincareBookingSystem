@@ -157,17 +157,9 @@ tbody tr:nth-child(odd) {
 .task-card button{
     display: none;
 }
-#department-carousel {
-    max-width: 100%; /* Đảm bảo không vượt quá phần chứa */
-    overflow: hidden; /* Ngăn tràn nội dung */
-}
 
 .splide__slide {
-    width: 100% !important; /* Giữ kích thước cố định */
     margin: 0 auto; /* Canh giữa */
-}
-.splide__slide .card{
-    width: 100%;
 }
 .avatars {
     display: flex;
@@ -455,4 +447,66 @@ button {
 }
 .gender-content>label{
     margin-right: 24px;
+}
+.team .team-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.team .team-item .team-text {
+    background: rgb(255,79,157);
+}
+
+.team .team-item .team-social {
+    position: absolute;
+    top: -180px;
+    left: 20px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.team .team-item:hover .team-social {
+    top: 20px;
+    left: 20px;
+    opacity: 1;
+}
+
+.team .team-item .team-img {
+    position: relative;
+    width: 100%;
+}
+
+.team .team-item .team-img::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: 0.5s ease;
+}
+
+.team .team-item:hover .team-img::after {
+    bottom: 0;
+    height: 100%;
+}
+
+.team .team-item .team-text {
+    transition: 0.5s;
+}
+
+.team .team-item:hover .team-text {
+    background: rgb(136,76,210);
+}
+.team-social{
+    display: flex !important;
+    flex-direction: column !important;
+}
+.team-text h3{
+    font-size: 16px !important;
+    font-weight: 600 !important;
 }

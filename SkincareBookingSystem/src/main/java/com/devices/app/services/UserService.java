@@ -55,37 +55,7 @@ public class UserService {
     }
 
 
-    public Page<SkinTherapistDto> getListSkinTherapist(String search, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        try {
-            Page<Tuple> results = userRepository.getListSkinTherapist(search,pageable);
 
-            if (results.isEmpty()) {
-                return Page.empty(pageable);
-            }
-
-            List<SkinTherapistDto> dtoList = results.stream().map(tuple -> new SkinTherapistDto(
-                    Optional.ofNullable(tuple.get("skinTherapistID", Integer.class)).orElse(0),
-                    Optional.ofNullable(tuple.get("email", String.class)).orElse(""),
-                    Optional.ofNullable(tuple.get("firstName", String.class)).orElse(""),
-                    Optional.ofNullable(tuple.get("lastName", String.class)).orElse(""),
-                    Optional.ofNullable(tuple.get("phone", String.class)).orElse(""),
-                    Optional.ofNullable(tuple.get("birthDate", String.class))
-                            .map(str -> LocalDateTime.parse(str, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-                                    .atOffset(ZoneOffset.UTC))
-                            .orElse(null),
-                    Optional.ofNullable(tuple.get("avt", String.class)).orElse(""),
-                    Optional.ofNullable(tuple.get("gender", Integer.class)).orElse(0),
-                    Optional.ofNullable(tuple.get("expertise", String.class)).orElse(""),
-                    Optional.ofNullable(tuple.get("experience", Integer.class)).orElse(0),
-                    Optional.ofNullable(tuple.get("salary", Integer.class)).orElse(0),
-                    Optional.ofNullable(tuple.get("status", Integer.class)).orElse(0)
-            )).collect(Collectors.toList());
-            return new PageImpl<>(dtoList, pageable, results.getTotalElements());
-        } catch (Exception ex) {
-            return Page.empty(pageable);
-        }
-    }
 
     @Transactional
     public String deleteUser(int id) {
