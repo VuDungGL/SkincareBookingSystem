@@ -1,4 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        function addRow() {
+            let table = document.getElementById("bookingTable").getElementsByTagName('tbody')[0];
+            let newRow = table.insertRow();
+
+            let cells = [];
+            for (let i = 0; i < 5; i++) {
+                cells[i] = newRow.insertCell(i);
+                let input = document.createElement("input");
+                input.type = "text";
+                input.className = "table-input";
+                cells[i].appendChild(input);
+            }
+
+            let actionCell = newRow.insertCell(5);
+            let deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "Xóa";
+            deleteBtn.className = "delete-btn";
+            deleteBtn.onclick = function () {
+                table.deleteRow(newRow.rowIndex - 1);
+            };
+            actionCell.appendChild(deleteBtn);
+        }
+    </script>
+</head>
+<body>
 <div th:fragment="content">
-    <h1>Booking</h1>
-    <p>Manage bookings here.</p>
+    <h1>Bảng Booking</h1>
+
+    <!-- Form nhập dữ liệu -->
+    <div class="input-container">
+        <input type="text" id="name" placeholder="Tên">
+        <input type="email" id="email" placeholder="Email">
+        <input type="date" id="date">
+        <input type="text" id="package" placeholder="Gói dịch vụ">
+        <input type="text" id="expert" placeholder="Tên chuyên gia">
+        <button class="add-btn" onclick="addRow()">Thêm</button>
+    </div>
+
+    <table border="1" width="100%" cellspacing="0" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Email</th>
+            <th>Ngày đặt</th>
+            <th>Gói dịch vụ</th>
+            <th>Tên chuyên gia</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody id="bookingTable">
+        <tr>
+            <td>Nguyễn Văn A</td>
+            <td>nguyenvana@example.com</td>
+            <td>2024-04-03</td>
+            <td>Gói tiêu chuẩn</td>
+            <td>Dr. Minh</td>
+            <td><button class="delete-btn" onclick="deleteRow(this)">Xóa</button></td>
+        </tr>
+        <tr>
+            <td>Trần Thị B</td>
+            <td>tranthib@example.com</td>
+            <td>2024-04-05</td>
+            <td>Gói VIP</td>
+            <td>Dr. Hoa</td>
+            <td><button class="delete-btn" onclick="deleteRow(this)">Xóa</button></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
+
+<script>
+    function addRow() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let date = document.getElementById("date").value;
+        let package = document.getElementById("package").value;
+        let expert = document.getElementById("expert").value;
+
+        if (name.trim() === "" || email.trim() === "" || date.trim() === "" || package.trim() === "" || expert.trim() === "") {
+            alert("Vui lòng nhập đầy đủ thông tin!");
+            return;
+        }
+
+        let table = document.getElementById("bookingTable");
+        let newRow = document.createElement("tr");
+
+        newRow.innerHTML = `
+            <td>${name}</td>
+            <td>${email}</td>
+            <td>${date}</td>
+            <td>${package}</td>
+            <td>${expert}</td>
+            <td><button class="delete-btn" onclick="deleteRow(this)">Xóa</button></td>
+        `;
+
+        table.appendChild(newRow);
+
+        // Xóa dữ liệu sau khi thêm
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("date").value = "";
+        document.getElementById("package").value = "";
+        document.getElementById("expert").value = "";
+    }
+
+    function deleteRow(button) {
+        let row = button.closest("tr"); // Tìm thẻ <tr> gần nhất chứa nút "Xóa"
+        row.remove();
+    }
+</script>
+
+</body>
+
+
+</html>
