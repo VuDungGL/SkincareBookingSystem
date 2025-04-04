@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -64,6 +66,7 @@ public class SkinTherapistAdminController {
             @RequestParam(value = "experience", required = false) Integer experience,
             @RequestParam(value = "salary", required = false) Integer salary,
             @RequestParam(value = "status", required = false) Integer status,
+            @RequestParam(value = "birthDate", required = false) OffsetDateTime birthDate,
             @RequestParam(value = "avatar", required = false) MultipartFile avatar) {
 
         // Tạo đối tượng request từ các tham số gửi lên
@@ -79,14 +82,44 @@ public class SkinTherapistAdminController {
         request.setSalary(salary);
         request.setStatus(status);
         request.setAvatar(avatar);
+        request.setBirthDate(birthDate);
 
-        // Gọi service để cập nhật thông tin therapist
-        try {
-            SkinTherapist updatedTherapist = skinTherapistService.updateTherapist(request);
-            return ResponseEntity.ok(updatedTherapist);
-        } catch (Exception e) {
-            // Nếu có lỗi xảy ra, trả về lỗi server
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
+
+        SkinTherapist updatedTherapist = skinTherapistService.updateTherapist(request);
+        return ResponseEntity.ok(updatedTherapist);
+
+    }
+
+    @PostMapping("/therapist/createTherapist")
+    public ResponseEntity<SkinTherapist> createTherapist(
+            @RequestParam(value = "email", required = false) String email,
+            @RequestParam(value = "firstName", required = false) String firstName,
+            @RequestParam(value = "lastName", required = false) String lastName,
+            @RequestParam(value = "phone", required = false) String phone,
+            @RequestParam(value = "gender", required = false) Integer gender,
+            @RequestParam(value = "expertise", required = false) String expertise,
+            @RequestParam(value = "experience", required = false) Integer experience,
+            @RequestParam(value = "salary", required = false) Integer salary,
+            @RequestParam(value = "status", required = false) Integer status,
+            @RequestParam(value = "birthDate", required = false) OffsetDateTime birthDate,
+            @RequestParam(value = "avatar", required = false) MultipartFile avatar) {
+
+        TherapistCreationRequest request = new TherapistCreationRequest();
+        request.setEmail(email);
+        request.setFirstName(firstName);
+        request.setLastName(lastName);
+        request.setPhone(phone);
+        request.setGender(gender);
+        request.setExpertise(expertise);
+        request.setExperience(experience);
+        request.setSalary(salary);
+        request.setStatus(status);
+        request.setAvatar(avatar);
+        request.setBirthDate(birthDate);
+
+
+        SkinTherapist updatedTherapist = skinTherapistService.createTherapist(request);
+        return ResponseEntity.ok(updatedTherapist);
+
     }
 }

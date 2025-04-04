@@ -42,38 +42,32 @@ public class FileService {
 
     public String uploadFile(MultipartFile file, String path) {
         try {
-            // Danh sách các định dạng hình ảnh cho phép
             String[] allowedExtensions = {".jpg", ".jpeg", ".png", ".gif"};
-            // Lấy phần mở rộng của file
+
             String extension = getFileExtension(file.getOriginalFilename());
 
-            // Kiểm tra xem phần mở rộng có hợp lệ không
             if (!isAllowedExtension(extension, allowedExtensions)) {
                 logger.info("Chỉ cho phép tải lên hình ảnh (.jpg, .jpeg, .png, .gif).");
                 return "Chỉ cho phép tải lên hình ảnh (.jpg, .jpeg, .png, .gif).";
             }
 
-            // Tạo tên file duy nhất bằng UUID
             String fileName = UUID.randomUUID() + extension;
-            // Thư mục lưu file
+
             File uploadDir = new File(ROOT_PATH + "/" + path);
             if (!uploadDir.exists()) {
                 uploadDir.mkdirs();
             }
 
-            // Lưu file vào thư mục
             File savedFile = new File(uploadDir, fileName);
             try (FileOutputStream fos = new FileOutputStream(savedFile)) {
                 fos.write(file.getBytes());
             }
 
-            // Tạo URL của file đã tải lên
             String fileUrl = path + "/" + fileName;
             logger.info("Tải file thành công: {}", fileUrl);
-            return fileUrl; // Trả về URL của file đã tải lên
+            return fileUrl;
 
         } catch (IOException e) {
-            // Log lỗi và trả về thông báo lỗi
             logger.error("Upload hình thất bại: {}", e.getMessage());
             return "Upload hình thất bại: " + e.getMessage();
         }

@@ -26,7 +26,27 @@ const baseCore={
     },
      hideLoading:function() {
          $('.loading-overlay').removeClass("loading-active").fadeOut();
+    },
+    onFormatOffSetDateTime: function () {
+        const inputDate = document.getElementById("birthDate").value; // e.g., "2004-12-28"
+
+        if (inputDate) {
+            const date = new Date(inputDate);
+
+            const timezoneOffset = -date.getTimezoneOffset(); // phút
+            const offsetHours = Math.floor(timezoneOffset / 60);
+            const offsetMinutes = timezoneOffset % 60;
+
+            const offsetStr = `${offsetHours >= 0 ? '+' : '-'}${String(Math.abs(offsetHours)).padStart(2, '0')}:${String(Math.abs(offsetMinutes)).padStart(2, '0')}`;
+
+            const isoStringWithOffset = `${inputDate}T00:00:00${offsetStr}`;
+
+            return isoStringWithOffset;
+        }
+
+        return null;
     }
+
 }
 
 const onAddLeftBarActive = {

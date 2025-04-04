@@ -136,7 +136,7 @@ const renderDataStaff = {
                             <div class="col-md-6 col-lg-6 col-xl-3">
                                 <div class="team-item">
                                     <div class="team-img rounded-top">
-                                        <img src="/${therapist.avt}" class="img-fluid w-100 rounded-top bg-light" style="max-height: 300px" alt="">
+                                        <img src="/${therapist.avt}" class="img-fluid w-100 rounded-top bg-light" style="max-height: 300px; min-height: 300px;" alt="">
                                     </div>
                                     <div class="team-text text-center p-4">
                                         <h3 class="text-dark">${therapist.firstName} ${therapist.lastName}</h3>
@@ -230,6 +230,7 @@ const renderDataStaff = {
             }
         });
     },
+
     onGetInfoTherapistByID: function(skinTherapistID){
         return $.ajax({
             url: "/therapist/getSkinTherapistById",
@@ -239,6 +240,7 @@ const renderDataStaff = {
             dataType: "json"
         });
     },
+
     updateTherapist: function(data) {
         return $.ajax({
             url: "/therapist/updateTherapist",
@@ -338,17 +340,17 @@ const renderDataStaff = {
                     const formData = new FormData();
                     formData.append('firstName', firstName);
                     formData.append('lastName', lastName);
-                    formData.append('birthDate', $('#birthDate').val());
                     formData.append('gender', $('#gender').val());
                     formData.append('expertise', $('#expertise').val());
                     formData.append('salary', salary);
                     formData.append('status', 1);
                     formData.append('email', $('#email').val());
                     formData.append('skinTherapistID', skinTherapistID);
-
+                    formData.append("phone", phone)
+                    let birth = baseCore.onFormatOffSetDateTime($('#birthDate').val());
+                    formData.append('birthDate', birth);
                     const file = $('#avtUpload')[0].files[0];
                     if (file) formData.append('avatar', file);
-
                     return renderDataStaff.updateTherapist(formData);
                 }
             }).then((result) => {
@@ -372,7 +374,136 @@ const renderDataStaff = {
                 }
             });
         });
-    }
+    },
 
+    createTherapist: function(data) {
+        return $.ajax({
+            url: "/therapist/createTherapist",
+            method: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            dataType: "json"
+        });
+    },
+    onCreateProfileTherapist: function () {
+        Swal.fire({
+            title: 'Chỉnh sửa thông tin',
+            width: '700px',
+            background: '#accffe',
+            html: `
+        <div class="modal-content">
+            <div class="avatar-container">
+                <input id="avtUpload" type="file" class="hidden-input">
+                <img id="avtPreview" src="/'default.jpg'}">
+            </div>
+
+            <div class="form-group">
+                <label>Họ:</label>
+                <input id="firstName" value="">
+            </div>
+            <div class="form-group">
+                <label>Tên:</label>
+                <input id="lastName" value="">
+            </div>
+            <div class="form-group">
+                <label>Ngày sinh:</label>
+                <input id="birthDate" type="date" value="">
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input id="email" value="">
+            </div>
+            <div class="form-group">
+                <label>Số điện thoại:</label>
+                <input id="phone" value="">
+            </div>
+            <div class="form-group">
+                <label>Giới tính:</label>
+                <select id="gender">
+                    <option value="1" selected>Nam</option>
+                    <option value="2" >Nữ</option>
+                    <option value="0" >Khác</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Chuyên môn:</label>
+                <input id="expertise" value="">
+            </div>
+            <div class="form-group">
+                <label>Lương:</label>
+                <input id="salary" value="">
+            </div>
+        </div>
+        <img src="/assets/images/base/admin/create-icon-2.png" class="image-2" style="height:300px; z-index: -1">
+        <img src="/assets/images/base/admin/image-1.png" class="image-1" style="height:123px;">
+        `,
+            showCancelButton: true,
+            confirmButtonText: 'Lưu',
+            preConfirm: () => {
+                const firstName = $('#firstName').val().trim();
+                const lastName = $('#lastName').val().trim();
+                const phone = $('#phone').val().trim();
+                const salary = $('#salary').val().trim();
+
+                const vietnameseNamePattern = /^[a-zA-ZÀ-ỹ\s]+$/;
+                const phonePattern = /^[0-9]{10,15}$/;
+                const salaryPattern = /^[0-9]+$/;
+
+                if (!firstName || !lastName) {
+                    Swal.fire('Lỗi!', 'Họ và tên không được để trống!', 'error');
+                    return false;
+                }
+
+                if (!vietnameseNamePattern.test(firstName) || !vietnameseNamePattern.test(lastName)) {
+                    Swal.fire('Lỗi!', 'Họ và tên chỉ được chứa chữ cái và dấu tiếng Việt, không chứa số hoặc ký tự đặc biệt!', 'error');
+                    return false;
+                }
+
+                if (!phonePattern.test(phone)) {
+                    Swal.fire('Lỗi!', 'Số điện thoại chỉ được nhập số và có độ dài từ 10 đến 15 ký tự!', 'error');
+                    return false;
+                }
+
+                if (!salaryPattern.test(salary)) {
+                    Swal.fire('Lỗi!', 'Lương chỉ được nhập số!', 'error');
+                    return false;
+                }
+                const formData = new FormData();
+                formData.append('firstName', firstName);
+                formData.append('lastName', lastName);
+                formData.append('gender', $('#gender').val());
+                formData.append('expertise', $('#expertise').val());
+                formData.append('salary', salary);
+                formData.append('status', 1);
+                formData.append('email', $('#email').val());
+                formData.append("phone", phone);
+                let birth = baseCore.onFormatOffSetDateTime($('#birthDate').val());
+                formData.append('birthDate', birth);
+                const file = $('#avtUpload')[0].files[0];
+                if (file) formData.append('avatar', file);
+                return renderDataStaff.createTherapist(formData);
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Thành công!', 'Thông tin đã được cập nhật.', 'success').then(() => {
+                    location.reload();
+                });
+            }
+        });
+
+        $('#avtPreview').on('click', function () {
+            $('#avtUpload').click();
+        });
+
+        $('#avtUpload').on('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => $('#avtPreview').attr('src', e.target.result);
+                reader.readAsDataURL(file);
+            }
+        });
+    },
 
 }

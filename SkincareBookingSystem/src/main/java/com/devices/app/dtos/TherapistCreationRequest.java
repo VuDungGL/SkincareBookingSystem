@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+
 @Getter
 @Setter
 @Data
@@ -57,6 +60,9 @@ public class TherapistCreationRequest {
     @NotNull(message = "Trạng thái không được để trống")
     private Integer status;
 
+    @NotNull(message = "Trạng thái không được để trống")
+    private OffsetDateTime birthDate;
 
     private MultipartFile avatar;
+
 }

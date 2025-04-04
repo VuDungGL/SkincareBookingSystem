@@ -133,10 +133,39 @@ public class SkinTherapistService {
         if (request.getStatus() != null) {
             therapist.setStatus(request.getStatus());
         }
+        if (request.getBirthDate() != null) {
+            therapist.setBirthDate(request.getBirthDate());
+        }
 
         MultipartFile avatar = request.getAvatar();
         if (avatar != null && !avatar.isEmpty()) {
             fileService.deleteFile(therapist.getAvt());
+            String fileUrl = fileService.uploadFile(avatar, "Uploads/avatars");
+            if (!fileUrl.isEmpty()) {
+                therapist.setAvt(fileUrl);
+            }
+        }
+
+        return skinTherapistRepository.save(therapist);
+    }
+    @Transactional
+    public SkinTherapist createTherapist(TherapistCreationRequest request) {
+
+        SkinTherapist therapist = new SkinTherapist();
+
+        therapist.setEmail(request.getEmail());
+        therapist.setFirstName(request.getFirstName());
+        therapist.setLastName(request.getLastName());
+        therapist.setPhone(request.getPhone());
+        therapist.setGender(request.getGender());
+        therapist.setExpertise(request.getExpertise());
+        therapist.setExperience(request.getExperience());
+        therapist.setSalary(request.getSalary());
+        therapist.setStatus(request.getStatus());
+        therapist.setBirthDate(request.getBirthDate());
+
+        MultipartFile avatar = request.getAvatar();
+        if (avatar != null && !avatar.isEmpty()) {
             String fileUrl = fileService.uploadFile(avatar, "Uploads/avatars");
             if (!fileUrl.isEmpty()) {
                 therapist.setAvt(fileUrl);
