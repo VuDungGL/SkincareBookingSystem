@@ -86,29 +86,22 @@
     <div class="container py-5">
         <div class="row g-5 align-items-center">
             <div class="col-lg-5">
-                <div class="video">
-                    <img th:src="@{assets/images/base/home/about-1.jpg}" class="img-fluid rounded" alt="">
-                    <div class="position-absolute rounded border-5 border-top border-start border-white" style="bottom: 0; right: 0;;">
-                        <img th:src="@{assets/images/base/home/about-2.jpg}" class="img-fluid rounded" alt="">
-                    </div>
-                    <button type="button" class="btn btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/watch?v=zwCB19IyPRU" data-bs-target="#videoModal">
-                        <span></span>
-                    </button>
-                </div>
+                <img th:src="@{assets/images/base/home/about-1.jpg}" class="img-fluid rounded" alt="">
+                <!-- Phần chữ dưới hình -->
+                <p class="mt-4 text-center text-secondary">Trung tâm chăm sóc da và massage giúp bạn thư giãn và chăm sóc sức khỏe da một cách hiệu quả.</p>
             </div>
             <div class="col-lg-7">
                 <div>
                     <p class="fs-4 text-uppercase text-primary">Giới Thiệu</p>
                     <h1 class="display-4 mb-4">Trung Tâm Chăm Sóc Da & Masage</h1>
-                    <p class="mb-4">Trung tâm chăm sóc da và massage mang đến liệu pháp thư giãn và làm đẹp chuyên sâu, giúp bạn tái tạo năng lượng và có làn da rạng rỡ. Với dịch vụ chuyên nghiệp và không gian sang trọng, đây là nơi lý tưởng để bạn chăm sóc bản thân.
-                    </p>
+                    <p class="mb-4">Trung tâm chăm sóc da và massage mang đến liệu pháp thư giãn và làm đẹp chuyên sâu, giúp bạn tái tạo năng lượng và có làn da rạng rỡ. Với dịch vụ chuyên nghiệp và không gian sang trọng, đây là nơi lý tưởng để bạn chăm sóc bản thân.</p>
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="d-flex align-items-center">
                                 <i class="fab fa-gitkraken fa-3x text-primary"></i>
                                 <div class="ms-4">
                                     <h5 class="mb-2">Ưu Đãi Thành Viên Mới</h5>
-                                    <p class="mb-0">Giảm 30% cho bất kỳ liệu trình chuyên sâu nào (trị mụn, trị nám, trẻ hóa da...) khi khách hàng đăng ký thành viên.Khuyến khích khách hàng trải nghiệm các dịch vụ cao cấp của trung tâm với mức giá ưu đãi.</p>
+                                    <p class="mb-0">Giảm 30% cho bất kỳ liệu trình chuyên sâu nào (trị mụn, trị nám, trẻ hóa da...) khi khách hàng đăng ký thành viên. Khuyến khích khách hàng trải nghiệm các dịch vụ cao cấp của trung tâm với mức giá ưu đãi.</p>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +110,7 @@
                                 <i class="fas fa-gift fa-3x text-primary"></i>
                                 <div class="ms-4">
                                     <h5 class="mb-2">Ưu Đãi thành Viên Lâu Năm</h5>
-                                    <p class="mb-0">ích lũy điểm thưởng cho mỗi lần sử dụng dịch vụ.Đổi điểm lấy các quà tặng hấp dẫn như: sản phẩm chăm sóc da, liệu trình miễn phí, voucher giảm giá...Khuyến khích thành viên tiếp tục sử dụng dịch vụ và gắn bó lâu dài với trung tâm.</p>
+                                    <p class="mb-0">Ích lũy điểm thưởng cho mỗi lần sử dụng dịch vụ. Đổi điểm lấy các quà tặng hấp dẫn như: sản phẩm chăm sóc da, liệu trình miễn phí, voucher giảm giá... Khuyến khích thành viên tiếp tục sử dụng dịch vụ và gắn bó lâu dài với trung tâm.</p>
                                 </div>
                             </div>
                         </div>
@@ -134,26 +127,157 @@
         </div>
     </div>
 </div>
-<!-- Modal Video -->
-<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content rounded-0">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+<!-- Thêm phần "Tại sao nên chọn chúng tôi" -->
+<div class="container py-5">
+    <div class="row g-5">
+        <div class="col-lg-12 text-center">
+            <h2 class="text-uppercase text-primary">Tại Sao Nên Chọn Chúng Tôi?</h2>
+            <p class="lead">Chúng tôi tự hào mang đến cho bạn những trải nghiệm chăm sóc da và massage không chỉ thư giãn mà còn giúp bạn cảm thấy tự tin hơn với làn da khỏe mạnh. Dưới đây là lý do tại sao chúng tôi là lựa chọn lý tưởng:</p>
+        </div>
+    </div>
+    <div class="row g-5">
+        <div class="col-md-4">
+            <div class="service-item text-center">
+                <i class="fas fa-heart fa-3x text-primary mb-3"></i>
+                <h5 class="text-primary mb-2">Chuyên Gia Có Kinh Nghiệm</h5>
+                <p>Đội ngũ chuyên viên của chúng tôi đều được đào tạo bài bản, có nhiều năm kinh nghiệm trong việc chăm sóc da và massage, giúp mang lại hiệu quả cao nhất cho khách hàng.</p>
             </div>
-            <div class="modal-body">
-                <!-- 16:9 aspect ratio -->
-                <div class="ratio ratio-16x9">
-                    <a href="https://www.youtube.com/watch?v=MihWtTw3Lk4" target="_blank" rel="noopener noreferrer">
-                        Xem video trên YouTube
-                    </a>
-                </div>
+        </div>
+        <div class="col-md-4">
+            <div class="service-item text-center">
+                <i class="fas fa-cogs fa-3x text-primary mb-3"></i>
+                <h5 class="text-primary mb-2">Trang Thiết Bị Hiện Đại</h5>
+                <p>Chúng tôi luôn cập nhật các công nghệ và thiết bị chăm sóc da mới nhất, giúp khách hàng trải nghiệm những liệu trình tiên tiến và hiệu quả nhất.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="service-item text-center">
+                <i class="fas fa-star fa-3x text-primary mb-3"></i>
+                <h5 class="text-primary mb-2">Chất Lượng Dịch Vụ Tuyệt Vời</h5>
+                <p>Chúng tôi cam kết mang lại dịch vụ chăm sóc khách hàng tuyệt vời, đảm bảo sự hài lòng và hiệu quả cho tất cả khách hàng.</p>
             </div>
         </div>
     </div>
 </div>
+<!-- Hệ Thống Đặt Lịch -->
+<div class="container py-5">
+    <div class="row g-5">
+        <div class="col-lg-12 text-center">
+            <h2 class="text-uppercase text-primary">Hệ Thống Đặt Lịch Của Chúng Tôi</h2>
+            <p class="lead">Chỉ với vài bước đơn giản, bạn có thể đặt lịch hẹn và tận hưởng dịch vụ chuyên nghiệp tại trung tâm của chúng tôi.</p>
+        </div>
+    </div>
+    <div class="row g-5 text-center">
+        <div class="col-md-4">
+            <div class="service-item">
+                <i class="fas fa-calendar-alt fa-3x text-primary mb-3"></i>
+                <h5 class="text-primary mb-2">Bước 1: Chọn Dịch Vụ</h5>
+                <p>Chọn liệu trình phù hợp với nhu cầu của bạn, từ chăm sóc da đến massage thư giãn.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="service-item">
+                <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                <h5 class="text-primary mb-2">Bước 2: Chọn Ngày & Giờ</h5>
+                <p>Chọn thời gian phù hợp theo lịch trình của bạn và xác nhận đặt chỗ.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="service-item">
+                <i class="fas fa-check-circle fa-3x text-primary mb-3"></i>
+                <h5 class="text-primary mb-2">Bước 3: Xác Nhận & Tận Hưởng</h5>
+                <p>Nhận email xác nhận và đến trung tâm để trải nghiệm dịch vụ.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Lợi Ích Khi Đặt Lịch Trước -->
+<div class="container py-5">
+    <div class="row g-5 text-center">
+        <div class="col-md-4">
+            <div class="service-item">
+                <i class="fas fa-percent fa-3x text-primary mb-3"></i>
+                <h5 class="text-primary mb-2">Ưu Đãi Đặc Biệt</h5>
+                <p>Nhận ngay giảm giá 10% khi đặt lịch online.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="service-item">
+                <i class="fas fa-user-clock fa-3x text-primary mb-3"></i>
+                <h5 class="text-primary mb-2">Tiết Kiệm Thời Gian</h5>
+                <p>Không phải chờ đợi lâu, có chỗ ngay khi đến.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="service-item">
+                <i class="fas fa-calendar-check fa-3x text-primary mb-3"></i>
+                <h5 class="text-primary mb-2">Chủ Động Lịch Trình</h5>
+                <p>Dễ dàng chọn thời gian phù hợp với lịch trình của bạn.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 text-center">
+    <h2 class="text-uppercase text-primary">Kết Quả Trước & Sau</h2>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="p-3 shadow rounded">
+                <h5>Dịch vụ chăm sóc da mặt</h5>
+                <img th:src="@{/assets/images/base/home/dieu-tri-tham-mun-1.jpg}" class="img-fluid rounded" alt="Trước">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 shadow rounded">
+                <h5>Dịch vụ làm trắng da</h5>
+                <img th:src="@{/assets/images/base/home/hieu-qua-tam-trang-800x800.jpg}" class="img-fluid rounded" alt="Sau">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container py-5">
+    <h2 class="text-uppercase text-primary text-center">Đội Ngũ Chuyên Gia</h2>
+    <div class="row g-4">
+        <div class="col-md-4 text-center">
+            <img src="assets/images/base/home/team-1.png" class="img-fluid rounded-circle mb-3" alt="Chuyên gia 1">
+            <h5 class="text-primary">Bác sĩ Nguyễn Thanh An</h5>
+            <p class="text-muted">Chuyên gia da liễu với hơn 10 năm kinh nghiệm</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="assets/images/base/home/team-2.png" class="img-fluid rounded-circle mb-3" alt="Chuyên gia 2">
+            <h5 class="text-primary">Chuyên viên Trần Minh Thu</h5>
+            <p class="text-muted">Chuyên viên chăm sóc da cao cấp</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="assets/images/base/home/team-3.png" class="img-fluid rounded-circle mb-3" alt="Chuyên gia 3">
+            <h5 class="text-primary">Bác sĩ Lê Hồng Phúc</h5>
+            <p class="text-muted">Bác sĩ tư vấn liệu trình chuyên sâu</p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <h2 class="text-uppercase text-primary text-center">Câu Chuyện Của Chúng Tôi</h2>
+    <p class="lead text-center mb-5">Từ một trung tâm nhỏ, chúng tôi đã phát triển thành một địa điểm hàng đầu về chăm sóc da và massage, không ngừng đổi mới để mang lại vẻ đẹp và sự tự tin cho mỗi khách hàng.</p>
+    <div class="row g-4 align-items-center">
+        <div class="col-md-6">
+            <img src="assets/images/base/home/2-4.png" class="img-fluid rounded shadow-lg" alt="Về chúng tôi">
+        </div>
+        <div class="col-md-6">
+            <p class="text-justify">Trung tâm của chúng tôi ra đời với sứ mệnh mang đến trải nghiệm chăm sóc da chuyên sâu, giúp khách hàng luôn tự tin và rạng rỡ. Bằng việc sử dụng những sản phẩm an toàn, công nghệ tiên tiến, và đội ngũ chuyên gia giàu kinh nghiệm, chúng tôi cam kết cung cấp dịch vụ vượt trội.</p>
+            <p class="text-justify">Chúng tôi tự hào vì đã góp phần vào hành trình làm đẹp và chăm sóc sức khỏe cho hàng nghìn khách hàng. Từ những bước đi đầu tiên, trung tâm đã không ngừng cải tiến quy trình chăm sóc, đem đến kết quả tối ưu cho từng loại da.</p>
+            <p class="text-justify">Với không gian sang trọng, thiết bị hiện đại, và dịch vụ tận tâm, chúng tôi luôn đặt lợi ích của khách hàng lên hàng đầu. Tầm nhìn của chúng tôi là trở thành trung tâm chăm sóc da hàng đầu tại khu vực, mang lại sự hài lòng tuyệt đối cho khách hàng.</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 <!-- About End -->
+
 
 <div th:replace="~{home/component/footer :: footer}"></div>
 
