@@ -106,6 +106,50 @@
         }
     });
 
+    $(document).ready(function() {
+        // Lấy path hiện tại (bỏ query string và hash nếu có)
+        const currentPath = window.location.pathname.split('?')[0].split('#')[0];
+
+        // Xử lý active cho main menu items
+        $('.navbar-nav a.nav-link').each(function() {
+            const $this = $(this);
+            const linkHref = $this.attr('href');
+
+            // Kiểm tra nếu là dropdown toggle thì bỏ qua
+            if ($this.hasClass('dropdown-toggle')) {
+                return true; // continue loop
+            }
+
+            if (linkHref && currentPath.includes(linkHref)) {
+                $this.addClass('active');
+
+                // Nếu item này thuộc dropdown, active luôn dropdown cha
+                const $dropdown = $this.closest('.dropdown-menu');
+                if ($dropdown.length) {
+                    $dropdown.prev('.dropdown-toggle').addClass('active');
+                    $dropdown.closest('.dropdown').addClass('active');
+                }
+            }
+        });
+
+        // Xử lý riêng cho dropdown items
+        $('.dropdown-menu a.dropdown-item').each(function() {
+            const $this = $(this);
+            const linkHref = $this.attr('href');
+
+            if (linkHref && currentPath.includes(linkHref)) {
+                $this.addClass('active');
+
+                // Active dropdown cha
+                $this.closest('.dropdown-menu')
+                    .prev('.dropdown-toggle')
+                    .addClass('active');
+
+                $this.closest('.dropdown')
+                    .addClass('active');
+            }
+        });
+    });
 
 
     // Modal Video
