@@ -2,6 +2,7 @@ package com.devices.app.services;
 
 import com.devices.app.dtos.AnnualStatisticsDto;
 import com.devices.app.dtos.SkinTherapistDto;
+import com.devices.app.dtos.UserDto;
 import com.devices.app.models.SkinTherapist;
 import com.devices.app.models.Users;
 import jakarta.persistence.Tuple;
@@ -77,4 +78,41 @@ public class UserService {
         }
 
     }
+
+    public List<Users> getListCustomer(int status) {
+        return userRepository.findAllByStatus(status);
+    }
+
+    public Page<UserDto> getListCustomerByUserRole(String searchText, int roleID, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        try {
+            Page<Tuple> results = userRepository.findAllUserByUserRole(searchText,roleID, pageable);
+
+            if (results.isEmpty()) {
+                return Page.empty(pageable);
+            }
+
+            List<UserDto> dtoList = results.stream().map(tuple -> new UserDto(
+                    Optional.ofNullable(tuple.get("userID", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("userName", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("roleID", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("email", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("phone", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("firstName", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("lastName", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("avt", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("gender", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("birthDate", String.class))
+                            .map(str -> LocalDateTime.parse(str, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                                    .atOffset(ZoneOffset.UTC))
+                            .orElse(null),
+                    Optional.ofNullable(tuple.get("status", Integer.class)).orElse(0)
+            )).collect(Collectors.toList());
+            return new PageImpl<>(dtoList, pageable, results.getTotalElements());
+        } catch (Exception ex) {
+            return Page.empty(pageable);
+        }
+    }
+
+
 }

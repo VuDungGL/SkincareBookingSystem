@@ -2,7 +2,9 @@ package com.devices.app.controller.admin;
 
 import com.devices.app.dtos.AnnualStatisticsDto;
 import com.devices.app.dtos.SkinTherapistDto;
+import com.devices.app.dtos.UserDto;
 import com.devices.app.models.SkinTherapist;
+import com.devices.app.models.Users;
 import com.devices.app.services.SkinTherapistService;
 import com.devices.app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +36,27 @@ public class UserAdminController {
 
 
     @PostMapping("/users/deleteUser")
-    public ResponseEntity<String> deleteStaff(@RequestBody Map<String, Integer> request) {
+    public ResponseEntity<String> deleteUser(@RequestBody Map<String, Integer> request) {
         int userID = request.get("userID");
         String result = userService.deleteUser(userID);
         return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/users/getListCustomer")
+    public List<Users> getListCustomer(@RequestBody Map<String, Integer> request) {
+        int status = request.get("status");
+        return userService.getListCustomer(status);
+    }
+
+    @PostMapping("/users/getListCustomerByUserRole")
+    public Page<UserDto> getListCustomerByUserRole(@RequestBody Map<String, Object> request) {
+        int roleID = Integer.parseInt(request.get("roleID").toString());
+        int pageIndex = (int) request.getOrDefault("pageIndex", 0);
+        int pageSize = (int) request.getOrDefault("pageSize", 6);
+        String searchText = (String) request.getOrDefault("searchText", "");
+
+        if (pageIndex < 0) pageIndex = 0;
+        if (pageSize <= 0) pageSize = 6;
+        return userService.getListCustomerByUserRole(searchText,roleID,pageIndex,pageSize);
     }
 }

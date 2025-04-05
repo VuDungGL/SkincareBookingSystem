@@ -28,13 +28,8 @@ const renderDataStaff = {
 
                     response.content.forEach((user, index) => {
                         let birth = baseCore.formatDate(user.birthDate);
-                        let genderText = "Khác";
+                        let genderText = baseCore.formatGenderText(user.gender);
 
-                        if (user.gender === 1) {
-                            genderText = "Nam";
-                        } else if (user.gender === 2) {
-                            genderText = "Nữ";
-                        }
                         var memberCard = `
                             <tr>
                                 <td class="data column-id">#SBS0${user.skinTherapistID}</td>
@@ -59,58 +54,11 @@ const renderDataStaff = {
                         container.append(memberCard);
                     })
                     $('#page-staff-total').text(`page ${response.number + 1} of ${response.totalPages}`);
-                    renderDataStaff.updatePagination(response.totalPages, response.number);
-                    renderDataStaff.onLoadDropdown();
+                    baseCore.updatePagination(response.totalPages, response.number, "renderDataStaff.renderAllStaffTable");
+                    baseCore.onLoadDropdown();
                 }
             }
         });
-    },
-
-    updatePagination: function(totalPages, currentPage) {
-        let paginationContainer = $("#pagination-page");
-        paginationContainer.empty();
-        let paginationHtml = '';
-
-        let displayPage = currentPage + 1;
-        let lastPage = totalPages;
-
-        paginationHtml += currentPage === 0
-            ? `<i class="fa-solid fa-angle-left opacity-50" style="cursor: not-allowed; pointer-events: none;"></i>`
-            : `<i class="fa-solid fa-angle-left" style="cursor: pointer" onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage - 1})"></i>`;
-
-        if (totalPages <= 5) {
-            for (let i = 0; i < totalPages; i++) {
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${i})" 
-                                class="${currentPage === i ? 'page-active' : ''}">${i + 1}</span>`;
-            }
-        } else {
-            if (currentPage <= 1) {
-                for (let i = 0; i <= 2; i++) {
-                    paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${i})" 
-                                    class="${currentPage === i ? 'page-active' : ''}">${i + 1}</span>`;
-                }
-                paginationHtml += `<span>...</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${totalPages - 1})">${totalPages}</span>`;
-            } else if (currentPage >= 2 && currentPage <= totalPages - 4) {
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage - 1})">${displayPage - 1}</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage})" class="page-active">${displayPage}</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage + 1})">${displayPage + 1}</span>`;
-                paginationHtml += `<span>...</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${totalPages - 1})">${totalPages}</span>`;
-            } else {
-                paginationHtml += `<span>...</span>`;
-                for (let i = totalPages - 4; i < totalPages; i++) {
-                    paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${i})" 
-                                    class="${currentPage === i ? 'page-active' : ''}">${i + 1}</span>`;
-                }
-            }
-        }
-
-        paginationHtml += currentPage === totalPages - 1
-            ? `<i class="fa-solid fa-angle-right opacity-50" style="cursor: not-allowed; pointer-events: none;"></i>`
-            : `<i class="fa-solid fa-angle-right" style="cursor: pointer" onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage + 1})"></i>`;
-
-        paginationContainer.html(paginationHtml);
     },
 
     renderDepartmentInfo: function(){
@@ -182,27 +130,6 @@ const renderDataStaff = {
         })
     },
 
-    onLoadDropdown: function () {
-        $(document).off('click', '.dropdown-toggle-content').on('click', '.dropdown-toggle-content', function (event) {
-            event.stopPropagation();
-            let menu = $(this).siblings('.dropdown-menu');
-
-            if (menu.length) {
-                $('.dropdown-menu').not(menu).fadeOut(200).css({ opacity: 0, transform: 'translateY(-10px)' }); // Ẩn các dropdown khác
-                if (menu.is(':visible')) {
-                    menu.fadeOut(200).css({ opacity: 0, transform: 'translateY(-10px)' });
-                } else {
-                    menu.css({ display: 'block' }).animate({ opacity: 1, transform: 'translateY(0px)' }, 200);
-                }
-            } else {
-                console.warn("Dropdown menu không tồn tại.");
-            }
-        });
-
-        $(document).off('click', 'body').on('click', 'body', function () {
-            $('.dropdown-menu').fadeOut(200).css({ opacity: 0, transform: 'translateY(-10px)' });
-        });
-    },
     onDeleteStaff: function(skinTherapistID){
         Swal.fire({
             title: "Xác nhận xóa?",
@@ -388,14 +315,14 @@ const renderDataStaff = {
     },
     onCreateProfileTherapist: function () {
         Swal.fire({
-            title: 'Chỉnh sửa thông tin',
+            title: 'Thêm thông tin',
             width: '700px',
             background: '#accffe',
             html: `
         <div class="modal-content">
             <div class="avatar-container">
                 <input id="avtUpload" type="file" class="hidden-input">
-                <img id="avtPreview" src="/'default.jpg'}">
+                <img id="avtPreview" src="">
             </div>
 
             <div class="form-group">

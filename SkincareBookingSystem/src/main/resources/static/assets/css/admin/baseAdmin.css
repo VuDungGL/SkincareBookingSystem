@@ -204,3 +204,115 @@ h6{
     color: white;
     opacity: 0.8;
 }
+.team .team-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.team .team-item .team-text {
+    background: rgb(255,79,157);
+}
+
+.team .team-item .team-social {
+    position: absolute;
+    top: -180px;
+    left: 20px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.team .team-item:hover .team-social {
+    top: 20px;
+    left: 20px;
+    opacity: 1;
+}
+
+.team .team-item .team-img {
+    position: relative;
+    width: 100%;
+}
+
+.team .team-item .team-img::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: 0.5s ease;
+}
+
+.team .team-item:hover .team-img::after {
+    bottom: 0;
+    height: 100%;
+}
+
+.team .team-item .team-text {
+    transition: 0.5s;
+}
+
+.team .team-item:hover .team-text {
+    background: rgb(136,76,210);
+}
+.team-social{
+    display: flex !important;
+    flex-direction: column !important;
+}
+.team-text h3{
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 120px;
+    border-radius: 8px;
+    padding: 10px 0;
+
+}
+.dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+}
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+}
+.dropdown .dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.dropdown-menu{
+    left: -140px;
+    top: 32px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.dropdown-item{
+    font-size: 12px;
+    padding: 10px 12px;
+}
+.column-option i{
+    padding: 8px 12px;
+    border-radius: 50%;
+}
+.dropdown-toggle-content:focus,
+.dropdown-toggle-content:hover
+{
+    background: #ccc;
+}
+.dropdown-menu li {
+    cursor: pointer;
+}
