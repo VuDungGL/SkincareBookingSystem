@@ -30,7 +30,7 @@
     <link rel="stylesheet" th:href="@{/assets/css/home/style.css}">
 </head>
 
-<body>
+<body class="page-service">
 
 <!-- Spinner Start -->
 <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
@@ -89,7 +89,7 @@
             <h1 class="display-3">Dịch vụ Spa & Làm đẹp</h1>
         </div>
         <div class="row g-4">
-            <div class="col-lg-6">
+            <div class="col-lg-6 wow fadeInUp">
                 <div class="services-item bg-light border-4 border-end border-primary rounded p-4">
                     <div class="row align-items-center">
                         <div class="col-8">
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 wow fadeInUp">
                 <div class="services-item bg-light border-4 border-start border-primary rounded p-4">
                     <div class="row align-items-center">
                         <div class="col-4">
@@ -126,7 +126,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 wow fadeInUp">
                 <div class="services-item bg-light border-4 border-end border-primary rounded p-4">
                     <div class="row align-items-center">
                         <div class="col-8">
@@ -144,7 +144,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 wow fadeInUp">
                 <div class="services-item bg-light border-4 border-start border-primary rounded p-4">
                     <div class="row align-items-center">
                         <div class="col-4">
@@ -162,7 +162,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 wow fadeInUp">
                 <div class="services-item bg-light border-4 border-end border-primary rounded p-4">
                     <div class="row align-items-center">
                         <div class="col-8">
@@ -180,7 +180,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 wow fadeInUp">
                 <div class="services-item bg-light border-4 border-start border-primary rounded p-4">
                     <div class="row align-items-center">
                         <div class="col-4">
@@ -198,7 +198,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 wow fadeInUp">
                 <div class="services-item bg-light border-4 border-end border-primary rounded p-4">
                     <div class="row align-items-center">
                         <div class="col-8">
@@ -216,7 +216,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 wow fadeInUp">
                 <div class="services-item bg-light border-4 border-start border-primary rounded p-4">
                     <div class="row align-items-center">
                         <div class="col-4">
@@ -234,7 +234,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 wow fadeInUp" data-wow-delay=".9s">
                 <div class="services-btn text-center">
                     <a href="#" class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-5">Xem thêm dịch vụ</a>
                 </div>
@@ -269,6 +269,12 @@
 
 <!-- Template Javascript -->
 <script th:src="@{/assets/js/home/main.js}"></script>
+
+<script src="lib/wow/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
+
 </body>
 
 </html>

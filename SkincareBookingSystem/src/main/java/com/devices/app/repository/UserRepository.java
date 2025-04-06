@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<Users, Integer> {
@@ -35,36 +36,37 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
     List<Tuple> AnnualNewMember(@Param("yearSearch") int yearSearch);
 
 
-    @Query(value= """
-        SELECT
-            S.ID AS SkinTherapistID,
-            S.Email,
-            S.FirstName,
-            S.LastName,
-            S.Phone,
-            FORMAT(S.BirthDate, 'yyyy-MM-dd HH:mm:ss') AS BirthDate,
-            S.Avt,
-            S.Gender,
-            S.Expertise,
-            S.Experience,
-            S.Salary,
-            S.Status
-            FROM S_SkinTherapist AS S
-            WHERE 1 = 1
-            AND (
-                :searchText IS NULL 
-                OR S.Email LIKE %:searchText% 
-                OR S.Phone LIKE %:searchText%
-                OR S.FirstName LIKE %:searchText%
-                OR S.LastName LIKE %:searchText%
-                OR S.Experience LIKE %:searchText%
-            )
-        """, countQuery = "SELECT COUNT(*) FROM S_SkinTherapist WHERE  1 = 1 AND (:searchText IS NULL OR Email LIKE %:searchText%)",
-            nativeQuery = true)
-    Page<Tuple> getListSkinTherapist(@Param("searchText") String searchText, Pageable pageable);
-
-
-
     boolean existsByUserName(String userName);
     boolean existsByEmail(String email);
+
+    List<Users> findAllByStatus(int status);
+
+    @Query(value = """
+        SELECT  U.ID AS UserID,
+                U.UserName,
+                U.RoleID,
+                U.Email,
+                U.Phone,
+                U.FirstName,
+                U.LastName,
+                U.Avt,
+                U.Gender,
+                FORMAT(U.BirthDay, 'yyyy-MM-dd HH:mm:ss') AS BirthDate,
+                U.Status
+        FROM S_Users AS U WITH (NOLOCK)
+        WHERE U.RoleID = :roleID
+        AND(
+            :searchText IS NULL 
+                OR U.UserName LIKE %:searchText%
+                OR U.Email LIKE %:searchText% 
+                OR U.Phone LIKE %:searchText%
+                OR U.FirstName LIKE %:searchText%
+                OR U.LastName LIKE %:searchText%
+            )
+        ORDER BY U.Status DESC
+    """,countQuery = "SELECT COUNT(*) FROM S_Users AS U WHERE  U.RoleID = :roleID AND (:searchText IS NULL OR UserName LIKE %:searchText%)"
+    ,nativeQuery = true)
+    Page<Tuple> findAllUserByUserRole(@Param("searchText") String searchText,@Param("roleID") int roleID, Pageable pageable);
+
+    List<Users> findAllByRoleID(int roleID);
 }

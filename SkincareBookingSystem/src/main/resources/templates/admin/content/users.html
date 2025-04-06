@@ -1,4 +1,73 @@
 <div th:fragment="content">
-    <h1>Users</h1>
-    <p>Manage user accounts here.</p>
+    <link rel="stylesheet" th:href="@{/assets/css/admin/userAdmin.css}">
+    <script th:src="@{/assets/js/admin/users.js}"></script>
+    <div class="container-fluid team mb-5">
+        <div class="container py-5" style="background: white; padding: 24px; border-radius: 24px;">
+            <div class="text-center mx-auto mb-5" style="max-width: 800px;">
+                <p class="fs-4 text-uppercase" style="font-weight: 600; color: var(--third-primary-color)">Khách hàng VIP</p>
+                <h1 class="display-4 mb-4">Thông tin Khách hàng VIP</h1>
+            </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="row g-4" id="vip-customer-content">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next" id="swiper-button-next" style="z-index: 999"></div>
+                <div class="swiper-button-prev" id="swiper-button-prev" style="z-index: 999"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style=" justify-content: space-around">
+        <div class="col-md-12 mb-4" style="padding: 0 24px;border-radius: 24px;">
+            <div class="table-container" style="background: white;padding: 24px 24px 12px 24px;border-radius: 24px;">
+                <div class="table-header d-flex justify-content-between align-baseline">
+                    <h6 class="d-flex align-content-lg-center" style="margin: 0;font-size: 18px; font-weight: 700">Users</h6>
+                    <div class="search-box align-items-center">
+                        <input type="text" placeholder="Search here" id="search-input" oninput="onRenderData.onLoadAllUsers();">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="column-id">StaffID</th>
+                        <th class="column-name">UserName</th>
+                        <th class="column-birth">FullName</th>
+                        <th class="column-email">BirthDate</th>
+                        <th class="column-phone">Email</th>
+                        <th class="column-gender">Phone</th>
+                        <th class="column-department">Gender</th>
+                        <th class="column-position">TypeMember</th>
+                        <th class="column-option"><i class="fa-solid fa-ellipsis-vertical"></i></th>
+                    </tr>
+                    </thead>
+                    <tbody id="table-content">
+                    <tr>
+                        <td class="data column-id">StaffID</td>
+                        <td class="data column-name"><img th:src="@{/assets/images/base/admin/bestseller-icon.png}">FullName</td>
+                        <td class="data column-birth">BirthDay</td>
+                        <td class="data column-email">Email</td>
+                        <td class="data column-phone">Phone</td>
+                        <td class="data column-gender">Gender</td>
+                        <td class="data column-department">Expertise</td>
+                        <td class="data column-position">Salary</td>
+                        <td class="data column-option"><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <span style="font-size: 12px" id="page-staff-total">1-4 of 12</span>
+                    <div style="font-size: 12px" id="pagination-page">
+                        <i class="fa-solid fa-angle-left" style="cursor: pointer; margin: 0 6px;"></i>
+                        <i class="fa-solid fa-angle-right" style="cursor: pointer;margin: 0 6px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

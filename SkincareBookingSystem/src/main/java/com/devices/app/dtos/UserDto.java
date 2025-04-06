@@ -1,38 +1,28 @@
 package com.devices.app.dtos;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.OffsetDateTime;
 
-@Setter
-@Getter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDto {
-    private int userId;
+    private Integer userID;
     private String userName;
-    private String password;
-    private String firstName;
-    private String lastName;
+    private Integer roleID;
     private String email;
     private String phone;
-    private String address;
-    private Date createDate;
+    private String firstName;
+    private String lastName;
     private String avt;
-    private Double total;
-    private int totalTask;
-    private BigDecimal percentTask;
-
-    public UserDto(int userId, String userName, String email, String firstName, String lastName, String phone, String avt, Double total, int totalTask, BigDecimal percentTask) {
-        this.userId = userId;
-        this.userName = userName;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.avt = avt;
-        this.total = total;
-        this.totalTask = totalTask;
-        this.percentTask = percentTask;
-    }
+    private Integer gender;
+    private OffsetDateTime birthDate;
+    private Integer status;
 }

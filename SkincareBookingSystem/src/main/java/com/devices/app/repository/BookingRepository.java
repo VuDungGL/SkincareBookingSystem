@@ -59,17 +59,19 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
 
     @Query(value = """
             WITH Last7Days AS (
-                SELECT DAY(DATEADD(DAY, -n, GETDATE())) AS [Day]
+                SELECT CAST(DATEADD(DAY, -n, GETDATE()) AS DATE) AS [Date]
                 FROM (VALUES (0), (1), (2), (3), (4), (5), (6)) AS Days(n)
             )
-            SELECT\s
-                L.[Day],
+            SELECT
+                DAY(L.[Date]) AS [Day],
                 COALESCE(SUM(BD.Price), 0) AS Total
             FROM Last7Days AS L
-            LEFT JOIN S_Booking AS B WITH (NOLOCK) ON DAY(B.BookingDate) = L.[Day]
-            LEFT JOIN S_BookingDetail AS BD WITH (NOLOCK) ON BD.BookingID = B.ID AND BD.IsPaid = :isPaid AND YEAR(B.BookingDate) = :yearSearch
-            GROUP BY L.[Day]
-            ORDER BY L.[Day]
+            LEFT JOIN S_Booking AS B WITH (NOLOCK)
+                ON CAST(B.BookingDate AS DATE) = L.[Date]
+            LEFT JOIN S_BookingDetail AS BD WITH (NOLOCK)
+                ON BD.BookingID = B.ID AND BD.IsPaid = :isPaid AND YEAR(B.BookingDate) = :yearSearch
+            GROUP BY L.[Date]
+            ORDER BY L.[Date]
     """,nativeQuery = true)
     List<Tuple> AnnualSaleOnLast7Day(@Param("isPaid") int isPaid,@Param("yearSearch")int yearSearch);
 

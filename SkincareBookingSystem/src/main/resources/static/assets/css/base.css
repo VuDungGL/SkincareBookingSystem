@@ -60,3 +60,7 @@ body{
     align-content: center;
     text-align: center;
 }
+.swal2-actions{
+    flex-wrap: nowrap;
+    width: 60%;
+}

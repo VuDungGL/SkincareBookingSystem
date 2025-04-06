@@ -1,7 +1,7 @@
 $(document).ready(function(){
     renderDataStaff.renderInit();
 });
-let modalInstance = null;
+
 const renderDataStaff = {
     renderInit : function(){
         this.renderAllStaffTable();
@@ -12,7 +12,7 @@ const renderDataStaff = {
     renderAllStaffTable : function(pageSize=6, pageIndex=0){
         var search = $('#search-input')[0].value;
         $.ajax({
-            url: "/users/getListSkinTherapist",
+            url: "/therapist/getListSkinTherapist",
             method: 'POST',
             data: JSON.stringify({
                 pageSize: pageSize,
@@ -28,13 +28,8 @@ const renderDataStaff = {
 
                     response.content.forEach((user, index) => {
                         let birth = baseCore.formatDate(user.birthDate);
-                        let genderText = "Khác";
+                        let genderText = baseCore.formatGenderText(user.gender);
 
-                        if (user.gender === 1) {
-                            genderText = "Nam";
-                        } else if (user.gender === 2) {
-                            genderText = "Nữ";
-                        }
                         var memberCard = `
                             <tr>
                                 <td class="data column-id">#SBS0${user.skinTherapistID}</td>
@@ -49,7 +44,7 @@ const renderDataStaff = {
                                     <div class="dropdown">
                                         <i class="fa-solid fa-ellipsis-vertical dropdown-toggle-content"></i>
                                         <ul class="dropdown-menu" style="max-width: 120px">
-                                            <li class="dropdown-item d-flex"><i class="fa-solid fa-pen-to-square" style="color: black !important;"></i>Edit</li>
+                                            <li class="dropdown-item d-flex" onclick="renderDataStaff.onEditProfileTherapist(${user.skinTherapistID})"><i class="fa-solid fa-pen-to-square" style="color: black !important;"></i>Edit</li>
                                             <li class="dropdown-item text-danger d-flex" onclick="renderDataStaff.onDeleteStaff(${user.skinTherapistID})"><i class="fa-solid fa-trash text-danger"></i>Remove</li>
                                         </ul>
                                     </div>
@@ -59,163 +54,83 @@ const renderDataStaff = {
                         container.append(memberCard);
                     })
                     $('#page-staff-total').text(`page ${response.number + 1} of ${response.totalPages}`);
-                    renderDataStaff.updatePagination(response.totalPages, response.number);
-                    renderDataStaff.onLoadDropdown();
+                    baseCore.updatePagination(response.totalPages, response.number, "renderDataStaff.renderAllStaffTable");
+                    baseCore.onLoadDropdown();
                 }
             }
         });
     },
 
-    updatePagination: function(totalPages, currentPage) {
-        let paginationContainer = $("#pagination-page");
-        paginationContainer.empty();
-        let paginationHtml = '';
-
-        let displayPage = currentPage + 1;
-        let lastPage = totalPages;
-
-        paginationHtml += currentPage === 0
-            ? `<i class="fa-solid fa-angle-left opacity-50" style="cursor: not-allowed; pointer-events: none;"></i>`
-            : `<i class="fa-solid fa-angle-left" style="cursor: pointer" onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage - 1})"></i>`;
-
-        if (totalPages <= 5) {
-            for (let i = 0; i < totalPages; i++) {
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${i})" 
-                                class="${currentPage === i ? 'page-active' : ''}">${i + 1}</span>`;
-            }
-        } else {
-            if (currentPage <= 1) {
-                for (let i = 0; i <= 2; i++) {
-                    paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${i})" 
-                                    class="${currentPage === i ? 'page-active' : ''}">${i + 1}</span>`;
-                }
-                paginationHtml += `<span>...</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${totalPages - 1})">${totalPages}</span>`;
-            } else if (currentPage >= 2 && currentPage <= totalPages - 4) {
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage - 1})">${displayPage - 1}</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage})" class="page-active">${displayPage}</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage + 1})">${displayPage + 1}</span>`;
-                paginationHtml += `<span>...</span>`;
-                paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${totalPages - 1})">${totalPages}</span>`;
-            } else {
-                paginationHtml += `<span>...</span>`;
-                for (let i = totalPages - 4; i < totalPages; i++) {
-                    paginationHtml += `<span onclick="renderDataStaff.renderAllStaffTable(6, ${i})" 
-                                    class="${currentPage === i ? 'page-active' : ''}">${i + 1}</span>`;
-                }
-            }
-        }
-
-        paginationHtml += currentPage === totalPages - 1
-            ? `<i class="fa-solid fa-angle-right opacity-50" style="cursor: not-allowed; pointer-events: none;"></i>`
-            : `<i class="fa-solid fa-angle-right" style="cursor: pointer" onclick="renderDataStaff.renderAllStaffTable(6, ${currentPage + 1})"></i>`;
-
-        paginationContainer.html(paginationHtml);
-    },
-
     renderDepartmentInfo: function(){
         $.ajax({
-            url: "/users/getListDepartment",
+            url: "/therapist/getAllSkinTherapist",
             method: 'GET',
+            contentType: "application/json",
             success: function (response){
                 if(response){
-                    let departmentContent = $("#department-content");
+                    let departmentContent = $(".swiper-wrapper");
                     departmentContent.empty();
 
-                    response.forEach((department, index) => {
-                        var maxVisible = 4;
-                        var visibleAvatars = department.memberAvatars.slice(0, maxVisible);
-                        var remainingCount = department.memberAvatars.length - maxVisible;
+                    let therapists = response;
+                    let slides = "";
 
-                        var memberAvatarsHTML = visibleAvatars.map(avatar => `<img src="/${avatar}" alt="Avatar">`).join('');
+                    // Chia thành từng nhóm 4 therapist một slide
+                    for (let i = 0; i < therapists.length; i += 4) {
+                        let slideContent = `<div class="swiper-slide"><div class="row g-4">`;
 
-                        // Nếu có nhiều hơn 3 thành viên, hiển thị +X
-                        if (remainingCount > 0) {
-                            memberAvatarsHTML += `<div class="avatar more">+${remainingCount}</div>`;
-                        }
-
-                        var memberCard = `
-                        <li class="splide__slide">
-                            <div class="card">
-                                <div style="background-image: url('${department.icon}'); width: 100%; height: 200px; background-repeat: no-repeat; background-size: cover; background-position: center center;"></div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <h5 class="card-title">${department.department}</h5>
-                                            <p class="text-muted">Manager: ${department.managerFirstName} ${department.managerLastName}</p>
-                                            <p class="fw-bold mb-1">Staff</p>
-                                        </div>
-                                        <div class="add-member d-flex align-items-center" style="padding-right: 6px">
-                                            <i class="fa-solid fa-plus" onclick="renderDataStaff.openPopup()" title="Thêm thành viên"></i>
-                                        </div>
+                        for (let j = i; j < i + 4 && j < therapists.length; j++) {
+                            let therapist = therapists[j];
+                            slideContent += `
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="team-item">
+                                    <div class="team-img rounded-top">
+                                        <img src="/${therapist.avt}" class="img-fluid w-100 rounded-top bg-light" style="max-height: 300px; min-height: 300px;" alt="">
                                     </div>
-                                    <div class="progress mb-2" style="height: 6px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="team-text text-center p-4">
+                                        <h3 class="text-dark">${therapist.firstName} ${therapist.lastName}</h3>
+                                        <p class="mb-0">${therapist.expertise}</p>
                                     </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span><i class="bi bi-clock"></i> ${department.totalMember} Member</span>
-                                        <div class="avatars d-flex">
-                                            ${memberAvatarsHTML}
-                                        </div>
+                                    <div class="team-social">
+                                        <a class="btn btn-light btn-square rounded-circle mb-2" href="#" title="${therapist.email}"><i class="fa-solid fa-envelope"></i></a>
+                                        <a class="btn btn-light btn-square rounded-circle mb-2" href="#" title="${therapist.phone}"><i class="fa-solid fa-phone"></i></a>
+                                        <a class="btn btn-light btn-square rounded-circle mb-2" href="#" title="Kinh nghiệm ${therapist.experience} năm"><i class="fa-solid fa-flask"></i></a>
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                    `;
-                        departmentContent.append(memberCard);
-                    })
-                    renderDataStaff.onLoadSlideDepartment();
+                        `;
+                        }
+
+                        slideContent += `</div></div>`; // Kết thúc slide
+                        slides += slideContent;
+                    }
+
+                    departmentContent.append(slides);
+
+                    // Khởi tạo Swiper sau khi cập nhật danh sách
+                    new Swiper(".mySwiper", {
+                        slidesPerView: "auto",
+                        spaceBetween: 10,
+                        loop: true,
+                        autoplay: {
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                    });
+
                 }
             }
         })
     },
 
-    onLoadSlideDepartment: function(){
-        var splide = new Splide('#department-carousel', {
-            type       : 'loop',
-            perPage    : 1,
-            gap        : '20px',
-            autoplay   : false,
-            interval   : 3000,
-            pagination : false,
-            breakpoints: {
-                768: { perPage: 1 },
-                1024: { perPage: 1 }
-            },
-        }).mount();
-
-        // Điều khiển thủ công bằng nút bấm
-        document.getElementById('prevBtn').addEventListener('click', function () {
-            splide.go('-1');
-        });
-
-        document.getElementById('nextBtn').addEventListener('click', function () {
-            splide.go('+1');
-        });
-    },
-
-    onLoadDropdown: function () {
-        $(document).off('click', '.dropdown-toggle-content').on('click', '.dropdown-toggle-content', function (event) {
-            event.stopPropagation();
-            let menu = $(this).siblings('.dropdown-menu');
-
-            if (menu.length) {
-                $('.dropdown-menu').not(menu).fadeOut(200).css({ opacity: 0, transform: 'translateY(-10px)' }); // Ẩn các dropdown khác
-                if (menu.is(':visible')) {
-                    menu.fadeOut(200).css({ opacity: 0, transform: 'translateY(-10px)' });
-                } else {
-                    menu.css({ display: 'block' }).animate({ opacity: 1, transform: 'translateY(0px)' }, 200);
-                }
-            } else {
-                console.warn("Dropdown menu không tồn tại.");
-            }
-        });
-
-        $(document).off('click', 'body').on('click', 'body', function () {
-            $('.dropdown-menu').fadeOut(200).css({ opacity: 0, transform: 'translateY(-10px)' });
-        });
-    },
-    onDeleteStaff: function(staffID){
+    onDeleteStaff: function(skinTherapistID){
         Swal.fire({
             title: "Xác nhận xóa?",
             text: "Bạn có chắc chắn muốn xóa nhân viên này không?",
@@ -226,10 +141,10 @@ const renderDataStaff = {
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "/users/deleteStaff",
+                    url: "/therapist/deleteSkinTherapist",
                     type: "POST",
                     contentType: "application/json",
-                    data: JSON.stringify({ staffID: staffID }),
+                    data: JSON.stringify({ skinTherapistID: skinTherapistID }),
                     success: function (response) {
                         Swal.fire("Đã xóa!", response, "success").then(() => {
                             location.reload();
@@ -242,18 +157,280 @@ const renderDataStaff = {
             }
         });
     },
-    openPopup: function () {
-        var modalElement = document.getElementById('registerModal');
-        if (modalElement) {
-            modalInstance = new bootstrap.Modal(modalElement);
-            modalInstance.show();
-        } else {
-            console.error("Modal element not found!");
-        }
+
+    onGetInfoTherapistByID: function(skinTherapistID){
+        return $.ajax({
+            url: "/therapist/getSkinTherapistById",
+            method: "POST",
+            data: JSON.stringify({ skinTherapistID: skinTherapistID }),
+            contentType: "application/json",
+            dataType: "json"
+        });
     },
-    closePopup: function () {
-        if (modalInstance) {
-            modalInstance.hide();
-        }
-    }
+
+    updateTherapist: function(data) {
+        return $.ajax({
+            url: "/therapist/updateTherapist",
+            method: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            dataType: "json"
+        });
+    },
+
+    onEditProfileTherapist: function (skinTherapistID) {
+        renderDataStaff.onGetInfoTherapistByID(skinTherapistID).done(function (therapist) {
+            let date = baseCore.formatDate2(therapist.birthDate );
+            Swal.fire({
+                title: 'Chỉnh sửa thông tin',
+                width: '700px',
+                background: '#accffe',
+                html: `
+            <div class="modal-content">
+                <div class="avatar-container">
+                    <input id="avtUpload" type="file" class="hidden-input">
+                    <img id="avtPreview" src="/${therapist.avt || 'default.jpg'}">
+                </div>
+
+                <div class="form-group">
+                    <label>Họ:</label>
+                    <input id="firstName" value="${therapist.firstName || ''}">
+                </div>
+                <div class="form-group">
+                    <label>Tên:</label>
+                    <input id="lastName" value="${therapist.lastName || ''}">
+                </div>
+                <div class="form-group">
+                    <label>Ngày sinh:</label>
+                    <input id="birthDate" type="date" value="${date || ''}">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input id="email" value="${therapist.email || ''}">
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại:</label>
+                    <input id="phone" value="${therapist.phone || ''}">
+                </div>
+                <div class="form-group">
+                    <label>Giới tính:</label>
+                    <select id="gender">
+                        <option value="1" ${therapist.gender === 1? 'selected' : ''}>Nam</option>
+                        <option value="2" ${therapist.gender === 2? 'selected' : ''}>Nữ</option>
+                        <option value="0" ${therapist.gender === null || therapist.gender === 0 ? 'selected' : ''}>Khác</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Chuyên môn:</label>
+                    <input id="expertise" value="${therapist.expertise || ''}">
+                </div>
+                <div class="form-group">
+                    <label>Lương:</label>
+                    <input id="salary" value="${therapist.salary || ''}">
+                </div>
+            </div>
+            <img src="/assets/images/base/admin/create-icon-2.png" class="image-2" style="height:300px; z-index: -1">
+            <img src="/assets/images/base/admin/image-1.png" class="image-1" style="height:123px;">
+            `,
+                showCancelButton: true,
+                confirmButtonText: 'Lưu',
+                preConfirm: () => {
+                    const firstName = $('#firstName').val().trim();
+                    const lastName = $('#lastName').val().trim();
+                    const phone = $('#phone').val().trim();
+                    const salary = $('#salary').val().trim();
+
+                    const vietnameseNamePattern = /^[a-zA-ZÀ-ỹ\s]+$/;
+                    const phonePattern = /^[0-9]{10,15}$/;
+                    const salaryPattern = /^[0-9]+$/;
+
+                    if (!firstName || !lastName) {
+                        Swal.fire('Lỗi!', 'Họ và tên không được để trống!', 'error');
+                        return false;
+                    }
+
+                    if (!vietnameseNamePattern.test(firstName) || !vietnameseNamePattern.test(lastName)) {
+                        Swal.fire('Lỗi!', 'Họ và tên chỉ được chứa chữ cái và dấu tiếng Việt, không chứa số hoặc ký tự đặc biệt!', 'error');
+                        return false;
+                    }
+
+                    if (!phonePattern.test(phone)) {
+                        Swal.fire('Lỗi!', 'Số điện thoại chỉ được nhập số và có độ dài từ 10 đến 15 ký tự!', 'error');
+                        return false;
+                    }
+
+                    if (!salaryPattern.test(salary)) {
+                        Swal.fire('Lỗi!', 'Lương chỉ được nhập số!', 'error');
+                        return false;
+                    }
+                    const formData = new FormData();
+                    formData.append('firstName', firstName);
+                    formData.append('lastName', lastName);
+                    formData.append('gender', $('#gender').val());
+                    formData.append('expertise', $('#expertise').val());
+                    formData.append('salary', salary);
+                    formData.append('status', 1);
+                    formData.append('email', $('#email').val());
+                    formData.append('skinTherapistID', skinTherapistID);
+                    formData.append("phone", phone)
+                    let birth = baseCore.onFormatOffSetDateTime($('#birthDate').val());
+                    formData.append('birthDate', birth);
+                    const file = $('#avtUpload')[0].files[0];
+                    if (file) formData.append('avatar', file);
+                    return renderDataStaff.updateTherapist(formData);
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Thành công!', 'Thông tin đã được cập nhật.', 'success').then(() => {
+                        location.reload();
+                    });
+                }
+            });
+
+            $('#avtPreview').on('click', function () {
+                $('#avtUpload').click();
+            });
+
+            $('#avtUpload').on('change', function (event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => $('#avtPreview').attr('src', e.target.result);
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    },
+
+    createTherapist: function(data) {
+        return $.ajax({
+            url: "/therapist/createTherapist",
+            method: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            dataType: "json"
+        });
+    },
+    onCreateProfileTherapist: function () {
+        Swal.fire({
+            title: 'Thêm thông tin',
+            width: '700px',
+            background: '#accffe',
+            html: `
+        <div class="modal-content">
+            <div class="avatar-container">
+                <input id="avtUpload" type="file" class="hidden-input">
+                <img id="avtPreview" src="">
+            </div>
+
+            <div class="form-group">
+                <label>Họ:</label>
+                <input id="firstName" value="">
+            </div>
+            <div class="form-group">
+                <label>Tên:</label>
+                <input id="lastName" value="">
+            </div>
+            <div class="form-group">
+                <label>Ngày sinh:</label>
+                <input id="birthDate" type="date" value="">
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input id="email" value="">
+            </div>
+            <div class="form-group">
+                <label>Số điện thoại:</label>
+                <input id="phone" value="">
+            </div>
+            <div class="form-group">
+                <label>Giới tính:</label>
+                <select id="gender">
+                    <option value="1" selected>Nam</option>
+                    <option value="2" >Nữ</option>
+                    <option value="0" >Khác</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Chuyên môn:</label>
+                <input id="expertise" value="">
+            </div>
+            <div class="form-group">
+                <label>Lương:</label>
+                <input id="salary" value="">
+            </div>
+        </div>
+        <img src="/assets/images/base/admin/create-icon-2.png" class="image-2" style="height:300px; z-index: -1">
+        <img src="/assets/images/base/admin/image-1.png" class="image-1" style="height:123px;">
+        `,
+            showCancelButton: true,
+            confirmButtonText: 'Lưu',
+            preConfirm: () => {
+                const firstName = $('#firstName').val().trim();
+                const lastName = $('#lastName').val().trim();
+                const phone = $('#phone').val().trim();
+                const salary = $('#salary').val().trim();
+
+                const vietnameseNamePattern = /^[a-zA-ZÀ-ỹ\s]+$/;
+                const phonePattern = /^[0-9]{10,15}$/;
+                const salaryPattern = /^[0-9]+$/;
+
+                if (!firstName || !lastName) {
+                    Swal.fire('Lỗi!', 'Họ và tên không được để trống!', 'error');
+                    return false;
+                }
+
+                if (!vietnameseNamePattern.test(firstName) || !vietnameseNamePattern.test(lastName)) {
+                    Swal.fire('Lỗi!', 'Họ và tên chỉ được chứa chữ cái và dấu tiếng Việt, không chứa số hoặc ký tự đặc biệt!', 'error');
+                    return false;
+                }
+
+                if (!phonePattern.test(phone)) {
+                    Swal.fire('Lỗi!', 'Số điện thoại chỉ được nhập số và có độ dài từ 10 đến 15 ký tự!', 'error');
+                    return false;
+                }
+
+                if (!salaryPattern.test(salary)) {
+                    Swal.fire('Lỗi!', 'Lương chỉ được nhập số!', 'error');
+                    return false;
+                }
+                const formData = new FormData();
+                formData.append('firstName', firstName);
+                formData.append('lastName', lastName);
+                formData.append('gender', $('#gender').val());
+                formData.append('expertise', $('#expertise').val());
+                formData.append('salary', salary);
+                formData.append('status', 1);
+                formData.append('email', $('#email').val());
+                formData.append("phone", phone);
+                let birth = baseCore.onFormatOffSetDateTime($('#birthDate').val());
+                formData.append('birthDate', birth);
+                const file = $('#avtUpload')[0].files[0];
+                if (file) formData.append('avatar', file);
+                return renderDataStaff.createTherapist(formData);
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Thành công!', 'Thông tin đã được cập nhật.', 'success').then(() => {
+                    location.reload();
+                });
+            }
+        });
+
+        $('#avtPreview').on('click', function () {
+            $('#avtUpload').click();
+        });
+
+        $('#avtUpload').on('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => $('#avtPreview').attr('src', e.target.result);
+                reader.readAsDataURL(file);
+            }
+        });
+    },
+
 }

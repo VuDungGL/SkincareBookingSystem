@@ -16,7 +16,7 @@ import java.util.concurrent.CompletableFuture;
 public class FileService {
 
     private static final Logger logger = LoggerFactory.getLogger(FileService.class);
-    private static final String ROOT_PATH = System.getProperty("user.dir") + "/SkincareBookingSystem/Uploads";
+    private static final String ROOT_PATH = System.getProperty("user.dir") + "/SkincareBookingSystem/";
 
     public void deleteFile(String path) {
         CompletableFuture.runAsync(() -> {
@@ -40,37 +40,39 @@ public class FileService {
         });
     }
 
-    public CompletableFuture<String> uploadFile(MultipartFile file, String path) {
-        return CompletableFuture.supplyAsync(() -> {
-            try {
-                String[] allowedExtensions = {".jpg", ".jpeg", ".png", ".gif"};
-                String extension = getFileExtension(file.getOriginalFilename());
+    public String uploadFile(MultipartFile file, String path) {
+        try {
+            String[] allowedExtensions = {".jpg", ".jpeg", ".png", ".gif"};
 
-                if (!isAllowedExtension(extension, allowedExtensions)) {
-                    logger.info("Chỉ cho phép tải lên hình ảnh (.jpg, .jpeg, .png, .gif).");
-                    return "";
-                }
+            String extension = getFileExtension(file.getOriginalFilename());
 
-                String fileName = UUID.randomUUID() + extension;
-                File uploadDir = new File(ROOT_PATH + "/" + path);
-                if (!uploadDir.exists()) {
-                    uploadDir.mkdirs();
-                }
-
-                File savedFile = new File(uploadDir, fileName);
-                try (FileOutputStream fos = new FileOutputStream(savedFile)) {
-                    fos.write(file.getBytes());
-                }
-
-                String fileUrl = "/" + path + "/" + fileName;
-                logger.info("Tải file thành công: {}", fileUrl);
-                return fileUrl;
-            } catch (IOException e) {
-                logger.error("Upload hình thất bại: {}", e.getMessage());
-                return "";
+            if (!isAllowedExtension(extension, allowedExtensions)) {
+                logger.info("Chỉ cho phép tải lên hình ảnh (.jpg, .jpeg, .png, .gif).");
+                return "Chỉ cho phép tải lên hình ảnh (.jpg, .jpeg, .png, .gif).";
             }
-        });
+
+            String fileName = UUID.randomUUID() + extension;
+
+            File uploadDir = new File(ROOT_PATH + "/" + path);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs();
+            }
+
+            File savedFile = new File(uploadDir, fileName);
+            try (FileOutputStream fos = new FileOutputStream(savedFile)) {
+                fos.write(file.getBytes());
+            }
+
+            String fileUrl = path + "/" + fileName;
+            logger.info("Tải file thành công: {}", fileUrl);
+            return fileUrl;
+
+        } catch (IOException e) {
+            logger.error("Upload hình thất bại: {}", e.getMessage());
+            return "Upload hình thất bại: " + e.getMessage();
+        }
     }
+
 
     private String getFileExtension(String fileName) {
         if (fileName == null || !fileName.contains(".")) {

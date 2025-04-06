@@ -266,6 +266,50 @@
 /*** Services End ***/
 
 
+/* Kiểu cho phần trắc nghiệm */
+.quiz-section {
+    padding: 20px;
+}
+
+.question {
+    margin: 20px 0;
+}
+
+.question p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.option {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: #f0f0f0;
+}
+
+.result-section {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Đảm bảo modal hiển thị đúng */
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+
 
 /*** About Start ***/
 /*** Youtube Video start ***/
@@ -557,6 +601,7 @@
     left: 20px; 
     opacity: 0;
     transition: 0.5s;
+
 }
 
 .team .team-item:hover .team-social {
