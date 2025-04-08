@@ -46,10 +46,59 @@
                     </div>
                     <a th:href="@{contact}" class="nav-item nav-link">Hỗ Trợ</a>
                 </div>
-                <div class="d-flex align-items-center flex-nowrap pt-xl-0">
-                    <button class="btn-search btn btn-primary btn-primary-outline-0 rounded-circle btn-lg-square" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                    <a th:href="@{appointment}" class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4 ms-4">Đặt Lịch</a>
+<!--                <div class="d-flex align-items-center flex-nowrap pt-xl-0 ">-->
+<!--&lt;!&ndash;                    <button class="btn-search btn btn-primary btn-primary-outline-0 rounded-circle btn-lg-square" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>&ndash;&gt;-->
+<!--                    <a th:href="@{appointment}" class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4 ms-4">Đăng Nhập</a>-->
+<!--                </div>-->
+                <!-- Nút đăng nhập (ẩn sau khi đăng nhập) -->
+                <div id="loginSection" class="d-flex align-items-center flex-nowrap pt-xl-0">
+                    <a th:href="@{/login}" class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4 ms-4">Đăng Nhập</a>
+
                 </div>
+
+
+<!--                &lt;!&ndash; Thông tin người dùng (ẩn mặc định) &ndash;&gt;-->
+<!--                <div id="userInfo" class="dropdown d-none">-->
+<!--                    <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle"-->
+<!--                       id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                        <img src="/images/user-avatar.jpg" alt="avatar" width="32" height="32" class="rounded-circle me-2">-->
+<!--                        <strong>Vũ Đức Dũng</strong>-->
+<!--                    </a>-->
+<!--                    <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="userDropdown">-->
+<!--                        <li><a class="dropdown-item" href="#">Thông tin cá nhân</a></li>-->
+<!--                        <li><a class="dropdown-item" href="#">Đổi mật khẩu trang sinh viên</a></li>-->
+<!--                        <li><a class="dropdown-item" href="#">Đổi mật khẩu Microsoft</a></li>-->
+<!--                        <li><hr class="dropdown-divider"></li>-->
+<!--                        <li><a class="dropdown-item" href="#" onclick="logout()">Đăng xuất</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <script>-->
+<!--                    function fakeLogin() {-->
+<!--                        // Ẩn nút đăng nhập-->
+<!--                        document.getElementById("loginSection").classList.add("d-none");-->
+
+<!--                        // Hiện thông tin người dùng-->
+<!--                        document.getElementById("userInfo").classList.remove("d-none");-->
+
+<!--                        // (Tùy chọn) Gán thông tin động-->
+<!--                        const name = "Vũ Đức Dũng";-->
+<!--                        const avatar = "/images/user-avatar.jpg";-->
+
+<!--                        document.querySelector("#userInfo strong").textContent = name;-->
+<!--                        document.querySelector("#userInfo img").src = avatar;-->
+<!--                    }-->
+
+<!--                    function logout() {-->
+<!--                        // Ẩn thông tin người dùng-->
+<!--                        document.getElementById("userInfo").classList.add("d-none");-->
+
+<!--                        // Hiện lại nút đăng nhập-->
+<!--                        document.getElementById("loginSection").classList.remove("d-none");-->
+<!--                    }-->
+<!--                </script>-->
+
+
+
             </div>
         </nav>
     </div>
