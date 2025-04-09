@@ -1,4 +1,4 @@
-package com.devices.app.dtos;
+package com.devices.app.dtos.requests;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
 @Getter

@@ -1,6 +1,9 @@
 package com.devices.app.services;
 
-import com.devices.app.dtos.*;
+import com.devices.app.dtos.dto.AnnualStatisticsDto;
+import com.devices.app.dtos.dto.BookingDto;
+import com.devices.app.dtos.dto.RevenueDto;
+import com.devices.app.dtos.dto.SkinTherapistDto;
 import com.devices.app.repository.BookingRepository;
 import com.devices.app.repository.FeedbackRepository;
 import jakarta.persistence.Tuple;

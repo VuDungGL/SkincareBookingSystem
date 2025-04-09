@@ -1,5 +1,6 @@
 package com.devices.app.repository;
 
+import com.devices.app.dtos.dto.UserDto;
 import com.devices.app.models.Users;
 import jakarta.persistence.Tuple;
 import org.springframework.data.domain.Page;
@@ -69,4 +70,23 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
     Page<Tuple> findAllUserByUserRole(@Param("searchText") String searchText,@Param("roleID") int roleID, Pageable pageable);
 
     List<Users> findAllByRoleID(int roleID);
+
+    @Query(value = """
+        SELECT  U.ID,
+                U.UserName,
+                U.RoleID,
+                U.Email,
+                U.Phone,
+                U.FirstName,
+                U.LastName,
+                U.Avt,
+                U.Gender,
+                FORMAT(U.BirthDay, 'yyyy-MM-dd HH:mm:ss') AS BirthDay,
+                FORMAT(U.CreateDate, 'yyyy-MM-dd HH:mm:ss') AS CreateDate,
+                U.Status,
+                U.Password
+        FROM S_Users AS U WITH (NOLOCK) 
+        WHERE U.UserName = :userName
+    """,nativeQuery = true)
+    Users findByUserName(@Param("userName") String userName);
 }

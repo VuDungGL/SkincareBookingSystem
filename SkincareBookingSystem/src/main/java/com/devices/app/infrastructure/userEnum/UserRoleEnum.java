@@ -4,24 +4,23 @@ import lombok.Getter;
 
 @Getter
 public enum UserRoleEnum {
-    MASTER_ADMIN(0, "Master Admin"),
-    ADMIN(1, "Admin"),
-    MEMBER(2, "Member");
+    USER(2),
+    ADMIN(1),
+    MASTER_ADMIN(0);
 
     private final int value;
-    private final String description;
 
-    UserRoleEnum(int value, String description) {
+    UserRoleEnum(int value) {
         this.value = value;
-        this.description = description;
     }
 
     public static UserRoleEnum fromValue(int value) {
-        for (UserRoleEnum e : values()) {
-            if (e.value == value) {
-                return e;
+        for (UserRoleEnum role : UserRoleEnum.values()) {
+            if (role.value == value) {
+                return role;
             }
         }
-        throw new IllegalArgumentException("Không tìm thấy EnumRoleUser với value: " + value);
+        throw new IllegalArgumentException("Unknown role value: " + value);
     }
 }
+

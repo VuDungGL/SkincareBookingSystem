@@ -28,7 +28,7 @@ const renderData= {
 
     onLoadTotalMember: function(){
         $.ajax({
-            url: "/users/TotalMember",
+            url: "/admin/users/TotalMember",
             method: 'GET',
             success: function(response){
                 if(response != null){
@@ -40,7 +40,7 @@ const renderData= {
 
     onLoadTotalBookingSuccess: function(){
         $.ajax({
-            url: "/booking/GetTotal",
+            url: "/admin/booking/GetTotal",
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({
@@ -56,7 +56,7 @@ const renderData= {
 
     onLoadFeedback: function(){
         $.ajax({
-            url: "/booking/GetRatingFeedback",
+            url: "/admin/booking/GetRatingFeedback",
             method: 'GET',
             success: function(response){
                 if(response != null){
@@ -69,7 +69,7 @@ const renderData= {
 
     onLoadTotalBookingCancel: function(){
         $.ajax({
-            url: "/booking/GetTotal",
+            url: "/admin/booking/GetTotal",
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({
@@ -85,7 +85,7 @@ const renderData= {
 
     onLoadBestSaler: function(){
         $.ajax({
-            url: "/booking/BestSaler",
+            url: "/admin/booking/BestSaler",
             method: 'GET',
             success: function(response){
                 if(response != null){
@@ -97,7 +97,7 @@ const renderData= {
 
     onLoadRevenue: function(){
         $.ajax({
-            url: "/booking/getRevenue",
+            url: "/admin/booking/getRevenue",
             method: 'GET',
             success: function(response){
                 if(response != null){
@@ -110,7 +110,7 @@ const renderData= {
 
     onLoadTopWorkingHard: function(){
         $.ajax({
-            url: "/booking/getHardWorking",
+            url: "/admin/booking/getHardWorking",
             method: 'POST',
             data: JSON.stringify({
                 pageSize: 3,
@@ -142,7 +142,7 @@ const renderData= {
 
     onLoadWorkingTable: function(pageSize, pageIndex){
         $.ajax({
-            url: "/booking/getHardWorking",
+            url: "/admin/booking/getHardWorking",
             method: 'POST',
             data: JSON.stringify({
                 pageSize: pageSize,
@@ -192,7 +192,7 @@ const onLoadDataChart = {
     onGetDataSaleYear: function() {
         var year = $('#dateInput').val();
         $.ajax({
-            url: "/booking/annualSale",
+            url: "/admin/booking/annualSale",
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ year: year }),
@@ -214,7 +214,7 @@ const onLoadDataChart = {
     onGetTotalNewMemberYear: function(salesData) {
         var year = $('#dateInput').val();
         $.ajax({
-            url: "/users/annualNewMember",
+            url: "/admin/users/annualNewMember",
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ year: year }),
@@ -311,13 +311,13 @@ const onLoadDataChart = {
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            let fetchPaid = fetch('/booking/revenueLast7day', {
+            let fetchPaid = fetch('/admin/booking/revenueLast7day', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ isPaid: 1 })
             }).then(response => response.json());
 
-            let fetchUnpaid = fetch('/booking/revenueLast7day', {
+            let fetchUnpaid = fetch('/admin/booking/revenueLast7day', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ isPaid: 0 })

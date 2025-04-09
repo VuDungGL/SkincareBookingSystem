@@ -23,3 +23,18 @@ spring:
       max-request-size: 10MB
 server:
   port: 9090
+
+jwt:
+  key: zvU8wxF4V0Ev2/LJb0HqDFs9ZAdX5PLIHtLqkiwlZvRB+9BJ24QDa+dhzErrUzFF
+  issuer: Skincare-Platform
+  audience: Skincare-Platform
+  access-token:
+    expire-time: 30
+  refresh-token:
+    expire-time: 60
+
+app:
+  emailsetting:
+    sender: MAdminBookingSystem@gmail.com
+    login-password: AdminBookingSystem@123
+    password: $2a$10$oCMfEPHRmV8/o8kkBwfXXu2UZpqrS7lrQpyOd1LsauXRhIxP9VrXa

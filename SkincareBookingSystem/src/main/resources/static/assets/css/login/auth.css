@@ -62,7 +62,7 @@ body {
     font-size: 20px;
 }
 
-/* Styles for login form specific elements */
+/* Styles for authentication form specific elements */
 .wrapper .remember-forgot {
     display: flex;
     justify-content: space-between;

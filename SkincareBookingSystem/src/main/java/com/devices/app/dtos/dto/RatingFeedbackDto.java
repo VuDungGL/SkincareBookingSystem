@@ -1,4 +1,4 @@
-package com.devices.app.dtos;
+package com.devices.app.dtos.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,13 +1,10 @@
-package com.devices.app.dtos;
+package com.devices.app.dtos.requests;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Nationalized;
 
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 
 @Setter
 @Getter

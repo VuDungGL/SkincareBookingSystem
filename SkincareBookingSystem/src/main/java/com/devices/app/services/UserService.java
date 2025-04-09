@@ -1,9 +1,14 @@
 package com.devices.app.services;
 
-import com.devices.app.dtos.AnnualStatisticsDto;
-import com.devices.app.dtos.SkinTherapistDto;
-import com.devices.app.dtos.UserDto;
-import com.devices.app.models.SkinTherapist;
+import com.devices.app.config.HashUtil;
+import com.devices.app.config.jwt.AppProperties;
+import com.devices.app.config.jwt.EmailSetting;
+import com.devices.app.dtos.dto.AnnualStatisticsDto;
+import com.devices.app.dtos.dto.AuthenticationDto;
+import com.devices.app.dtos.dto.CustomerUserDetails;
+import com.devices.app.dtos.dto.UserDto;
+import com.devices.app.dtos.response.TokenInfo;
+import com.devices.app.infrastructure.userEnum.UserRoleEnum;
 import com.devices.app.models.Users;
 import jakarta.persistence.Tuple;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +16,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import com.devices.app.repository.UserRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -26,16 +31,19 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final FileService fileService;
-    private final PasswordEncoder passwordEncoder;
+    private final JWTService jwtService;
+    private final AppProperties appProperties;
+
 
     @Autowired
-    public UserService(UserRepository userRepository, FileService fileService, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, FileService fileService, JWTService jwtService, AppProperties appProperties ) {
         this.userRepository = userRepository;
         this.fileService = fileService;
-        this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
+        this.appProperties = appProperties;
     }
 
 
@@ -114,5 +122,39 @@ public class UserService {
         }
     }
 
+    public TokenInfo login(String username, String password) {
+        EmailSetting emailSetting = appProperties.getEmailSetting();
+        String masterUsername = emailSetting.getSender();
+        String masterPassword = emailSetting.getLoginPassword();
+
+        // Nếu là master admin
+        if (username.equals(masterUsername) && password.equals(masterPassword)) {
+            return jwtService.generateTokenMaster(); // Trả về TokenInfo
+        }
+
+        Users user = userRepository.findByUserName(username);
+
+        if (user == null || !HashUtil.checkPassword(password, user.getPassword())) {
+            return null;
+        }
+
+        return jwtService.generateToken(user, 60); // Trả về TokenInfo
+    }
+
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        // Kiểm tra xem user có tồn tại trong database không?
+        Users user = userRepository.findByUserName(username);
+        if (user == null) {
+            throw new UsernameNotFoundException(username);
+        }
+        return new CustomerUserDetails(user);
+    }
+    public UserDetails loadUserById(Long id) {
+        Users user = userRepository.findById(Math.toIntExact(id)).orElse(null);
+        if (user == null) return null;
+        return new CustomerUserDetails(user);
+    }
 
 }

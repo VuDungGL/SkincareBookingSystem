@@ -10,7 +10,7 @@ const onRenderData = {
 
     renderVipCustomer: function(){
         $.ajax({
-            url: "/users/getListCustomer",
+            url: "/admin/users/getListCustomer",
             method: 'POST',
             data: JSON.stringify({
                 status: 2
@@ -81,7 +81,7 @@ const onRenderData = {
     onLoadAllUsers: function(pageSize = 6, pageIndex = 0){
         var search = $('#search-input')[0].value;
         $.ajax({
-            url: "/users/getListCustomerByUserRole",
+            url: "/admin/users/getListCustomerByUserRole",
             method: 'POST',
             data: JSON.stringify({
                 pageSize: pageSize,
@@ -144,7 +144,7 @@ const onRenderData = {
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "/users/deleteUser",
+                    url: "/admin/users/deleteUser",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify({ userID: userID }),

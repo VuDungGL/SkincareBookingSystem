@@ -12,7 +12,7 @@ const renderDataStaff = {
     renderAllStaffTable : function(pageSize=6, pageIndex=0){
         var search = $('#search-input')[0].value;
         $.ajax({
-            url: "/therapist/getListSkinTherapist",
+            url: "/admin/therapist/getListSkinTherapist",
             method: 'POST',
             data: JSON.stringify({
                 pageSize: pageSize,
@@ -63,7 +63,7 @@ const renderDataStaff = {
 
     renderDepartmentInfo: function(){
         $.ajax({
-            url: "/therapist/getAllSkinTherapist",
+            url: "/admin/therapist/getAllSkinTherapist",
             method: 'GET',
             contentType: "application/json",
             success: function (response){
@@ -141,7 +141,7 @@ const renderDataStaff = {
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "/therapist/deleteSkinTherapist",
+                    url: "/admin/therapist/deleteSkinTherapist",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify({ skinTherapistID: skinTherapistID }),
@@ -160,7 +160,7 @@ const renderDataStaff = {
 
     onGetInfoTherapistByID: function(skinTherapistID){
         return $.ajax({
-            url: "/therapist/getSkinTherapistById",
+            url: "/admin/therapist/getSkinTherapistById",
             method: "POST",
             data: JSON.stringify({ skinTherapistID: skinTherapistID }),
             contentType: "application/json",
@@ -170,7 +170,7 @@ const renderDataStaff = {
 
     updateTherapist: function(data) {
         return $.ajax({
-            url: "/therapist/updateTherapist",
+            url: "/admin/therapist/updateTherapist",
             method: "POST",
             data: data,
             contentType: false,
@@ -305,7 +305,7 @@ const renderDataStaff = {
 
     createTherapist: function(data) {
         return $.ajax({
-            url: "/therapist/createTherapist",
+            url: "/admin/therapist/createTherapist",
             method: "POST",
             data: data,
             contentType: false,

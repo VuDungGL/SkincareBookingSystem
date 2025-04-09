@@ -20,7 +20,7 @@ const baseCore={
         const date = new Date(isoString);
         return date.toISOString().split('T')[0];
     },
-     showLoading:function() {
+    showLoading:function() {
          $('.loading-overlay').addClass("loading-active").fadeIn();
          $('body').append('<div class="loading-overlay"><div class="loader"></div></div>');
     },

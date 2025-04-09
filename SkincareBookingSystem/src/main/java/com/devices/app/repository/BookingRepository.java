@@ -1,8 +1,8 @@
 package com.devices.app.repository;
 
-import com.devices.app.dtos.BookingDto;
-import com.devices.app.dtos.RevenueDto;
-import com.devices.app.dtos.SkinTherapistDto;
+import com.devices.app.dtos.dto.BookingDto;
+import com.devices.app.dtos.dto.RevenueDto;
+import com.devices.app.dtos.dto.SkinTherapistDto;
 import com.devices.app.models.Booking;
 import jakarta.persistence.Tuple;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,7 +21,7 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
 //           = 1 : Thành công
 //           = 2 : đã hủy
 //           = 3 : Hoãn
-    @Query("SELECT new com.devices.app.dtos.BookingDto(BD.serviceID, S.serviceName, COUNT(BD.serviceID)) " +
+    @Query("SELECT new com.devices.app.dtos.dto.BookingDto(BD.serviceID, S.serviceName, COUNT(BD.serviceID)) " +
             "FROM BookingDetail BD " +
             "JOIN Services S ON BD.serviceID = S.id " +
             "GROUP BY BD.serviceID, S.serviceName " +

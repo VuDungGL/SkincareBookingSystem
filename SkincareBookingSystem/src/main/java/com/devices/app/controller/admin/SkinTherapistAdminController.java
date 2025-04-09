@@ -1,23 +1,21 @@
 package com.devices.app.controller.admin;
 
-import com.devices.app.dtos.SkinTherapistDto;
-import com.devices.app.dtos.TherapistCreationRequest;
+import com.devices.app.dtos.dto.SkinTherapistDto;
+import com.devices.app.dtos.requests.TherapistCreationRequest;
 import com.devices.app.models.SkinTherapist;
 import com.devices.app.services.SkinTherapistService;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 
 @RestController
+@RequestMapping("/admin")
 public class SkinTherapistAdminController {
     final private SkinTherapistService skinTherapistService;
 
@@ -25,6 +23,7 @@ public class SkinTherapistAdminController {
         this.skinTherapistService = skinTherapistService;
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MASTER_ADMIN')")
     @PostMapping("/therapist/getListSkinTherapist")
     public Page<SkinTherapistDto> getListSkinTherapist(@RequestBody Map<String, Object> request) {
         int pageIndex = (int) request.getOrDefault("pageIndex", 0);
@@ -36,11 +35,13 @@ public class SkinTherapistAdminController {
         return skinTherapistService.getListSkinTherapist(searchText,pageIndex,pageSize);
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MASTER_ADMIN')")
     @GetMapping("/therapist/getAllSkinTherapist")
     public List<SkinTherapist> getAllSkinTherapist() {
         return skinTherapistService.getAllSkinTherapist();
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MASTER_ADMIN')")
     @PostMapping("/therapist/deleteSkinTherapist")
     public ResponseEntity<String> deleteSkinTherapist(@RequestBody Map<String, Integer> request) {
         int skinTherapistID = request.get("skinTherapistID");
@@ -48,12 +49,14 @@ public class SkinTherapistAdminController {
         return ResponseEntity.ok(result);
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MASTER_ADMIN')")
     @PostMapping("/therapist/getSkinTherapistById")
     public SkinTherapist getSkinTherapistById(@RequestBody Map<String, Integer> request) {
         int skinTherapistID = request.get("skinTherapistID");
         return skinTherapistService.getSkinTherapistById(skinTherapistID);
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MASTER_ADMIN')")
     @PostMapping("/therapist/updateTherapist")
     public ResponseEntity<SkinTherapist> updateTherapist(
             @RequestParam("skinTherapistID") Integer skinTherapistID,
@@ -90,6 +93,7 @@ public class SkinTherapistAdminController {
 
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MASTER_ADMIN')")
     @PostMapping("/therapist/createTherapist")
     public ResponseEntity<SkinTherapist> createTherapist(
             @RequestParam(value = "email", required = false) String email,

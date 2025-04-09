@@ -1,9 +1,8 @@
 package com.devices.app.services;
 
-import com.devices.app.dtos.SkinTherapistDto;
-import com.devices.app.dtos.TherapistCreationRequest;
+import com.devices.app.dtos.dto.SkinTherapistDto;
+import com.devices.app.dtos.requests.TherapistCreationRequest;
 import com.devices.app.models.SkinTherapist;
-import com.devices.app.models.Users;
 import com.devices.app.repository.SkinTherapistRepository;
 import jakarta.persistence.Tuple;
 import jakarta.validation.Valid;
@@ -20,7 +19,6 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @Service
