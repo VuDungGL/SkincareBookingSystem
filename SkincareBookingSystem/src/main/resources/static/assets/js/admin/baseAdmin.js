@@ -1,11 +1,19 @@
 $(document).ready(function(){
+    $.ajaxSetup({
+        beforeSend: function (xhr) {
+            baseCore.showLoading()
+        },
+        complete: function () {
+            baseCore.hideLoading()
+        }
+    });
     onAddLeftBarActive.onInit();
     baseCore.baseInit();
 });
 
 const baseCore={
     baseInit: function(){
-
+        this.onLoadAvt();
     },
     formatDate: function(dateString) {
         const date = new Date(dateString);
@@ -22,7 +30,7 @@ const baseCore={
     },
     showLoading:function() {
          $('.loading-overlay').addClass("loading-active").fadeIn();
-         $('body').append('<div class="loading-overlay"><div class="loader"></div></div>');
+         $('body').append('<div class="loading-overlay" style="z-index: 9999;"><div class="loader"></div></div>');
     },
      hideLoading:function() {
          $('.loading-overlay').removeClass("loading-active").fadeOut();
@@ -102,14 +110,16 @@ const baseCore={
         }
     },
     formatStatusUserText: function(status){
-        if (status === 0) {
+        if (status === 1) {
             return "Khách hàng mới";
-        } else if (status === 1) {
+        } else if (status === 2) {
             return "Khách hàng quen thuộc";
-        }else if(status === 2){
-            return "Khách hàng VIP";
         }else if(status === 3){
+            return "Khách hàng VIP";
+        }else if(status === 4){
             return "Khách hàng cũ";
+        }else if(status === 0){
+            return "Chưa kích hoạt OTP";
         }
     },
     onLoadDropdown: function () {
@@ -133,7 +143,18 @@ const baseCore={
             $('.dropdown-menu').fadeOut(200).css({ opacity: 0, transform: 'translateY(-10px)' });
         });
     },
+    onLoadAvt: function(){
+        const token = localStorage.getItem("access_token");
+        const decoded = AuthCore.decodeToken(token);
+        if (!decoded) return;
 
+        const avatarUrl = decoded.avt || "/assets/images/base/admin/base_user.png"; // fallback ảnh mặc định
+        const imgTag = `<img src="/${avatarUrl}" class="rounded-circle" style="border: 2px solid #2a4969;margin-left: 12px;" alt="User Image" width="44" height="44">`;
+        const container = document.getElementById("img-box");
+        if (container) {
+            container.innerHTML = imgTag;
+        }
+    }
 }
 
 const onAddLeftBarActive = {

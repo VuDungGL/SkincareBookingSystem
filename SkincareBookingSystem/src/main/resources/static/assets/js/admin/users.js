@@ -13,7 +13,7 @@ const onRenderData = {
             url: "/admin/users/getListCustomer",
             method: 'POST',
             data: JSON.stringify({
-                status: 2
+                status: 3
             }),
             contentType: "application/json",
             success: function (response){

@@ -6,7 +6,6 @@ const renderDataStaff = {
     renderInit : function(){
         this.renderAllStaffTable();
         this.renderDepartmentInfo();
-        this.onLoadDropdown();
     },
 
     renderAllStaffTable : function(pageSize=6, pageIndex=0){
@@ -39,7 +38,7 @@ const renderDataStaff = {
                                 <td class="data column-phone">${user.phone}</td>
                                 <td class="data column-gender">${genderText}</td>
                                 <td class="data column-department">${user.expertise}</td>
-                                <td class="data column-position">${user.salary}</td>
+                                <td class="data column-position">${user.salary.toLocaleString('vi-VN')}</td>
                                 <td class="data column-option">
                                     <div class="dropdown">
                                         <i class="fa-solid fa-ellipsis-vertical dropdown-toggle-content"></i>

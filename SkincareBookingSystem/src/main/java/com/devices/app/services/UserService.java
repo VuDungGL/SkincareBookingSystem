@@ -4,11 +4,12 @@ import com.devices.app.config.HashUtil;
 import com.devices.app.config.jwt.AppProperties;
 import com.devices.app.config.jwt.EmailSetting;
 import com.devices.app.dtos.dto.AnnualStatisticsDto;
-import com.devices.app.dtos.dto.AuthenticationDto;
 import com.devices.app.dtos.dto.CustomerUserDetails;
 import com.devices.app.dtos.dto.UserDto;
+import com.devices.app.dtos.requests.RegisterRequest;
+import com.devices.app.dtos.response.ApiResponse;
 import com.devices.app.dtos.response.TokenInfo;
-import com.devices.app.infrastructure.userEnum.UserRoleEnum;
+import com.devices.app.infrastructure.ResponseEnum.RegisterEnum;
 import com.devices.app.models.Users;
 import jakarta.persistence.Tuple;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ import com.devices.app.repository.UserRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -151,10 +154,34 @@ public class UserService implements UserDetailsService {
         }
         return new CustomerUserDetails(user);
     }
+
     public UserDetails loadUserById(Long id) {
         Users user = userRepository.findById(Math.toIntExact(id)).orElse(null);
         if (user == null) return null;
         return new CustomerUserDetails(user);
     }
 
+    @Transactional
+    public ApiResponse register(RegisterRequest registerRequest) {
+        if (userRepository.existsByUserName(registerRequest.getUserName())) {
+            return new ApiResponse<>(400, RegisterEnum.USERNAME_EXISTS.getMessage(), null);
+        }
+
+        if (userRepository.existsByEmail(registerRequest.getEmail())) {
+            return new ApiResponse<>(400, RegisterEnum.EMAIL_EXISTS.getMessage(), null);
+        }
+
+        Users user = new Users();
+        user.setUserName(registerRequest.getUserName());
+        user.setEmail(registerRequest.getEmail());
+        user.setPassword(HashUtil.encodePassword(registerRequest.getPassword()));
+        user.setRoleID(2);
+        user.setStatus(0);
+        user.setAvt("assets/images/base/admin/default-users/male-user-wearing.png");
+        user.setCreateDate(OffsetDateTime.now(ZoneId.of("Asia/Ho_Chi_Minh")));
+
+        userRepository.save(user);
+
+        return new ApiResponse<>(200, RegisterEnum.SUCCESS_REGISTER.getMessage(), null);
+    }
 }
