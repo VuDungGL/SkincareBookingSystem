@@ -283,14 +283,27 @@
     }
 
 // Mở modal khi nhấn nút "Nhấn vào đây để bắt đầu"
-    document.getElementById('start-quiz-btn').addEventListener('click', function() {
-        loadQuiz(); // Tải câu hỏi
-        const quizModal = new bootstrap.Modal(document.getElementById('quiz-modal'));
-        quizModal.show();
+    document.addEventListener('DOMContentLoaded', function () {
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        if (startQuizBtn) {
+            startQuizBtn.addEventListener('click', function () {
+                loadQuiz(); // Tải câu hỏi
+                const quizModal = new bootstrap.Modal(document.getElementById('quiz-modal'));
+                quizModal.show();
+            });
+        } else {
+            console.warn('Không tìm thấy nút #start-quiz-btn trong DOM');
+        }
     });
-
 // Gắn sự kiện cho nút "Hoàn thành"
-    document.getElementById('submit-btn').addEventListener('click', submitQuiz);
+    document.addEventListener('DOMContentLoaded', function () {
+        const submitBtn = document.getElementById('submit-btn');
+        if (submitBtn) {
+            submitBtn.addEventListener('click', submitQuiz);
+        } else {
+            console.warn('Không tìm thấy phần tử #submit-btn');
+        }
+    });
 
     // Modal Video
     $(document).ready(function () {

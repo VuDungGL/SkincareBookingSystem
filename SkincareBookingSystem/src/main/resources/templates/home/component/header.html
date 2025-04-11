@@ -1,5 +1,7 @@
 <div class="container-fluid topbar d-none d-lg-block" th:fragment="header">
+    <link rel="stylesheet" th:href="@{/assets/css/base.css}">
     <script th:src="@{/assets/js/base.js}"></script>
+    <script th:src="@{/assets/js/home/infoUser.js}"></script>
     <div class="container px-0">
         <div class="row align-items-center">
             <div class="col-lg-8">
@@ -47,58 +49,41 @@
                     </div>
                     <a th:href="@{contact}" class="nav-item nav-link">Hỗ Trợ</a>
                 </div>
-<!--                <div class="d-flex align-items-center flex-nowrap pt-xl-0 ">-->
-<!--&lt;!&ndash;                    <button class="btn-search btn btn-primary btn-primary-outline-0 rounded-circle btn-lg-square" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>&ndash;&gt;-->
-<!--                    <a th:href="@{appointment}" class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4 ms-4">Đăng Nhập</a>-->
-<!--                </div>-->
-                <!-- Nút đăng nhập (ẩn sau khi đăng nhập) -->
-                <div id="loginSection" class="d-flex align-items-center flex-nowrap pt-xl-0">
+                <div id="loginSection" class="align-items-center flex-nowrap pt-xl-0">
                     <a th:href="@{/login}" class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4 ms-4">Đăng Nhập</a>
-
+                </div>
+                <div class="user-info" id="user-info-box" style="display: none;">
+                    <img id="user-img" th:src="@{assets/images/base/admin/default-users/male-user-wearing.png}"/>
+                    <span id="user-info-name"></span>
                 </div>
 
+                <div id="user-profile-card" class="card-card mx-auto p-3 shadow-card" style="position: absolute;">
+                    <h2 class="text-title-card">User Profile</h2>
+                    <div class="text-info-card">
+                        <img id="user-image-card" th:src="@{assets/images/base/admin/default-users/male-user-wearing.png}" alt="User Image" class="rounded-circle-card mb-2">
+                        <div>
+                            <h5 id="user-name-card"></h5>
+                            <p id="user-email-card" style="font-size: 13px;"><i class="bi bi-envelope"></i></p>
+                        </div>
 
-<!--                &lt;!&ndash; Thông tin người dùng (ẩn mặc định) &ndash;&gt;-->
-<!--                <div id="userInfo" class="dropdown d-none">-->
-<!--                    <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle"-->
-<!--                       id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                        <img src="/images/user-avatar.jpg" alt="avatar" width="32" height="32" class="rounded-circle me-2">-->
-<!--                        <strong>Vũ Đức Dũng</strong>-->
-<!--                    </a>-->
-<!--                    <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="userDropdown">-->
-<!--                        <li><a class="dropdown-item" href="#">Thông tin cá nhân</a></li>-->
-<!--                        <li><a class="dropdown-item" href="#">Đổi mật khẩu trang sinh viên</a></li>-->
-<!--                        <li><a class="dropdown-item" href="#">Đổi mật khẩu Microsoft</a></li>-->
-<!--                        <li><hr class="dropdown-divider"></li>-->
-<!--                        <li><a class="dropdown-item" href="#" onclick="logout()">Đăng xuất</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <script>-->
-<!--                    function fakeLogin() {-->
-<!--                        // Ẩn nút đăng nhập-->
-<!--                        document.getElementById("loginSection").classList.add("d-none");-->
+                    </div>
+                    <hr>
+                    <div class="d-flex-card justify-content-start-card align-items-center-card mb-3" id="profile-settings-card" onclick="onloadPopupUserInfo();">
+                        <img th:src="@{assets/images/base/admin/default-users/setting-info.png}" id="settings-icon-card" class="me-2-card"/>
+                        <div id="settings-text-card">
+                            <p class="mb-0-card" style="margin-bottom: 0;font-weight: 600;">Hồ sơ của tôi</p>
+                            <p class="mb-0-card">Thay đổi thông tin</p>
+                        </div>
+                    </div>
+                    <div class="w-100-card" style="text-align: center;">
+                        <button class="Btn" style="margin: 12px auto;font-size: 12px !important;" onclick="AuthCore.onLogout()">
 
-<!--                        // Hiện thông tin người dùng-->
-<!--                        document.getElementById("userInfo").classList.remove("d-none");-->
+                            <div class="sign"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
 
-<!--                        // (Tùy chọn) Gán thông tin động-->
-<!--                        const name = "Vũ Đức Dũng";-->
-<!--                        const avatar = "/images/user-avatar.jpg";-->
-
-<!--                        document.querySelector("#userInfo strong").textContent = name;-->
-<!--                        document.querySelector("#userInfo img").src = avatar;-->
-<!--                    }-->
-
-<!--                    function logout() {-->
-<!--                        // Ẩn thông tin người dùng-->
-<!--                        document.getElementById("userInfo").classList.add("d-none");-->
-
-<!--                        // Hiện lại nút đăng nhập-->
-<!--                        document.getElementById("loginSection").classList.remove("d-none");-->
-<!--                    }-->
-<!--                </script>-->
-
-
+                            <div class="text">Logout</div>
+                        </button>
+                    </div>
+                </div>
 
             </div>
         </nav>

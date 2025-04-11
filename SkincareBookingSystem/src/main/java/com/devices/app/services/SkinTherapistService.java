@@ -142,7 +142,7 @@ public class SkinTherapistService {
         MultipartFile avatar = request.getAvatar();
         if (avatar != null && !avatar.isEmpty()) {
             fileService.deleteFile(therapist.getAvt());
-            String fileUrl = fileService.uploadFile(avatar, "Uploads/avatars");
+            String fileUrl = fileService.uploadFile(avatar, "Uploads/Avatars/Therapists");
             if (!fileUrl.isEmpty()) {
                 therapist.setAvt(fileUrl);
             }
@@ -168,7 +168,7 @@ public class SkinTherapistService {
 
         MultipartFile avatar = request.getAvatar();
         if (avatar != null && !avatar.isEmpty()) {
-            String fileUrl = fileService.uploadFile(avatar, "Uploads/avatars");
+            String fileUrl = fileService.uploadFile(avatar, "Uploads/Avatars/Therapists");
             if (!fileUrl.isEmpty()) {
                 therapist.setAvt(fileUrl);
             }
