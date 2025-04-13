@@ -1,0 +1,245 @@
+<div th:fragment="content">
+    <link rel="stylesheet" th:href="@{/assets/css/admin/feedbackAdmin.css}">
+    <script th:src="@{/assets/js/admin/feedback.js}" defer></script>
+
+    <div class="container">
+        <div class="page-header">Phản hồi khách hàng</div>
+        <!-- PHẦN CAROUSEL BO GÓC RIÊNG -->
+        <div class="feedback-carousel-wrapper">
+            <div class="carousel-wrapper">
+                <button class="carousel-button left">&#10094;</button>
+                <div class="feedback-carousel">
+                    <div class="feedback-track">
+                        <!-- Feedback cards -->
+                        <div class="feedback-card">
+                            <div class="feedback-header">
+                                <img th:src="@{/assets/images/base/admin/fb1.jpg}" alt="User">
+                                <div class="feedback-info">
+                                    <div class="feedback-name">Nguyễn Thị Hồng Nhung</div>
+                                    <div class="feedback-stars">★★★★★</div>
+                                    <div class="feedback-type">Dịch vụ: Chăm sóc da</div>
+                                </div>
+                            </div>
+                            <div class="feedback-message">
+                                Dịch vụ chăm sóc da ở đây cực kỳ chất lượng.
+                                Nhân viên nhẹ nhàng, tư vấn đúng nhu cầu của mình.
+                                Da mặt mình cải thiện rõ sau 3 buổi liệu trình.
+                                Không gian sạch sẽ, mùi tinh dầu dễ chịu.
+                                Chắc chắn mình sẽ quay lại thường xuyên.
+                            </div>
+                        </div>
+
+                        <div class="feedback-card">
+                            <div class="feedback-header">
+                                <img th:src="@{/assets/images/base/admin/fb2.jpg}" alt="User">
+                                <div class="feedback-info">
+                                    <div class="feedback-name">Trần Ngọc Bích</div>
+                                    <div class="feedback-stars">★★★★☆</div>
+                                    <div class="feedback-type">Dịch vụ: Chăm sóc da</div>
+                                </div>
+                            </div>
+                            <div class="feedback-message">
+                                Mình làm đẹp ở đây và rất ưng ý với kết quả.
+                                Mẫu vẽ đẹp, bền và màu lên chuẩn như mong đợi.
+                                Nhân viên dễ thương, tỉ mỉ từng chi tiết.
+                                Không gian tiệm gọn gàng, thoải mái.
+                                Sẽ giới thiệu bạn bè đến ủng hộ.
+                            </div>
+                        </div>
+
+                        <div class="feedback-card">
+                            <div class="feedback-header">
+                                <img th:src="@{/assets/images/base/admin/feedback3.jpg}" alt="User">
+                                <div class="feedback-info">
+                                    <div class="feedback-name">Lê Phương Thảo</div>
+                                    <div class="feedback-stars">★★★★★</div>
+                                    <div class="feedback-type">Dịch vụ: Liệu pháp da</div>
+                                </div>
+                            </div>
+                            <div class="feedback-message">
+                                Liệu trình massage mặt rất thư giãn và dễ chịu.
+                                Kỹ thuật viên chuyên nghiệp, nhẹ nhàng.
+                                Sau buổi đầu, da mình căng và mịn hơn rõ rệt.
+                                Dịch vụ xứng đáng với giá tiền.
+                                Mình hoàn toàn hài lòng và sẽ quay lại.
+                            </div>
+                        </div>
+
+                        <div class="feedback-card">
+                            <div class="feedback-header">
+                                <img th:src="@{/assets/images/base/admin/fb4.jpg}" alt="User">
+                                <div class="feedback-info">
+                                    <div class="feedback-name">Đỗ Thị Kim Yến</div>
+                                    <div class="feedback-stars">★★★★☆</div>
+                                    <div class="feedback-type">Dịch vụ: Làm đẹp</div>
+                                </div>
+                            </div>
+                            <div class="feedback-message">
+                                Mình nối mi ở đây, mi rất tự nhiên và đẹp.
+                                Không bị nặng mắt hay rụng nhiều sau vài ngày.
+                                Chị nhân viên cực kỳ dễ thương và hiểu ý.
+                                Làm xong ai cũng khen xinh hẳn ra.
+                                Nhất định sẽ quay lại khi cần dặm mi.
+                            </div>
+                        </div>
+
+                        <div class="feedback-card">
+                            <div class="feedback-header">
+                                <img th:src="@{/assets/images/base/admin/fb5.jpg}" alt="User">
+                                <div class="feedback-info">
+                                    <div class="feedback-name">Vũ Ngọc Mai</div>
+                                    <div class="feedback-stars">★★★★★</div>
+                                    <div class="feedback-type">Dịch vụ: làm đẹp</div>
+                                </div>
+                            </div>
+                            <div class="feedback-message">
+                                Trang điểm ở spa này thực sự rất ưng ý.
+                                Tông make up tự nhiên, phù hợp với khuôn mặt.
+                                Lớp nền mỏng, bám tốt cả ngày dài.
+                                Chị thợ make up tư vấn rất tận tâm.
+                                Mình sẽ chọn chỗ này cho các dịp đặc biệt.
+                            </div>
+                        </div>
+
+                        <div class="feedback-card">
+                            <div class="feedback-header">
+                                <img th:src="@{/assets/images/base/admin/fb6.jpg}" alt="User">
+                                <div class="feedback-info">
+                                    <div class="feedback-name">Phạm Thị Quỳnh Như</div>
+                                    <div class="feedback-stars">★★★★☆</div>
+                                    <div class="feedback-type">Dịch vụ: Dịch vụ massage da</div>
+                                </div>
+                            </div>
+                            <div class="feedback-message">
+                                Mình trải nghiệm gội đầu dưỡng sinh rất tuyệt.
+                                Từ không gian đến âm nhạc đều thư giãn.
+                                Kỹ thuật viên mát-xa đầu cực kỳ dễ chịu.
+                                Sau khi xong, đầu nhẹ tênh và ngủ ngon hơn.
+                                Dịch vụ chất lượng, giá lại hợp lý.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button right">&#10095;</button>
+            </div>
+        </div>
+        <div class="list-container">
+        <!-- PHẦN DANH SÁCH CHI TIẾT BO GÓC RIÊNG -->
+        <div class="feedback-list-wrapper">
+            <h3 class="feedback-list-title">Danh sách đánh giá chi tiết</h3>
+            <ul class="feedback-list">
+                <li class="feedback-item">
+                    <div class="feedback-header">
+                        <strong>👤 Hoàng Thị Hồng Vân</strong>
+                        <span class="feedback-stars">★★★★☆</span>
+                        <em>12:03 - 16/10/2024</em>
+                    </div>
+                    <div class="feedback-content">
+                        Không gian spa ổn, nhân viên tư vấn nhiệt tình khâu đặt lịch  hợp lý, mình chỉ chờ 10 phút.
+                    </div>
+                    <div class="feedback-meta">
+                        Đánh giá: Dịch vụ chăm sóc da · Đã thích: Không gian và mùi tinh dầu
+                    </div>
+                </li>
+
+                <li class="feedback-item">
+                    <div class="feedback-header">
+                        <strong>👤 Jack Huynh</strong>
+                        <span class="feedback-stars">★★★★☆</span>
+                        <em>23:57 - 27/11/2024</em>
+                    </div>
+                    <div class="feedback-content">
+                        Massage thư giãn ổn, nhưng phòng cách âm chưa tốt nên hơi ồn.Dịch vụ ổn
+                    </div>
+                    <div class="feedback-meta">
+                        Đánh giá: Massage body · Đã thích: Kỹ thuật viên nhiệt tình
+                    </div>
+                </li>
+
+                <li class="feedback-item">
+                    <div class="feedback-header">
+                        <strong>👤 Anh Duy</strong>
+                        <span class="feedback-stars">★★★★★</span>
+                        <em>02:26 - 26/01/2025</em>
+                    </div>
+                    <div class="feedback-content">
+                        Mình rất hài long với dịch vụ đặt lịch này,nhanh chóng tiện .
+                    </div>
+                    <div class="feedback-meta">
+                        Đánh giá:Đặt lịch
+                    </div>
+                </li>
+
+                <li class="feedback-item">
+                    <div class="feedback-header">
+                        <strong>👤 Quốc Cường</strong>
+                        <span class="feedback-stars">★☆☆☆☆</span>
+                        <em>22:57 - 30/08/2024</em>
+                    </div>
+                    <div class="feedback-content">
+                        Đặt lịch nối mi nhưng đến nơi lại báo chưa có chỗ, cảm thấy không chuyên nghiệp.
+                    </div>
+                    <div class="feedback-meta">
+                        Đánh giá: Nối mi
+                    </div>
+                </li>
+
+                <li class="feedback-item">
+                    <div class="feedback-header">
+                        <strong>👤 Trịnh Thanh Hà</strong>
+                        <span class="feedback-stars">★★★★☆</span>
+                        <em>09:41 - 02/03/2025</em>
+                    </div>
+                    <div class="feedback-content">
+                        Gội đầu dưỡng sinh siêu thư giãn. Nhân viên mát-xa kỹ, nhạc nhẹ dễ chịu. Sẽ quay lại vào cuối tuần.
+                    </div>
+                    <div class="feedback-meta">
+                        Đánh giá: Gội đầu dưỡng sinh · Đã thích: Không gian yên tĩnh
+                    </div>
+                </li>
+
+                <li class="feedback-item">
+                    <div class="feedback-header">
+                        <strong>👤 Nguyễn Thảo Nhi</strong>
+                        <span class="feedback-stars">★★★★☆</span>
+                        <em>15:17 - 17/02/2025</em>
+                    </div>
+                    <div class="feedback-content">
+                        Trang điểm nhẹ nhàng, giữ lớp nền ổn cả ngày. Giá hợp lý so với chất lượng.
+                    </div>
+                    <div class="feedback-meta">
+                        Đánh giá: Trang điểm · Đã thích: Phong cách make up tự nhiên
+                    </div>
+                </li>
+
+                <li class="feedback-item">
+                    <div class="feedback-header">
+                        <strong>👤 Đặng Minh Tâm</strong>
+                        <span class="feedback-stars">★★★★★</span>
+                        <em>11:11 - 01/01/2025</em>
+                    </div>
+                    <div class="feedback-content">
+                        Lần đầu trải nghiệm chăm sóc da, cảm giác rất thư giãn. Da sáng mịn hơn hẳn sau liệu trình.
+                    </div>
+                    <div class="feedback-meta">
+                        Đánh giá: Chăm sóc da · Đã thích: Kỹ thuật viên tận tâm, không gian sạch sẽ
+                    </div>
+                </li>
+
+                <li class="feedback-item">
+                    <div class="feedback-header">
+                        <strong>👤 Bảo Trân</strong>
+                        <span class="feedback-stars">★★★★☆</span>
+                        <em>18:30 - 05/04/2025</em>
+                    </div>
+                    <div class="feedback-content">
+                        Nối mi tự nhiên, không bị cộm. Nhân viên nhẹ nhàng, tỉ mỉ. Mình sẽ quay lại dặm sau vài tuần.
+                    </div>
+                    <div class="feedback-meta">
+                        Đánh giá: Nối mi · Đã thích: Kết quả tự nhiên, không nặng mắt
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

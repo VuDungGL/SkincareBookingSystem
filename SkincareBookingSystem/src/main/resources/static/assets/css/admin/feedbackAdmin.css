@@ -1,0 +1,262 @@
+.container {
+    max-width: 1200px ;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white; /* Thêm nền trắng cho container */
+    border-radius: 30px
+}
+
+/* Tiêu đề chính */
+.page-header {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #2c3e50; /* Không dùng màu hồng */
+    position: relative;
+}
+
+.page-header::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ff9ecb; /* Gạch hồng baby */
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.feedback-carousel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.feedback-track {
+    display: flex;
+    gap: 40px;
+    transition: transform 0.5s ease-in-out;
+    flex-wrap: nowrap;
+}
+
+.feedback-card {
+    flex: 0 0 50%;
+    background: linear-gradient(145deg, #ffe2ec, #ffcde2);
+    border-radius: 20px; /* Bo góc rõ hơn */
+    padding: 24px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+}
+
+
+
+.feedback-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(221, 94, 137, 0.15);
+}
+
+.feedback-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.feedback-header img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #00bcd4;
+    box-shadow: 0 0 6px rgba(0, 188, 212, 0.3); /* thêm ánh sáng nhẹ */
+}
+
+
+.feedback-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #5e35b1; /* Tím nhạt – tạo điểm nhấn nhẹ nhàng */
+}
+
+.feedback-stars {
+    color: #f39c12;
+    font-size: 14px;
+}
+
+.feedback-message {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 8px;
+}
+
+/* Nút trượt */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: none;
+    font-size: 30px;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: #f0f0f0;
+}
+
+.carousel-button.left {
+    left: -20px;
+}
+
+.carousel-button.right {
+    right: -20px;
+}
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+    .feedback-card {
+        flex: 0 0 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .feedback-card {
+        flex: 0 0 100%;
+    }
+}
+/* Danh sách đánh giá chi tiết */
+/* Wrapper cho phần danh sách feedback */
+.feedback-list-wrapper {
+    padding: 40px 20px;
+    background-color: #fff;
+    border-radius: 30px; /* Bo góc như carousel */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* Tiêu đề của phần feedback list */
+.feedback-list-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #333;
+    text-align: center;
+
+}
+
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* tạo khoảng cách đều giữa các feedback */
+}
+
+
+/* Các item trong danh sách feedback */
+.feedback-item {
+    background: linear-gradient(145deg, #ffe2ec, #ffcde2); /* giống phần trên */
+    border: none;
+    border-radius: 20px; /* đồng bộ với carousel */
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); /* giống phần trên */
+}
+
+
+.feedback-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Thông tin đầu mỗi feedback item */
+.feedback-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.feedback-header strong {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.feedback-stars {
+    color: gold;
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+
+.feedback-header em {
+    font-size: 0.9rem;
+    color: #777;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+/* Nội dung feedback */
+.feedback-content {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+.feedback-meta {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+.feedback-item:hover {
+    box-shadow: 0 8px 20px rgba(221, 94, 137, 0.15);
+    transform: translateY(-3px);
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .feedback-item {
+        padding: 20px;
+    }
+
+    .feedback-stars {
+        font-size: 1.2rem;
+    }
+
+    .feedback-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .feedback-header em {
+        margin-top: 4px;
+    }
+}
+
+
