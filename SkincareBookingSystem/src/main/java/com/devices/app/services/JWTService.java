@@ -67,7 +67,7 @@ public class JWTService {
                 .claim("email", "MAdminBookingSystem@gmail.com")
                 .claim("birthdate", "1970-01-01")
                 .claim("gender", 1)
-                .claim("avt", "/assets/images/base/admin/default-users/male-employee-wearing.png")
+                .claim("avt", "assets/images/base/admin/default-users/male-employee-wearing.png")
                 .claim("phone", "0000000000")
                 .claim("status", 1)
                 .setIssuer(jwtProperties.getIssuer())
@@ -101,7 +101,6 @@ public class JWTService {
                         : "assets/images/base/admin/default-users/female-user-wearing.png")
                 .claim("phone", user.getPhone() != null ? user.getPhone() : "")
                 .claim("status", user.getStatus() != null ? user.getStatus() : 0)
-
                 .setIssuer(jwtProperties.getIssuer())
                 .setAudience(jwtProperties.getAudience())
                 .setIssuedAt(now)

@@ -61,10 +61,18 @@ const coreConst ={
             return "Khách hàng cũ";
         }
     },
+    formatInputNumber: function (element) {
+        element.on('input', function () {
+            let value = $(this).val().replace(/\D/g, '');
+            value = new Intl.NumberFormat('vi-VN').format(value);
+            $(this).val(value);
+        });
+    }
 }
 const AuthCore = {
     onInit: function () {
         this.onLogin();
+        this.onRegister();
     },
     decodeToken: function (token) {
         if (!token) {
@@ -138,6 +146,112 @@ const AuthCore = {
                     text: 'Không thể đăng xuất. Vui lòng thử lại.'
                 });
             }
+        });
+    },
+    onRegister: function(){
+        $('#register-form').on('submit', function (e) {
+            e.preventDefault();
+
+            // Lấy dữ liệu
+            const userName = $('#username').val().trim();
+            const email = $('#email').val().trim();
+            const password = $('#password').val();
+            const confirmPassword = $('#comfirmpass').val();
+
+            // Xóa lỗi cũ nếu có
+            $('.error-message').remove();
+
+            // Biến chứa lỗi
+            const errors = [];
+
+            // ✅ VALIDATE
+            const usernameRegex = /^[a-zA-Z0-9_.]+$/;
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+            if (!userName) {
+                errors.push({ field: 'username', message: 'Tên đăng nhập không được để trống' });
+            } else {
+                if (userName.length > 20) {
+                    errors.push({ field: 'username', message: 'Tên đăng nhập không được quá 20 ký tự' });
+                }
+                if (!usernameRegex.test(userName)) {
+                    errors.push({ field: 'username', message: 'Tên đăng nhập không được chứa ký tự đặc biệt' });
+                }
+            }
+
+            if (!email) {
+                errors.push({ field: 'email', message: 'Email không được để trống' });
+            } else {
+                if (email.length > 50) {
+                    errors.push({ field: 'email', message: 'Email không được quá 50 ký tự' });
+                }
+                if (!emailRegex.test(email)) {
+                    errors.push({ field: 'email', message: 'Email không đúng định dạng' });
+                }
+            }
+
+            if (!password) {
+                errors.push({ field: 'password', message: 'Mật khẩu không được để trống' });
+            }else {
+                if (password.length > 26 || password.length < 8) {
+                    errors.push({ field: 'email', message: 'Mật khẩu có tối thiểu 8 kí tự và tối đa 26 kí tự!' });
+                }
+            }
+
+            if (password !== confirmPassword) {
+                errors.push({ field: 'comfirmpass', message: 'Mật khẩu xác nhận không khớp' });
+            }
+
+            // ❌ Nếu có lỗi
+            if (errors.length > 0) {
+                const msg = errors.map(e => `• ${e.message}`).join('\n');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi nhập liệu',
+                    text: msg
+                });
+
+                return; // Ngăn submit
+            }
+
+            // ✅ Nếu không có lỗi thì gọi API như cũ
+            $.ajax({
+                url: '/register/onRegister',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    userName: userName,
+                    email: email,
+                    password: password
+                }),
+                success: function (response) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thông báo',
+                        text: response.message
+                    }).then(() => {
+                        window.location.href = '/login';
+                    });
+                },
+                error: function (xhr) {
+                    if (xhr.status === 400 && xhr.responseJSON && xhr.responseJSON.message) {
+                        const errors = xhr.responseJSON.message;
+
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi nhập liệu',
+                            text: errors
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi hệ thống',
+                            text: 'Không thể đăng ký. Vui lòng thử lại sau.'
+                        });
+                    }
+                }
+            });
         });
     }
 };

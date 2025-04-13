@@ -2,6 +2,9 @@ package com.devices.app.services;
 
 import com.devices.app.dtos.dto.SkinTherapistDto;
 import com.devices.app.dtos.requests.TherapistCreationRequest;
+import com.devices.app.dtos.response.ApiResponse;
+import com.devices.app.infrastructure.ResponseEnum.RegisterEnum;
+import com.devices.app.infrastructure.ResponseEnum.TherapistEnum;
 import com.devices.app.models.SkinTherapist;
 import com.devices.app.repository.SkinTherapistRepository;
 import jakarta.persistence.Tuple;
@@ -58,6 +61,7 @@ public class SkinTherapistService {
                     Optional.ofNullable(tuple.get("salary", Integer.class)).orElse(0),
                     Optional.ofNullable(tuple.get("status", Integer.class)).orElse(0)
             )).collect(Collectors.toList());
+
             return new PageImpl<>(dtoList, pageable, results.getTotalElements());
         } catch (Exception ex) {
             return Page.empty(pageable);
@@ -138,7 +142,7 @@ public class SkinTherapistService {
         MultipartFile avatar = request.getAvatar();
         if (avatar != null && !avatar.isEmpty()) {
             fileService.deleteFile(therapist.getAvt());
-            String fileUrl = fileService.uploadFile(avatar, "Uploads/avatars");
+            String fileUrl = fileService.uploadFile(avatar, "Uploads/Avatars/Therapists");
             if (!fileUrl.isEmpty()) {
                 therapist.setAvt(fileUrl);
             }
@@ -164,7 +168,7 @@ public class SkinTherapistService {
 
         MultipartFile avatar = request.getAvatar();
         if (avatar != null && !avatar.isEmpty()) {
-            String fileUrl = fileService.uploadFile(avatar, "Uploads/avatars");
+            String fileUrl = fileService.uploadFile(avatar, "Uploads/Avatars/Therapists");
             if (!fileUrl.isEmpty()) {
                 therapist.setAvt(fileUrl);
             }

@@ -4,10 +4,11 @@ import lombok.Getter;
 
 @Getter
 public enum UserStatusEnum {
-    NEW_CUSTOMER(0,"Khách hàng mới"),
-    LOYAL_CUSTOMER(1, "Khách hàng quen thuộc"),
-    VIP_CUSTOMER(2, "Khách hàng VIP"),
-    OLD_CUSTOMER(3, "Khách hàng cũ");
+    UNACTIVED(0,"Chưa kích hoạt"),
+    NEW_CUSTOMER(1,"Khách hàng mới"),
+    LOYAL_CUSTOMER(2, "Khách hàng quen thuộc"),
+    VIP_CUSTOMER(3, "Khách hàng VIP"),
+    OLD_CUSTOMER(4, "Khách hàng cũ");
 
     private final int value;
     private final String description;

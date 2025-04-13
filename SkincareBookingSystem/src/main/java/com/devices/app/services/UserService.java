@@ -4,11 +4,14 @@ import com.devices.app.config.HashUtil;
 import com.devices.app.config.jwt.AppProperties;
 import com.devices.app.config.jwt.EmailSetting;
 import com.devices.app.dtos.dto.AnnualStatisticsDto;
-import com.devices.app.dtos.dto.AuthenticationDto;
 import com.devices.app.dtos.dto.CustomerUserDetails;
 import com.devices.app.dtos.dto.UserDto;
+import com.devices.app.dtos.requests.RegisterRequest;
+import com.devices.app.dtos.requests.UserUpdateRequest;
+import com.devices.app.dtos.response.ApiResponse;
 import com.devices.app.dtos.response.TokenInfo;
-import com.devices.app.infrastructure.userEnum.UserRoleEnum;
+import com.devices.app.infrastructure.ResponseEnum.RegisterEnum;
+import com.devices.app.infrastructure.ResponseEnum.ReponseUserEnum;
 import com.devices.app.models.Users;
 import jakarta.persistence.Tuple;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +25,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import com.devices.app.repository.UserRepository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -151,10 +157,81 @@ public class UserService implements UserDetailsService {
         }
         return new CustomerUserDetails(user);
     }
+
     public UserDetails loadUserById(Long id) {
         Users user = userRepository.findById(Math.toIntExact(id)).orElse(null);
         if (user == null) return null;
         return new CustomerUserDetails(user);
     }
 
+    @Transactional
+    public ApiResponse register(RegisterRequest registerRequest) {
+        if (userRepository.existsByUserName(registerRequest.getUserName())) {
+            return new ApiResponse<>(400, RegisterEnum.USERNAME_EXISTS.getMessage(), null);
+        }
+
+        if (userRepository.existsByEmail(registerRequest.getEmail())) {
+            return new ApiResponse<>(400, RegisterEnum.EMAIL_EXISTS.getMessage(), null);
+        }
+
+        Users user = new Users();
+        user.setUserName(registerRequest.getUserName());
+        user.setEmail(registerRequest.getEmail());
+        user.setPassword(HashUtil.encodePassword(registerRequest.getPassword()));
+        user.setRoleID(2);
+        user.setStatus(0);
+        user.setAvt("assets/images/base/admin/default-users/male-user-wearing.png");
+        user.setCreateDate(OffsetDateTime.now(ZoneId.of("Asia/Ho_Chi_Minh")));
+
+        userRepository.save(user);
+
+        return new ApiResponse<>(200, RegisterEnum.SUCCESS_REGISTER.getMessage(), null);
+    }
+
+    @Transactional
+    public ApiResponse<TokenInfo> updateUser(int userID, UserUpdateRequest request) {
+        Optional<Users> optionalUser = userRepository.findById(userID);
+        if(optionalUser.isEmpty()){
+            return new ApiResponse(ReponseUserEnum.NOT_FOUND.getValue(), ReponseUserEnum.NOT_FOUND.getMessage(), null);
+        }
+        Users user = optionalUser.get();
+        if (request.getPhone() != null) {
+            user.setPhone(request.getPhone());
+        }
+        if (request.getEmail() != null) {
+            user.setEmail(request.getEmail());
+        }
+        if (request.getFirstName() != null) {
+            user.setFirstName(request.getFirstName());
+        }
+        if (request.getLastName() != null) {
+            user.setLastName(request.getLastName());
+        }
+        if (request.getGender() != null) {
+            user.setGender(request.getGender());
+            String avt= user.getAvt();
+            if ("assets/images/base/admin/default-users/male-user-wearing.png".equals(avt)) {
+                if (request.getGender() == 1) {
+                    user.setAvt("assets/images/base/admin/default-users/male-user-wearing.png");
+                } else {
+                    user.setAvt("assets/images/base/admin/default-users/female-user-wearing.png");
+                }
+            }
+        }
+        if (request.getStatus() != null) {
+            user.setStatus(request.getStatus());
+        }
+        if (request.getBirthDay() != null) {
+            user.setBirthDay(request.getBirthDay());
+        }
+        MultipartFile avatar = request.getAvatar();
+        if (avatar != null && !avatar.isEmpty()) {
+            fileService.deleteFile(user.getAvt());
+            String fileUrl = fileService.uploadFile(avatar, "Uploads/Avatars/Users");
+            if (!fileUrl.isEmpty()) {
+                user.setAvt(fileUrl);
+            }
+        }
+        return new ApiResponse<TokenInfo>(200, ReponseUserEnum.SUCCESS.getMessage(), jwtService.generateToken(user, 60));
+    }
 }
