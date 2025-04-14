@@ -10,7 +10,9 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/Uploads/**")
-                .addResourceLocations("file:/E:/SkincareBookingSystem/SkincareBookingSystem/Uploads/");
+                .addResourceLocations("file:/E:/SkincareBookingSystem/SkincareBookingSystem/Uploads/")
+                .addResourceLocations("file:/D:/SkincareBookingSystem/SkincareBookingSystem/Uploads/")
+                .addResourceLocations("file:/C:/SkincareBookingSystem/SkincareBookingSystem/Uploads/");
                 
     }
 }
