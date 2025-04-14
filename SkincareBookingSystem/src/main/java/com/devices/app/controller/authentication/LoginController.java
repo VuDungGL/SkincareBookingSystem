@@ -1,21 +1,16 @@
 package com.devices.app.controller.authentication;
 
 import com.devices.app.config.jwt.AppProperties;
-import com.devices.app.config.jwt.EmailSetting;
-import com.devices.app.dtos.dto.AuthenticationDto;
-import com.devices.app.dtos.dto.UserDto;
+import com.devices.app.dtos.response.ApiResponse;
 import com.devices.app.dtos.response.LoginInfo;
 import com.devices.app.dtos.response.TokenInfo;
-import com.devices.app.infrastructure.userEnum.UserRoleEnum;
-import com.devices.app.models.Users;
 import com.devices.app.services.JWTService;
 import com.devices.app.services.UserService;
-import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,8 +18,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -64,29 +57,32 @@ public class LoginController {
         String userName = request.get("userName");
         String password = request.get("password");
 
-        TokenInfo tokenInfo = userService.login(userName, password);
-        String refreshToken = jwtService.refreshToken(tokenInfo.getToken());
+        ApiResponse<TokenInfo> tokenInfo = userService.login(userName, password);
 
-        if (tokenInfo == null) {
-            return ResponseEntity.badRequest().body("Tên đăng nhập hoặc mật khẩu không đúng!");
+        if (tokenInfo == null || tokenInfo.getData() == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ApiResponse<>(401, tokenInfo.getMessage(), null));
         }
-        Cookie accessCookie = new Cookie("access_token", tokenInfo.getToken());
-        accessCookie.setHttpOnly(true); // không cho JS đọc
+
+        TokenInfo token = tokenInfo.getData();
+        String refreshToken = jwtService.refreshToken(token.getToken());
+
+        // Set access_token cookie
+        Cookie accessCookie = new Cookie("access_token", token.getToken());
+        accessCookie.setHttpOnly(true);
         accessCookie.setPath("/");
         accessCookie.setMaxAge(60 * 60); // 1h
-
         response.addCookie(accessCookie);
 
-        // Đặt refresh_token nếu cần
+        // Set refresh_token cookie
         Cookie refreshCookie = new Cookie("refresh_token", refreshToken);
         refreshCookie.setHttpOnly(true);
         refreshCookie.setPath("/");
         refreshCookie.setMaxAge(7 * 24 * 60 * 60); // 7 ngày
-
         response.addCookie(refreshCookie);
-        LoginInfo loginInfo = new LoginInfo(tokenInfo, refreshToken);
 
-        return ResponseEntity.ok(loginInfo);
+        // Trả về thông tin để frontend xử lý
+        LoginInfo loginInfo = new LoginInfo(token, refreshToken);
+        return ResponseEntity.status(tokenInfo.getStatus()).body(loginInfo);
     }
 
     @PostMapping("/login/refresh")

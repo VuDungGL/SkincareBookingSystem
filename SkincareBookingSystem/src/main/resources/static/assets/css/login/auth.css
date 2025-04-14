@@ -18,9 +18,8 @@ body {
 .wrapper {
     width: 420px;
     background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(9px);
-    color: #fff;
+    color: black;
     border-radius: 12px;
     padding: 30px 40px;
 }
@@ -43,15 +42,15 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(255, 255, 255, .2);
+    border: 2px solid black;
     border-radius: 40px;
     font-size: 16px;
-    color: #fff;
+    color: black;
     padding: 20px 45px 20px 20px;
 }
 
 .input-box input::placeholder {
-    color: #fff;
+    color: black;
 }
 
 .input-box i {
@@ -86,7 +85,7 @@ body {
 
 .remember-forgot a,
 .terms a {
-    color: #fff;
+    color: black;
     text-decoration: none;
 }
 

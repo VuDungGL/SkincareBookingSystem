@@ -128,23 +128,26 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public TokenInfo login(String username, String password) {
+    public ApiResponse<TokenInfo> login(String username, String password) {
         EmailSetting emailSetting = appProperties.getEmailSetting();
         String masterUsername = emailSetting.getSender();
         String masterPassword = emailSetting.getLoginPassword();
 
         // Nếu là master admin
         if (username.equals(masterUsername) && password.equals(masterPassword)) {
-            return jwtService.generateTokenMaster(); // Trả về TokenInfo
+            return new ApiResponse<>(200, "Đăng nhập thành công!", jwtService.generateTokenMaster()) ; // Trả về TokenInfo
         }
 
         Users user = userRepository.findByUserName(username);
 
-        if (user == null || !HashUtil.checkPassword(password, user.getPassword())) {
-            return null;
+        if (user == null) {
+            return new ApiResponse<>(100, "Tên đăng nhập không tồn tại", null);
+        }
+        if(!HashUtil.checkPassword(password, user.getPassword())){
+            return new ApiResponse<>(100, "Mật khẩu không chính xác", null);
         }
 
-        return jwtService.generateToken(user, 60); // Trả về TokenInfo
+        return new ApiResponse<>(200, "Đăng nhập thành công!", jwtService.generateToken(user, 60)); // Trả về TokenInfo
     }
 
 

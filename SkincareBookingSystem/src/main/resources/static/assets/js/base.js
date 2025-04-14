@@ -122,11 +122,21 @@ const AuthCore = {
                     }
                 },
                 error: function (xhr) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Lỗi đăng nhập',
-                        text: xhr.responseText
-                    });
+                    if (xhr.responseJSON && xhr.responseJSON.message){
+                        const errors = xhr.responseJSON.message;
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi đăng nhập',
+                            text: errors
+                        });
+                    }
+                    else{
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi hệ thống',
+                            text: 'Không thể đăng nhập, thử lại sau!'
+                        });
+                    }
                 }
             });
         });
