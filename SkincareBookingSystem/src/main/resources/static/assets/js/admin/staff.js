@@ -369,45 +369,64 @@ const renderDataStaff = {
             preConfirm: () => {
                 const firstName = $('#firstName').val().trim();
                 const lastName = $('#lastName').val().trim();
+                const birthDate = $('#birthDate').val().trim();
+                const email = $('#email').val().trim();
                 const phone = $('#phone').val().trim();
+                const gender = $('#gender').val();
+                const expertise = $('#expertise').val().trim();
                 const salary = $('#salary').val().trim();
+                const fileInput = $('#avtUpload')[0];
 
                 const vietnameseNamePattern = /^[a-zA-ZÀ-ỹ\s]+$/;
                 const phonePattern = /^[0-9]{10,15}$/;
                 const salaryPattern = /^[0-9]+$/;
 
-                if (!firstName || !lastName) {
-                    Swal.fire('Lỗi!', 'Họ và tên không được để trống!', 'error');
+                // Kiểm tra rỗng tất cả trường
+                if (!firstName || !lastName || !birthDate || !email || !phone || !gender || !expertise || !salary) {
+                    Swal.fire('Lỗi!', 'Vui lòng điền đầy đủ tất cả các trường!', 'error');
                     return false;
                 }
 
+                // Kiểm tra avatar
+                if (!fileInput.files || fileInput.files.length === 0) {
+                    Swal.fire('Lỗi!', 'Vui lòng chọn ảnh đại diện!', 'error');
+                    return false;
+                }
+
+                // Kiểm tra định dạng họ tên
                 if (!vietnameseNamePattern.test(firstName) || !vietnameseNamePattern.test(lastName)) {
                     Swal.fire('Lỗi!', 'Họ và tên chỉ được chứa chữ cái và dấu tiếng Việt, không chứa số hoặc ký tự đặc biệt!', 'error');
                     return false;
                 }
 
+                // Kiểm tra số điện thoại
                 if (!phonePattern.test(phone)) {
                     Swal.fire('Lỗi!', 'Số điện thoại chỉ được nhập số và có độ dài từ 10 đến 15 ký tự!', 'error');
                     return false;
                 }
 
+                // Kiểm tra lương
                 if (!salaryPattern.test(salary)) {
                     Swal.fire('Lỗi!', 'Lương chỉ được nhập số!', 'error');
                     return false;
                 }
+
                 const formData = new FormData();
                 formData.append('firstName', firstName);
                 formData.append('lastName', lastName);
-                formData.append('gender', $('#gender').val());
-                formData.append('expertise', $('#expertise').val());
+                formData.append('gender', gender);
+                formData.append('expertise', expertise);
                 formData.append('salary', salary);
                 formData.append('status', 1);
-                formData.append('email', $('#email').val());
+                formData.append('email', email);
                 formData.append("phone", phone);
-                let birth = baseCore.onFormatOffSetDateTime($('#birthDate').val());
+
+                let birth = baseCore.onFormatOffSetDateTime(birthDate);
                 formData.append('birthDate', birth);
-                const file = $('#avtUpload')[0].files[0];
-                if (file) formData.append('avatar', file);
+
+                const file = fileInput.files[0];
+                formData.append('avatar', file);
+
                 return renderDataStaff.createTherapist(formData);
             }
         }).then((result) => {
