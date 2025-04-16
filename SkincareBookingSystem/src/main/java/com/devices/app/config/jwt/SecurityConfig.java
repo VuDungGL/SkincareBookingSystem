@@ -41,7 +41,8 @@ public class SecurityConfig {
                             "/assets/**",
                             "/login/**",
                             "/register",
-                            "/register/**"
+                            "/register/**",
+                            "/Uploads/**"
                     ).permitAll()
 
                     .requestMatchers(

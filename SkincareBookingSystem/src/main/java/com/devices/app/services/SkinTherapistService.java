@@ -9,6 +9,7 @@ import com.devices.app.models.SkinTherapist;
 import com.devices.app.repository.SkinTherapistRepository;
 import jakarta.persistence.Tuple;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -17,15 +18,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class SkinTherapistService {
+
     final private SkinTherapistRepository skinTherapistRepository;
     final private FileService fileService;
 
@@ -67,6 +72,35 @@ public class SkinTherapistService {
             return Page.empty(pageable);
         }
     }
+
+    public List<SkinTherapistDto> getAllTherapists() {
+        List<SkinTherapist> entities = skinTherapistRepository.findAll();
+        List<SkinTherapistDto> dtoList = new ArrayList<>();
+
+        for (SkinTherapist therapist : entities) {
+            SkinTherapistDto dto = new SkinTherapistDto(
+                    therapist.getId() != null ? therapist.getId() : 0,
+                    therapist.getEmail() != null ? therapist.getEmail() : "",
+                    therapist.getFirstName() != null ? therapist.getFirstName() : "",
+                    therapist.getLastName() != null ? therapist.getLastName() : "",
+                    therapist.getPhone() != null ? therapist.getPhone() : "",
+                    therapist.getBirthDate() != null ? therapist.getBirthDate() : OffsetDateTime.from(LocalDate.of(2000, 1, 1)),
+                    therapist.getAvt() != null ? therapist.getAvt() : "/assets/images/base/admin/default-users/female-employee-wearing.png",
+                    therapist.getGender() != null ? therapist.getGender() : 0,
+                    therapist.getExpertise() != null ? therapist.getExpertise() : "Chưa cập nhật",
+                    therapist.getExperience() != null ? therapist.getExperience() : 0,
+                    therapist.getSalary() != null ? therapist.getSalary() : 0,
+                    therapist.getStatus() != null ? therapist.getStatus() : 0
+            );
+            dtoList.add(dto);
+        }
+
+
+        return dtoList;
+    }
+
+
+
 
     public List<SkinTherapist> getAllSkinTherapist() {
         return skinTherapistRepository.findAll();

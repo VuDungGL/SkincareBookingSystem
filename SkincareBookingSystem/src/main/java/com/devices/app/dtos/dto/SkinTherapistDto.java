@@ -8,7 +8,6 @@ import java.time.OffsetDateTime;
 
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class SkinTherapistDto {
     private int skinTherapistID;

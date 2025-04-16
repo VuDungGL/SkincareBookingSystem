@@ -14,6 +14,87 @@
  }
 /*** Spinner End ***/
 
+/* CSS cho khung ảnh vuông 300x300px */
+.team-img {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto; /* Căn giữa khung ảnh */
+    border-radius: 8px 8px 0 0; /* Bo tròn góc trên */
+}
+
+.team-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.team-item:hover .team-img img {
+    transform: scale(1.1);
+}
+
+/* Đảm bảo layout đẹp */
+.team-item {
+    width: 300px;
+    margin: 0 auto 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.team-text {
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .team-img,
+    .team-item {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 992px) {
+    .team-img,
+    .team-item {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-img,
+    .team-item {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 576px) {
+    .team-img,
+    .team-item {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.mx-1 {
+    margin-bottom: 12px;
+}
+
+
 .back-to-top {
     position: fixed;
     right: 30px;
