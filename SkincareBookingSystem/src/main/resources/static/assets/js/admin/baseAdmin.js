@@ -14,6 +14,7 @@ $(document).ready(function(){
 const baseCore={
     baseInit: function(){
         this.onLoadAvt();
+        this.onLoadDropdownLeftBar();
     },
     formatDate: function(dateString) {
         const date = new Date(dateString);
@@ -154,7 +155,34 @@ const baseCore={
         if (container) {
             container.innerHTML = imgTag;
         }
+    },
+    toggleDropdown: function(id) {
+        const submenu = document.getElementById(id);
+        const isShown = submenu.classList.contains('show');
+
+        // Đóng tất cả các menu khác (nếu cần)
+        document.querySelectorAll('.nav-service-submenu').forEach(menu => {
+            menu.classList.remove('show');
+        });
+
+        if (!isShown) {
+            submenu.classList.add('show');
+            localStorage.setItem('activeDropdown', id); // lưu lại dropdown đang mở
+        } else {
+            submenu.classList.remove('show');
+            localStorage.removeItem('activeDropdown');
+        }
+    },
+    onLoadDropdownLeftBar: function(){
+        const activeId = localStorage.getItem('activeDropdown');
+        if (activeId) {
+            const submenu = document.getElementById(activeId);
+            if (submenu) {
+                submenu.classList.add('show');
+            }
+        }
     }
+
 }
 
 const onAddLeftBarActive = {
@@ -172,12 +200,17 @@ const onAddLeftBarActive = {
         var key = onAddLeftBarActive.onGetURL();
         if (key === 'admin') {
             document.getElementById(`nav-users`).classList.add("active");
-        } else {
+        }
+        else {
             var element = document.getElementById(`nav-${key}`);
             if (element) {
                 element.classList.add("active");
             }
+            if(key==='service'){
+                document.getElementById(`dropdown-service`).classList.add("active-dropdown");
+            }else if(key === 'addService'){
+                document.getElementById(`dropdown-addService`).classList.add("active-dropdown");
+            }
         }
     },
-
 }

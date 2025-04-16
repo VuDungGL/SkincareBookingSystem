@@ -1,0 +1,53 @@
+<div class="scroll-content" th:fragment="content">
+  <link rel="stylesheet" th:href="@{/assets/css/admin/serviceAdmin.css}">
+  <script th:src="@{/assets/js/admin/service.js}"></script>
+  <div class="container-fluid mb-4">
+    <div class="container py-5 add-service-form-wrapper">
+      <div class="text-center mx-auto mb-5" style="max-width: 800px;">
+        <p class="fs-4 text-uppercase" style="font-weight: 600; color: var(--third-primary-color)">Thêm dịch vụ</p>
+        <h1 class="display-4 mb-4">Dịch vụ Spa & Làm đẹp</h1>
+      </div>
+      <form id="serviceForm" style="box-shadow: none !important;padding-top:0">
+        <div class="add-service-card">
+          <!-- Left: Form -->
+          <div class="add-service-left">
+            <div class="add-service-group">
+              <label>Tên dịch vụ:</label>
+              <input type="text" class="add-service-input" name="serviceName" required>
+            </div>
+
+            <div class="add-service-row">
+              <div class="add-service-group col-5">
+                <label>Giá:</label>
+                <input type="number" class="add-service-input" name="price" required>
+              </div>
+              <div class="add-service-group col-5">
+                <label>Thời gian thực hiện (phút)</label>
+                <input type="number" class="add-service-input" name="duration" required>
+              </div>
+            </div>
+
+            <div class="add-service-group">
+              <label>Mô tả dịch vụ: </label>
+              <textarea class="add-service-input" name="description" rows="4" required></textarea>
+            </div>
+
+            <div class="add-service-buttons">
+              <button type="submit" class="btn btn-success">Tạo mới</button>
+              <button type="reset" class="btn btn-secondary">Nhập lại</button>
+            </div>
+          </div>
+
+          <!-- Right: Image Upload -->
+          <div class="add-service-right">
+            <div class="add-service-upload" id="imagePreview">
+              <input type="file" id="imageInput" accept="image/*">
+              <div class="add-service-upload-text">Chọn hình ảnh</div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

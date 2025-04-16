@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Asap", sans-serif !important;
 }
 .active::before{
     position: absolute;
@@ -76,7 +76,8 @@ body {
 .card-text {
     font-size: 1.2rem;
 }
-li a{
+li a,
+li div span{
     color: var(--third-primary-color) !important;
     font-size: 17px !important;
     font-weight: 500 !important;
@@ -324,4 +325,76 @@ h6{
 }
 .dropdown-menu li {
     cursor: pointer;
+}
+.nav-service-item .nav-service-submenu {
+    padding-left: 20px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.nav-service-submenu li a {
+    padding: 8px 0;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    transition: padding-left 0.3s ease;
+}
+
+.nav-service-submenu li a:hover {
+    padding-left: 10px;
+    color: #4400ff;
+}
+
+.nav-service-submenu.collapse {
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-service-submenu.show {
+    max-height: 200px;
+    opacity: 1;
+}
+.nav-dropdown-content{
+    padding: 0 0 0 12px !important;
+    color: #ccc !important;
+    font-size: 14px !important;
+}
+.nav-dropdown-content i{
+    color: #ccc !important;
+    padding-right: 4px;
+}
+.active-dropdown,
+.active-dropdown i{
+    color: #4400ff !important;
+}
+.scroll-content{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 638px;
+}
+.scroll-content::-webkit-scrollbar {
+    width: 8px; /* Hoặc 0 nếu muốn ẩn hoàn toàn */
+}
+
+.scroll-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5); /* Màu cuộn trong suốt */
+    border-radius: 4px;
+}
+
+.sidebar {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 638px;
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE và Edge */
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
 }
