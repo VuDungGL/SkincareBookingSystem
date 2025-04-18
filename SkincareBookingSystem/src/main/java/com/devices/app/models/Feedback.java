@@ -10,8 +10,10 @@ import java.time.OffsetDateTime;
 @Getter
 @Setter
 @Entity
+
 @Table(name = "S_Feedback")
 public class Feedback {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)

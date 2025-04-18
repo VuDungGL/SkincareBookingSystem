@@ -110,30 +110,42 @@
 /* Nút trượt */
 .carousel-button {
     position: absolute;
-    top: 50%;
+    top: 30%;
     transform: translateY(-50%);
-    background-color: #fff;
-    border: none;
-    font-size: 30px;
-    padding: 5px 12px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff; /* Nền trắng */
+    color: #000; /* Màu mũi tên đen */
+    border: 2px solid #000; /* Viền đen */
+    font-size: 20px;
     cursor: pointer;
     border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 10;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 .carousel-button:hover {
     background-color: #f0f0f0;
 }
 
+/* Nút bên trái */
 .carousel-button.left {
     left: -20px;
 }
 
+/* Nút bên phải */
 .carousel-button.right {
     right: -20px;
 }
+
+
+
+
 
 /* Responsive */
 @media screen and (max-width: 992px) {
@@ -165,7 +177,6 @@
     margin-bottom: 24px;
     color: #333;
     text-align: center;
-
 }
 
 .feedback-list {
@@ -258,5 +269,7 @@
         margin-top: 4px;
     }
 }
-
+/*.carousel-button {*/
+/*    display: none !important;*/
+/*}*/
 
