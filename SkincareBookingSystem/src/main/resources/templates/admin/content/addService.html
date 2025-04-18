@@ -13,27 +13,27 @@
           <div class="add-service-left">
             <div class="add-service-group">
               <label>Tên dịch vụ:</label>
-              <input type="text" class="add-service-input" name="serviceName" required>
+              <input type="text" class="add-service-input" name="serviceName" id="serviceName" required>
             </div>
 
             <div class="add-service-row">
               <div class="add-service-group col-5">
                 <label>Giá:</label>
-                <input type="number" class="add-service-input" name="price" required>
+                <input type="number" class="add-service-input" name="price" id="price" required>
               </div>
               <div class="add-service-group col-5">
                 <label>Thời gian thực hiện (phút)</label>
-                <input type="number" class="add-service-input" name="duration" required>
+                <input type="number" class="add-service-input" name="duration" id="duration" required>
               </div>
             </div>
 
             <div class="add-service-group">
               <label>Mô tả dịch vụ: </label>
-              <textarea class="add-service-input" name="description" rows="4" required></textarea>
+              <textarea class="add-service-input" name="description" rows="4" id="description" required></textarea>
             </div>
 
             <div class="add-service-buttons">
-              <button type="submit" class="btn btn-success">Tạo mới</button>
+              <button type="button" class="btn btn-success" onclick="onRenderData.onCreateService();">Tạo mới</button>
               <button type="reset" class="btn btn-secondary">Nhập lại</button>
             </div>
           </div>

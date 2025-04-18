@@ -1,5 +1,6 @@
 package com.devices.app.services;
 
+import com.devices.app.dtos.requests.ServiceRequest;
 import com.devices.app.dtos.response.ApiResponse;
 import com.devices.app.models.Services;
 import com.devices.app.repository.ServiceRepository;
@@ -36,7 +37,7 @@ public class ServicesService {
         serviceRepository.deleteById(id);
         return new ApiResponse<>(200, "Xóa dịch vụ thành công", null);
     }
-    public ApiResponse<Services> createOrUpdate(Services serviceRequest, MultipartFile file) {
+    public ApiResponse<Services> createOrUpdate(ServiceRequest serviceRequest) {
         if(serviceRequest.getId() != null) {
             Optional<Services> optionalService = serviceRepository.findById(serviceRequest.getId());
             Services service = optionalService.get();
@@ -50,11 +51,12 @@ public class ServicesService {
                 service.setDescription(serviceRequest.getDescription());
             }
             if (serviceRequest.getPrice() != null) {
-                service.setPrice(serviceRequest.getPrice());
+                service.setPrice(Double.valueOf(serviceRequest.getPrice()));
             }
             if (serviceRequest.getCategoryID() == null) {
                 service.setCategoryID(1);
             }
+            MultipartFile file = serviceRequest.getImage();
             if (file != null && !file.isEmpty()) {
                 fileService.deleteFile(service.getIllustration());
                 String fileUrl = fileService.uploadFile(file, "Uploads/Illustrations");
@@ -69,8 +71,13 @@ public class ServicesService {
         service.setServiceName(serviceRequest.getServiceName());
         service.setDuration(serviceRequest.getDuration());
         service.setDescription(serviceRequest.getDescription());
-        service.setPrice(serviceRequest.getPrice());
-        service.setCategoryID(serviceRequest.getCategoryID());
+        service.setPrice(Double.valueOf(serviceRequest.getPrice()));
+        if (serviceRequest.getCategoryID() == null) {
+            service.setCategoryID(1);
+        }else{
+            service.setCategoryID(serviceRequest.getCategoryID());
+        }
+        MultipartFile file = serviceRequest.getImage();
         if (file != null && !file.isEmpty()) {
             String fileUrl = fileService.uploadFile(file, "Uploads/Illustrations");
             if (!fileUrl.isEmpty()) {
@@ -79,5 +86,14 @@ public class ServicesService {
         }
         serviceRepository.save(service);
         return new ApiResponse<>(200, "Tạo mới dịch vụ thành công", service);
+    }
+
+    public ApiResponse<Services> findById(Integer id) {
+        Optional<Services> optionalService = serviceRepository.findById(id);
+        if(optionalService.isEmpty()){
+            return new ApiResponse<>(404, "Dịch vụ không tồn tại", null);
+        }
+        Services service = optionalService.get();
+        return new ApiResponse<>(200, "Thành công", service);
     }
 }

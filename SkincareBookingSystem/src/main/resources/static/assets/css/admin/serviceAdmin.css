@@ -368,9 +368,6 @@ textarea {
     pointer-events: none;
 }
 
-#imageInput {
-    display: none;
-}
 .add-service-form-wrapper {
     background: white;
     padding: 24px;
@@ -446,5 +443,24 @@ textarea {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    pointer-events: none;
+}
+.form-group textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: inherit;
+    resize: none;
+    min-height: 80px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-group textarea:focus {
+    border-color: #6c63ff;
+    outline: none;
+}
+.swal2-html-container{
+    padding: 24px 84px;
 }
