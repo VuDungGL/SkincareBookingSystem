@@ -76,6 +76,23 @@
             <h1 class="display-4 mb-4">Chuyên gia Spa & Làm đẹp</h1>
         </div>
         <div class="owl-carousel team-carousel">
+            <div th:if="${#lists.isEmpty(skinTherapists)}">
+                <script>
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Không có nhân viên!',
+                        text: 'Hiện không có nhân viên trong thời gian này. Vui lòng liên hệ quản trị viên để được tư vấn.',
+                        confirmButtonText: 'Về trang chủ',
+                        confirmButtonColor: '#3085d6'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '/'; // <-- Link trang chủ, thay đổi nếu cần
+                        }
+                    });
+
+                </script>
+            </div>
+
             <div class="team-item"
                  th:each="therapist : ${skinTherapists}"
                  th:attr="onclick=|onChooseTherapist.onChooseTherapist(${therapist.id})|"

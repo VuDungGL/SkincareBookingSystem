@@ -10,6 +10,9 @@ const onChooseTherapist = {
             const isChosen = localStorage.getItem("therapist_chosen") === "true";
             if (!isChosen && localStorage.getItem("bookingDetailID")) {
                 localStorage.removeItem("bookingDetailID");
+                localStorage.removeItem("serviceID");
+                localStorage.removeItem("startTime");
+                localStorage.removeItem("workDate");
                 localStorage.removeItem("therapist_chosen");
             }
         });
@@ -40,6 +43,9 @@ const onChooseTherapist = {
                 Swal.fire("Thành công!", "Đã chọn chuyên gia thành công!", "success").then(() => {
                     localStorage.removeItem("bookingDetailID");
                     localStorage.removeItem("therapist_chosen");
+                    localStorage.removeItem("serviceID");
+                    localStorage.removeItem("startTime");
+                    localStorage.removeItem("workDate");
                     window.location.href = "/home";
                 });
             },

@@ -115,7 +115,7 @@ const onRenderData = {
         const imageFile = $('#imageInput')[0].files[0];
 
         // Validate
-        const vietnameseNamePattern = /^[a-zA-ZÀ-ỹ\s]+$/;  // Kiểm tra ký tự đặc biệt
+        const vietnameseNamePattern = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸỳỵỷỹ\s]+$/; // Kiểm tra ký tự đặc biệt
         if (!serviceName) {
             Swal.fire("Lỗi", "Tên dịch vụ không được để trống", "error");
             return;
@@ -250,7 +250,7 @@ const onRenderData = {
                     const duration = $('#duration').val().trim();
                     const description = $('#description').val().trim();
 
-                    const namePattern = /^[a-zA-ZÀ-ỹ\s]+$/;
+                    const vietnameseNamePattern = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸỳỵỷỹ\s]+$/;
                     const numberPattern = /^[0-9]+$/;
 
                     if (!serviceName || !namePattern.test(serviceName)) {
