@@ -18,10 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -211,4 +208,7 @@ public class SkinTherapistService {
         return skinTherapistRepository.save(therapist);
     }
 
+    public List<SkinTherapist> getListSkinTherapistNotBusy(LocalDate workDate, LocalTime startTime, LocalTime endTime) {
+        return skinTherapistRepository.getListSkinTherapistNotBusy(workDate, startTime, endTime);
+    }
 }

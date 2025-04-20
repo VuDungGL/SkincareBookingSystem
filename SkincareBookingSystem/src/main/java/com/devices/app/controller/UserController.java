@@ -4,9 +4,11 @@ import com.devices.app.dtos.dto.CustomerUserDetails;
 import com.devices.app.dtos.requests.UserUpdateRequest;
 import com.devices.app.dtos.response.ApiResponse;
 import com.devices.app.dtos.response.TokenInfo;
+import com.devices.app.models.Services;
 import com.devices.app.models.Users;
 import com.devices.app.repository.UserRepository;
 import com.devices.app.services.JWTService;
+import com.devices.app.services.ServicesService;
 import com.devices.app.services.UserService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,17 +16,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class UserController {
     private final UserService userService;
     private final JWTService jwtService;
-    public UserController(UserService userService, JWTService jwtService) {
+    private final ServicesService servicesService;
+    public UserController(UserService userService, JWTService jwtService, ServicesService servicesService) {
         this.userService = userService;
         this.jwtService = jwtService;
+        this.servicesService = servicesService;
     }
 
 
@@ -53,5 +60,11 @@ public class UserController {
         refreshCookie.setMaxAge(7 * 24 * 60 * 60); // 7 ngày
         response.addCookie(refreshCookie);
         return new ResponseEntity<>(responseApi, HttpStatus.OK);
+    }
+
+    @GetMapping("/appointment/getAll")
+    public ApiResponse<List<Services>> getAllAppointments() {
+        ApiResponse<List<Services>> response = servicesService.findAll();
+        return response;
     }
 }

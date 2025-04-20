@@ -42,12 +42,14 @@ public class SecurityConfig {
                             "/login/**",
                             "/register",
                             "/register/**",
-                            "/Uploads/**"
+                            "/Uploads/**",
+                            "/appointment/**",
+                            "/booking/**"
                     ).permitAll()
 
                     .requestMatchers(
                             "/", "/home", "/about", "/service", "/appointment", "/contact",
-                            "/gallery", "/index", "/price", "/team", "/testimonial"
+                            "/gallery", "/index", "/price", "/team", "/testimonial","/chooseTherapist"
                     ).access(notAdminAccess())
 
                     .requestMatchers("/admin/**", "/admin").hasAnyRole("ADMIN", "MASTER_ADMIN")

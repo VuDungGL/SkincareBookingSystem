@@ -25,9 +25,56 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link th:href="@{/assets/css/home/bootstrap.min.css}" rel="stylesheet">
-
+    <script th:src="@{/assets/js/home/booking.js}"></script>
     <!-- Template Stylesheet -->
     <link rel="stylesheet" th:href="@{/assets/css/home/style.css}">
+    <style>
+        button.swal2-styled{
+            width: auto;
+        }
+        select {
+            color: #888;
+
+        }
+        option{
+            background: #1b1a1a;
+        }
+        select:valid {
+            color: #fff; /* Màu sáng giống input khi có text */
+        }
+
+        select option[disabled] {
+            display: none;
+        }
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .service-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .service-name {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .service-price {
+            font-weight: 600;
+            font-size: 16px;
+            color: #dc3545;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -92,27 +139,36 @@
                     <form>
                         <div class="row gy-3 gx-4">
                             <div class="col-lg-6">
-                                <input type="text" class="form-control py-3 border-white bg-transparent text-white" placeholder="Họ Và Tên">
+                                <input type="text" class="form-control py-3 border-white bg-transparent text-white" id="fullName-of-user" placeholder="Họ Và Tên">
                             </div>
                             <div class="col-lg-6">
-                                <input type="email" class="form-control py-3 border-white bg-transparent text-white" placeholder="Email">
+                                <input type="email" class="form-control py-3 border-white bg-transparent text-white" id="email-of-user" placeholder="Email">
                             </div>
                             <div class="col-lg-6">
-                                <select class="form-select py-3 border-white bg-transparent" aria-label="Chọn Liệu Trình">
-                                    <option selected>Liệu Trình</option>
-                                    <option value="1">Combo 1</option>
-                                    <option value="2">Combo 2</option>
-                                    <option value="3">Combo 3</option>
+                                <input type="text" class="form-control py-3 border-white bg-transparent text-white" id="phone-of-user" placeholder="Số điện thoại">
+                            </div>
+                            <div class="col-lg-6">
+                                <select id="serviceSelect" name="serviceId" class="form-select py-3 border-white bg-transparent" aria-label="Chọn Liệu Trình">
+                                    <option disabled selected>Chọn Liệu Trình</option>
+                                    <th:block th:each="service : ${services}">
+                                        <option th:value="${service.id}" th:text="${service.serviceName}" th:attr="data-price=${service.price}"></option>
+                                    </th:block>
                                 </select>
                             </div>
                             <div class="col-lg-6">
-                                <input type="date" class="form-control py-3 border-white bg-transparent">
+                                <input type="date" class="form-control py-3 border-white bg-transparent text-white" placeholder="Chọn ngày">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="time" class="form-control py-3 border-white bg-transparent text-white" placeholder="Thời gian">
                             </div>
                             <div class="col-lg-12">
                                 <textarea class="form-control border-white bg-transparent text-white" name="text" id="area-text" cols="30" rows="5" placeholder="Ghi Chú"></textarea>
                             </div>
+                            <div class="col-12 d-flex align-items-md-start justify-content-end">
+                                <span class="total-price" id="total-price" style="font-size: 16px;"></span>
+                            </div>
                             <div class="col-lg-12">
-                                <button type="button" class="btn btn-primary btn-primary-outline-0 w-100 py-3 px-5">ĐẶT NGAY</button>
+                                <button type="button" class="btn btn-primary btn-primary-outline-0 w-100 py-3 px-5" onclick="onLoadBookingPage.onCreateBooking()">ĐẶT NGAY</button>
                             </div>
                         </div>
                     </form>
@@ -122,32 +178,32 @@
                 <div class="appointment-time p-5">
                     <h1 class="display-5 mb-4">Thời Gian Hoạt Động</h1>
                     <div class="d-flex justify-content-between fs-5 text-white">
+                        <p>Thứ 2</p>
+                        <p>08:00 am – 10:00 pm</p>
+                    </div>
+                    <div class="d-flex justify-content-between fs-5 text-white">
                         <p>Thứ 3</p>
-                        <p>09:00 am – 10:00 pm</p>
+                        <p>08:00 am – 10:00 pm</p>
                     </div>
                     <div class="d-flex justify-content-between fs-5 text-white">
                         <p>Thứ 4</p>
-                        <p>09:00 am – 10:00 pm</p>
+                        <p>08:00 am – 10:00 pm</p>
                     </div>
                     <div class="d-flex justify-content-between fs-5 text-white">
                         <p>Thứ 5</p>
-                        <p>08:00 am – 11:00 pm</p>
+                        <p>08:00 am – 10:00 pm</p>
                     </div>
                     <div class="d-flex justify-content-between fs-5 text-white">
                         <p>Thứ 6</p>
-                        <p>08:00 am – 11:00 pm</p>
+                        <p>08:00 am – 10:00 pm</p>
                     </div>
                     <div class="d-flex justify-content-between fs-5 text-white">
                         <p>Thứ 7</p>
-                        <p>08:00 am – 11:00 pm</p>
+                        <p>08:00 am – 10:00 pm</p>
                     </div>
                     <div class="d-flex justify-content-between fs-5 text-white mb-4">
                         <p>Chủ Nhật</p>
-                        <p>08:00 am – 11:00 pm</p>
-                    </div>
-                    <div class="d-flex justify-content-between fs-5 text-white mb-4">
-                        <p>Thứ 2</p>
-                        <p>Đóng Cửa</p>
+                        <p>08:00 am – 10:00 pm</p>
                     </div>
                     <p class="text-dark">Kiểm tra các chương trình giảm giá theo mùa để có được ưu đãi tốt nhất.</p>
                 </div>
@@ -157,6 +213,20 @@
 </div>
 <!-- Appointment End -->
 
+<!-- Modal Bootstrap -->
+<div class="modal fade" id="servicePriceModal" tabindex="-1" aria-labelledby="servicePriceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content text-dark rounded-4 shadow" style="background: #cc3f7e">
+            <div class="modal-header border-0 col-12">
+                <h5 class="modal-title fw-bold text-white" id="servicePriceModalLabel">📋 Bảng Giá Liệu Trình</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+            <div class="modal-body col-12" id="service-price-list" style="max-height: 500px; overflow-y: scroll">
+                <!-- Nội dung được render bằng JS -->
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Footer Start -->
@@ -179,6 +249,7 @@
 
 <!-- Template Javascript -->
 <script th:src="@{/assets/js/home/main.js}"></script>
+
 </body>
 
 </html>

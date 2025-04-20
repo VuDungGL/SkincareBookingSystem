@@ -5,8 +5,10 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -19,8 +21,8 @@ public class WorkSchedule {
     private Integer id;
 
     @NotNull
-    @Column(name = "SkinTherapistID", nullable = false)
-    private Integer skinTherapistID;
+    @Column(name = "BookingDetailID", nullable = false)
+    private Integer bookingDetailID;
 
     @NotNull
     @Column(name = "WorkDate", nullable = false)
