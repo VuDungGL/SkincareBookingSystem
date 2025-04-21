@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("file:/E:/SkincareBookingSystem/SkincareBookingSystem/Uploads/")
                 .addResourceLocations("file:/D:/SkincareBookingSystem/SkincareBookingSystem/Uploads/")
                 .addResourceLocations("file:/C:/SkincareBookingSystem/SkincareBookingSystem/Uploads/")
-                .addResourceLocations("file:/C:/Users/Admin/Desktop/gitcloneSkincareBookingSystem/SkincareBookingSystem/Uploads/");
+                .addResourceLocations("file:/C:/Users/Admin/Desktop/gitclone/SkincareBookingSystem/SkincareBookingSystem/Uploads/");
 
     }
 }
