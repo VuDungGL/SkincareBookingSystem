@@ -13,9 +13,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/admin")
 public class BookingAdminController {
-    @Autowired
-    private BookingService bookingService;
+    private final  BookingService bookingService;
     private Map<String, Integer> request;
+
+    public BookingAdminController(BookingService bookingService) {
+        this.bookingService = bookingService;
+    }
 
     @PreAuthorize("hasRole('ADMIN') or hasRole('MASTER_ADMIN')")
     @PostMapping("/booking/GetTotal")

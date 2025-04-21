@@ -85,7 +85,6 @@ public class BookingService {
     public List<SkinTherapistDto> getUsersByPage(int pageIndex, int pageSize) {
         int offset = (pageIndex - 1) * pageSize + 1;
         return bookingRepository.GetListUserWorkMonth(offset, pageSize);
-
     }
 
     public ApiResponse<BookingDetail> onBooking(CreateBookingRequest request) {
@@ -134,4 +133,6 @@ public class BookingService {
         bookingDetailRepository.save(bookingDetail);
         return new ApiResponse<>(200,"Thành công", null);
     }
+
+
 }

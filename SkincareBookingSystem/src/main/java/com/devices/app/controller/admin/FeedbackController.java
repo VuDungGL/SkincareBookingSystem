@@ -13,7 +13,6 @@ import java.util.List;
 @RequestMapping("")
 @CrossOrigin(origins = "*") // Cho phép gọi từ frontend (HTML/JS)
 public class FeedbackController {
-
     private final FeedbackService feedbackService;
 
     @Autowired

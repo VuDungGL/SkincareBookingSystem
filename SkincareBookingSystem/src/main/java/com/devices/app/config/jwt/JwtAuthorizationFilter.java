@@ -28,12 +28,13 @@ import java.util.List;
 @Slf4j
 @Component
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
+    private final JWTService jwtService;
+    private final  UserService customUserDetailsService;
 
-    @Autowired
-    private JWTService jwtService;
-
-    @Autowired
-    private UserService customUserDetailsService;
+    public JwtAuthorizationFilter(JWTService jwtService, UserService customUserDetailsService) {
+        this.jwtService = jwtService;
+        this.customUserDetailsService = customUserDetailsService;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,

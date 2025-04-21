@@ -44,7 +44,6 @@ public class UserService implements UserDetailsService {
     private final AppProperties appProperties;
 
 
-    @Autowired
     public UserService(UserRepository userRepository, FileService fileService, JWTService jwtService, AppProperties appProperties ) {
         this.userRepository = userRepository;
         this.fileService = fileService;
@@ -153,7 +152,6 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Kiểm tra xem user có tồn tại trong database không?
         Users user = userRepository.findByUserName(username);
         if (user == null) {
             throw new UsernameNotFoundException(username);

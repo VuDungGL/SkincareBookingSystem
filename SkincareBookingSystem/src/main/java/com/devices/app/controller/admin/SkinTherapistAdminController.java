@@ -17,7 +17,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/admin")
 public class SkinTherapistAdminController {
-    final private SkinTherapistService skinTherapistService;
+    private final SkinTherapistService skinTherapistService;
 
     public SkinTherapistAdminController(SkinTherapistService skinTherapistService) {
         this.skinTherapistService = skinTherapistService;
