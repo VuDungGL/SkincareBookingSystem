@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <a href="" class="order-history">
+        <a th:href="@{/HistoryBooking}" class="order-history">
                 <i class="fas fa-history"></i> Lịch sử đặt lịch
         </a>
     </div>
@@ -63,41 +63,196 @@
     <div class="profile-field">
         <div class="profile-label">Họ tên</div>
         <div class="profile-value">Nguyễn Văn Huy</div>
+        <input class="info-input" type="text" value="Nguyễn Văn Huy" style="display: none;">
+        <div class="btn-save">
+            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="cancel-btn" style="display: none;">Hủy</div>
+        </div>
         <div class="edit"><i class="fas fa-edit"></i> Edit</div>
+
     </div>
 
     <div class="profile-field">
         <div class="profile-label">Ngày sinh</div>
         <div class="profile-value">1999-12-25</div>
+        <input class="info-input" type="date" value="1999-12-25" style="display: none;">
+        <div class="btn-save-date">
+            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="cancel-btn" style="display: none;">Hủy</div>
+        </div>
         <div class="edit"><i class="fas fa-edit"></i> Edit</div>
     </div>
 
     <div class="profile-field">
         <div class="profile-label">Email</div>
-        <div class="profile-value">edogaru@mail.com.my</div>
+        <div class="profile-value">huylamnhat244@gmail.comh</div>
+        <input class="info-input" type="text" value="huylamnhat244@gmail.com" style="display: none;">
+        <div class="btn-save">
+            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="cancel-btn" style="display: none;">Hủy</div>
+        </div>
         <div class="edit"><i class="fas fa-edit"></i> Edit</div>
     </div>
 
     <div class="profile-field">
         <div class="profile-label">Số điện thoại</div>
         <div class="profile-value">0123456789</div>
+        <input class="info-input" type="text" value="huylamnhat244@gmail.com" style="display: none;">
+        <div class="btn-save">
+            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="cancel-btn" style="display: none;">Hủy</div>
+        </div>
         <div class="edit"><i class="fas fa-edit"></i> Edit</div>
     </div>
 
     <div class="profile-field">
         <div class="profile-label">Giới tính</div>
         <div class="profile-value">Nam</div>
+        <select class="info-input" style="display: none;">
+            <option value="nam">Nam</option>
+            <option value="nữ">Nữ</option>
+            <option value="khác">Khác</option>
+        </select>
+        <div class="btn-save-gender">
+            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="cancel-btn" style="display: none;">Hủy</div>
+        </div>
         <div class="edit"><i class="fas fa-edit"></i> Edit</div>
     </div>
 
-    <div class="profile-field">
+    <div class="profile-field-1">
         <div class="profile-label">Mật Khẩu</div>
         <div class="profile-value">*********</div>
-        <div class="edit">Thay đổi mật khẩu</div>
+
+        <div class="password-new">
+            <!-- Current password input -->
+            <input class="info-input" type="password" id="current-password" placeholder="Nhập mật khẩu hiện tại" style="display: none;">
+
+            <!-- New password input -->
+            <input class="info-input" type="password" id="new-password" placeholder="Nhập mật khẩu mới" style="display: none;">
+
+            <!-- Confirm new password input -->
+            <input class="info-input" type="password" id="confirm-password" placeholder="Xác nhận mật khẩu mới" style="display: none;">
+        </div>
+
+
+        <div class="edit" style="display: inline-block;position: relative;right: -17px;"><i class="fas fa-edit"></i> Edit</div>
+
+        <div class="btn-save">
+            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="cancel-btn" style="display: none;">Hủy</div>
+        </div>
     </div>
+
 </div>
 
 
 </body>
+<script>
+    document.querySelectorAll('.profile-field').forEach(item => {
+        const editBtn = item.querySelector('.edit');
+        const saveBtn = item.querySelector('.save-btn');
+        const cancelBtn = item.querySelector('.cancel-btn');
+        const span = item.querySelector('.profile-value');
+        const input = item.querySelector('.info-input');
 
+        editBtn.addEventListener('click', () => {
+            input.style.display = 'inline-block';
+            saveBtn.style.display = 'inline-block';
+            cancelBtn.style.display = 'inline-block';
+            span.style.display = 'none';
+            editBtn.style.display = 'none';
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            input.value = span.textContent;
+            input.style.display = 'none';
+            saveBtn.style.display = 'none';
+            cancelBtn.style.display = 'none';
+            span.style.display = 'inline-block';
+            editBtn.style.display = 'inline-block';
+        });
+
+        saveBtn.addEventListener('click', () => {
+            span.textContent = input.value;
+            input.style.display = 'none';
+            saveBtn.style.display = 'none';
+            cancelBtn.style.display = 'none';
+            span.style.display = 'inline-block';
+            editBtn.style.display = 'inline-block';
+
+            // TODO: Gọi API cập nhật thông tin nếu cần
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const profileField = document.querySelector('.profile-field-1');
+        const editBtn = profileField.querySelector('.edit');
+        const saveBtn = profileField.querySelector('.save-btn');
+        const cancelBtn = profileField.querySelector('.cancel-btn');
+        const currentPasswordInput = profileField.querySelector('#current-password');
+        const newPasswordInput = profileField.querySelector('#new-password');
+        const confirmPasswordInput = profileField.querySelector('#confirm-password');
+        const profileValue = profileField.querySelector('.profile-value');
+
+        // Khi nhấn nút "Sửa"
+        editBtn.addEventListener('click', () => {
+            // Hiển thị các trường nhập mật khẩu
+            currentPasswordInput.style.display = 'inline-block';
+            newPasswordInput.style.display = 'inline-block';
+            confirmPasswordInput.style.display = 'inline-block';
+
+            // Ẩn giá trị hiển thị mật khẩu (thay thế bằng dấu "*")
+            profileValue.style.display = 'none';
+
+            // Hiển thị các nút Lưu và Hủy
+            saveBtn.style.display = 'inline-block';
+            cancelBtn.style.display = 'inline-block';
+
+            // Ẩn nút "Sửa"
+            editBtn.style.display = 'none';
+        });
+
+        // Khi nhấn nút "Hủy"
+        cancelBtn.addEventListener('click', () => {
+            // Ẩn các trường nhập mật khẩu
+            currentPasswordInput.style.display = 'none';
+            newPasswordInput.style.display = 'none';
+            confirmPasswordInput.style.display = 'none';
+
+            // Hiển thị lại mật khẩu cũ
+            profileValue.style.display = 'inline-block';
+
+            // Ẩn các nút Lưu và Hủy
+            saveBtn.style.display = 'none';
+            cancelBtn.style.display = 'none';
+
+            // Hiển thị lại nút "Sửa"
+            editBtn.style.display = 'inline-block';
+        });
+
+        // Khi nhấn nút "Lưu"
+        saveBtn.addEventListener('click', () => {
+            // Kiểm tra mật khẩu cũ và mật khẩu mới
+            if (newPasswordInput.value === confirmPasswordInput.value) {
+                // Cập nhật mật khẩu (ví dụ: gửi đến server)
+                profileValue.textContent = '*********'; // Ẩn mật khẩu cũ
+                // Ẩn các trường nhập mật khẩu
+                currentPasswordInput.style.display = 'none';
+                newPasswordInput.style.display = 'none';
+                confirmPasswordInput.style.display = 'none';
+
+                // Hiển thị lại giá trị đã thay đổi và nút "Sửa"
+                profileValue.style.display = 'inline-block';
+                saveBtn.style.display = 'none';
+                cancelBtn.style.display = 'none';
+                editBtn.style.display = 'inline-block';
+            } else {
+                alert('Mật khẩu xác nhận không khớp!');
+                return;
+            }
+        });
+    });
+
+
+</script>
 </html>
