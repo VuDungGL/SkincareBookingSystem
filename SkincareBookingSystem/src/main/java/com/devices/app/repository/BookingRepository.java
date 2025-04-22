@@ -35,7 +35,7 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
             SUM(BD.Price) AS TotalRevenue
         FROM S_BookingDetail BD
         INNER JOIN S_Booking B ON BD.BookingID = B.ID
-        WHERE B.BookingDate >= :startDate AND B.BookingDate < :endDate
+        WHERE B.BookingDate >= :startDate AND B.BookingDate < :endDate AND BD.Status <> 2
         GROUP BY YEAR(B.BookingDate), FORMAT(B.BookingDate, 'MMMM', 'en-US')
     """, nativeQuery = true)
     RevenueDto getMonthlyRevenue(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
@@ -69,7 +69,7 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
             LEFT JOIN S_Booking AS B WITH (NOLOCK)
                 ON CAST(B.BookingDate AS DATE) = L.[Date]
             LEFT JOIN S_BookingDetail AS BD WITH (NOLOCK)
-                ON BD.BookingID = B.ID AND BD.IsPaid = :isPaid AND YEAR(B.BookingDate) = :yearSearch
+                ON BD.BookingID = B.ID AND BD.IsPaid = :isPaid AND YEAR(B.BookingDate) = :yearSearch AND BD.Status <> 2
             GROUP BY L.[Date]
             ORDER BY L.[Date]
     """,nativeQuery = true)

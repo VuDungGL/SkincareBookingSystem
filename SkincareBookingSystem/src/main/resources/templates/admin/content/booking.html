@@ -1,40 +1,35 @@
 <div class="scroll-content" th:fragment="content">
     <link rel="stylesheet" th:href="@{/assets/css/admin/userAdmin.css}">
+    <script th:src="@{/assets/js/admin/bookingAdmin.js}"></script>
     <div class="row" style=" justify-content: space-around">
         <div class="col-md-12 mb-4" style="padding: 0 24px;border-radius: 24px;">
             <div class="table-container" style="background: white;padding: 24px 24px 12px 24px;border-radius: 24px;">
                 <div class="table-header d-flex justify-content-between align-baseline">
-                    <h6 class="d-flex align-content-lg-center" style="margin: 0;font-size: 18px; font-weight: 700">Users</h6>
+                    <h6 class="d-flex align-content-lg-center" style="margin: 0;font-size: 18px; font-weight: 700">Booking Unpaid</h6>
                     <div class="search-box align-items-center">
-                        <input type="text" placeholder="Search here" id="search-input" oninput="">
+                        <input type="text" placeholder="Search here" id="search-input-unpaid" oninput="onLoadDataBooking.onLoadUnPaidBooking();">
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
                 <table>
                     <thead>
                     <tr>
-                        <th class="column-id">StaffID</th>
-                        <th class="column-name">UserName</th>
-                        <th class="column-birth">FullName</th>
-                        <th class="column-email">BirthDate</th>
-                        <th class="column-phone">Email</th>
-                        <th class="column-gender">Phone</th>
-                        <th class="column-department">Gender</th>
-                        <th class="column-position">TypeMember</th>
+                        <th class="column-id">ID</th>
+                        <th class="column-fullname">FullName</th>
+                        <th class="column-email">Email</th>
+                        <th class="column-birth">Phone</th>
+                        <th class="column-birth">Therapist</th>
+                        <th class="column-email">WorkDate</th>
+                        <th class="column-phone">StartTime</th>
+                        <th class="column-gender">EndTime</th>
+                        <th class="column-department">Status</th>
+                        <th class="column-position">IsPaid</th>
                         <th class="column-option"><i class="fa-solid fa-ellipsis-vertical"></i></th>
                     </tr>
                     </thead>
-                    <tbody id="table-content">
+                    <tbody id="table-unpaid-content">
                     <tr>
-                        <td class="data column-id">StaffID</td>
-                        <td class="data column-name"><img th:src="@{/assets/images/base/admin/bestseller-icon.png}">FullName</td>
-                        <td class="data column-birth">BirthDay</td>
-                        <td class="data column-email">Email</td>
-                        <td class="data column-phone">Phone</td>
-                        <td class="data column-gender">Gender</td>
-                        <td class="data column-department">Expertise</td>
-                        <td class="data column-position">Salary</td>
-                        <td class="data column-option"><i class="fa-solid fa-ellipsis-vertical"></i></td>
+
                     </tr>
 
                     </tbody>
@@ -43,6 +38,50 @@
                 <div class="pagination">
                     <span style="font-size: 12px" id="page-staff-total">1-4 of 12</span>
                     <div style="font-size: 12px" id="pagination-page">
+                        <i class="fa-solid fa-angle-left" style="cursor: pointer; margin: 0 6px;"></i>
+                        <i class="fa-solid fa-angle-right" style="cursor: pointer;margin: 0 6px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style=" justify-content: space-around">
+        <div class="col-md-12 mb-4" style="padding: 0 24px;border-radius: 24px;">
+            <div class="table-container" style="background: white;padding: 24px 24px 12px 24px;border-radius: 24px;">
+                <div class="table-header d-flex justify-content-between align-baseline">
+                    <h6 class="d-flex align-content-lg-center" style="margin: 0;font-size: 18px; font-weight: 700">Booking Paid</h6>
+                    <div class="search-box align-items-center">
+                        <input type="text" placeholder="Search here" id="search-input-paid" oninput="onLoadDataBooking.onLoadPaidBooking()">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="column-id">ID</th>
+                        <th class="column-fullname">FullName</th>
+                        <th class="column-email">Email</th>
+                        <th class="column-birth">Phone</th>
+                        <th class="column-birth">Therapist</th>
+                        <th class="column-email">WorkDate</th>
+                        <th class="column-phone">StartTime</th>
+                        <th class="column-gender">EndTime</th>
+                        <th class="column-department">Status</th>
+                        <th class="column-position">IsPaid</th>
+                        <th class="column-option"><i class="fa-solid fa-ellipsis-vertical"></i></th>
+                    </tr>
+                    </thead>
+                    <tbody id="table-paid-content">
+                    <tr>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <span style="font-size: 12px" id="page-paid-total">1-4 of 12</span>
+                    <div style="font-size: 12px" id="pagination-page-paid">
                         <i class="fa-solid fa-angle-left" style="cursor: pointer; margin: 0 6px;"></i>
                         <i class="fa-solid fa-angle-right" style="cursor: pointer;margin: 0 6px;"></i>
                     </div>

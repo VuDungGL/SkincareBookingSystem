@@ -102,7 +102,7 @@ const renderData= {
             success: function(response){
                 if(response != null){
                     $("#revenue-title").text("Revenue in " + response.month + " " + response.year);
-                    $("#revenue-content").text(response.revenue);
+                    $("#revenue-content").text(response.revenue.toLocaleString('vi-VN') + "VNĐ");
                 }
             }
         });
@@ -205,7 +205,7 @@ const onLoadDataChart = {
                             totalSale += item.total;
                         }
                     });
-                    $('#total-sale').text('$' + totalSale + '.0');
+                    $('#total-sale').text('$' + totalSale.toLocaleString('vi-VN'));
                 }
             }
         });
