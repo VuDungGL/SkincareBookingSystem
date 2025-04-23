@@ -46,7 +46,7 @@
             <th>Dịch Vụ</th>
             <th>Chuyên Gia</th>
             <th>Trạng Thái</th>
-            <th>Hành Động</th>
+            <th style="display: flex; justify-content: center">Hành Động</th>
         </tr>
         </thead>
         <tbody>
@@ -56,18 +56,7 @@
             <td>Nguyễn Văn Huy</td>
             <td><span class="status completed">Hoàn Thành</span></td>
             <td>
-                <div class="feedback-btn" onclick="toggleFeedback(this)">Phản Hồi</div>
-                <div class="feedback-form">
-                    <textarea placeholder="Nhập phản hồi của bạn..." rows="3"></textarea>
-                    <div class="star-rating">
-                        <input type="radio" id="star5-1" name="rating-1" value="5"><label for="star5-1">★</label>
-                        <input type="radio" id="star4-1" name="rating-1" value="4"><label for="star4-1">★</label>
-                        <input type="radio" id="star3-1" name="rating-1" value="3"><label for="star3-1">★</label>
-                        <input type="radio" id="star2-1" name="rating-1" value="2"><label for="star2-1">★</label>
-                        <input type="radio" id="star1-1" name="rating-1" value="1"><label for="star1-1">★</label>
-                    </div>
-                    <div class="submit-feedback" onclick="submitFeedback(this)">Gửi</div>
-                </div>
+                <a href="" class="detail-booking">Xem chi tiết </a>
             </td>
         </tr>
         <tr>
@@ -76,68 +65,11 @@
             <td>Trần Thị Mai</td>
             <td><span class="status pending">Chờ Xử Lý</span></td>
             <td>
-                <div class="payment-btn" onclick="handlePayment()">Thanh Toán</div>
+                <a href="" class="detail-booking">Xem chi tiết </a>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
-
-<script>
-    function toggleFeedback(button) {
-        console.log('toggleFeedback called'); // Debug log
-        const form = button.nextElementSibling;
-        if (form && form.classList.contains('feedback-form')) {
-            button.style.display = 'none';
-            form.style.display = 'block';
-        } else {
-            console.error('Feedback form not found');
-        }
-    }
-
-    function handlePayment() {
-        Swal.fire({
-            title: 'Thanh Toán',
-            text: 'Chuyển hướng đến cổng thanh toán...',
-            icon: 'info',
-            confirmButtonText: 'OK'
-        });
-    }
-
-    function submitFeedback(button) {
-        console.log('submitFeedback called'); // Debug log
-        const form = button.parentElement;
-        const feedbackBtn = form.previousElementSibling;
-        const textarea = form.querySelector('textarea');
-        const rating = form.querySelector('input[name="rating-1"]:checked');
-        const feedbackText = textarea.value.trim();
-        const ratingValue = rating ? rating.value : 'Chưa chọn';
-
-        if (!feedbackText && !rating) {
-            Swal.fire({
-                title: 'Lỗi',
-                text: 'Vui lòng nhập phản hồi hoặc chọn số sao!',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-            return;
-        }
-
-        Swal.fire({
-            title: 'Phản Hồi Đã Gửi',
-            html: `
-                <p><strong>Phản hồi:</strong> ${feedbackText || 'Không có'}</p>
-                <p><strong>Đánh giá:</strong> ${ratingValue} sao</p>
-            `,
-            icon: 'success',
-            confirmButtonText: 'OK'
-        }).then(() => {
-            textarea.value = '';
-            form.querySelectorAll('input[name="rating-1"]').forEach(input => input.checked = false);
-            form.style.display = 'none';
-            feedbackBtn.style.display = 'block';
-        });
-    }
-</script>
 </body>
 </html>

@@ -1040,7 +1040,9 @@ td {
     background-color: #ffe8e8;
     color: #ff4d94;
 }
-.feedback-btn {
+.detail-booking {
+    display: flex;
+    justify-content: center;
     text-align: center;
     background-color: #ff4d94;
     color: #fff;
@@ -1050,61 +1052,7 @@ td {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-.payment-btn {
-    text-align: center;
-    background-color: rgb(98, 185, 255);
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.feedback-btn:hover {
+.detail-booking:hover {
     background-color: #e04385;
-}
-.payment-btn:hover {
-    background-color: #e16b9c;
-}
-.feedback-form {
-    display: none;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f9e6ee;
-    border-radius: 10px;
-}
-.feedback-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    resize: none;
-}
-.star-rating {
-    margin: 10px 0;
-}
-.star-rating input {
-    display: none;
-}
-.star-rating label {
-    font-size: 1.5em;
-    color: #ddd;
-    cursor: pointer;
-}
-.star-rating input:checked ~ label,
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-    color: #ff4d94;
-}
-.submit-feedback {
-    text-align: center;
-    background-color: #ff4d94;
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-.submit-feedback:hover {
-    background-color: #e04385;
+    color: white;
 }
