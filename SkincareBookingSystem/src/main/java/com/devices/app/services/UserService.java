@@ -7,13 +7,16 @@ import com.devices.app.dtos.dto.AnnualStatisticsDto;
 import com.devices.app.dtos.dto.CustomerUserDetails;
 import com.devices.app.dtos.dto.UserDto;
 import com.devices.app.dtos.requests.RegisterRequest;
+import com.devices.app.dtos.requests.TherapistCreationRequest;
 import com.devices.app.dtos.requests.UserUpdateRequest;
 import com.devices.app.dtos.response.ApiResponse;
 import com.devices.app.dtos.response.TokenInfo;
 import com.devices.app.infrastructure.ResponseEnum.RegisterEnum;
 import com.devices.app.infrastructure.ResponseEnum.ReponseUserEnum;
+import com.devices.app.models.SkinTherapist;
 import com.devices.app.models.Users;
 import jakarta.persistence.Tuple;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -211,7 +214,7 @@ public class UserService implements UserDetailsService {
         if (request.getGender() != null) {
             user.setGender(request.getGender());
             String avt= user.getAvt();
-            if ("assets/images/base/admin/default-users/male-user-wearing.png".equals(avt)) {
+            if ("assets/images/base/admin/default-users/male-user-wearing.png".equals(avt) || "assets/images/base/admin/default-users/female-user-wearing.png".equals(avt) ) {
                 if (request.getGender() == 1) {
                     user.setAvt("assets/images/base/admin/default-users/male-user-wearing.png");
                 } else {
@@ -234,5 +237,20 @@ public class UserService implements UserDetailsService {
             }
         }
         return new ApiResponse<TokenInfo>(200, ReponseUserEnum.SUCCESS.getMessage(), jwtService.generateToken(user, 60));
+    }
+
+    @Transactional
+    public ApiResponse<String> changePassword(Integer userID, String newPassword, String oldPassword) {
+        Optional<Users> optionalUser = userRepository.findById(userID);
+        if(optionalUser.isEmpty()){
+            return new ApiResponse<>(ReponseUserEnum.NOT_FOUND.getValue(), ReponseUserEnum.NOT_FOUND.getMessage(), null);
+        }
+        Users user = optionalUser.get();
+        if(!HashUtil.checkPassword(oldPassword, user.getPassword())){
+            return new ApiResponse<>(100, "Mật khẩu cũ không chính xác", null);
+        }
+        user.setPassword(HashUtil.encodePassword(newPassword));
+        userRepository.save(user);
+        return new ApiResponse<>(200, ReponseUserEnum.SUCCESS.getMessage(), null);
     }
 }

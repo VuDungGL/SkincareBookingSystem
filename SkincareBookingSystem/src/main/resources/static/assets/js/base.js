@@ -1,5 +1,6 @@
 $(document).ready(function () {
     AuthCore.onInit();
+    AuthCore.checkTokenExpiry();
 });
 const coreConst ={
     formatDate: function(dateString) {
@@ -10,11 +11,17 @@ const coreConst ={
             year: "numeric"
         });
     },
-    formatDate2:function(isoString) {
+    formatDate2: function(isoString) {
         if (!isoString) return '';
         const date = new Date(isoString);
-        return date.toISOString().split('T')[0];
+
+        // Chuyển sang UTC+7
+        const offsetInMs = 7 * 60 * 60 * 1000;
+        const localDate = new Date(date.getTime() + offsetInMs);
+
+        return localDate.toISOString().split('T')[0];
     },
+
     showLoading:function() {
         $('.loading-overlay').addClass("loading-active").fadeIn();
         $('body').append('<div class="loading-overlay"><div class="loader"></div></div>');
@@ -264,4 +271,31 @@ const AuthCore = {
             });
         });
     },
+    checkTokenExpiry : function () {
+        const token = localStorage.getItem('access_token');
+        if (!token) return;
+
+        try {
+            const decoded = this.decodeToken(token);
+            const now = Math.floor(Date.now() / 1000);
+
+            if (decoded.exp && decoded.exp < now) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Phiên đăng nhập đã hết hạn',
+                    text: 'Vui lòng đăng nhập lại.',
+                    confirmButtonText: 'Đăng nhập lại',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                }).then(() => {
+                    localStorage.removeItem('access_token');
+                    window.location.href = '/login';
+                });
+            }
+        } catch (e) {
+            console.error("Không thể kiểm tra token:", e);
+            localStorage.removeItem('access_token');
+            window.location.href = '/login';
+        }
+    }
 };

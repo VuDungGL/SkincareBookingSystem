@@ -16,12 +16,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -66,5 +64,41 @@ public class UserController {
     public ApiResponse<List<Services>> getAllAppointments() {
         ApiResponse<List<Services>> response = servicesService.findAll();
         return response;
+    }
+
+    @PostMapping("/users/updateInfoAvt")
+    @PreAuthorize("hasRole('USER') or hasRole('MASTER_ADMIN')")
+    public ResponseEntity<ApiResponse<TokenInfo>> updateUserForm(@ModelAttribute UserUpdateRequest request,
+                                                                 @AuthenticationPrincipal CustomerUserDetails userDetails,
+                                                                 HttpServletResponse response) {
+        Users user = userDetails.getUser();
+        int userid = user.getId();
+
+        ApiResponse<TokenInfo> responseApi = userService.updateUser(userid, request);
+        TokenInfo tokenInfo = responseApi.getData();
+        String refreshToken = jwtService.refreshToken(tokenInfo.getToken());
+
+        Cookie accessCookie = new Cookie("access_token", tokenInfo.getToken());
+        accessCookie.setHttpOnly(true);
+        accessCookie.setPath("/");
+        accessCookie.setMaxAge(60 * 60);
+        response.addCookie(accessCookie);
+
+        Cookie refreshCookie = new Cookie("refresh_token", refreshToken);
+        refreshCookie.setHttpOnly(true);
+        refreshCookie.setPath("/");
+        refreshCookie.setMaxAge(7 * 24 * 60 * 60);
+        response.addCookie(refreshCookie);
+
+        return new ResponseEntity<>(responseApi, HttpStatus.OK);
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @PostMapping("/users/changePassword")
+    public ApiResponse<String> changePassword(@RequestBody Map<String, Object> request) {
+        int userID = Integer.parseInt((String) request.getOrDefault("userID", "0"));
+        String oldPassword = (String) request.getOrDefault("oldPassword", "");
+        String newPassword = (String) request.getOrDefault("newPassword", "");
+        return userService.changePassword(userID, newPassword, oldPassword);
     }
 }

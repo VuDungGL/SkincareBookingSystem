@@ -44,12 +44,12 @@
 <div class="profile-container">
     <div class="profile-header">
         <div style="display: flex">
-            <div>
-                <img th:src="@{/Uploads/Avatars/Therapists/fa3817e5-0865-4b6d-a159-fd3a653315a8.jpg}" alt="Avatar">
+            <div id="avatar-container">
+                <img id="avatar-img" src="" alt="Avatar" style="width: 120px; height: 120px; object-fit: cover;">
                 <div class="edit_avt-btn"><i class="fas fa-edit"></i> Edit</div>
             </div>
             <div>
-                <h2>Lâm Nhật Huy</h2>
+                <h2 id="fullName-display-1">Lâm Nhật Huy</h2>
             </div>
         </div>
 
@@ -62,10 +62,14 @@
 
     <div class="profile-field">
         <div class="profile-label">Họ tên</div>
-        <div class="profile-value">Nguyễn Văn Huy</div>
-        <input class="info-input" type="text" value="Nguyễn Văn Huy" style="display: none;">
+        <div class="profile-value" id="fullName-display-2">Nguyễn Văn Huy</div>
+        <div class="d-flex flex-column align-items-center">
+            <input class="info-input" id="firstName-input" type="text" value="Nguyễn Văn Huy" style="display: none; " placeholder="Nhập họ">
+            <input class="info-input info-input-last mt-2" id="lastName-input" type="text" value="Nguyễn Văn Huy" style="display: none;" placeholder="Nhập tên">
+        </div>
+
         <div class="btn-save">
-            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="save-btn" style="display: none;" onclick="onLoadInfo.onUpdateName()">Lưu</div>
             <div class="cancel-btn" style="display: none;">Hủy</div>
         </div>
         <div class="edit"><i class="fas fa-edit"></i> Edit</div>
@@ -74,10 +78,10 @@
 
     <div class="profile-field">
         <div class="profile-label">Ngày sinh</div>
-        <div class="profile-value">1999-12-25</div>
-        <input class="info-input" type="date" value="1999-12-25" style="display: none;">
+        <div class="profile-value" id="birthDate-display">1999-12-25</div>
+        <input class="info-input" id="birthDate-input" type="date" value="1999-12-25" style="display: none;">
         <div class="btn-save-date">
-            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="save-btn" style="display: none;" onclick="onLoadInfo.onUpdateBirthDate()">Lưu</div>
             <div class="cancel-btn" style="display: none;">Hủy</div>
         </div>
         <div class="edit"><i class="fas fa-edit"></i> Edit</div>
@@ -85,10 +89,10 @@
 
     <div class="profile-field">
         <div class="profile-label">Email</div>
-        <div class="profile-value">huylamnhat244@gmail.comh</div>
-        <input class="info-input" type="text" value="huylamnhat244@gmail.com" style="display: none;">
+        <div class="profile-value" id="email-display">huylamnhat244@gmail.com</div>
+        <input class="info-input" id="email-input" type="text" value="huylamnhat244@gmail.com" style="display: none;" placeholder="Nhập Email">
         <div class="btn-save">
-            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="save-btn" style="display: none;" onclick="onLoadInfo.onUpdateEmail()">Lưu</div>
             <div class="cancel-btn" style="display: none;">Hủy</div>
         </div>
         <div class="edit"><i class="fas fa-edit"></i> Edit</div>
@@ -96,10 +100,10 @@
 
     <div class="profile-field">
         <div class="profile-label">Số điện thoại</div>
-        <div class="profile-value">0123456789</div>
-        <input class="info-input" type="text" value="huylamnhat244@gmail.com" style="display: none;">
+        <div class="profile-value" id="phone-display">0123456789</div>
+        <input class="info-input" id="phone-input" type="text" value="0123456789" style="display: none;" placeholder="Nhập số điện thoại">
         <div class="btn-save">
-            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="save-btn" style="display: none;" onclick="onLoadInfo.onUpdatePhone()">Lưu</div>
             <div class="cancel-btn" style="display: none;">Hủy</div>
         </div>
         <div class="edit"><i class="fas fa-edit"></i> Edit</div>
@@ -107,14 +111,14 @@
 
     <div class="profile-field">
         <div class="profile-label">Giới tính</div>
-        <div class="profile-value">Nam</div>
-        <select class="info-input" style="display: none;">
-            <option value="nam">Nam</option>
-            <option value="nữ">Nữ</option>
-            <option value="khác">Khác</option>
+        <div class="profile-value" id="gender-display">Nam</div>
+        <select class="info-input" id="gender-input" style="display: none;">
+            <option value="1">Nam</option>
+            <option value="2">Nữ</option>
+            <option value="0">Khác</option>
         </select>
         <div class="btn-save-gender">
-            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="save-btn" style="display: none;" onclick="onLoadInfo.onUpdateGender()">Lưu</div>
             <div class="cancel-btn" style="display: none;">Hủy</div>
         </div>
         <div class="edit"><i class="fas fa-edit"></i> Edit</div>
@@ -139,7 +143,7 @@
         <div class="edit" style="display: inline-block;position: relative;right: -17px;"><i class="fas fa-edit"></i> Edit</div>
 
         <div class="btn-save">
-            <div class="save-btn" style="display: none;">Lưu</div>
+            <div class="save-btn" style="display: none;" onclick="onLoadInfo.onChangePassword()">Lưu</div>
             <div class="cancel-btn" style="display: none;">Hủy</div>
         </div>
     </div>
@@ -155,35 +159,39 @@
         const cancelBtn = item.querySelector('.cancel-btn');
         const span = item.querySelector('.profile-value');
         const input = item.querySelector('.info-input');
+        const inputLastName = item.querySelector('.info-input-last');
 
         editBtn.addEventListener('click', () => {
-            input.style.display = 'inline-block';
-            saveBtn.style.display = 'inline-block';
-            cancelBtn.style.display = 'inline-block';
-            span.style.display = 'none';
+            if (input) input.style.display = 'inline-block';
+            if (inputLastName) inputLastName.style.display = 'inline-block';
+            if (saveBtn) saveBtn.style.display = 'inline-block';
+            if (cancelBtn) cancelBtn.style.display = 'inline-block';
+            if (span) span.style.display = 'none';
             editBtn.style.display = 'none';
         });
 
         cancelBtn.addEventListener('click', () => {
-            input.value = span.textContent;
-            input.style.display = 'none';
-            saveBtn.style.display = 'none';
-            cancelBtn.style.display = 'none';
-            span.style.display = 'inline-block';
+            if (input) input.style.display = 'none';
+            if (inputLastName) inputLastName.style.display = 'none';
+            if (saveBtn) saveBtn.style.display = 'none';
+            if (cancelBtn) cancelBtn.style.display = 'none';
+            if (span) span.style.display = 'inline-block';
             editBtn.style.display = 'inline-block';
         });
 
         saveBtn.addEventListener('click', () => {
-            span.textContent = input.value;
-            input.style.display = 'none';
-            saveBtn.style.display = 'none';
-            cancelBtn.style.display = 'none';
-            span.style.display = 'inline-block';
+            if (span && input) span.textContent = input.value;
+            if (input) input.style.display = 'none';
+            if (inputLastName) inputLastName.style.display = 'none';
+            if (saveBtn) saveBtn.style.display = 'none';
+            if (cancelBtn) cancelBtn.style.display = 'none';
+            if (span) span.style.display = 'inline-block';
             editBtn.style.display = 'inline-block';
 
             // TODO: Gọi API cập nhật thông tin nếu cần
         });
     });
+
     document.addEventListener('DOMContentLoaded', function () {
         const profileField = document.querySelector('.profile-field-1');
         const editBtn = profileField.querySelector('.edit');
@@ -228,28 +236,6 @@
 
             // Hiển thị lại nút "Sửa"
             editBtn.style.display = 'inline-block';
-        });
-
-        // Khi nhấn nút "Lưu"
-        saveBtn.addEventListener('click', () => {
-            // Kiểm tra mật khẩu cũ và mật khẩu mới
-            if (newPasswordInput.value === confirmPasswordInput.value) {
-                // Cập nhật mật khẩu (ví dụ: gửi đến server)
-                profileValue.textContent = '*********'; // Ẩn mật khẩu cũ
-                // Ẩn các trường nhập mật khẩu
-                currentPasswordInput.style.display = 'none';
-                newPasswordInput.style.display = 'none';
-                confirmPasswordInput.style.display = 'none';
-
-                // Hiển thị lại giá trị đã thay đổi và nút "Sửa"
-                profileValue.style.display = 'inline-block';
-                saveBtn.style.display = 'none';
-                cancelBtn.style.display = 'none';
-                editBtn.style.display = 'inline-block';
-            } else {
-                alert('Mật khẩu xác nhận không khớp!');
-                return;
-            }
         });
     });
 
