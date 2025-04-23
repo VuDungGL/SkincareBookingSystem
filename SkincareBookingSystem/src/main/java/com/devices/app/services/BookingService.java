@@ -168,7 +168,10 @@ public class BookingService {
                             .orElse(LocalTime.of(0, 0)),
                     Optional.ofNullable(tuple.get("EndTime", Time.class))
                             .map(time -> ((Time) time).toLocalTime())
-                            .orElse(LocalTime.of(0, 0))
+                            .orElse(LocalTime.of(0, 0)),
+                    Optional.ofNullable(tuple.get("TherapistFirstName", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("TherapistLastName", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("ServiceName", String.class)).orElse("")
             )).collect(Collectors.toList());
 
             return new PageImpl<>(dtoList, pageable, results.getTotalElements());
@@ -201,6 +204,46 @@ public class BookingService {
         }
         return new ApiResponse<>(200,"Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.", null);
     }
+    public Page<HistoriesDto> getListHistoryBooking(String search, int page, int size, int userID) {
+        Pageable pageable = PageRequest.of(page, size);
+        try {
+            Page<Tuple> results = bookingDetailRepository.getHistoryBookingDetail(search,pageable,userID);
 
+            if (results.isEmpty()) {
+                return Page.empty(pageable);
+            }
+            List<HistoriesDto> dtoList = results.stream().map(tuple -> new HistoriesDto(
+                    Optional.ofNullable(tuple.get("BookingDetailID", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("Email", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("FullName", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("Phone", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("CreateDate", String.class))
+                            .map(str -> LocalDateTime.parse(str, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                                    .atOffset(ZoneOffset.UTC))
+                            .orElse(null),
+                    Optional.ofNullable(tuple.get("SkinTherapistID", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("ServiceID", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("Price", Double.class)).orElse(0.0),
+                    Optional.ofNullable(tuple.get("IsPaid", Boolean.class)).orElse(false),
+                    Optional.ofNullable(tuple.get("Status", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("WorkDate", Date.class))
+                            .map(date -> ((Date) date).toLocalDate())
+                            .orElse(LocalDate.of(2000, 1, 1)),
+                    Optional.ofNullable(tuple.get("StartTime", Time.class))
+                            .map(time -> ((Time) time).toLocalTime())
+                            .orElse(LocalTime.of(0, 0)),
+                    Optional.ofNullable(tuple.get("EndTime", Time.class))
+                            .map(time -> ((Time) time).toLocalTime())
+                            .orElse(LocalTime.of(0, 0)),
+                    Optional.ofNullable(tuple.get("TherapistFirstName", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("TherapistLastName", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("ServiceName", String.class)).orElse("")
+            )).collect(Collectors.toList());
+
+            return new PageImpl<>(dtoList, pageable, results.getTotalElements());
+        } catch (Exception ex) {
+            return Page.empty(pageable);
+        }
+    }
 
 }

@@ -182,23 +182,42 @@ const onLoadInfo ={
 
     onLoadInfoOnInfoPage: function (){
         const user = AuthCore.decodeToken(localStorage.getItem("access_token"));
+        if (!user) return;
 
-        document.getElementById("fullName-display-1").textContent = user.firstName + " " + user.lastName;
-        document.getElementById("fullName-display-2").textContent = user.firstName + " " + user.lastName;
-        document.getElementById("firstName-input").value = user.firstName;
-        document.getElementById("lastName-input").value = user.lastName;
+        const getValue = (value, fallback = "") => value != null ? value : fallback;
 
-        document.getElementById("birthDate-display").textContent = coreConst.formatDate(user.birthdate);
-        document.getElementById("birthDate-input").value = coreConst.formatDate2(user.birthdate);
+        const setText = (id, value) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = value;
+        };
 
-        document.getElementById("email-display").textContent = user.email;
-        document.getElementById("email-input").value = user.email;
+        const setValue = (id, value) => {
+            const el = document.getElementById(id);
+            if (el) el.value = value;
+        };
 
-        document.getElementById("phone-display").textContent = user.phone;
-        document.getElementById("phone-input").value = user.phone;
+        // Full Name
+        const fullName = getValue(user.firstName) + " " + getValue(user.lastName);
+        setText("fullName-display-1", fullName);
+        setText("fullName-display-2", fullName);
+        setValue("firstName-input", getValue(user.firstName));
+        setValue("lastName-input", getValue(user.lastName));
 
-        document.getElementById("gender-display").textContent = coreConst.formatGenderText(user.gender);
-        document.getElementById("gender-input").value = user.gender;
+        // Birth Date
+        setText("birthDate-display", user.birthdate ? coreConst.formatDate(user.birthdate) : "");
+        setValue("birthDate-input", user.birthdate ? coreConst.formatDate2(user.birthdate) : "");
+
+        // Email
+        setText("email-display", getValue(user.email));
+        setValue("email-input", getValue(user.email));
+
+        // Phone
+        setText("phone-display", getValue(user.phone));
+        setValue("phone-input", getValue(user.phone));
+
+        // Gender
+        setText("gender-display", user.gender != null ? coreConst.formatGenderText(user.gender) : "");
+        setValue("gender-input", getValue(user.gender));
     },
 
     onUpdateName: function(){

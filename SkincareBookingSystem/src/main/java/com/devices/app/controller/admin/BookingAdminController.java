@@ -113,4 +113,5 @@ public class BookingAdminController {
         Integer bookingDetailID = request.get("bookingDetailID");
         return  bookingService.checkOutBooking(bookingDetailID);
     }
+
 }

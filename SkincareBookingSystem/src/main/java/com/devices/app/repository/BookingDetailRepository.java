@@ -27,10 +27,15 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail, In
                         BD.Status,
                         W.WorkDate,
                         W.StartTime,
-                        W.EndTime
+                        W.EndTime,
+                        ST.FirstName AS TherapistFirstName,
+                        ST.LastName AS TherapistLastName,
+                        S.ServiceName
                         FROM S_BookingDetail AS BD WITH (NOLOCK)
                         INNER JOIN S_Booking AS B ON BD.BookingID = B.ID
                         INNER JOIN S_WorkSchedule AS W ON BD.ID = W.BookingDetailID
+                        LEFT JOIN S_SkinTherapist AS ST ON BD.SkinTherapistID = ST.ID
+                        INNER JOIN S_Services AS S ON BD.ServiceID = S.ID
                         WHERE BD.IsPaid = :isPaid
                         AND (
                             :searchText IS NULL\s
@@ -62,4 +67,57 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail, In
         WHERE B.UserID = :userID AND BD.IsPaid = 1
     """,nativeQuery = true)
     Integer getTotalBookingSuccessful(@Param("userID") Integer userID);
+
+    @Query(value = """
+                SELECT
+                    BD.ID AS BookingDetailID,
+                    BD.Email,
+                    BD.FullName,
+                    BD.Phone,
+                    FORMAT(B.BookingDate, 'yyyy-MM-dd HH:mm:ss') AS CreateDate,
+                    BD.SkinTherapistID,
+                    BD.ServiceID,
+                    BD.Price,
+                    BD.IsPaid,
+                    BD.Status,
+                    W.WorkDate,
+                    W.StartTime,
+                    W.EndTime,
+                    ST.FirstName AS TherapistFirstName,
+                    ST.LastName AS TherapistLastName,
+                    S.ServiceName
+                FROM S_BookingDetail AS BD WITH (NOLOCK)
+                INNER JOIN S_Booking AS B ON BD.BookingID = B.ID
+                INNER JOIN S_WorkSchedule AS W ON BD.ID = W.BookingDetailID
+                LEFT JOIN S_SkinTherapist AS ST ON BD.SkinTherapistID = ST.ID
+                INNER JOIN S_Services AS S ON BD.ServiceID = S.ID
+                WHERE B.UserID = :userID
+                AND (
+                    :searchText IS NULL
+                    OR S.ServiceName LIKE %:searchText%
+                    OR ST.FirstName LIKE %:searchText%
+                    OR ST.LastName LIKE %:searchText%
+                    OR BD.Status LIKE %:searchText%
+                )
+                ORDER BY BD.Status ASC
+                """,
+                        countQuery = """
+                SELECT COUNT(*)
+                FROM S_BookingDetail AS BD
+                INNER JOIN S_Booking AS B ON BD.BookingID = B.ID
+                INNER JOIN S_WorkSchedule AS W ON BD.ID = W.BookingDetailID
+                LEFT JOIN S_SkinTherapist AS ST ON BD.SkinTherapistID = ST.ID
+                INNER JOIN S_Services AS S ON BD.ServiceID = S.ID
+                WHERE B.UserID = :userID
+                AND (
+                    :searchText IS NULL
+                    OR S.ServiceName LIKE %:searchText%
+                    OR ST.FirstName LIKE %:searchText%
+                    OR ST.LastName LIKE %:searchText%
+                    OR BD.Status LIKE %:searchText%
+                )
+                """,
+            nativeQuery = true)
+    Page<Tuple> getHistoryBookingDetail(@Param("searchText") String searchText, Pageable pageable, @Param("userID") int userID);
+
 }

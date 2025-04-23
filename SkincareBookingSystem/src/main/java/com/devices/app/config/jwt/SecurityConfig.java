@@ -49,7 +49,7 @@ public class SecurityConfig {
 
                     .requestMatchers(
                             "/", "/home", "/about", "/service", "/appointment", "/contact",
-                            "/gallery", "/index", "/price", "/team", "/testimonial","/chooseTherapist"
+                            "/gallery", "/index", "/price", "/team", "/testimonial","/chooseTherapist","/HistoryBooking","/infoUser"
                     ).access(notAdminAccess())
 
                     .requestMatchers("/admin/**", "/admin").hasAnyRole("ADMIN", "MASTER_ADMIN")

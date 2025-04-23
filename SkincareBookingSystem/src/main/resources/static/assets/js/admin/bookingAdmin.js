@@ -8,7 +8,7 @@ const onLoadDataBooking = {
         this.onLoadPaidBooking();
     },
      onLoadUnPaidBooking: function( pageSize = 6, pageIndex = 0){
-         var search = $('#search-input-unpaid')[0].value;
+        var search = $('#search-input-unpaid')[0].value;
         $.ajax({
             url: "/admin/booking/getAll",
             method: 'POST',
@@ -39,7 +39,7 @@ const onLoadDataBooking = {
                         if(booking.isPaid == 1){
                             isPaidText = "Đã thanh toán";
                         }else{
-                            isPaidText = "chưa thanh toán";
+                            isPaidText = "Chưa thanh toán";
                         }
 
                         let therapistOptions = '';
@@ -65,7 +65,8 @@ const onLoadDataBooking = {
                                 <td class="data column-name">${booking.fullName}</td>
                                 <td class="data column-department">${booking.email}</td>
                                 <td class="data column-phone">${booking.phone}</td>
-                                <td class="data column-phone">${booking.skinTherapistID === 0 ? "Chưa chỉ định" : booking.skinTherapistID}</td>
+                                <td class="data column-phone">${booking.serviceName}</td>
+                                <td class="data column-phone">${booking.skinTherapistID === 0 ? "Chưa chỉ định" : booking.therapistFirstName + " " + booking.therapistLastName}</td>
                                 <td class="data column-birth">${booking.workDate}</td>
                                 <td class="data column-birth">${booking.startTime}</td>
                                 <td class="data column-birth">${booking.endTime}</td>
@@ -150,7 +151,8 @@ const onLoadDataBooking = {
                                 <td class="data column-name">${booking.fullName}</td>
                                 <td class="data column-department">${booking.email}</td>
                                 <td class="data column-phone">${booking.phone}</td>
-                                <td class="data column-phone">${booking.skinTherapistID === 0 ? "Chưa chỉ định" : booking.skinTherapistID}</td>
+                                <td class="data column-phone">${booking.serviceName}</td>
+                                <td class="data column-phone">${booking.skinTherapistID === 0 ? "Chưa chỉ định" : booking.therapistFirstName + " " + booking.therapistLastName}</td>
                                 <td class="data column-birth">${booking.workDate}</td>
                                 <td class="data column-birth">${booking.startTime}</td>
                                 <td class="data column-birth">${booking.endTime}</td>

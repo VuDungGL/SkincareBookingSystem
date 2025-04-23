@@ -164,7 +164,7 @@ const renderData= {
                             <td class="column-phone">${user.phone}</td>
                             <td class="column-total-task">${user.totalTask}</td>
                             <td class="column-total-earned">
-                                <div class="progress-bar" title=""><div style="width: ${user.percentTask}%;"></div></div>${user.percentTask}%
+                                <div class="progress-bar" title=""><div style="width: ${user.percentTask}%;"></div></div>${Number(user.percentTask).toFixed(2)}%
                             </td>
                             <td class="column-total-earned">$${user.total}</td>
                         </tr>`;

@@ -1,6 +1,6 @@
 package com.devices.app.dtos.dto;
 
-import com.devices.app.models.BookingDetail;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import java.time.OffsetDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookingDetailDto {
+public class HistoriesDto {
     private Integer bookingDetailID;
     private String email;
     private String fullName;
