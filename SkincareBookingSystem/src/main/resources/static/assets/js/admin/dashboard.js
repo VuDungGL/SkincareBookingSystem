@@ -60,7 +60,7 @@ const renderData= {
             method: 'GET',
             success: function(response){
                 if(response != null){
-                    $("#rating-feedback").text(response.rating+ "/5");
+                    $("#rating-feedback").text(Number(response.rating).toFixed(2)+ "/5");
                     $("#total-feedback").text(response.totalRating);
                 }
             }
@@ -166,7 +166,7 @@ const renderData= {
                             <td class="column-total-earned">
                                 <div class="progress-bar" title=""><div style="width: ${user.percentTask}%;"></div></div>${Number(user.percentTask).toFixed(2)}%
                             </td>
-                            <td class="column-total-earned">$${user.total}</td>
+                            <td class="column-total-earned">${user.total.toLocaleString('vi-VN')}</td>
                         </tr>`;
                         container.append(memberCard);
                     })

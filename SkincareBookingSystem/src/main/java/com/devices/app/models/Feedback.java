@@ -22,8 +22,8 @@ public class Feedback {
     @Column(name = "UserID")
     private Integer userID;
 
-    @Column(name = "ServiceID")
-    private Integer serviceID;
+    @Column(name = "BookingDetailID")
+    private Integer bookingDetailID;
 
     @Column(name = "Rating")
     private Integer rating;

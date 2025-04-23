@@ -162,7 +162,7 @@
 /* Danh sách đánh giá chi tiết */
 /* Wrapper cho phần danh sách feedback */
 .feedback-list-wrapper {
-    padding: 40px 20px;
+    padding: 40px;
     background-color: #fff;
     border-radius: 30px; /* Bo góc như carousel */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -269,7 +269,93 @@
         margin-top: 4px;
     }
 }
-/*.carousel-button {*/
-/*    display: none !important;*/
-/*}*/
+.feedback-slide-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; /* khoảng cách giữa 2 card */
+    padding: 0 10px;
+    flex-wrap: wrap;
+}
+
+.feedback-card {
+    flex: 1;
+    min-width: 320px;
+    max-width: 48%; /* giữ 2 card mỗi slide, không tràn */
+    background-color: #ffe0e6;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.feedback-card:hover {
+    transform: translateY(-5px);
+}
+
+.feedback-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.feedback-header img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+.feedback-info .feedback-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.feedback-message {
+    margin-top: 12px;
+    font-style: italic;
+    font-size: 14px;
+}
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0 12px;
+}
+.pagination i{
+    padding: 0 12px;
+}
+
+.pagination span {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.pagination .active {
+    background: blue;
+    color: white;
+}
+.page-active{
+    background: var(--third-primary-color);
+    border-radius: 50%;
+    color: white;
+    opacity: 0.8;
+}
+.search-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.search-box input {
+    padding: 6px 24px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.search-box i {
+    margin-left: -30px;
+    cursor: pointer;
+    color: #666;
+}
 
