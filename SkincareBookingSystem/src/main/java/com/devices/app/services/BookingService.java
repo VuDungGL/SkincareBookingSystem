@@ -1,23 +1,22 @@
 package com.devices.app.services;
 
-import com.devices.app.dtos.dto.AnnualStatisticsDto;
-import com.devices.app.dtos.dto.BookingDto;
-import com.devices.app.dtos.dto.RevenueDto;
-import com.devices.app.dtos.dto.SkinTherapistDto;
+import com.devices.app.dtos.dto.*;
 import com.devices.app.dtos.requests.CreateBookingRequest;
 import com.devices.app.dtos.response.ApiResponse;
-import com.devices.app.models.Booking;
-import com.devices.app.models.BookingDetail;
-import com.devices.app.models.Services;
-import com.devices.app.models.WorkSchedule;
+import com.devices.app.models.*;
 import com.devices.app.repository.*;
 import jakarta.persistence.Tuple;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.sql.Time;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,13 +28,15 @@ public class BookingService {
     private final WorkScheduleRepository workScheduleRepository;
     private final BookingDetailRepository bookingDetailRepository;
     private final ServicesService servicesService;
+    private final UserRepository userRepository;
 
-    public BookingService(BookingRepository bookingRepository, FeedbackRepository feedbackRepository, WorkScheduleRepository workScheduleRepository, BookingDetailRepository bookingDetailRepository, ServicesService servicesService) {
+    public BookingService(BookingRepository bookingRepository, FeedbackRepository feedbackRepository, WorkScheduleRepository workScheduleRepository, BookingDetailRepository bookingDetailRepository, ServicesService servicesService, UserRepository userRepository) {
         this.bookingRepository = bookingRepository;
         this.feedbackRepository = feedbackRepository;
         this.workScheduleRepository = workScheduleRepository;
         this.bookingDetailRepository = bookingDetailRepository;
         this.servicesService = servicesService;
+        this.userRepository = userRepository;
     }
 
     public long GetTotal(int status) {
@@ -132,6 +133,73 @@ public class BookingService {
         bookingDetail.setSkinTherapistID(therapistID);
         bookingDetailRepository.save(bookingDetail);
         return new ApiResponse<>(200,"Thành công", null);
+    }
+    public ApiResponse<List<BookingDetail>> getBookingDetail() {
+        return new ApiResponse<>(200, "Tìm thành công", bookingDetailRepository.findAll());
+    }
+
+    public Page<BookingDetailDto> getListBooking(String search, int page, int size, boolean isPaid) {
+        Pageable pageable = PageRequest.of(page, size);
+        try {
+            Page<Tuple> results = bookingDetailRepository.bookingDetail(search,pageable,isPaid);
+
+            if (results.isEmpty()) {
+                return Page.empty(pageable);
+            }
+            List<BookingDetailDto> dtoList = results.stream().map(tuple -> new BookingDetailDto(
+                    Optional.ofNullable(tuple.get("BookingDetailID", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("Email", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("FullName", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("Phone", String.class)).orElse(""),
+                    Optional.ofNullable(tuple.get("CreateDate", String.class))
+                            .map(str -> LocalDateTime.parse(str, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                                    .atOffset(ZoneOffset.UTC))
+                            .orElse(null),
+                    Optional.ofNullable(tuple.get("SkinTherapistID", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("ServiceID", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("Price", Double.class)).orElse(0.0),
+                    Optional.ofNullable(tuple.get("IsPaid", Boolean.class)).orElse(false),
+                    Optional.ofNullable(tuple.get("Status", Integer.class)).orElse(0),
+                    Optional.ofNullable(tuple.get("WorkDate", Date.class))
+                            .map(date -> ((Date) date).toLocalDate())
+                            .orElse(LocalDate.of(2000, 1, 1)),
+                    Optional.ofNullable(tuple.get("StartTime", Time.class))
+                            .map(time -> ((Time) time).toLocalTime())
+                            .orElse(LocalTime.of(0, 0)),
+                    Optional.ofNullable(tuple.get("EndTime", Time.class))
+                            .map(time -> ((Time) time).toLocalTime())
+                            .orElse(LocalTime.of(0, 0))
+            )).collect(Collectors.toList());
+
+            return new PageImpl<>(dtoList, pageable, results.getTotalElements());
+        } catch (Exception ex) {
+            return Page.empty(pageable);
+        }
+    }
+
+    public ApiResponse<String> checkOutBooking(int bookingDetailID) {
+        Optional<BookingDetail> bookingDetailOp = bookingDetailRepository.findById(bookingDetailID);
+        BookingDetail bookingDetail =  bookingDetailOp.get();
+        bookingDetail.setStatus(1);
+        bookingDetailRepository.save(bookingDetail);
+        Integer userID = bookingDetailRepository.getUserIDFromBooking(bookingDetailID);
+        Optional<Users> userOp = userRepository.findById(userID);
+        Users user = userOp.get();
+        Integer total = bookingDetailRepository.getTotalBookingSuccessful(userID);
+        if (total == 1 && user.getStatus() != 1) {
+            user.setStatus(1);
+            userRepository.save(user);
+            return new ApiResponse<>(200,"Khách hàng đã trở thành khách hàng mới. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.", null);
+        }else if(total >= 2 && user.getStatus() != 2){
+            user.setStatus(2);
+            userRepository.save(user);
+            return new ApiResponse<>(200,"Khách hàng đã trở thành khách hàng trung thành. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.", null);
+        }else if(total >= 5 && user.getStatus() != 3){
+            user.setStatus(3);
+            userRepository.save(user);
+            return new ApiResponse<>(200,"Khách hàng đã trở thành khách hàng VIP. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.", null);
+        }
+        return new ApiResponse<>(200,"Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.", null);
     }
 
 

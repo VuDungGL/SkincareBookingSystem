@@ -48,7 +48,7 @@ public interface SkinTherapistRepository extends JpaRepository<SkinTherapist, In
             SELECT DISTINCT bd.SkinTherapistID
             FROM S_WorkSchedule ws
             INNER JOIN S_BookingDetail bd ON ws.BookingDetailID = bd.ID
-            WHERE ws.WorkDate = :workDate
+            WHERE ws.WorkDate = :workDate AND bd.Status <> 2
               AND (
                       (CAST(:startTime AS time) BETWEEN ws.StartTime AND ws.EndTime) OR
                       (CAST(:endTime AS time) BETWEEN ws.StartTime AND ws.EndTime) OR

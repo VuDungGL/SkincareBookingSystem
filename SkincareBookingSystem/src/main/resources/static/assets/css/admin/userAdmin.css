@@ -94,3 +94,19 @@ tbody tr:nth-child(odd) {
 .table-header{
     color: var(--third-primary-color);
 }
+
+.column-data-paid-false{
+    color: red;
+}
+.column-data-paid-true{
+    color: #0d850d;
+}
+.column-data-status-0{
+    color: #dcba34;
+}
+.column-data-status-1{
+    color: #0d850d;
+}
+.column-data-status-2{
+    color: red;
+}
