@@ -1028,9 +1028,10 @@ td {
     color: #555;
 }
 .status {
-    padding: 5px 10px;
-    border-radius: 15px;
+    padding: 6px 12px;
+    border-radius: 10px;
     font-size: 0.9em;
+    font-weight: 600;
 }
 .status.completed {
     background-color: #e0f7e9;
@@ -1044,7 +1045,8 @@ td {
     background-color: #f7e0e0;
     color: #a72828;
 }
-.detail-booking {
+.detail-booking { }
+.detail-booking-link {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -1056,9 +1058,10 @@ td {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-.detail-booking:hover {
+.detail-booking-link:hover {
     background-color: #e04385;
     color: white;
+    text-decoration: none;
 }
 .pagination {
     display: flex;
