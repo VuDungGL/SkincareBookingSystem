@@ -49,7 +49,8 @@ public class SecurityConfig {
 
                     .requestMatchers(
                             "/", "/home", "/about", "/service", "/appointment", "/contact",
-                            "/gallery", "/index", "/price", "/team", "/testimonial","/chooseTherapist","/HistoryBooking","/infoUser"
+                            "/gallery", "/index", "/price", "/team", "/testimonial","/chooseTherapist","/HistoryBooking","/infoUser",
+                            "/home/**"
                     ).access(notAdminAccess())
 
                     .requestMatchers("/admin/**", "/admin").hasAnyRole("ADMIN", "MASTER_ADMIN")

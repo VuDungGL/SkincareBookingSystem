@@ -89,16 +89,16 @@
             <h1 class="display-4 mb-4 text-white">Khách hàng đánh giá!</h1>
         </div>
         <div class="owl-carousel testimonial-carousel">
-            <div class="testimonial-item rounded p-4">
+            <div class="testimonial-item rounded p-4" th:each="feedback : ${feedbacks}" style="min-width: 292px; min-height: 360px; max-height: 360px">
                 <div class="row">
                     <div class="col-4">
                         <div class="d-flex flex-column mx-auto">
                             <div class="rounded-circle mb-4" style="border: dashed; border-color: var(--bs-white);">
-                                <img th:src="@{assets/images/base/home/testimonial-1.jpg}" class="img-fluid rounded-circle" alt="">
+                                <img th:src="@{'/' + ${feedback.avt}}" class="img-fluid rounded-circle" alt="" style="max-height: 180px; min-width: 180px; min-height: 180px; max-width: 180px;">
                             </div>
                             <div class="text-center">
-                                <h4 class="mb-2 text-primary">Khánh hàng Nguyên</h4>
-                                <p class="m-0 text-white">Kế toán</p>
+                                <h4 class="mb-2 text-primary" th:text="${feedback.fullName}">Khánh hàng Nguyên</h4>
+                                <p class="m-0 text-white" th:text="${feedback.serviceName}">Kế toán</p>
                             </div>
                         </div>
                     </div>
@@ -107,76 +107,10 @@
                             <i class="fa fa-quote-right fa-2x text-secondary"></i>
                         </div>
                         <div class="testimonial-content">
-                            <div class="d-flex mb-4">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
+                            <div class="d-flex mb-4 star-container" th:attr="data-rating=${feedback.rating}">
+                            <!-- Nội dung sẽ do JS tự thêm vào -->
                             </div>
-                            <p class="fs-5 mb-0 text-white">Mình rất hài lòng với dịch vụ chăm sóc da cơ bản ở đây. Sau khi được làm sạch và cấp ẩm, da mình trở nên mềm mịn, tươi tắn hơn hẳn.  Quá trình massage rất nhẹ nhàng và thư giãn, làm mình cảm thấy thoải mái suốt thời gian trị liệu .Cảm giác thư giãn và thoải mái trong suốt quá trình chăm sóc. Chắc chắn sẽ quay lại! Một Dịch vụ rất tốt. 5 sao
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item rounded p-4">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="d-flex flex-column mx-auto">
-                            <div class="rounded-circle mb-4" style="border: dashed; border-color: var(--bs-white);">
-                                <img th:src="@{assets/images/base/home/testimonial-2.jpg}" class="img-fluid rounded-circle" alt="">
-                            </div>
-                            <div class="text-center">
-                                <h4 class="mb-2 text-primary">Trần Huyền</h4>
-                                <p class="m-0 text-white">IT</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-8">
-                        <div class="position-absolute" style="top: 20px; right: 25px;">
-                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <div class="d-flex mb-4">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="fs-5 mb-0 text-white">Mình rất ấn tượng với dịch vụ chăm sóc da tại đây. Da mình được làm sạch sâu và được cung cấp độ ẩm đầy đủ, cảm giác như da được "thở" sau một thời gian dài không được chăm sóc đúng cách.Sau dịch vụ, da mình không còn khô ráp, trở nên mềm mượt và tươi sáng hơn. Mình sẽ chắc chắn quay lại và thử thêm các dịch vụ khác!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item rounded p-4">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="d-flex flex-column mx-auto">
-                            <div class="rounded-circle mb-4" style="border: dashed; border-color: var(--bs-white);">
-                                <img th:src="@{assets/images/base/home/testimonial-3.jpg}" class="img-fluid rounded-circle" alt="">
-                            </div>
-                            <div class="text-center">
-                                <h4 class="mb-2 text-primary">Lê Anh</h4>
-                                <p class="m-0 text-white">Họa sĩ</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-8">
-                        <div class="position-absolute" style="top: 20px; right: 25px;">
-                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <div class="d-flex mb-4">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                            </div>
-                            <p class="fs-5 mb-0 text-white">Dịch vụ chăm sóc da tại đây thật sự vượt ngoài mong đợi của mình. Sau khi trải qua bước làm sạch, mình cảm thấy da sạch sâu và không còn cảm giác nhờn dính. Quá trình cấp ẩm rất hiệu quả, da mình ngay lập tức trở nên mềm mại và căng mịn. Đặc biệt, mình rất thích cảm giác thư giãn trong suốt quá trình điều trị.Cảm ơn.
+                            <p class="fs-5 mb-0 text-white" th:text="${feedback.comment}">
                             </p>
                         </div>
                     </div>
@@ -222,7 +156,25 @@
 <script th:src="@{/assets/lib/counterup/counterup.min.js}"></script>
 <script th:src="@{/assets/lib/lightbox/js/lightbox.min.js}"></script>
 <script th:src="@{/assets/lib/owlcarousel/owl.carousel.min.js}"></script>
+<script>
+    function onFormatStartRating(rating) {
+        switch (rating) {
+            case 1: return "★☆☆☆☆";
+            case 2: return "★★☆☆☆";
+            case 3: return "★★★☆☆";
+            case 4: return "★★★★☆";
+            case 5: return "★★★★★";
+            case 0: default: return "☆☆☆☆☆";
+        }
+    }
 
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.star-container').forEach(function (el) {
+            const rating = parseInt(el.getAttribute('data-rating')) || 0;
+            el.textContent = onFormatStartRating(rating);
+        });
+    });
+</script>
 <!-- Template Javascript -->
 <script th:src="@{/assets/js/home/main.js}"></script>
 </body>

@@ -89,160 +89,54 @@
             <h1 class="display-3">Dịch vụ Spa & Làm đẹp</h1>
         </div>
         <div class="row g-4">
-            <div class="col-lg-6 wow fadeInUp">
-                <div class="services-item bg-light border-4 border-end border-primary rounded p-4">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <div class="services-content text-end ">
-                                <h3>Chăm sóc da</h3>
-                                <p class="text-justify-custom">Chăm sóc da là một trong những bước quan trọng để giữ gìn vẻ đẹp và sức khỏe của làn da. Với những tác động từ môi trường như ánh nắng, khói bụi và ô nhiễm, làn da rất dễ bị tổn thương nếu không được bảo vệ đúng cách.</p>
-                                <p class="mb-0">&nbsp;</p>
-                                <a href="/appointment" class="btn btn-primary btn-primary-outline-0 rounded-pill py-2 px-4">Đặt lịch</a>
+            <th:block th:each="i : ${#numbers.sequence(0, services.size() - 1, 2)}">
+                <!-- Dịch vụ bên trái -->
+                <div class="col-lg-6 wow fadeInUp">
+                    <div class="services-item bg-light border-4 border-end border-primary rounded p-4">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <div class="services-content text-end">
+                                    <h3 th:text="${services[i].serviceName}">Tên dịch vụ</h3>
+                                    <p th:text="${services[i].description}">Mô tả dịch vụ</p>
+                                    <a href="/appointment" class="btn btn-primary btn-primary-outline-0 rounded-pill py-2 px-4">Đặt lịch</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="services-img d-flex align-items-center justify-content-center rounded">
-                                <img th:src="@{/assets/images/base/home/services-1.jpg}" class="img-fluid rounded" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 wow fadeInUp">
-                <div class="services-item bg-light border-4 border-start border-primary rounded p-4">
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <div class="services-img d-flex align-items-center justify-content-center rounded">
-                                <img th:src="@{/assets/images/base/home/services-2.jpg}" class="img-fluid rounded" alt="">
-                            </div>
-                        </div>
-                        <div class="col-8">
-                            <div class="services-content text-start">
-                                <h3>Mặt nạ che mặt</h3>
-                                <p>
-                                    Mặt nạ che mặt là phụ kiện phổ biến giúp bảo vệ sức khỏe và giữ gìn vẻ ngoài trong nhiều tình huống khác nhau. Từ việc ngăn ngừa bụi bẩn, vi khuẩn đến việc dưỡng da, mặt nạ đã trở thành một phần không thể thiếu trong cuộc sống hiện đại.</p>
-                                <a href="/appointment"class="btn btn-primary btn-primary-outline-0 rounded-pill py-2 px-4">Đặt Lịch</a>
+                            <div class="col-4">
+                                <div class="services-img d-flex align-items-center justify-content-center rounded">
+                                    <img th:src="@{'/' + ${services[i].illustration}}" class="img-fluid rounded" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 wow fadeInUp">
-                <div class="services-item bg-light border-4 border-end border-primary rounded p-4">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <div class="services-content text-end">
-                                <h3>Tắm Bồn</h3>
-                                <p>Khi sử dụng dịch vụ tắm bồn, bạn có thể tận hưởng không gian riêng tư, thư giãn trong môi trường yên tĩnh, giúp giảm căng thẳng, cải thiện tuần hoàn máu, và tái tạo năng lượng </p>
-                                <p class="mb-0">&nbsp;</p>
-                                <p class="mb-0">&nbsp;</p>
-                                <a href="/appointment" class="btn btn-primary btn-primary-outline-0 rounded-pill py-2 px-4">Đặt Lịch</a>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="services-img d-flex align-items-center justify-content-center rounded">
-                                <img th:src="@{/assets/images/base/home/services-3.jpg}" class="img-fluid rounded" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 wow fadeInUp">
-                <div class="services-item bg-light border-4 border-start border-primary rounded p-4">
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <div class="services-img d-flex align-items-center justify-content-center rounded">
-                                <img th:src="@{/assets/images/base/home/services-4.jpg}" class="img-fluid rounded" alt="">
-                            </div>
-                        </div>
-                        <div class="col-8">
-                            <div class="services-content text-start">
-                                <h3>Liệu pháp chăm sóc da mặt</h3>
-                                <p>Mỗi liệu pháp có thể được điều chỉnh và kết hợp với các phương pháp khác để phù hợp với từng loại da và mục đích chăm sóc da cụ thể. Việc chăm sóc da mặt định kỳ sẽ giúp duy trì làn da khỏe mạnh.</p>
-                                <a href="/appointment" class="btn btn-primary btn-primary-outline-0 rounded-pill py-2 px-4">Đặt lịch</a>
+
+                <!-- Dịch vụ bên phải -->
+                <th:block th:if="${i + 1 < services.size()}">
+                    <div class="col-lg-6 wow fadeInUp">
+                        <div class="services-item bg-light border-4 border-start border-primary rounded p-4">
+                            <div class="row align-items-center">
+                                <div class="col-4">
+                                    <div class="services-img d-flex align-items-center justify-content-center rounded">
+                                        <img th:src="@{'/' + ${services[i + 1].illustration}}" class="img-fluid rounded" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="services-content text-start">
+                                        <h3 th:text="${services[i + 1].serviceName}">Tên dịch vụ</h3>
+                                        <p th:text="${services[i + 1].description}">Mô tả dịch vụ</p>
+                                        <a href="/appointment" class="btn btn-primary btn-primary-outline-0 rounded-pill py-2 px-4">Đặt lịch</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-6 wow fadeInUp">
-                <div class="services-item bg-light border-4 border-end border-primary rounded p-4">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <div class="services-content text-end">
-                                <h3>Massage toàn thân</h3>
-                                <p>Body massage có tác dụng giúp thư giãn cơ thể, giảm căng thẳng, cải thiện tuần hoàn máu, giảm đau nhức cơ bắp, cải thiện tâm trạng. Nó cũng giúp giảm stress, cải thiện chất lượng giấc ngủ và tăng cường sự thư giãn tinh thần.</p>
-                                <p class="mb-0">&nbsp;</p>
-                                <a href="/appointment" class="btn btn-primary btn-primary-outline-0 rounded-pill py-2 px-4">Đặt lịch</a>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="services-img d-flex align-items-center justify-content-center rounded">
-                                <img th:src="@{/assets/images/base/home/services-5.jpg}" class="img-fluid rounded" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 wow fadeInUp">
-                <div class="services-item bg-light border-4 border-start border-primary rounded p-4">
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <div class="services-img d-flex align-items-center justify-content-center rounded">
-                                <img th:src="@{/assets/images/base/home/services-6.jpg}" class="img-fluid rounded" alt="">
-                            </div>
-                        </div>
-                        <div class="col-8">
-                            <div class="services-content text-start">
-                                <h3>Liệu pháp hương thơm</h3>
-                                <p>phương pháp sử dụng tinh dầu từ thực vật để cải thiện sức khỏe thể chất và tinh thần. Tác dụng thư giãn, giảm căng thẳng, hỗ trợ điều trị các vấn đề về da, cải thiện giấc ngủ, tăng cường hệ miễn dịch và giúp làm dịu các triệu chứng cảm cúm.</p>
-                                <a href="/appointment" class="btn btn-primary btn-primary-outline-0 rounded-pill py-2 px-4">Đặt lịch</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 wow fadeInUp">
-                <div class="services-item bg-light border-4 border-end border-primary rounded p-4">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <div class="services-content text-end">
-                                <h3>Tắm khoáng</h3>
-                                <p> Tắm khoáng là liệu pháp sử dụng nước chứa khoáng chất tự nhiên từ suối khoáng hoặc bồn tắm được pha chế đặc biệt. Các khoáng chất như muối, canxi, magiê, natri, lưu huỳnh, và các nguyên tố vi lượng khác có thể giúp làm dịu cơ thể và cải thiện sức khỏe</p>
-                                <a href="/appointment" class="btn btn-primary btn-primary-outline-0 rounded-pill py-2 px-4">Đặt lịch</a>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="services-img d-flex align-items-center justify-content-center rounded">
-                                <img th:src="@{/assets/images/base/home/services-3.jpg}" class="img-fluid rounded" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 wow fadeInUp">
-                <div class="services-item bg-light border-4 border-start border-primary rounded p-4">
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <div class="services-img d-flex align-items-center justify-content-center rounded">
-                                <img th:src="@{/assets/images/base/home/services-1.jpg}" class="img-fluid rounded" alt="">
-                            </div>
-                        </div>
-                        <div class="col-8">
-                            <div class="services-content text-start">
-                                <h3>Liệu pháp đá </h3>
-                                <p>Liệu pháp đá  là phương pháp massage sử dụng đá nóng hoặc đá lạnh để thư giãn cơ thể, giúp giảm căng thẳng và tăng cường lưu thông máu. Đá nóng, thường là đá bazan hoặc đá núi lửa, được làm ấm và đặt lên các điểm huyệt hoặc các khu vực cần thư giãn trên cơ thể.</p>
-                                <a href="/appointment" class="btn btn-primary btn-primary-outline-0 rounded-pill py-2 px-4">Đặt lịch</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 wow fadeInUp" data-wow-delay=".9s">
-                <div class="services-btn text-center">
-                    <a href="#" class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-5">Xem thêm dịch vụ</a>
-                </div>
-            </div>
+                </th:block>
+            </th:block>
+<!--            <div class="col-12 wow fadeInUp" data-wow-delay=".9s">-->
+<!--                <div class="services-btn text-center">-->
+<!--                    <a href="#" class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-5">Xem thêm dịch vụ</a>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </div>
