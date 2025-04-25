@@ -44,7 +44,8 @@ public class SecurityConfig {
                             "/register/**",
                             "/Uploads/**",
                             "/appointment/**",
-                            "/booking/**"
+                            "/booking/**",
+                            "/chatbox/**"
                     ).permitAll()
 
                     .requestMatchers(
