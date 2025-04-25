@@ -38,3 +38,6 @@ app:
     sender: MAdminBookingSystem@gmail.com
     login-password: AdminBookingSystem@123
     password: $2a$10$oCMfEPHRmV8/o8kkBwfXXu2UZpqrS7lrQpyOd1LsauXRhIxP9VrXa
+openai:
+  api-url: https://gpt-proxy-api.fly.dev/v1/chat/completions
+  api-key: dummy-key

@@ -1,4 +1,12 @@
 <div class="container-fluid topbar d-none d-lg-block" th:fragment="header">
+    <!-- Firebase App (bắt buộc) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+
+    <!-- Firebase Database -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+    <!-- Firebase Auth (nếu cần đăng nhập) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
     <link rel="stylesheet" th:href="@{/assets/css/base.css}">
     <script th:src="@{/assets/js/base.js}"></script>
     <script th:src="@{/assets/js/home/infoUser.js}"></script>
@@ -87,5 +95,14 @@
 
             </div>
         </nav>
+    </div>
+    <!-- Biểu tượng chat -->
+    <div id="chat-icon" onclick="customBoxChat.toggleChat()" style="position: fixed; bottom: 20px; right: 20px; background: #007bff; color: white; border-radius: 50%; padding: 10px;">💬</div>
+
+    <!-- Cửa sổ chat -->
+    <div id="chat-box" style="display: none; position: fixed; bottom: 70px; right: 20px; width: 300px; height: 400px; background: white; border: 1px solid #ccc; padding: 10px; overflow-y: scroll;">
+        <div id="messages"></div>
+        <input id="messageInput" placeholder="Nhắn gì đó..." />
+        <button onclick="customBoxChat.sendMessage()">Gửi</button>
     </div>
 </div>

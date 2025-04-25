@@ -1,6 +1,7 @@
 $(document).ready(function () {
     AuthCore.onInit();
     AuthCore.checkTokenExpiry();
+    customBoxChat.onInit();
 });
 const coreConst ={
     formatDate: function(dateString) {
@@ -144,6 +145,7 @@ const coreConst ={
         }
     }
 }
+
 const AuthCore = {
     onInit: function () {
         this.onLogin();
@@ -366,4 +368,81 @@ const AuthCore = {
             window.location.href = '/login';
         }
     }
-};
+}
+
+const customBoxChat = {
+    db: null,
+    messagesRef: null,
+    onInit: function(){
+        this.db = this.onConfigFireBase();
+        this.messagesRef = this.onGetSessionID();
+        this.onListenNewMessage();
+        this.sendWelcomeIfFirstTime();
+    },
+
+    onConfigFireBase: function(){
+        const firebaseConfig = {
+            apiKey : "AIzaSyDLuKjsVO9Pg1pdcTkWjJSnxeFEr_bgJ_Q" ,
+            authDomain : "chatbox-demo-52e7c.firebaseapp.com" ,
+            databaseURL : "https://chatbox-demo-52e7c-default-rtdb.asia-southeast1.firebasedatabase.app" ,
+            projectId : "chatbox-demo-52e7c" ,
+            storageBucket : "chatbox-demo-52e7c.firebasestorage.app" ,
+            messagingSenderId : "1031693527615" ,
+            appId : "1:1031693527615:web:0fd757986506b17532268a" ,
+            measurementId : "G-JE8ZTVW3XQ"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.database(app);
+
+        return db;
+    },
+
+    onGetSessionID: function(){
+        if(localStorage.getItem("access_token")){
+            const userInfo = AuthCore.decodeToken(localStorage.getItem("access_token"))
+            const sessionId = userInfo.sub;
+            localStorage.setItem("sessionId", sessionId);
+            return messagesRef = this.db.ref("messages/" + sessionId);
+        }
+        return null;
+    },
+    toggleChat: function() {
+        const box = document.getElementById("chat-box");
+        box.style.display = box.style.display === "none" ? "block" : "none";
+    },
+    sendMessage: function() {
+        const input = document.getElementById("messageInput");
+        messagesRef.push({
+            sender: "user",
+            content: input.value,
+            timestamp: Date.now()
+        });
+        input.value = "";
+    },
+    sendWelcomeIfFirstTime: function(){
+        if (!this.messagesRef) return;
+
+        this.messagesRef.once("value", (snapshot) => {
+            const messages = snapshot.val();
+
+            if (!messages) {
+                this.messagesRef.push({
+                    sender: "admin",
+                    content: "Xin chào! Tôi có thể giúp gì cho bạn?",
+                    timestamp: Date.now()
+                });
+            }
+        });
+    },
+
+    onListenNewMessage: function(){
+        messagesRef.on("child_added", (snapshot) => {
+            const msg = snapshot.val();
+            const el = document.createElement("div");
+            el.innerHTML = `<b>${msg.sender === "admin" ? "Nhân viên" : "Bạn"}:</b> ${msg.content}`;
+            document.getElementById("messages").appendChild(el);
+        });
+    }
+}
