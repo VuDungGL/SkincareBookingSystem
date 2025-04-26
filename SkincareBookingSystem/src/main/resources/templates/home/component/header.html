@@ -97,12 +97,160 @@
         </nav>
     </div>
     <!-- Biểu tượng chat -->
-    <div id="chat-icon" onclick="customBoxChat.toggleChat()" style="position: fixed; bottom: 20px; right: 20px; background: #007bff; color: white; border-radius: 50%; padding: 10px;">💬</div>
+<!--    <div id="chat-icon" onclick="customBoxChat.toggleChat()" style="position: fixed; bottom: 20px; right: 20px; background: #007bff; color: white; border-radius: 50%; padding: 10px;">💬</div>-->
 
-    <!-- Cửa sổ chat -->
-    <div id="chat-box" style="display: none; position: fixed; bottom: 70px; right: 20px; width: 300px; height: 400px; background: white; border: 1px solid #ccc; padding: 10px; overflow-y: scroll;">
-        <div id="messages"></div>
-        <input id="messageInput" placeholder="Nhắn gì đó..." />
-        <button onclick="customBoxChat.sendMessage()">Gửi</button>
+
+<!--    &lt;!&ndash; Cửa sổ chat &ndash;&gt;-->
+<!--    <div id="chat-box" style="display: none; position: fixed; bottom: 70px; right: 20px; width: 300px; height: 400px; background: white; border: 1px solid #ccc; padding: 10px; overflow-y: scroll;">-->
+<!--        <div id="messages"></div>-->
+<!--        <input id="messageInput" placeholder="Nhắn gì đó..." />-->
+<!--        <button onclick="customBoxChat.sendMessage()">Gửi</button>-->
+<!--    </div>-->
+
+    <!-- Biểu tượng chat -->
+    <div id="chat-icon" onclick="customBoxChat.toggleChat()">
+        💬
     </div>
+    <!-- Cửa sổ chat -->
+    <div id="chat-box">
+        <div id="messages"></div>
+
+        <div id="chat-input-area">
+            <input id="messageInput" placeholder="Nhập tin nhắn..." />
+            <button onclick="customBoxChat.sendMessage()">➤</button>
+        </div>
+    </div>
+
+
+    <!-- CSS -->
+    <style>
+        /* Biểu tượng chat */
+        #chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            padding: 12px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        /* Cửa sổ chat */
+        #chat-box {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 320px;
+            height: 500px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            z-index: 999;
+        }
+
+        /* Nội dung chat */
+        #messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            word-break: break-word;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user {
+            align-self: flex-end;
+            background: #007bff;
+            color: white;
+            border-top-right-radius: 0;
+        }
+
+        .staff {
+            align-self: flex-start;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            color: #333;
+            border-top-left-radius: 0;
+        }
+
+        .sender {
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .timestamp {
+            font-size: 10px;
+            color: #aaa;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        /* Ô nhập + gửi */
+        /* Ô nhập + gửi */
+        /* Ô nhập tin nhắn + nút gửi */
+        #chat-input-area {
+            display: flex;
+            align-items: center;  /* Căn giữa theo chiều dọc */
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background: #fff;
+            gap: 8px;
+            height: 60px;  /* Cố định chiều cao để tránh lệch */
+            box-sizing: border-box;
+        }
+
+        /* Ô nhập tin nhắn */
+        #messageInput {
+            flex: 1;
+            height: 40px;
+            padding: 0 15px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            box-sizing: border-box;
+            margin: 0;  /* Loại bỏ margin mặc định */
+            line-height: 40px;  /* Căn giữa nội dung theo chiều dọc */
+        }
+
+        /* Nút gửi */
+        #chat-input-area button {
+            width: 40px;
+            height: 40px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0;  /* Loại bỏ padding mặc định */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;  /* Loại bỏ margin mặc định */
+        }
+    </style>
+
 </div>
+

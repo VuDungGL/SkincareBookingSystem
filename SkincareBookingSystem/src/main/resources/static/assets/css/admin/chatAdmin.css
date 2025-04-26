@@ -1,0 +1,188 @@
+/* Chat Container */
+.chat-container {
+    display: flex;
+    height: 80vh;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+/* Sidebar User List */
+.user-list {
+    width: 28%;
+    background: #f7f7f8;
+    border-right: 1px solid #e0e0e0;
+    padding: 8px 0;
+    overflow-y: auto;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    border-bottom: 1px solid #eee;
+}
+
+.user-item:hover {
+    background-color: #ececec;
+}
+
+.user-item.active {
+    background-color: #e0e0e0;
+    font-weight: 600;
+}
+
+/* Chat Content */
+.chat-content {
+    width: 72%;
+    display: flex;
+    flex-direction: column;
+    background: #fafafa;
+}
+
+/* Chat Header */
+.chat-header {
+    padding: 16px 24px;
+    font-size: 20px;
+    font-weight: 600;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+}
+
+/* Message List */
+.messages-list {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Message Item */
+/* Message List */
+.messages-list {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #f5f5f5;
+}
+
+/* Message Item */
+/* Message Item */
+.message-item {
+    max-width: 75%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.message-item.user {
+    align-self: flex-start;
+    background: #ffffff;
+    border-bottom-left-radius: 4px;
+}
+
+.message-item.admin {
+    align-self: flex-end;
+    background: #4A90E2;
+    border-bottom-right-radius: 4px;
+    color: white;
+}
+
+/* Message Sender */
+.message-sender {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.message-item.user .message-sender {
+    color: #555;
+}
+
+.message-item.admin .message-sender {
+    color: rgba(255,255,255,0.9);
+}
+
+/* Message Content */
+.message-content {
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    padding: 2px 0;
+}
+
+/* Message Time */
+.message-time {
+    font-size: 10px;
+    opacity: 0.8;
+    margin-top: 4px;
+    text-align: right;
+}
+/* Input Box */
+
+/* Input Box - Phiên bản cải tiến */
+.admin-input-box {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    gap: 8px;
+    height: 68px; /* Cố định chiều cao tổng thể */
+}
+
+/* Input Field - Chiếm không gian tối đa */
+.admin-input-box input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    height: 44px;
+    box-sizing: border-box;
+    margin: 0; /* Đảm bảo không có margin gây lệch */
+    line-height: normal; /* Chuẩn hóa line-height */
+}
+
+/* Nút gửi */
+/* Nút gửi - Căn chỉnh hoàn hảo */
+.admin-input-box button {
+    width: 44px;
+    height: 44px;
+    background-color: #4A90E2;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Loại bỏ padding mặc định */
+    margin: 0; /* Loại bỏ margin mặc định */
+}
+
+/* Hiệu ứng hover */
+.admin-input-box button:hover {
+    background-color: #3a7bc8;
+}
+
+/* Icon trong nút (nếu dùng SVG) */
+.admin-input-box button svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+

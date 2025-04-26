@@ -369,7 +369,9 @@ const AuthCore = {
         }
     }
 }
-
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("chat-box").style.display = "none";
+});
 const customBoxChat = {
     db: null,
     messagesRef: null,
@@ -408,9 +410,13 @@ const customBoxChat = {
         }
         return null;
     },
+    // toggleChat: function() {
+    //     const box = document.getElementById("chat-box");
+    //     box.style.display = box.style.display === "none" ? "block" : "none";
+    // },
     toggleChat: function() {
         const box = document.getElementById("chat-box");
-        box.style.display = box.style.display === "none" ? "block" : "none";
+        box.style.display = (box.style.display === "none" || box.style.display === "") ? "flex" : "none";
     },
     sendMessage: function() {
         const input = document.getElementById("messageInput");
@@ -437,12 +443,41 @@ const customBoxChat = {
         });
     },
 
-    onListenNewMessage: function(){
+//     onListenNewMessage: function(){
+//         messagesRef.on("child_added", (snapshot) => {
+//             const msg = snapshot.val();
+//             const el = document.createElement("div");
+//             el.innerHTML = `<b>${msg.sender === "admin" ? "Nhân viên" : "Bạn"}:</b> ${msg.content}`;
+//             document.getElementById("messages").appendChild(el);
+//         });
+//     }
+// }
+    onListenNewMessage: function() {
         messagesRef.on("child_added", (snapshot) => {
             const msg = snapshot.val();
-            const el = document.createElement("div");
-            el.innerHTML = `<b>${msg.sender === "admin" ? "Nhân viên" : "Bạn"}:</b> ${msg.content}`;
-            document.getElementById("messages").appendChild(el);
+            const messagesContainer = document.getElementById("messages");
+
+            const messageDiv = document.createElement("div");
+            messageDiv.className = `message ${msg.sender === "admin" ? "staff" : "user"}`;
+
+            const sender = document.createElement("span");
+            sender.className = "sender";
+            sender.textContent = msg.sender === "admin" ? "🧑‍💼 Nhân viên" : "🧑 User";
+            messageDiv.appendChild(sender);
+
+            const content = document.createElement("div");
+            content.textContent = msg.content;
+            messageDiv.appendChild(content);
+
+            const timestamp = document.createElement("div");
+            timestamp.className = "timestamp";
+            const date = new Date(msg.timestamp);
+            timestamp.textContent = date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0');
+            messageDiv.appendChild(timestamp);
+
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
         });
-    }
-}
+    }}
+
+

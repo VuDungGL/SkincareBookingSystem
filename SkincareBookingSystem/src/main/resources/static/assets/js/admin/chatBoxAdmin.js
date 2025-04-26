@@ -73,6 +73,29 @@ const adminBoxChat = {
         });
     },
 
+    // loadMessagesBySession: function(sessionId){
+    //     this.currentSession = sessionId;
+    //     document.getElementById("chat-header").innerText = `Đoạn chat với user: ${sessionId}`;
+    //     const messagesList = document.getElementById("messages-list");
+    //     messagesList.innerHTML = "";
+    //
+    //     const sessionRef = this.messagesRootRef.child(sessionId);
+    //     sessionRef.once("value", (snapshot) => {
+    //         const messages = snapshot.val();
+    //
+    //         for (let msgId in messages) {
+    //             const msg = messages[msgId];
+    //             const msgEl = document.createElement("div");
+    //             msgEl.innerHTML = `<b>${msg.sender === "admin" ? "👩‍💼 Nhân viên" : "🧑 User"}:</b> ${msg.content}`;
+    //             msgEl.style.margin = "4px 0";
+    //             messagesList.appendChild(msgEl);
+    //         }
+    //
+    //         messagesList.scrollTop = messagesList.scrollHeight;
+    //     });
+    // },
+
+
     loadMessagesBySession: function(sessionId){
         this.currentSession = sessionId;
         document.getElementById("chat-header").innerText = `Đoạn chat với user: ${sessionId}`;
@@ -86,8 +109,17 @@ const adminBoxChat = {
             for (let msgId in messages) {
                 const msg = messages[msgId];
                 const msgEl = document.createElement("div");
-                msgEl.innerHTML = `<b>${msg.sender === "admin" ? "👩‍💼 Nhân viên" : "🧑 User"}:</b> ${msg.content}`;
-                msgEl.style.margin = "4px 0";
+                msgEl.className = `message-item ${msg.sender}`;
+
+                const senderName = msg.sender === "admin" ? "👩‍💼 Nhân viên" : "🧑 User";
+                const timeString = new Date(msg.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+                msgEl.innerHTML = `
+                <div class="message-sender">${senderName}</div>
+                <div class="message-content">${msg.content}</div>
+                <div class="message-time">${timeString}</div>
+            `;
+
                 messagesList.appendChild(msgEl);
             }
 
@@ -111,3 +143,4 @@ const adminBoxChat = {
     }
 
 };
+
