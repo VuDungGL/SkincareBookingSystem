@@ -568,3 +568,6 @@ button {
 .team-text h3{
     font-size: 14px;
 }
+button.swal2-styled{
+    width: auto;
+}

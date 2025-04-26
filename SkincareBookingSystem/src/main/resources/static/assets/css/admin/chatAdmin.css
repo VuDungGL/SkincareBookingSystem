@@ -1,21 +1,20 @@
-/* Chat Container */
 .chat-container {
     display: flex;
-    height: 80vh;
+    height: 620px;
     border-radius: 12px;
     overflow: hidden;
-    background: #fff;
+    padding: 14px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     font-family: 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
-/* Sidebar User List */
 .user-list {
     width: 28%;
-    background: #f7f7f8;
+    background: white;
     border-right: 1px solid #e0e0e0;
-    padding: 8px 0;
+    padding: 16px;
     overflow-y: auto;
+    border-radius: 12px;
 }
 
 .user-item {
@@ -36,15 +35,15 @@
     font-weight: 600;
 }
 
-/* Chat Content */
 .chat-content {
     width: 72%;
     display: flex;
     flex-direction: column;
-    background: #fafafa;
+    border-radius: 12px;
+    overflow: hidden;
+    padding-left: 12px;
 }
 
-/* Chat Header */
 .chat-header {
     padding: 16px 24px;
     font-size: 20px;
@@ -52,9 +51,10 @@
     background: #ffffff;
     border-bottom: 1px solid #e0e0e0;
     color: #333;
+    margin: 0;
+    border-top-left-radius: 12px;
 }
 
-/* Message List */
 .messages-list {
     flex: 1;
     padding: 20px;
@@ -64,8 +64,6 @@
     gap: 12px;
 }
 
-/* Message Item */
-/* Message List */
 .messages-list {
     flex: 1;
     padding: 16px;
@@ -76,8 +74,6 @@
     background-color: #f5f5f5;
 }
 
-/* Message Item */
-/* Message Item */
 .message-item {
     max-width: 75%;
     padding: 8px 12px;
@@ -94,12 +90,11 @@
 
 .message-item.admin {
     align-self: flex-end;
-    background: #4A90E2;
+    background: #cc3f7e;
     border-bottom-right-radius: 4px;
     color: white;
 }
 
-/* Message Sender */
 .message-sender {
     font-size: 12px;
     font-weight: 500;
@@ -116,7 +111,6 @@
     color: rgba(255,255,255,0.9);
 }
 
-/* Message Content */
 .message-content {
     font-size: 14px;
     line-height: 1.4;
@@ -124,16 +118,13 @@
     padding: 2px 0;
 }
 
-/* Message Time */
 .message-time {
     font-size: 10px;
     opacity: 0.8;
     margin-top: 4px;
     text-align: right;
 }
-/* Input Box */
 
-/* Input Box - Phiên bản cải tiến */
 .admin-input-box {
     display: flex;
     align-items: center;
@@ -141,10 +132,11 @@
     background: #fff;
     border-top: 1px solid #e0e0e0;
     gap: 8px;
-    height: 68px; /* Cố định chiều cao tổng thể */
+    height: 68px;
+    border-bottom-left-radius: 12px;
 }
 
-/* Input Field - Chiếm không gian tối đa */
+
 .admin-input-box input {
     flex: 1;
     padding: 10px 16px;
@@ -153,36 +145,38 @@
     font-size: 14px;
     height: 44px;
     box-sizing: border-box;
-    margin: 0; /* Đảm bảo không có margin gây lệch */
-    line-height: normal; /* Chuẩn hóa line-height */
+    margin: 0;
+    line-height: normal;
 }
 
-/* Nút gửi */
-/* Nút gửi - Căn chỉnh hoàn hảo */
 .admin-input-box button {
     width: 44px;
     height: 44px;
-    background-color: #4A90E2;
+    background-color: #cc3f7e;
     border: none;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0; /* Loại bỏ padding mặc định */
-    margin: 0; /* Loại bỏ margin mặc định */
+    padding: 0;
+    margin: 0;
 }
 
-/* Hiệu ứng hover */
 .admin-input-box button:hover {
-    background-color: #3a7bc8;
+    background-color: #cc3f7e;
 }
 
-/* Icon trong nút (nếu dùng SVG) */
 .admin-input-box button svg {
     width: 20px;
     height: 20px;
 }
 
-
+.message-preview{
+    max-width: 230px ;
+    min-width: 230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 

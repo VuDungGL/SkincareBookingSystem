@@ -379,7 +379,6 @@ const customBoxChat = {
         this.db = this.onConfigFireBase();
         this.messagesRef = this.onGetSessionID();
         this.onListenNewMessage();
-        this.sendWelcomeIfFirstTime();
     },
 
     onConfigFireBase: function(){
@@ -405,18 +404,34 @@ const customBoxChat = {
         if(localStorage.getItem("access_token")){
             const userInfo = AuthCore.decodeToken(localStorage.getItem("access_token"))
             const sessionId = userInfo.sub;
-            localStorage.setItem("sessionId", sessionId);
-            return messagesRef = this.db.ref("messages/" + sessionId);
+            if(sessionId !== "MASTER_ADMIN"){
+                localStorage.setItem("sessionId", sessionId);
+                return messagesRef = this.db.ref("messages/" + sessionId);
+            }
         }
         return null;
     },
-    // toggleChat: function() {
-    //     const box = document.getElementById("chat-box");
-    //     box.style.display = box.style.display === "none" ? "block" : "none";
-    // },
+
     toggleChat: function() {
-        const box = document.getElementById("chat-box");
-        box.style.display = (box.style.display === "none" || box.style.display === "") ? "flex" : "none";
+        if(!localStorage.getItem("access_token"))
+        {
+            swal.fire({
+                title: "Thông báo!",
+                text: "Bạn phải đăng nhập mới có thể chat với admin.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Đăng nhập",
+                cancelButtonText: "Hủy"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/login"
+                }
+            });
+        }else{
+            const box = document.getElementById("chat-box");
+            box.style.display = (box.style.display === "none" || box.style.display === "") ? "flex" : "none";
+            this.sendWelcomeIfFirstTime();
+        }
     },
     sendMessage: function() {
         const input = document.getElementById("messageInput");
@@ -443,16 +458,11 @@ const customBoxChat = {
         });
     },
 
-//     onListenNewMessage: function(){
-//         messagesRef.on("child_added", (snapshot) => {
-//             const msg = snapshot.val();
-//             const el = document.createElement("div");
-//             el.innerHTML = `<b>${msg.sender === "admin" ? "Nhân viên" : "Bạn"}:</b> ${msg.content}`;
-//             document.getElementById("messages").appendChild(el);
-//         });
-//     }
-// }
     onListenNewMessage: function() {
+        var userInfo = AuthCore.decodeToken(localStorage.getItem("access_token"));
+        if(userInfo.typ === 0 || userInfo.typ === 1 || userInfo.sub === "MASTER_ADMIN"){
+            return;
+        }
         messagesRef.on("child_added", (snapshot) => {
             const msg = snapshot.val();
             const messagesContainer = document.getElementById("messages");
@@ -462,7 +472,7 @@ const customBoxChat = {
 
             const sender = document.createElement("span");
             sender.className = "sender";
-            sender.textContent = msg.sender === "admin" ? "🧑‍💼 Nhân viên" : "🧑 User";
+            sender.textContent = msg.sender === "admin" ? "🧑‍💼 Nhân viên" : `🧑 ${userInfo.firstName + ' ' + userInfo.lastName}`;
             messageDiv.appendChild(sender);
 
             const content = document.createElement("div");

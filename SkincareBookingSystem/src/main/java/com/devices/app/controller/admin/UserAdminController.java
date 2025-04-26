@@ -71,4 +71,10 @@ public class UserAdminController {
         return userService.getListCustomerByUserRole(searchText,roleID,pageIndex,pageSize);
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MASTER_ADMIN')")
+    @PostMapping("/users/getUserInfo")
+    public ApiResponse<Users> getUser(@RequestBody Map<String, Integer> request){
+        Integer userID = request.get("userID");
+        return userService.getUser(userID);
+    }
 }

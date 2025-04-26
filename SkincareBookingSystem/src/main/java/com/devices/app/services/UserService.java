@@ -253,4 +253,12 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
         return new ApiResponse<>(200, ReponseUserEnum.SUCCESS.getMessage(), null);
     }
+
+    public ApiResponse<Users> getUser(Integer userID) {
+        Optional<Users> optionalUser = userRepository.findById(userID);
+        if(optionalUser.isEmpty()){
+            return new ApiResponse(ReponseUserEnum.NOT_FOUND.getValue(), ReponseUserEnum.NOT_FOUND.getMessage(), null);
+        }
+        return new ApiResponse<>(200, ReponseUserEnum.SUCCESS.getMessage(), optionalUser.get());
+    }
 }
