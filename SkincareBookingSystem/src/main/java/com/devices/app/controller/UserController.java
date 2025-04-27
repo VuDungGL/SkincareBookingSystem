@@ -4,9 +4,11 @@ import com.devices.app.dtos.dto.CustomerUserDetails;
 import com.devices.app.dtos.requests.UserUpdateRequest;
 import com.devices.app.dtos.response.ApiResponse;
 import com.devices.app.dtos.response.TokenInfo;
+import com.devices.app.models.Feedback;
 import com.devices.app.models.Services;
 import com.devices.app.models.Users;
 import com.devices.app.repository.UserRepository;
+import com.devices.app.services.FeedbackService;
 import com.devices.app.services.JWTService;
 import com.devices.app.services.ServicesService;
 import com.devices.app.services.UserService;
@@ -26,10 +28,12 @@ public class UserController {
     private final UserService userService;
     private final JWTService jwtService;
     private final ServicesService servicesService;
-    public UserController(UserService userService, JWTService jwtService, ServicesService servicesService) {
+    private final FeedbackService feedbackService;
+    public UserController(UserService userService, JWTService jwtService, ServicesService servicesService, FeedbackService feedbackService) {
         this.userService = userService;
         this.jwtService = jwtService;
         this.servicesService = servicesService;
+        this.feedbackService = feedbackService;
     }
 
 
@@ -102,6 +106,11 @@ public class UserController {
         return userService.changePassword(userID, newPassword, oldPassword);
     }
 
-
+    @PreAuthorize("hasRole('USER')")
+    @PostMapping("/users/createFeedback")
+    public ResponseEntity<ApiResponse<Feedback>> createFeedback(@RequestBody Feedback feedback) {
+        ApiResponse<Feedback> response = feedbackService.createFeedback(feedback);
+        return ResponseEntity.ok(response);
+    }
 
 }

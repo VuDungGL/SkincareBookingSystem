@@ -101,7 +101,9 @@ const renderData= {
             method: 'GET',
             success: function(response){
                 if(response != null){
-                    $("#revenue-title").text("Revenue in " + response.month + " " + response.year);
+                    if(response.month){
+                        $("#revenue-title").text("Revenue in " + response.month + " " + response.year);
+                    }
                     $("#revenue-content").text(response.revenue.toLocaleString('vi-VN') + "VNĐ");
                 }
             }

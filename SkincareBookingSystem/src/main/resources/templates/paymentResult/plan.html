@@ -1,0 +1,49 @@
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" th:href="@{/assets/css/paymentTransaction/plan.css}">
+<script th:src="@{/assets/js/paymentTransaction/plan.js}"></script>
+<body>
+<div class="payment-container">
+    <input value="@JsonConvert.SerializeObject(response)" id="data" hidden/>
+    <div class="payment-success">
+        <div class="payment-icon-success">
+            <svg width="72" height="72" viewBox="0 0 132 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M120.23 29.656C122.584 35.728 119.29 39.886 112.915 43.989C107.773 47.289 101.222 50.875 94.281 56.9965C87.472 62.997 80.8335 70.2295 74.932 77.3465C69.8829 83.4564 65.0758 89.7625 60.522 96.25C58.245 99.5005 55.0605 104.351 55.0605 104.351C53.9177 106.117 52.3439 107.562 50.4876 108.55C48.6313 109.539 46.5537 110.038 44.451 110C42.3495 109.988 40.2861 109.438 38.457 108.403C36.6279 107.368 35.094 105.882 34.001 104.087C28.5065 94.864 24.2715 91.2175 22.3245 89.914C17.116 86.405 11 85.899 11 77.737C11 71.2525 16.4725 66 23.221 66C27.9895 66.176 32.417 68.0515 36.344 70.6915C38.852 72.3745 41.5085 74.6075 44.2695 77.539C47.9697 72.4897 51.8177 67.5504 55.8085 62.7275C62.172 55.055 69.685 46.8215 77.7425 39.7155C85.6625 32.7305 94.82 26.191 104.528 22.737C110.853 20.482 117.882 23.5785 120.23 29.656Z" fill="#00D807" />
+            </svg>
+        </div>
+        <h1>Thanh toán thành công</h1>
+        <div class="payment-details">
+            <p><strong>Phương thức thanh toán: </strong><span class="all-uppercase"></span></p>
+            <p><strong>Mã ngân hàng: </strong><span class="all-uppercase"></span></p>
+            <p><strong>Mô tả đơn hàng: </strong></p>
+            <p><strong>Mã đơn hàng: </strong></p>
+            <p><strong>Mã giao dịch: </strong></p>
+            <p><strong>Số tiền giao dịch: </strong></p>
+            <p><strong>Ngày giao dịch: </strong></p>
+        </div>
+        <button class="btn-back-home" onclick="goBackHome()">Quay về trang chủ</button>
+    </div>
+    <div>
+        <div class="error-content">
+            <div class="error-icon">
+                <svg width="38" height="62" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M92.72 3.06C89.64 -0.0300021 84.59 -0.0200021 81.51 3.06L56.6 27.97C53.52 31.05 48.47 31.05 45.39 27.97L20.48 3.07C17.4 -0.0100019 12.36 -0.0100019 9.27 3.07L3.06 9.28C-0.02 12.37 -0.02 17.41 3.06 20.49L27.97 45.4C31.05 48.48 31.05 53.53 27.97 56.61L3.06 81.51C-0.02 84.59 -0.02 89.63 3.06 92.72L9.28 98.94C12.36 102.02 17.41 102.02 20.49 98.94L45.4 74.03C48.48 70.95 53.53 70.95 56.61 74.03L81.52 98.94C84.6 102.02 89.65 102.02 92.73 98.94L98.94 92.72C102.02 89.63 102.02 84.59 98.94 81.51L74.03 56.61C70.95 53.53 70.95 48.48 74.03 45.4L98.94 20.49C102.02 17.41 102.02 12.36 98.94 9.28L92.72 3.06Z" fill="#D40000" />
+                </svg>
+            </div>
+            <h1 class="text-danger">Payment Fail</h1>
+            <h3>Thanh toán thất bại. Vui lòng thử lại</h3>
+            <button class="btn-back-home" onclick="goBackHome()">Quay về trang chủ</button>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    // Hàm để quay lại trang chủ
+    function goBackHome() {
+        window.location.href = "/";
+    }
+</script>

@@ -10,6 +10,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface FeedbackRepository extends JpaRepository<Feedback, Integer> {
     @Query("SELECT AVG(F.rating) FROM Feedback F")
@@ -71,4 +73,6 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Integer> {
                 )
             """, nativeQuery = true)
     Page<Tuple> getAllPageFeedback(@Param("searchText") String searchText, Pageable pageable);
+
+    Optional<Feedback> findByBookingDetailID(Integer bookingDetailID);
 }

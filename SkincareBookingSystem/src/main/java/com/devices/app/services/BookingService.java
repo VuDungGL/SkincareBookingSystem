@@ -92,14 +92,7 @@ public class BookingService {
         if(request == null) {
             return new ApiResponse<>(100, "Đặt lịch thất bại!", null);
         }
-
-        Booking booking = new Booking();
-        booking.setUserID(request.getUserID());
-        booking.setBookingDate(Instant.now());
-        bookingRepository.save(booking);
-
         BookingDetail bookingDetail = new BookingDetail();
-        bookingDetail.setBookingID(booking.getId());
         bookingDetail.setServiceID(request.getServiceID());
         bookingDetail.setFullName(request.getFullName());
         bookingDetail.setPhone(request.getPhone());
@@ -111,6 +104,12 @@ public class BookingService {
         bookingDetail.setPrice(request.getPrice());
         bookingDetail.setPromotionID(null);
         bookingDetailRepository.save(bookingDetail);
+
+        Booking booking = new Booking();
+        booking.setUserID(request.getUserID());
+        booking.setBookingDate(OffsetDateTime.now(ZoneId.of("Asia/Ho_Chi_Minh")));
+        booking.setBookingDetailID(bookingDetail.getId());
+        bookingRepository.save(booking);
 
         WorkSchedule workSchedule = new WorkSchedule();
         workSchedule.setBookingDetailID(bookingDetail.getId());
@@ -247,4 +246,38 @@ public class BookingService {
         }
     }
 
+    public ApiResponse<BookingDetail> getBookingDetail(Integer bookingDetailID) {
+        Optional<BookingDetail> bookingDetail = bookingDetailRepository.findById(bookingDetailID);
+        if (bookingDetail.isEmpty()) {
+            return new ApiResponse<>(100,"Không tìm thấy thông tin ặt lịch", null);
+        }
+        return new ApiResponse<>(200, "Tìm kiếm thành công", bookingDetail.get());
+    }
+
+    public ApiResponse<Booking> getBooking(Integer bookingDetailID) {
+        Optional<Booking> booking = bookingRepository.findByBookingDetailID(bookingDetailID);
+        if (booking.isEmpty()) {
+            return new ApiResponse<>(100,"Không tìm thấy thông tin đặt lịch", null);
+        }
+        return new ApiResponse<>(200, "Tìm kiếm thành công", booking.get());
+    }
+
+    public void isPaid(Integer bookingDetailID) {
+        Optional<BookingDetail> bookingDetail = bookingDetailRepository.findById(bookingDetailID);
+        BookingDetail booking = bookingDetail.get();
+        booking.setIsPaid(true);
+        bookingDetailRepository.save(booking);
+    }
+
+    public ApiResponse<String> onCancelBooking(Integer bookingDetailID) {
+        Optional<BookingDetail> bookingDetail = bookingDetailRepository.findById(bookingDetailID);
+        if(bookingDetail.isEmpty())
+        {
+            return new ApiResponse<>(100, "Không tìm thấy thông tin đặt lịch", null);
+        }
+        BookingDetail booking = bookingDetail.get();
+        booking.setStatus(2);
+        bookingDetailRepository.save(booking);
+        return new ApiResponse<>(200,"Hủy đặt lịch thành công", null);
+    }
 }

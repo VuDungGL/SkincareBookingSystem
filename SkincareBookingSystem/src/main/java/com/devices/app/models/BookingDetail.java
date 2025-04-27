@@ -16,9 +16,6 @@ public class BookingDetail {
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @Column(name = "BookingID")
-    private Integer bookingID;
-
     @Column(name = "ServiceID")
     private Integer serviceID;
 

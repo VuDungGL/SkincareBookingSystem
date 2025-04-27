@@ -5,11 +5,10 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Nationalized;
 
 import java.math.BigDecimal;
-import java.time.Instant;
+import java.time.OffsetDateTime;
 
 @Getter
 @Setter
@@ -41,8 +40,7 @@ public class Payment {
     @Column(name = "PaymentStatus", nullable = false, length = 20)
     private String paymentStatus;
 
-    @ColumnDefault("getdate()")
     @Column(name = "TransactionDate")
-    private Instant transactionDate;
+    private OffsetDateTime transactionDate;
 
 }

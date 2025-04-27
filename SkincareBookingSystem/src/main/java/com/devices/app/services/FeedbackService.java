@@ -73,4 +73,24 @@ public class FeedbackService {
             return Page.empty(pageable);
         }
     }
+
+    public ApiResponse<Feedback> createFeedback(Feedback feedback) {
+        Feedback feedbackSet = new Feedback();
+        feedbackSet.setRating(feedback.getRating());
+        feedbackSet.setComment(feedback.getComment());
+        feedbackSet.setCreateDate(OffsetDateTime.now(ZoneOffset.UTC));
+        feedbackSet.setUserID(feedback.getUserID());
+        feedbackSet.setBookingDetailID(feedback.getBookingDetailID());
+        feedbackRepository.save(feedbackSet);
+        return new ApiResponse<>(200, "Thành công", feedbackSet);
+    }
+
+    public ApiResponse<Feedback> getFeedbackByBookingDetailID(Integer bookingDetailID) {
+        Optional<Feedback> feedback = feedbackRepository.findByBookingDetailID(bookingDetailID);
+        if (feedback.isEmpty()) {
+            return new ApiResponse<>(100, "Không tìm thấy thông tin feedback", null);
+        }
+        Feedback feedbackSet = feedback.get();
+        return new ApiResponse<>(200, "Thành công", feedbackSet);
+    }
 }

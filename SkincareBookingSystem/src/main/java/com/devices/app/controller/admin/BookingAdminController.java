@@ -2,12 +2,10 @@ package com.devices.app.controller.admin;
 
 import com.devices.app.dtos.dto.*;
 import com.devices.app.dtos.response.ApiResponse;
-import com.devices.app.models.BookingDetail;
 import com.devices.app.models.SkinTherapist;
 import com.devices.app.services.BookingService;
 import com.devices.app.services.ServicesService;
 import com.devices.app.services.SkinTherapistService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +14,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/admin")

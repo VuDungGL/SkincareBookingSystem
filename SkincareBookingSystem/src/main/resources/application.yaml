@@ -41,3 +41,9 @@ app:
 openai:
   api-url: https://gpt-proxy-api.fly.dev/v1/chat/completions
   api-key: dummy-key
+
+vnpay:
+  secret-key: X9NSDBVD97UY9ZXV61K1I7B03W6AIWMC
+  tmn-code: CUXZY874
+  url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+  url-result: http://localhost:9090/paymentTransaction

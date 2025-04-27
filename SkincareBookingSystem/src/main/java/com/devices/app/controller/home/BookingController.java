@@ -1,6 +1,5 @@
 package com.devices.app.controller.home;
 
-import com.devices.app.dtos.dto.BookingDetailDto;
 import com.devices.app.dtos.dto.HistoriesDto;
 import com.devices.app.dtos.requests.CreateBookingRequest;
 import com.devices.app.dtos.response.ApiResponse;
@@ -45,5 +44,13 @@ public class BookingController {
         String searchText = (String) request.getOrDefault("searchText", "");
         int userID = Integer.parseInt((String) request.getOrDefault("userID", "0"));
         return bookingService.getListHistoryBooking(searchText,pageIndex, pageSize, userID);
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @PostMapping("/booking/onCancelBooking")
+    public ResponseEntity<?> onCancelBooking(@RequestBody Map<String, Integer> request) {
+        Integer bookingDetailID = request.get("bookingDetailID");
+        ApiResponse<String> response = bookingService.onCancelBooking(bookingDetailID);
+        return ResponseEntity.ok(response);
     }
 }

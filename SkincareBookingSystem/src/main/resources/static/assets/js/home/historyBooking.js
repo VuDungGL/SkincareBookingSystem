@@ -59,7 +59,7 @@ const onRenderDataHistories = {
                                 <td><span class="status ${statusClass}">${statusText}</span></td>
                                 <td><span class="status ${isPaidClass}">${isPaidText}</span></td>
                                 <td>
-                                    <a href="/DetailBooking?status=${booking.status}" class="detail-booking-link">Xem chi tiết</a>
+                                    <a href="/DetailBooking?bookingDetailID=${booking.bookingDetailID}" class="detail-booking-link">Xem chi tiết</a>
                                 </td>
                             </tr>
                         `;

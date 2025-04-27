@@ -1,6 +1,5 @@
 package com.devices.app.dtos.dto;
 
-import com.devices.app.models.BookingDetail;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, String> {
@@ -34,7 +35,7 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
             FORMAT(B.BookingDate, 'MMMM', 'en-US') AS MonthName,
             SUM(BD.Price) AS TotalRevenue
         FROM S_BookingDetail BD
-        INNER JOIN S_Booking B ON BD.BookingID = B.ID
+        INNER JOIN S_Booking B ON BD.ID = B.BookingDetailID
         WHERE B.BookingDate >= :startDate AND B.BookingDate < :endDate AND BD.Status <> 2
         GROUP BY YEAR(B.BookingDate), FORMAT(B.BookingDate, 'MMMM', 'en-US')
     """, nativeQuery = true)
@@ -51,7 +52,7 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
                 COALESCE(SUM(BD.Price), 0) AS Total
          FROM Months AS M
          LEFT JOIN S_Booking AS B ON M.Month = MONTH(B.BookingDate) AND YEAR(B.BookingDate) = :yearSearch
-         LEFT JOIN S_BookingDetail AS BD ON B.ID = BD.BookingID AND BD.IsPaid = 1
+         LEFT JOIN S_BookingDetail AS BD ON B.BookingDetailID = BD.ID AND BD.IsPaid = 1
          GROUP BY M.Month
          ORDER BY M.Month
         """, nativeQuery = true)
@@ -69,7 +70,7 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
             LEFT JOIN S_Booking AS B WITH (NOLOCK)
                 ON CAST(B.BookingDate AS DATE) = L.[Date]
             LEFT JOIN S_BookingDetail AS BD WITH (NOLOCK)
-                ON BD.BookingID = B.ID AND BD.IsPaid = :isPaid AND YEAR(B.BookingDate) = :yearSearch AND BD.Status <> 2
+                ON BD.ID = B.BookingDetailID AND BD.IsPaid = :isPaid AND YEAR(B.BookingDate) = :yearSearch AND BD.Status <> 2
             GROUP BY L.[Date]
             ORDER BY L.[Date]
     """,nativeQuery = true)
@@ -89,7 +90,7 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
                        COALESCE(COUNT(B.ID) * 100.0 / NULLIF(SUM(COUNT(B.ID)) OVER (), 1), 0) AS PercentTask
                    FROM S_SkinTherapist AS S WITH (NOLOCK)
                    LEFT JOIN S_BookingDetail AS BD WITH (NOLOCK) ON BD.SkinTherapistID = S.ID
-                   LEFT JOIN S_Booking AS B WITH (NOLOCK) ON B.ID = BD.BookingID AND MONTH(B.BookingDate) = MONTH(GETDATE())
+                   LEFT JOIN S_Booking AS B WITH (NOLOCK) ON B.BookingDetailID = BD.ID AND MONTH(B.BookingDate) = MONTH(GETDATE())
                    GROUP BY S.ID, S.Email, S.FirstName, S.LastName, S.Phone, S.Avt
                )
                SELECT *
@@ -99,4 +100,5 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
         """, nativeQuery = true)
     List<SkinTherapistDto> GetListUserWorkMonth(@Param("offSet") int offSet, @Param("pageSize") int pageSize);
 
+    Optional<Booking> findByBookingDetailID(Integer bookingDetailID);
 }

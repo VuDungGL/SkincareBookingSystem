@@ -189,6 +189,12 @@
             display: block;
             font-weight: 600;
         }
+        .star-active{
+            color: #cc3f7e !important;
+        }
+        .has-feedback{
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -199,34 +205,77 @@
     <div class="detail-left">
         <h1>Chi Tiết Đơn Đặt Lịch</h1>
         <div class="detail-info">
-            <p><strong>Người Đặt:</strong> <span id="appointment-customer"></span></p>
-            <p><strong>Số Điện Thoại:</strong> <span id="appointment-phone"></span></p>
-            <p><strong>Email:</strong> <span id="appointment-email"></span></p>
-            <p><strong>Ngày Đặt:</strong> <span id="appointment-date"></span></p>
-            <p><strong>Dịch Vụ:</strong> <span id="appointment-service"></span></p>
-            <p><strong>Chuyên Gia:</strong> <span id="appointment-specialist"></span></p>
-            <p><strong>Trạng Thái:</strong> <span id="appointment-status" class="status"></span></p>
-            <p><strong>Thời Gian:</strong> <span id="appointment-time"></span></p>
-            <p><strong>Giá:</strong> <span id="appointment-price"></span></p>
-            <p><strong>Thanh Toán:</strong> <span id="appointment-payment-status" class="payment-status"></span></p>
+            <p><strong>Người Đặt:</strong> <span id="appointment-customer" th:text="${bookingDetail.getFullName()}"></span></p>
+            <p><strong>Số Điện Thoại:</strong> <span id="appointment-phone" th:text="${bookingDetail.getPhone()}"></span></p>
+            <p><strong>Email:</strong> <span id="appointment-email" th:text="${bookingDetail.getEmail()}"></span></p>
+            <p><strong>Ngày Đặt:</strong> <span id="appointment-date" th:value="${booking.getBookingDate()}"></span></p>
+            <p><strong>Dịch Vụ:</strong> <span id="appointment-service" th:text="${serviceInfo.getServiceName()}"></span></p>
+            <p><strong>Chuyên Gia:</strong>
+                <span id="appointment-specialist"
+                      th:text="${therapist != null ? (therapist.getFirstName() ?: '') + ' ' + (therapist.getLastName() ?: '') : 'Chưa chỉ định'}">
+                </span>
+            </p>
+
+            <p>
+                <strong>Trạng Thái:</strong>
+                <span id="appointment-status"
+                      th:class="'status ' + (${bookingDetail.getStatus()} == 0 ? 'pending' : (${bookingDetail.getStatus()} == 1 ? 'completed' : (${bookingDetail.getStatus()} == 2 ? 'cancel' : '')))"
+                      th:text="${bookingDetail.getStatus()} == 0 ? 'Mới' : (${bookingDetail.getStatus()} == 1 ? 'Đã Hoàn Thành' : (${bookingDetail.getStatus()} == 2 ? 'Đã Hủy' : 'Không xác định'))"
+                      th:attr="data-status=${bookingDetail.getStatus()}">
+                </span>
+
+            </p>
+            <p><strong>Thời Gian:</strong> <span id="appointment-time" th:text="${serviceInfo.getDuration()}"></span></p>
+            <p><strong>Giá:</strong> <span id="appointment-price" th:text="${serviceInfo.getPrice()}" th:value="${serviceInfo.getPrice()}"></span></p>
+            <p>
+                <strong>Thanh Toán:</strong>
+                <span id="appointment-payment-status"
+                      th:class="'payment-status ' + (${bookingDetail.getIsPaid()} ? 'paid' : 'unpaid')"
+                      th:text="${bookingDetail.getIsPaid()} ? 'Đã Thanh Toán' : 'Chưa Thanh Toán'"
+                      th:attr="data-paid=${bookingDetail.getIsPaid()}">
+                </span>
+
+            </p>
+
         </div>
     </div>
     <div class="detail-right">
-        <a href="#" class="action-btn pay-btn hidden">Thanh Toán</a>
-        <a href="#" class="action-btn edit-btn hidden">Chỉnh Sửa Đơn Hàng</a>
-        <a href="#" class="action-btn cancel-btn hidden">Hủy Đơn Hàng</a>
-        <div class="feedback-section hidden">
-            <h2>Feedback của bạn</h2>
-            <div class="star-rating">
-                <i class="fas fa-star" data-value="1"></i>
-                <i class="fas fa-star" data-value="2"></i>
-                <i class="fas fa-star" data-value="3"></i>
-                <i class="fas fa-star" data-value="4"></i>
-                <i class="fas fa-star" data-value="5"></i>
+        <a href="#" class="action-btn pay-btn hidden" id="button-payment"
+           th:onclick="'onRenderData.onCreatePayment(' + ${booking.getId()} + ',' + ${serviceInfo.getPrice()} + ',' + ${bookingDetail.getId()} + ')'">
+            Thanh Toán
+        </a>
+
+        <a href="#" class="action-btn edit-btn hidden" id="edit-button">Chỉnh Sửa Đơn Hàng</a>
+        <a href="#" class="action-btn cancel-btn hidden" id="cancel-button" th:onclick="'onRenderData.onCancelBooking('+ ${bookingDetail.getId()} +')'">Hủy Đơn Hàng</a>
+        <div id="feedback-box">
+            <div th:if="${hasFeedback}" class="has-feedback">
+                <h2>Feedback của bạn</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star" data-value="1" th:classappend="${feedback.rating >= 1 ? ' star-active' : ''}"></i>
+                    <i class="fas fa-star" data-value="2" th:classappend="${feedback.rating >= 2 ? ' star-active' : ''}"></i>
+                    <i class="fas fa-star" data-value="3" th:classappend="${feedback.rating >= 3 ? ' star-active' : ''}"></i>
+                    <i class="fas fa-star" data-value="4" th:classappend="${feedback.rating >= 4 ? ' star-active' : ''}"></i>
+                    <i class="fas fa-star" data-value="5" th:classappend="${feedback.rating >= 5 ? ' star-active' : ''}"></i>
+                </div>
+                <textarea class="feedback-textarea" rows="4"  th:text="${feedback.getComment()}" disabled></textarea>
+                <a href="#" class="action-btn submit-feedback" th:style="${feedback != null ? 'pointer-events: none; opacity: 0.5;' : ''}">Gửi Feedback</a>
             </div>
-            <textarea class="feedback-textarea" rows="4" placeholder="Nhập feedback của bạn..."></textarea>
-            <a href="#" class="action-btn submit-feedback">Gửi Feedback</a>
+
+            <div th:if="${!hasFeedback}">
+                <h2>Feedback của bạn</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star" data-value="1"></i>
+                    <i class="fas fa-star" data-value="2"></i>
+                    <i class="fas fa-star" data-value="3"></i>
+                    <i class="fas fa-star" data-value="4"></i>
+                    <i class="fas fa-star" data-value="5"></i>
+                </div>
+                <textarea class="feedback-textarea" rows="4" placeholder="Nhập feedback của bạn..."></textarea>
+                <a href="#" class="action-btn submit-feedback" th:onclick="'onRenderData.onCreateFeedback(' + ${bookingDetail.id} +')'">Gửi Feedback</a>
+            </div>
+
         </div>
+
     </div>
 </div>
 

@@ -1,5 +1,6 @@
 package com.devices.app.repository;
 
+import com.devices.app.models.Booking;
 import com.devices.app.models.BookingDetail;
 import jakarta.persistence.Tuple;
 import org.springframework.data.domain.Page;
@@ -9,7 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BookingDetailRepository extends JpaRepository<BookingDetail, Integer> {
@@ -32,7 +33,7 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail, In
                         ST.LastName AS TherapistLastName,
                         S.ServiceName
                         FROM S_BookingDetail AS BD WITH (NOLOCK)
-                        INNER JOIN S_Booking AS B ON BD.BookingID = B.ID
+                        INNER JOIN S_Booking AS B ON BD.ID = B.BookingDetailID
                         INNER JOIN S_WorkSchedule AS W ON BD.ID = W.BookingDetailID
                         LEFT JOIN S_SkinTherapist AS ST ON BD.SkinTherapistID = ST.ID
                         INNER JOIN S_Services AS S ON BD.ServiceID = S.ID
@@ -55,7 +56,7 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail, In
     @Query(value = """
         SELECT B.UserID
         FROM S_Booking AS B WITH (NOLOCK)
-        INNER JOIN S_BookingDetail AS BD WITH (NOLOCK) ON BD.BookingID = B.ID
+        INNER JOIN S_BookingDetail AS BD WITH (NOLOCK) ON BD.ID = B.BookingDetailID
         WHERE BD.ID = :bookingDetailID
     """,nativeQuery = true)
     Integer getUserIDFromBooking(@Param("bookingDetailID") Integer bookingDetailID);
@@ -63,7 +64,7 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail, In
     @Query(value = """
         SELECT SUM(BD.ID)
         FROM S_Booking AS B WITH (NOLOCK)
-        INNER JOIN S_BookingDetail AS BD WITH (NOLOCK) ON BD.BookingID = B.ID
+        INNER JOIN S_BookingDetail AS BD WITH (NOLOCK) ON BD.ID = B.BookingDetailID
         WHERE B.UserID = :userID AND BD.IsPaid = 1
     """,nativeQuery = true)
     Integer getTotalBookingSuccessful(@Param("userID") Integer userID);
@@ -87,7 +88,7 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail, In
                     ST.LastName AS TherapistLastName,
                     S.ServiceName
                 FROM S_BookingDetail AS BD WITH (NOLOCK)
-                INNER JOIN S_Booking AS B ON BD.BookingID = B.ID
+                INNER JOIN S_Booking AS B ON BD.ID = B.BookingDetailID
                 INNER JOIN S_WorkSchedule AS W ON BD.ID = W.BookingDetailID
                 LEFT JOIN S_SkinTherapist AS ST ON BD.SkinTherapistID = ST.ID
                 INNER JOIN S_Services AS S ON BD.ServiceID = S.ID
@@ -97,14 +98,13 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail, In
                     OR S.ServiceName LIKE %:searchText%
                     OR ST.FirstName LIKE %:searchText%
                     OR ST.LastName LIKE %:searchText%
-                    OR BD.Status LIKE %:searchText%
                 )
                 ORDER BY BD.Status ASC
                 """,
                         countQuery = """
                 SELECT COUNT(*)
                 FROM S_BookingDetail AS BD
-                INNER JOIN S_Booking AS B ON BD.BookingID = B.ID
+                INNER JOIN S_Booking AS B ON BD.ID = B.BookingDetailID
                 INNER JOIN S_WorkSchedule AS W ON BD.ID = W.BookingDetailID
                 LEFT JOIN S_SkinTherapist AS ST ON BD.SkinTherapistID = ST.ID
                 INNER JOIN S_Services AS S ON BD.ServiceID = S.ID
@@ -114,7 +114,6 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail, In
                     OR S.ServiceName LIKE %:searchText%
                     OR ST.FirstName LIKE %:searchText%
                     OR ST.LastName LIKE %:searchText%
-                    OR BD.Status LIKE %:searchText%
                 )
                 """,
             nativeQuery = true)
